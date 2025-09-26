@@ -1,0 +1,1096 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colossians: Christ Supreme & Sufficient - Interactive Bible Study</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --deep-blue: #1e3a8a;
+            --royal-purple: #6b46c1;
+            --warm-white: #fefefe;
+            --soft-gray: #f8fafc;
+            --text-dark: #1e293b;
+            --accent-red: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--warm-white) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .progress-tracker {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--royal-purple));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .chapter-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+            color: var(--text-dark);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+        }
+
+        .content-section {
+            display: none;
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--primary-gold);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--deep-blue);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .theme-box {
+            background: linear-gradient(135deg, var(--soft-gray), var(--warm-white));
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid var(--royal-purple);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .theme-box h3 {
+            color: var(--royal-purple);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .verse-highlight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-gold);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .interactive-element {
+            background: var(--soft-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed var(--primary-gold);
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--royal-purple);
+        }
+
+        .discussion-question {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .cross-reference {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--warm-white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cross-reference:hover {
+            background: var(--royal-purple);
+            transform: scale(1.05);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.3);
+            accent-color: var(--primary-gold);
+        }
+
+        .historical-context {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid var(--deep-blue);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-red);
+        }
+
+        .application-modern {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #16a34a;
+        }
+
+        .notes-section {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .study-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tool-card {
+            background: var(--warm-white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: var(--warm-white);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .completion-badge.show {
+            opacity: 1;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: var(--warm-white);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-left: 6px solid var(--primary-gold);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal h3 {
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-red);
+            color: var(--warm-white);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--royal-purple);
+            transform: scale(1.1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .chapter-nav {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 Colossians Study Guide</h1>
+            <p class="subtitle">"Christ Supreme & Sufficient"</p>
+        </div>
+
+        <div class="progress-tracker">
+            <h3>Study Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0% Complete - Ready to begin your journey!</p>
+        </div>
+
+        <div class="chapter-nav">
+            <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
+            <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
+            <button class="nav-button" onclick="showSection('chapter1')">📖 Chapter 1</button>
+            <button class="nav-button" onclick="showSection('chapter2')">📖 Chapter 2</button>
+            <button class="nav-button" onclick="showSection('chapter3')">📖 Chapter 3</button>
+            <button class="nav-button" onclick="showSection('chapter4')">📖 Chapter 4</button>
+            <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="content-section active">
+            <h2 class="section-title">📋 Study Overview</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Purpose of This Study</h3>
+                <p>Welcome to an in-depth exploration of Paul's letter to the Colossians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for modern believers.</p>
+            </div>
+
+            <div class="interactive-element">
+                <h3>🎯 Your Study Goals</h3>
+                <p>Check off each goal as you complete it:</p>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal1" onchange="updateProgress()">
+                    <label for="goal1">Understand the historical context of Colossae and the false teachings Paul addressed</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal2" onchange="updateProgress()">
+                    <label for="goal2">Grasp the supremacy and sufficiency of Christ as presented in this letter</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal3" onchange="updateProgress()">
+                    <label for="goal3">Identify modern parallels to the Colossian heresy</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal4" onchange="updateProgress()">
+                    <label for="goal4">Apply Paul's teachings to contemporary Christian living</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal5" onchange="updateProgress()">
+                    <label for="goal5">Complete personal reflection exercises for each chapter</label>
+                </div>
+            </div>
+
+            <div class="study-tools">
+                <div class="tool-card">
+                    <h3>📝 Study Method</h3>
+                    <p>We'll use the <strong>SOAP</strong> method:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li><strong>S</strong>cripture - Read the text</li>
+                        <li><strong>O</strong>bservation - What does it say?</li>
+                        <li><strong>A</strong>pplication - How does it apply?</li>
+                        <li><strong>P</strong>rayer - Talk to God about it</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>⏰ Time Commitment</h3>
+                    <p>Each chapter study is designed for:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>30-45 minutes individual study</li>
+                        <li>60-90 minutes group discussion</li>
+                        <li>Weekly personal reflection</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>📚 Resources Needed</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Bible (multiple translations helpful)</li>
+                        <li>Notebook for personal notes</li>
+                        <li>This interactive guide</li>
+                        <li>Open heart for God's Word!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Section -->
+        <div id="background" class="content-section">
+            <h2 class="section-title">🏛️ Historical Background</h2>
+            
+            <div class="historical-context">
+                <h3>🌍 The City of Colossae</h3>
+                <p><strong>Location:</strong> Colossae was located in the Lycus River valley in ancient Phrygia (modern-day Turkey), about 100 miles east of Ephesus. It sat alongside two other cities: Laodicea and Hierapolis.</p>
+                
+                <p><strong>Economic Status:</strong> Once a prosperous city on major trade routes, by Paul's time Colossae had declined in importance, overshadowed by nearby Laodicea. The city was known for its wool industry and distinctive dark red/purple dye called "colossinus."</p>
+                
+                <p><strong>Religious Climate:</strong> The city was a melting pot of religions - Greek polytheism, Roman imperial cult, Jewish communities, and various mystery religions and philosophical schools converged here.</p>
+            </div>
+
+            <div class="theme-box">
+                <h3>👤 Paul's Connection to Colossae</h3>
+                <p><strong>Likely never visited personally</strong> (Col. 2:1 suggests this), but had strong connections through:</p>
+                <ul>
+                    <li><strong>Epaphras</strong> - Probably founded the church there (Col. 1:7, 4:12)</li>
+                    <li><strong>Philemon</strong> - Church likely met in his house</li>
+                    <li><strong>Onesimus</strong> - The runaway slave was from Colossae (Col. 4:9)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ The Colossian Heresy</h3>
+                <p>Paul wrote to combat a dangerous syncretistic teaching that combined several elements:</p>
+                
+                <div style="margin: 20px 0;">
+                    <h4>🔮 Mystical Elements:</h4>
+                    <ul>
+                        <li>Worship of angels as intermediaries (Col. 2:18)</li>
+                        <li>Claims of special visions and revelations</li>
+                        <li>Secret knowledge (gnosis) required for spiritual maturity</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>📜 Jewish Legalistic Elements:</h4>
+                    <ul>
+                        <li>Observance of festivals, new moons, Sabbaths (Col. 2:16)</li>
+                        <li>Dietary restrictions and food laws</li>
+                        <li>Circumcision requirements</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>🧘 Ascetic Practices:</h4>
+                    <ul>
+                        <li>"Do not handle, taste, or touch" (Col. 2:21)</li>
+                        <li>Harsh treatment of the body (Col. 2:23)</li>
+                        <li>Self-imposed worship and humility</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>📚 Philosophical Components:</h4>
+                    <ul>
+                        <li>Greek philosophical traditions</li>
+                        <li>Human wisdom and traditions (Col. 2:8)</li>
+                        <li>Elementary principles of the world</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Modern Parallels</h3>
+                <p>Today's believers face similar challenges:</p>
+                <ul>
+                    <li><strong>New Age Spirituality:</strong> Angels, crystals, channeling</li>
+                    <li><strong>Prosperity Gospel:</strong> Adding works to faith for blessing</li>
+                    <li><strong>Legalism:</strong> Rules-based Christianity</li>
+                    <li><strong>Secular Philosophy:</strong> Humanism, relativism, scientism</li>
+                    <li><strong>Religious Syncretism:</strong> Mixing Christianity with other beliefs</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What modern teachings or philosophies do you find most appealing or challenging to your faith?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we identify and guard against teachings that add to or subtract from the gospel?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Background</h3>
+                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Background Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal1" onchange="updateProgress()">
+                    <label for="bgGoal1">Understand the cultural and religious context of Colossae</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal2" onchange="updateProgress()">
+                    <label for="bgGoal2">Identify key figures in the Colossian church</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal3" onchange="updateProgress()">
+                    <label for="bgGoal3">Recognize elements of the Colossian heresy</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal4" onchange="updateProgress()">
+                    <label for="bgGoal4">Reflect on modern parallels to these false teachings</label>
+                </div>
+                <span class="completion-badge" id="bgBadge">Section Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 1 Section -->
+        <div id="chapter1" class="content-section">
+            <h2 class="section-title">📖 Chapter 1: Christ’s Supremacy</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Christ’s preeminence over creation (Col. 1:15-17)</li>
+                    <li>Christ’s headship over the church (Col. 1:18)</li>
+                    <li>Reconciliation through Christ’s sacrifice (Col. 1:19-22)</li>
+                    <li>Paul’s ministry and suffering for the gospel (Col. 1:24-29)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Colossians 1:15-17:</strong> "The Son is the image of the invisible God, the firstborn over all creation. For in him all things were created: things in heaven and on earth, visible and invisible... all things have been created through him and for him."</p>
+                <span class="cross-reference" data-scripture="John 1:1-3" onclick="showScriptureModal('John 1:1-3')">John 1:1-3</span>
+                <span class="cross-reference" data-scripture="Hebrews 1:2-3" onclick="showScriptureModal('Hebrews 1:2-3')">Hebrews 1:2-3</span>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How does recognizing Christ as supreme over all creation affect your view of daily challenges?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we live out the reality of Christ’s headship in our church communities?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 1 Today</h3>
+                <p>Consider how Christ’s supremacy challenges:</p>
+                <ul>
+                    <li><strong>Materialism:</strong> Prioritizing possessions over Christ</li>
+                    <li><strong>Self-Reliance:</strong> Trusting in human effort instead of Christ’s sufficiency</li>
+                    <li><strong>Cultural Idols:</strong> Elevating trends or ideologies above Christ</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 1</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 1 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal1" onchange="updateProgress()">
+                    <label for="ch1Goal1">Read Colossians 1 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal2" onchange="updateProgress()">
+                    <label for="ch1Goal2">Identify key themes of Christ’s supremacy</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal3" onchange="updateProgress()">
+                    <label for="ch1Goal3">Reflect on personal applications</label>
+                </div>
+                <span class="completion-badge" id="ch1Badge">Chapter 1 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 2 Section -->
+        <div id="chapter2" class="content-section">
+            <h2 class="section-title">📖 Chapter 2: Freedom in Christ</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Fullness in Christ (Col. 2:9-10)</li>
+                    <li>Freedom from human traditions and legalism (Col. 2:8, 16-23)</li>
+                    <li>Spiritual circumcision through Christ (Col. 2:11-12)</li>
+                    <li>Victory over spiritual powers (Col. 2:15)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Colossians 2:9-10:</strong> "For in Christ all the fullness of the Deity lives in bodily form, and in Christ you have been brought to fullness. He is the head over every power and authority."</p>
+                <span class="cross-reference" data-scripture="Ephesians 1:22-23" onclick="showScriptureModal('Ephesians 1:22-23')">Ephesians 1:22-23</span>
+                <span class="cross-reference" data-scripture="Philippians 2:9-11" onclick="showScriptureModal('Philippians 2:9-11')">Philippians 2:9-11</span>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Dangers of False Teaching</h3>
+                <p>Paul warns against being taken captive by:</p>
+                <ul>
+                    <li>Hollow and deceptive philosophy (Col. 2:8)</li>
+                    <li>Judgment over religious practices (Col. 2:16)</li>
+                    <li>Self-imposed rules that lack value (Col. 2:20-23)</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What human traditions or philosophies have you encountered that compete with Christ’s sufficiency?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we discern between helpful traditions and those that distract from Christ?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 2 Today</h3>
+                <p>Embrace freedom in Christ by:</p>
+                <ul>
+                    <li>Rejecting legalistic pressures in your faith community</li>
+                    <li>Focusing on Christ as the source of spiritual fullness</li>
+                    <li>Guarding against worldly philosophies that undermine the gospel</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 2</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 2 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal1" onchange="updateProgress()">
+                    <label for="ch2Goal1">Read Colossians 2 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal2" onchange="updateProgress()">
+                    <label for="ch2Goal2">Understand warnings against false teaching</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal3" onchange="updateProgress()">
+                    <label for="ch2Goal3">Reflect on personal freedom in Christ</label>
+                </div>
+                <span class="completion-badge" id="ch2Badge">Chapter 2 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 3 Section -->
+        <div id="chapter3" class="content-section">
+            <h2 class="section-title">📖 Chapter 3: New Life in Christ</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Living as those raised with Christ (Col. 3:1-4)</li>
+                    <li>Putting off the old self (Col. 3:5-11)</li>
+                    <li>Putting on the new self (Col. 3:12-17)</li>
+                    <li>Christian household relationships (Col. 3:18-21)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Colossians 3:12-14:</strong> "Therefore, as God’s chosen people, holy and dearly loved, clothe yourselves with compassion, kindness, humility, gentleness and patience... And over all these virtues put on love, which binds them all together in perfect unity."</p>
+                <span class="cross-reference" data-scripture="Galatians 5:22-23" onclick="showScriptureModal('Galatians 5:22-23')">Galatians 5:22-23</span>
+                <span class="cross-reference" data-scripture="1 Corinthians 13:4-7" onclick="showScriptureModal('1 Corinthians 13:4-7')">1 Corinthians 13:4-7</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 3 Today</h3>
+                <p>Live out your new identity by:</p>
+                <ul>
+                    <li>Practicing forgiveness in relationships</li>
+                    <li>Letting Christ’s peace rule in decision-making</li>
+                    <li>Building up your household through love and respect</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What aspects of your “old self” do you need to put off, and what virtues do you want to cultivate?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we encourage one another to live out the virtues listed in Colossians 3:12-14?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 3</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 3 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal1" onchange="updateProgress()">
+                    <label for="ch3Goal1">Read Colossians 3 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal2" onchange="updateProgress()">
+                    <label for="ch3Goal2">Reflect on the old vs. new self</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal3" onchange="updateProgress()">
+                    <label for="ch3Goal3">Apply virtues to daily life</label>
+                </div>
+                <span class="completion-badge" id="ch3Badge">Chapter 3 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 4 Section -->
+        <div id="chapter4" class="content-section">
+            <h2 class="section-title">📖 Chapter 4: Practical Christian Living</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Prayer and watchfulness (Col. 4:2-4)</li>
+                    <li>Wise conduct toward outsiders (Col. 4:5-6)</li>
+                    <li>Christian community and partnerships (Col. 4:7-17)</li>
+                    <li>Final greetings and instructions (Col. 4:18)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Colossians 4:5-6:</strong> "Be wise in the way you act toward outsiders; make the most of every opportunity. Let your conversation be always full of grace, seasoned with salt, so that you may know how to answer everyone."</p>
+                <span class="cross-reference" data-scripture="1 Peter 3:15" onclick="showScriptureModal('1 Peter 3:15')">1 Peter 3:15</span>
+                <span class="cross-reference" data-scripture="Ephesians 5:15-16" onclick="showScriptureModal('Ephesians 5:15-16')">Ephesians 5:15-16</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 4 Today</h3>
+                <p>Live wisely by:</p>
+                <ul>
+                    <li>Praying consistently for opportunities to share your faith</li>
+                    <li>Engaging non-believers with grace and wisdom</li>
+                    <li>Building strong Christian community relationships</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How can you season your conversations with grace when interacting with non-believers?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can our church community better support one another, as seen in Paul’s greetings?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 4</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 4 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal1" onchange="updateProgress()">
+                    <label for="ch4Goal1">Read Colossians 4 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal2" onchange="updateProgress()">
+                    <label for="ch4Goal2">Reflect on wise conduct and prayer</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal3" onchange="updateProgress()">
+                    <label for="ch4Goal3">Apply practical living principles</label>
+                </div>
+                <span class="completion-badge" id="ch4Badge">Chapter 4 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div id="summary" class="content-section">
+            <h2 class="section-title">✅ Study Summary</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Key Takeaways from Colossians</h3>
+                <ul>
+                    <li>Christ is supreme over all creation and sufficient for salvation</li>
+                    <li>Believers are free from human traditions and legalism</li>
+                    <li>Live out the new self through virtues and wise conduct</li>
+                    <li>Build strong Christian communities rooted in love</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Final Reflection</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How has studying Colossians deepened your understanding of Christ’s role in your life?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What is one practical step your group can take to live out Colossians’ teachings?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Final Notes</h3>
+                <textarea placeholder="Summarize your key insights from this study of Colossians..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Study Completion Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal1" onchange="updateProgress()">
+                    <label for="sumGoal1">Complete all chapter studies</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal2" onchange="updateProgress()">
+                    <label for="sumGoal2">Reflect on the overall message of Colossians</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal3" onchange="updateProgress()">
+                    <label for="sumGoal3">Apply one key lesson to your life</label>
+                </div>
+                <span class="completion-badge" id="sumBadge">Study Completed!</span>
+            </div>
+        </div>
+
+        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+        <!-- Modal for Scripture References -->
+        <div class="modal-overlay" id="scriptureModal">
+            <div class="modal">
+                <h3 id="modalTitle"></h3>
+                <p id="modalText"></p>
+                <button class="modal-close" onclick="closeScriptureModal()">×</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scripture data for cross-references
+        const scriptureData = {
+            "John 1:1-3": "In the beginning was the Word, and the Word was with God, and the Word was God. He was with God in the beginning. Through him all things were made; without him nothing was made that has been made.",
+            "Hebrews 1:2-3": "But in these last days he has spoken to us by his Son, whom he appointed heir of all things, and through whom also he made the universe. The Son is the radiance of God’s glory and the exact representation of his being, sustaining all things by his powerful word.",
+            "Ephesians 1:22-23": "And God placed all things under his feet and appointed him to be head over everything for the church, which is his body, the fullness of him who fills everything in every way.",
+            "Philippians 2:9-11": "Therefore God exalted him to the highest place and gave him the name that is above every name, that at the name of Jesus every knee should bow, in heaven and on earth and under the earth, and every tongue acknowledge that Jesus Christ is Lord, to the glory of God the Father.",
+            "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law.",
+            "1 Corinthians 13:4-7": "Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres.",
+            "1 Peter 3:15": "But in your hearts revere Christ as Lord. Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect.",
+            "Ephesians 5:15-16": "Be very careful, then, how you live—not as unwise but as wise, making the most of every opportunity, because the days are evil."
+        };
+
+        // Show scripture modal
+        function showScriptureModal(reference) {
+            const modal = document.getElementById('scriptureModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalText = document.getElementById('modalText');
+
+            modalTitle.textContent = reference;
+            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
+            modal.style.display = 'flex';
+        }
+
+        // Close scripture modal
+        function closeScriptureModal() {
+            document.getElementById('scriptureModal').style.display = 'none';
+        }
+
+        // Initialize progress tracking
+        let totalCheckboxes = 0;
+        let checkedCount = 0;
+
+        // Count total checkboxes on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
+            updateProgress();
+            window.addEventListener('scroll', toggleBackToTop);
+        });
+
+        // Show/hide sections
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            
+            // Show completion badge if all checkboxes in section are checked
+            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                sectionBadge.classList.add('show');
+            } else {
+                sectionBadge.classList.remove('show');
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
+            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
+            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - Keep going!`;
+
+            // Update section badges
+            ['overview', 'background', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'summary'].forEach(sectionId => {
+                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+                if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                    sectionBadge.classList.add('show');
+                } else {
+                    sectionBadge.classList.remove('show');
+                }
+            });
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle back-to-top button visibility
+        function toggleBackToTop() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

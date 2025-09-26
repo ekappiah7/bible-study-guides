@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ephesians: God's Eternal Plan - Interactive Bible Study</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --deep-blue: #1e3a8a;
+            --royal-purple: #6b46c1;
+            --warm-white: #fefefe;
+            --soft-gray: #f8fafc;
+            --text-dark: #1e293b;
+            --accent-red: #dc2626;
+            --emerald-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--warm-white) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .progress-tracker {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--royal-purple));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .chapter-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+            color: var(--text-dark);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+        }
+
+        .content-section {
+            display: none;
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--primary-gold);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--deep-blue);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .theme-box {
+            background: linear-gradient(135deg, var(--soft-gray), var(--warm-white));
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid var(--royal-purple);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .theme-box h3 {
+            color: var(--royal-purple);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .verse-highlight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-gold);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .interactive-element {
+            background: var(--soft-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed var(--primary-gold);
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--royal-purple);
+        }
+
+        .discussion-question {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .cross-reference {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--warm-white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cross-reference:hover {
+            background: var(--royal-purple);
+            transform: scale(1.05);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.3);
+            accent-color: var(--primary-gold);
+        }
+
+        .historical-context {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid var(--deep-blue);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-red);
+        }
+
+        .application-modern {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--emerald-green);
+        }
+
+        .notes-section {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .study-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tool-card {
+            background: var(--warm-white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--emerald-green), #22c55e);
+            color: var(--warm-white);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .completion-badge.show {
+            opacity: 1;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: var(--warm-white);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-left: 6px solid var(--primary-gold);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal h3 {
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-red);
+            color: var(--warm-white);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--royal-purple);
+            transform: scale(1.1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .chapter-nav {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 Ephesians Study Guide</h1>
+            <p class="subtitle">"God's Eternal Plan of Unity"</p>
+        </div>
+
+        <div class="progress-tracker">
+            <h3>Study Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0% Complete - Ready to discover God's eternal plan!</p>
+        </div>
+
+        <div class="chapter-nav">
+            <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
+            <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
+            <button class="nav-button" onclick="showSection('chapter1')">📖 Chapter 1</button>
+            <button class="nav-button" onclick="showSection('chapter2')">📖 Chapter 2</button>
+            <button class="nav-button" onclick="showSection('chapter3')">📖 Chapter 3</button>
+            <button class="nav-button" onclick="showSection('chapter4')">📖 Chapter 4</button>
+            <button class="nav-button" onclick="showSection('chapter5')">📖 Chapter 5</button>
+            <button class="nav-button" onclick="showSection('chapter6')">📖 Chapter 6</button>
+            <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="content-section active">
+            <h2 class="section-title">📋 Study Overview</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Purpose of This Study</h3>
+                <p>Welcome to an exploration of Paul's letter to the Ephesians! This profound epistle reveals God's eternal plan to unite all things in Christ. Through this interactive study, you'll discover the spiritual riches believers have in Christ and how to live out our heavenly calling in practical ways.</p>
+            </div>
+
+            <div class="interactive-element">
+                <h3>🎯 Your Study Goals</h3>
+                <p>Check off each goal as you complete it:</p>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal1" onchange="updateProgress()">
+                    <label for="goal1">Understand God's eternal plan for unity in Christ</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal2" onchange="updateProgress()">
+                    <label for="goal2">Grasp the spiritual blessings available to believers</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal3" onchange="updateProgress()">
+                    <label for="goal3">Learn how to walk worthy of your calling</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal4" onchange="updateProgress()">
+                    <label for="goal4">Apply principles of Christian unity and relationships</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal5" onchange="updateProgress()">
+                    <label for="goal5">Understand spiritual warfare and put on God's armor</label>
+                </div>
+            </div>
+
+            <div class="study-tools">
+                <div class="tool-card">
+                    <h3>📝 Study Method</h3>
+                    <p>We'll use the <strong>SOAP</strong> method:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li><strong>S</strong>cripture - Read the text</li>
+                        <li><strong>O</strong>bservation - What does it say?</li>
+                        <li><strong>A</strong>pplication - How does it apply?</li>
+                        <li><strong>P</strong>rayer - Talk to God about it</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>⏰ Time Commitment</h3>
+                    <p>Each chapter study is designed for:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>30-45 minutes individual study</li>
+                        <li>60-90 minutes group discussion</li>
+                        <li>Weekly personal reflection</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>📚 Resources Needed</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Bible (multiple translations helpful)</li>
+                        <li>Notebook for personal notes</li>
+                        <li>This interactive guide</li>
+                        <li>Open heart for God's Word!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<!-- Schedule Section -->
+        <div id="schedule" class="content-section">
+            <h2 class="section-title">📅 Study Schedule</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 8-Week Study Plan</h3>
+                <p>This comprehensive study of Ephesians is designed to be completed over 8 weeks, allowing time for deep reflection and application. Each week includes individual study time and group discussion.</p>
+            </div>
+
+            <div class="study-tools">
+                <div class="tool-card">
+                    <h3>📖 Week 1: Overview & Background</h3>
+                    <p><strong>Focus:</strong> Understanding the context</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Historical background of Ephesus</li>
+                        <li>Paul's relationship with the church</li>
+                        <li>Study goals and methodology</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 2: Chapter 1</h3>
+                    <p><strong>Focus:</strong> Spiritual Blessings in Christ</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>God's eternal plan</li>
+                        <li>Election and predestination</li>
+                        <li>Sealed with the Holy Spirit</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 3: Chapter 2</h3>
+                    <p><strong>Focus:</strong> Made Alive in Christ</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>From death to life</li>
+                        <li>Salvation by grace through faith</li>
+                        <li>Unity between Jews and Gentiles</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 4: Chapter 3</h3>
+                    <p><strong>Focus:</strong> God's Eternal Purpose</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Paul's ministry to Gentiles</li>
+                        <li>Prayer for spiritual strength</li>
+                        <li>God's immeasurable power</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 5: Chapter 4</h3>
+                    <p><strong>Focus:</strong> Unity and Maturity</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Unity in the body of Christ</li>
+                        <li>Spiritual gifts for building up</li>
+                        <li>New life vs. old life</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 6: Chapter 5</h3>
+                    <p><strong>Focus:</strong> Walking in Love and Light</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Imitating God and walking in love</li>
+                        <li>Spirit-filled living</li>
+                        <li>Christian relationships</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 7: Chapter 6</h3>
+                    <p><strong>Focus:</strong> Spiritual Warfare</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Family and work relationships</li>
+                        <li>Reality of spiritual warfare</li>
+                        <li>The full armor of God</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📖 Week 8: Summary & Application</h3>
+                    <p><strong>Focus:</strong> Living Out Ephesians</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Key takeaways review</li>
+                        <li>Personal application planning</li>
+                        <li>Commitment to ongoing growth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>⏰ Weekly Time Commitment</h3>
+                <ul>
+                    <li><strong>Individual Study:</strong> 45-60 minutes per week</li>
+                    <li><strong>Group Discussion:</strong> 90 minutes per week</li>
+                    <li><strong>Personal Reflection:</strong> 15 minutes daily</li>
+                    <li><strong>Scripture Memorization:</strong> 10 minutes daily</li>
+                </ul>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Schedule Preparation Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="schedGoal1" onchange="updateProgress()">
+                    <label for="schedGoal1">Set aside dedicated study time each week</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="schedGoal2" onchange="updateProgress()">
+                    <label for="schedGoal2">Find or form a study group</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="schedGoal3" onchange="updateProgress()">
+                    <label for="schedGoal3">Gather necessary study materials</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="schedGoal4" onchange="updateProgress()">
+                    <label for="schedGoal4">Commit to the full 8-week journey</label>
+                </div>
+                <span class="completion-badge" id="schedBadge">Schedule Set!</span>
+            </div>
+        </div>
+
+        <!-- Background Section -->
+        <div id="background" class="content-section">
+            <h2 class="section-title">🏛️ Historical Background</h2>
+            
+            <div class="historical-context">
+                <h3>🌍 The City of Ephesus</h3>
+                <p><strong>Location:</strong> Ephesus was the capital city of the Roman province of Asia (modern-day Turkey), strategically located on the Aegean Sea. It was one of the largest cities in the Roman Empire, with a population of around 250,000-500,000 people.</p>
+                
+                <p><strong>Economic Status:</strong> A major commercial and trade center, Ephesus was incredibly wealthy. The city was famous for its magnificent harbor, extensive road systems, and as a center of banking and commerce.</p>
+                
+                <p><strong>Religious Climate:</strong> Ephesus was home to the Temple of Artemis (Diana), one of the Seven Wonders of the Ancient World. The city was a center of pagan worship, magic practices, and emperor worship, making it a challenging environment for Christian witness.</p>
+            </div>
+
+            <div class="theme-box">
+                <h3>👤 Paul's Relationship with Ephesus</h3>
+                <p><strong>Extended Ministry:</strong> Paul spent approximately three years in Ephesus (Acts 19:8-10, 20:31), his longest recorded ministry in any single location. This deep relationship is evident in the emotional farewell recorded in Acts 20:17-38.</p>
+                <ul>
+                    <li><strong>Church Planting:</strong> Established a strong, influential church</li>
+                    <li><strong>Training Center:</strong> Taught daily in the school of Tyrannus</li>
+                    <li><strong>Regional Impact:</strong> Ministry spread throughout Asia Minor</li>
+                    <li><strong>Miraculous Ministry:</strong> Extraordinary miracles occurred (Acts 19:11-12)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Challenges Facing the Ephesian Church</h3>
+                
+                <div style="margin: 20px 0;">
+                    <h4>🔮 Spiritual Warfare:</h4>
+                    <ul>
+                        <li>Surrounded by pagan temples and practices</li>
+                        <li>Magic and occult practices were common</li>
+                        <li>Demonic opposition was real and active</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>🏛️ Cultural Pressures:</h4>
+                    <ul>
+                        <li>Emperor worship was mandatory</li>
+                        <li>Guild system created economic pressures</li>
+                        <li>Greek philosophical influences</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>⛪ Internal Church Issues:</h4>
+                    <ul>
+                        <li>Jewish-Gentile tensions over unity</li>
+                        <li>Questions about Christian behavior</li>
+                        <li>Need for spiritual maturity and leadership</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Modern Parallels</h3>
+                <p>Today's believers face similar challenges:</p>
+                <ul>
+                    <li><strong>Secular Worldview:</strong> Materialism and humanism</li>
+                    <li><strong>Spiritual Opposition:</strong> New Age practices and occultism</li>
+                    <li><strong>Cultural Diversity:</strong> Unity across ethnic and cultural lines</li>
+                    <li><strong>Moral Relativism:</strong> Pressure to compromise biblical standards</li>
+                    <li><strong>Economic Pressures:</strong> Career vs. faith conflicts</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What cultural pressures in your environment most challenge your Christian walk?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we create unity in our diverse church communities like the Ephesians needed to do?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Background</h3>
+                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Background Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal1" onchange="updateProgress()">
+                    <label for="bgGoal1">Understand the cultural and religious context of Ephesus</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal2" onchange="updateProgress()">
+                    <label for="bgGoal2">Recognize Paul's deep relationship with the Ephesian church</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal3" onchange="updateProgress()">
+                    <label for="bgGoal3">Identify challenges facing early Christians in Ephesus</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal4" onchange="updateProgress()">
+                    <label for="bgGoal4">Reflect on modern parallels to these challenges</label>
+                </div>
+                <span class="completion-badge" id="bgBadge">Section Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 1 Section -->
+        <div id="chapter1" class="content-section">
+            <h2 class="section-title">📖 Chapter 1: Spiritual Blessings in Christ</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Spiritual blessings in heavenly places (Eph. 1:3)</li>
+                    <li>God's eternal plan of election and predestination (Eph. 1:4-6)</li>
+                    <li>Redemption and forgiveness through Christ's blood (Eph. 1:7-8)</li>
+                    <li>The mystery of God's will revealed (Eph. 1:9-10)</li>
+                    <li>Sealed with the Holy Spirit (Eph. 1:13-14)</li>
+                    <li>Paul's prayer for wisdom and revelation (Eph. 1:15-23)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 1:3-4:</strong> "Praise be to the God and Father of our Lord Jesus Christ, who has blessed us in the heavenly realms with every spiritual blessing in Christ. For he chose us in him before the creation of the world to be holy and blameless in his sight."</p>
+                <span class="cross-reference" data-scripture="2 Timothy 1:9" onclick="showScriptureModal('2 Timothy 1:9')">2 Timothy 1:9</span>
+                <span class="cross-reference" data-scripture="1 Peter 1:2" onclick="showScriptureModal('1 Peter 1:2')">1 Peter 1:2</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 1:13-14:</strong> "And you also were included in Christ when you heard the message of truth, the gospel of your salvation. When you believed, you were marked in him with a seal, the promised Holy Spirit, who is a deposit guaranteeing our inheritance."</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 1:22" onclick="showScriptureModal('2 Corinthians 1:22')">2 Corinthians 1:22</span>
+                <span class="cross-reference" data-scripture="Romans 8:16" onclick="showScriptureModal('Romans 8:16')">Romans 8:16</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 1 Today</h3>
+                <p>Live in the reality of your spiritual blessings by:</p>
+                <ul>
+                    <li><strong>Identity:</strong> Remember you were chosen before the foundation of the world</li>
+                    <li><strong>Security:</strong> Rest in your sealed relationship with God through the Holy Spirit</li>
+                    <li><strong>Purpose:</strong> Live for God's glory as His adopted children</li>
+                    <li><strong>Prayer:</strong> Ask for spiritual wisdom and revelation like Paul did</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How does knowing you were chosen "before the creation of the world" affect your self-worth and purpose?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What does it mean practically to live in "heavenly realms" while still on earth?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 1</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 1 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal1" onchange="updateProgress()">
+                    <label for="ch1Goal1">Read Ephesians 1 carefully, noting spiritual blessings</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal2" onchange="updateProgress()">
+                    <label for="ch1Goal2">Understand God's eternal plan and your place in it</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal3" onchange="updateProgress()">
+                    <label for="ch1Goal3">Reflect on the Holy Spirit as your seal and guarantee</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal4" onchange="updateProgress()">
+                    <label for="ch1Goal4">Pray Paul's prayer (1:17-19) for yourself and others</label>
+                </div>
+                <span class="completion-badge" id="ch1Badge">Chapter 1 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 2 Section -->
+        <div id="chapter2" class="content-section">
+            <h2 class="section-title">📖 Chapter 2: Made Alive in Christ</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>From spiritual death to spiritual life (Eph. 2:1-3)</li>
+                    <li>Salvation by grace through faith (Eph. 2:4-10)</li>
+                    <li>Unity between Jews and Gentiles (Eph. 2:11-18)</li>
+                    <li>The church as God's temple (Eph. 2:19-22)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 2:8-10:</strong> "For it is by grace you have been saved, through faith—and it is not from yourselves, it is the gift of God—not by works, so that no one can boast. For we are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do."</p>
+                <span class="cross-reference" data-scripture="Romans 3:24" onclick="showScriptureModal('Romans 3:24')">Romans 3:24</span>
+                <span class="cross-reference" data-scripture="Titus 3:5" onclick="showScriptureModal('Titus 3:5')">Titus 3:5</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 2:14:</strong> "For he himself is our peace, who has made the two groups one and has destroyed the barrier, the dividing wall of hostility."</p>
+                <span class="cross-reference" data-scripture="Galatians 3:28" onclick="showScriptureModal('Galatians 3:28')">Galatians 3:28</span>
+                <span class="cross-reference" data-scripture="Colossians 3:11" onclick="showScriptureModal('Colossians 3:11')">Colossians 3:11</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 2 Today</h3>
+                <p>Live out your salvation and unity by:</p>
+                <ul>
+                    <li><strong>Gratitude:</strong> Regularly thank God for His grace in saving you</li>
+                    <li><strong>Humility:</strong> Remember salvation is entirely God's work, not yours</li>
+                    <li><strong>Good Works:</strong> Serve others as God's workmanship</li>
+                    <li><strong>Unity:</strong> Break down barriers between different groups of people</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How has God's grace transformed you from spiritual death to spiritual life?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What barriers exist in our community that Christ wants to break down?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 2</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 2 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal1" onchange="updateProgress()">
+                    <label for="ch2Goal1">Read Ephesians 2 carefully, noting the before and after</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal2" onchange="updateProgress()">
+                    <label for="ch2Goal2">Understand salvation by grace through faith</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal3" onchange="updateProgress()">
+                    <label for="ch2Goal3">Reflect on unity between different groups of people</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal4" onchange="updateProgress()">
+                    <label for="ch2Goal4">Consider your role in God's temple (the church)</label>
+                </div>
+                <span class="completion-badge" id="ch2Badge">Chapter 2 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 3 Section -->
+        <div id="chapter3" class="content-section">
+            <h2 class="section-title">📖 Chapter 3: God's Eternal Purpose</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Paul's ministry to the Gentiles (Eph. 3:1-6)</li>
+                    <li>The mystery of Christ revealed (Eph. 3:7-13)</li>
+                    <li>Paul's prayer for spiritual strength (Eph. 3:14-19)</li>
+                    <li>Doxology - God's power at work (Eph. 3:20-21)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 3:17-19:</strong> "So that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power... to grasp how wide and long and high and deep is the love of Christ, and to know this love that surpasses knowledge—that you may be filled to the measure of all the fullness of God."</p>
+                <span class="cross-reference" data-scripture="Romans 8:39" onclick="showScriptureModal('Romans 8:39')">Romans 8:39</span>
+                <span class="cross-reference" data-scripture="1 John 4:16" onclick="showScriptureModal('1 John 4:16')">1 John 4:16</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 3:20-21:</strong> "Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen."</p>
+                <span class="cross-reference" data-scripture="Romans 16:25" onclick="showScriptureModal('Romans 16:25')">Romans 16:25</span>
+                <span class="cross-reference" data-scripture="Philippians 4:19" onclick="showScriptureModal('Philippians 4:19')">Philippians 4:19</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 3 Today</h3>
+                <p>Experience God's love and power by:</p>
+                <ul>
+                    <li><strong>Prayer:</strong> Use Paul's prayer as a model for intercession</li>
+                    <li><strong>Expectation:</strong> Believe God can do more than you imagine</li>
+                    <li><strong>Love:</strong> Seek to comprehend Christ's immeasurable love</li>
+                    <li><strong>Ministry:</strong> Serve others with the mystery of the gospel</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How can you begin to grasp the width, length, height, and depth of Christ's love?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What "immeasurably more" might God want to do in our church or community?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 3</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 3 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal1" onchange="updateProgress()">
+                    <label for="ch3Goal1">Read Ephesians 3 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal2" onchange="updateProgress()">
+                    <label for="ch3Goal2">Understand the mystery of Gentile inclusion</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal3" onchange="updateProgress()">
+                    <label for="ch3Goal3">Pray Paul's prayer for yourself and others</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal4" onchange="updateProgress()">
+                    <label for="ch3Goal4">Reflect on God's ability to do "immeasurably more"</label>
+                </div>
+                <span class="completion-badge" id="ch3Badge">Chapter 3 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 4 Section -->
+        <div id="chapter4" class="content-section">
+            <h2 class="section-title">📖 Chapter 4: Unity and Maturity</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Unity in the body of Christ (Eph. 4:1-6)</li>
+                    <li>Spiritual gifts for building up the body (Eph. 4:7-16)</li>
+                    <li>New life vs. old life (Eph. 4:17-24)</li>
+                    <li>Practical instructions for Christian living (Eph. 4:25-32)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 4:2-3:</strong> "Be completely humble and gentle; be patient, bearing with one another in love. Make every effort to keep the unity of the Spirit through the bond of peace."</p>
+                <span class="cross-reference" data-scripture="Philippians 2:3" onclick="showScriptureModal('Philippians 2:3')">Philippians 2:3</span>
+                <span class="cross-reference" data-scripture="Colossians 3:12-14" onclick="showScriptureModal('Colossians 3:12-14')">Colossians 3:12-14</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 4:15-16:</strong> "Instead, speaking the truth in love, we will grow to become in every respect the mature body of him who is the head, that is, Christ. From him the whole body, joined and held together by every supporting ligament, grows and builds itself up in love, as each part does its work."</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 12:12" onclick="showScriptureModal('1 Corinthians 12:12')">1 Corinthians 12:12</span>
+                <span class="cross-reference" data-scripture="Romans 12:4-5" onclick="showScriptureModal('Romans 12:4-5')">Romans 12:4-5</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 4 Today</h3>
+                <p>Live in unity and maturity by:</p>
+                <ul>
+                    <li><strong>Humility:</strong> Put others before yourself</li>
+                    <li><strong>Gifts:</strong> Use your spiritual gifts to build up others</li>
+                    <li><strong>Truth:</strong> Speak truth in love, not harshness</li>
+                    <li><strong>Renewal:</strong> Put off old patterns, put on new life in Christ</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What spiritual gift has God given you to build up the body of Christ?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we better "speak truth in love" when we disagree?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 4</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 4 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal1" onchange="updateProgress()">
+                    <label for="ch4Goal1">Read Ephesians 4 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal2" onchange="updateProgress()">
+                    <label for="ch4Goal2">Understand your role in maintaining unity</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal3" onchange="updateProgress()">
+                    <label for="ch4Goal3">Identify your spiritual gifts for building up others</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal4" onchange="updateProgress()">
+                    <label for="ch4Goal4">Apply practical instructions for Christian living</label>
+                </div>
+                <span class="completion-badge" id="ch4Badge">Chapter 4 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 5 Section -->
+        <div id="chapter5" class="content-section">
+            <h2 class="section-title">📖 Chapter 5: Walking in Love and Light</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Imitating God and walking in love (Eph. 5:1-7)</li>
+                    <li>Living as children of light (Eph. 5:8-14)</li>
+                    <li>Wise living and Spirit-filled life (Eph. 5:15-21)</li>
+                    <li>Marriage as a picture of Christ and the church (Eph. 5:22-33)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 5:1-2:</strong> "Follow God's example, therefore, as dearly loved children and walk in the way of love, just as Christ loved us and gave himself up for us as a fragrant offering and sacrifice to God."</p>
+                <span class="cross-reference" data-scripture="1 John 4:19" onclick="showScriptureModal('1 John 4:19')">1 John 4:19</span>
+                <span class="cross-reference" data-scripture="John 13:34" onclick="showScriptureModal('John 13:34')">John 13:34</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 5:18-19:</strong> "Do not get drunk on wine, which leads to debauchery. Instead, be filled with the Spirit, speaking to one another with psalms, hymns, and songs from the Spirit. Sing and make music from your heart to the Lord."</p>
+                <span class="cross-reference" data-scripture="Galatians 5:16" onclick="showScriptureModal('Galatians 5:16')">Galatians 5:16</span>
+                <span class="cross-reference" data-scripture="Colossians 3:16" onclick="showScriptureModal('Colossians 3:16')">Colossians 3:16</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 5 Today</h3>
+                <p>Walk in love and light by:</p>
+                <ul>
+                    <li><strong>Imitation:</strong> Follow God's example of sacrificial love</li>
+                    <li><strong>Purity:</strong> Avoid sexual immorality and greed</li>
+                    <li><strong>Spirit-filled living:</strong> Let the Holy Spirit control your life</li>
+                    <li><strong>Relationships:</strong> Honor God in marriage and family</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What does it mean practically to "be filled with the Spirit" in your daily life?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How does the Christ-church relationship model healthy human relationships?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 5</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 5..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 5 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal1" onchange="updateProgress()">
+                    <label for="ch5Goal1">Read Ephesians 5 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal2" onchange="updateProgress()">
+                    <label for="ch5Goal2">Understand what it means to walk in love</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal3" onchange="updateProgress()">
+                    <label for="ch5Goal3">Reflect on being filled with the Spirit</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal4" onchange="updateProgress()">
+                    <label for="ch5Goal4">Apply principles to your relationships</label>
+                </div>
+                <span class="completion-badge" id="ch5Badge">Chapter 5 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 6 Section -->
+        <div id="chapter6" class="content-section">
+            <h2 class="section-title">📖 Chapter 6: Spiritual Warfare</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Family relationships and obedience (Eph. 6:1-4)</li>
+                    <li>Work relationships and integrity (Eph. 6:5-9)</li>
+                    <li>The reality of spiritual warfare (Eph. 6:10-12)</li>
+                    <li>The full armor of God (Eph. 6:13-18)</li>
+                    <li>Prayer for Paul's ministry (Eph. 6:19-24)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 6:10-11:</strong> "Finally, be strong in the Lord and in his mighty power. Put on the full armor of God, so that you can take your stand against the devil's schemes."</p>
+                <span class="cross-reference" data-scripture="1 Peter 5:8" onclick="showScriptureModal('1 Peter 5:8')">1 Peter 5:8</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 10:4" onclick="showScriptureModal('2 Corinthians 10:4')">2 Corinthians 10:4</span>
+            </div>
+
+            <div class="theme-box">
+                <h3>⚔️ The Full Armor of God</h3>
+                <ul>
+                    <li><strong>Belt of Truth</strong> - Foundational honesty and integrity</li>
+                    <li><strong>Breastplate of Righteousness</strong> - Right living and purity</li>
+                    <li><strong>Gospel of Peace</strong> - Readiness to share the good news</li>
+                    <li><strong>Shield of Faith</strong> - Trust in God that blocks Satan's attacks</li>
+                    <li><strong>Helmet of Salvation</strong> - Security in your salvation</li>
+                    <li><strong>Sword of the Spirit</strong> - God's Word as offensive weapon</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Ephesians 6:18:</strong> "And pray in the Spirit on all occasions with all kinds of prayers and requests. With this in mind, be alert and always keep on praying for all the Lord's people."</p>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:17" onclick="showScriptureModal('1 Thessalonians 5:17')">1 Thessalonians 5:17</span>
+                <span class="cross-reference" data-scripture="Romans 8:26" onclick="showScriptureModal('Romans 8:26')">Romans 8:26</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 6 Today</h3>
+                <p>Engage in spiritual warfare by:</p>
+                <ul>
+                    <li><strong>Preparation:</strong> Daily put on the full armor of God</li>
+                    <li><strong>Prayer:</strong> Pray constantly and specifically for others</li>
+                    <li><strong>Scripture:</strong> Use God's Word as your weapon</li>
+                    <li><strong>Relationships:</strong> Honor God in family and work</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> Which piece of spiritual armor do you most need to strengthen in your life?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we pray more effectively for one another in spiritual battle?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 6</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 6..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 6 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal1" onchange="updateProgress()">
+                    <label for="ch6Goal1">Read Ephesians 6 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal2" onchange="updateProgress()">
+                    <label for="ch6Goal2">Understand the reality of spiritual warfare</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal3" onchange="updateProgress()">
+                    <label for="ch6Goal3">Learn each piece of spiritual armor</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal4" onchange="updateProgress()">
+                    <label for="ch6Goal4">Commit to regular prayer and armor-putting-on</label>
+                </div>
+                <span class="completion-badge" id="ch6Badge">Chapter 6 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div id="summary" class="content-section">
+            <h2 class="section-title">✅ Study Summary</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Key Takeaways from Ephesians</h3>
+                <ul>
+                    <li>God's eternal plan to unite all things in Christ</li>
+                    <li>Believers are blessed with every spiritual blessing in Christ</li>
+                    <li>Salvation is entirely by grace through faith</li>
+                    <li>The church is called to unity, maturity, and love</li>
+                    <li>Christians must walk worthy of their calling</li>
+                    <li>Spiritual warfare is real and requires God's armor</li>
+                </ul>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Living Out Ephesians</h3>
+                <p>Apply the truths of Ephesians by:</p>
+                <ul>
+                    <li><strong>Identity:</strong> Live knowing you are chosen, adopted, and sealed</li>
+                    <li><strong>Unity:</strong> Work to bring people together across differences</li>
+                    <li><strong>Growth:</strong> Use your gifts to build up the body of Christ</li>
+                    <li><strong>Relationships:</strong> Honor God in marriage, family, and work</li>
+                    <li><strong>Warfare:</strong> Daily put on God's armor for spiritual battle</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Final Reflection</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How has studying Ephesians changed your understanding of God's plan for your life?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What is one way your group can live out God's calling to unity and love?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Final Notes</h3>
+                <textarea placeholder="Summarize your key insights from this study of Ephesians..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Study Completion Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal1" onchange="updateProgress()">
+                    <label for="sumGoal1">Complete all chapter studies</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal2" onchange="updateProgress()">
+                    <label for="sumGoal2">Understand God's eternal plan of unity</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal3" onchange="updateProgress()">
+                    <label for="sumGoal3">Apply at least one key lesson to daily life</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal4" onchange="updateProgress()">
+                    <label for="sumGoal4">Commit to ongoing spiritual growth</label>
+                </div>
+                <span class="completion-badge" id="sumBadge">Study Completed!</span>
+            </div>
+        </div>
+
+        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+        <!-- Modal for Scripture References -->
+        <div class="modal-overlay" id="scriptureModal">
+            <div class="modal">
+                <h3 id="modalTitle"></h3>
+                <p id="modalText"></p>
+                <button class="modal-close" onclick="closeScriptureModal()">×</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scripture data for cross-references
+        const scriptureData = {
+            "2 Timothy 1:9": "He has saved us and called us to a holy life—not because of anything we have done but because of his own purpose and grace. This grace was given us in Christ Jesus before the beginning of time.",
+            "1 Peter 1:2": "who have been chosen according to the foreknowledge of God the Father, through the sanctifying work of the Spirit, to be obedient to Jesus Christ and sprinkled with his blood: Grace and peace be yours in abundance.",
+            "2 Corinthians 1:22": "set his seal of ownership on us, and put his Spirit in our hearts as a deposit, guaranteeing what is to come.",
+            "Romans 8:16": "The Spirit himself testifies with our spirit that we are God's children.",
+            "Romans 3:24": "and all are justified freely by his grace through the redemption that came by Christ Jesus.",
+            "Titus 3:5": "he saved us through the washing of rebirth and renewal by the Holy Spirit.",
+            "Galatians 3:28": "There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus.",
+            "Colossians 3:11": "Here there is no Gentile or Jew, circumcised or uncircumcised, barbarian, Scythian, slave or free, but Christ is all, and is in all.",
+            "Romans 8:39": "neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.",
+            "1 John 4:16": "And so we know and rely on the love God has for us. God is love. Whoever lives in love lives in God, and God in them.",
+            "Romans 16:25": "Now to him who is able to establish you in accordance with my gospel, the message I proclaim about Jesus Christ, in keeping with the revelation of the mystery hidden for long ages past.",
+            "Philippians 4:19": "And my God will meet all your needs according to the riches of his glory in Christ Jesus.",
+            "Philippians 2:3": "Do nothing out of selfish ambition or vain conceit. Rather, in humility value others above yourselves.",
+            "Colossians 3:12-14": "Therefore, as God's chosen people, holy and dearly loved, clothe yourselves with compassion, kindness, humility, gentleness and patience... And over all these virtues put on love, which binds them all together in perfect unity.",
+            "1 Corinthians 12:12": "Just as a body, though one, has many parts, but all its many parts form one body, so it is with Christ.",
+            "Romans 12:4-5": "For just as each of us has one body with many members, and these members do not all have the same function, so in Christ we, though many, form one body, and each member belongs to all the others.",
+            "1 John 4:19": "We love because he first loved us.",
+            "John 13:34": "A new command I give you: Love one another. As I have loved you, so you must love one another.",
+            "Galatians 5:16": "So I say, walk by the Spirit, and you will not gratify the desires of the flesh.",
+            "Colossians 3:16": "Let the message of Christ dwell among you richly as you teach and admonish one another with all wisdom through psalms, hymns, and songs from the Spirit, singing to God with gratitude in your hearts.",
+            "1 Peter 5:8": "Be alert and of sober mind. Your enemy the devil prowls around like a roaring lion looking for someone to devour.",
+            "2 Corinthians 10:4": "The weapons we fight with are not the weapons of the world. On the contrary, they have divine power to demolish strongholds.",
+            "1 Thessalonians 5:17": "pray continually,",
+            "Romans 8:26": "In the same way, the Spirit helps us in our weakness. We do not know what we ought to pray for, but the Spirit himself intercedes for us through wordless groans."
+        };
+
+        // Show scripture modal
+        function showScriptureModal(reference) {
+            const modal = document.getElementById('scriptureModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalText = document.getElementById('modalText');
+
+            modalTitle.textContent = reference;
+            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
+            modal.style.display = 'flex';
+        }
+
+        // Close scripture modal
+        function closeScriptureModal() {
+            document.getElementById('scriptureModal').style.display = 'none';
+        }
+
+        // Initialize progress tracking
+        let totalCheckboxes = 0;
+        let checkedCount = 0;
+
+        // Count total checkboxes on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
+            updateProgress();
+            window.addEventListener('scroll', toggleBackToTop);
+        });
+
+        // Show/hide sections
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            
+            // Show completion badge if all checkboxes in section are checked
+            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                if (sectionBadge) sectionBadge.classList.add('show');
+            } else {
+                if (sectionBadge) sectionBadge.classList.remove('show');
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
+            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
+            
+            let progressMessage = "Keep growing in God's Word!";
+            if (progressPercentage === 0) {
+                progressMessage = "Ready to discover God's eternal plan!";
+            } else if (progressPercentage < 25) {
+                progressMessage = "Great start on your spiritual journey!";
+            } else if (progressPercentage < 50) {
+                progressMessage = "Making solid progress in understanding!";
+            } else if (progressPercentage < 75) {
+                progressMessage = "You're well on your way to completion!";
+            } else if (progressPercentage < 100) {
+                progressMessage = "Almost finished - keep going!";
+            } else {
+                progressMessage = "Congratulations! Study completed!";
+            }
+            
+            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - ${progressMessage}`;
+
+            // Update section badges
+            ['overview', 'background', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'summary'].forEach(sectionId => {
+                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+                if (sectionBadge && sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                    sectionBadge.classList.add('show');
+                } else if (sectionBadge) {
+                    sectionBadge.classList.remove('show');
+                }
+            });
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle back-to-top button visibility
+        function toggleBackToTop() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('scriptureModal');
+            if (e.target === modal) {
+                closeScriptureModal();
+            }
+        });
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('scriptureModal');
+            if (modal.style.display === 'flex' && e.key === 'Escape') {
+                closeScriptureModal();
+            }
+        });
+
+        // Auto-save notes functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach((textarea, index) => {
+                // Load saved notes
+                const savedContent = localStorage.getItem(`ephesians-notes-${index}`);
+                if (savedContent) {
+                    textarea.value = savedContent;
+                }
+
+                // Save notes on input
+                textarea.addEventListener('input', () => {
+                    localStorage.setItem(`ephesians-notes-${index}`, textarea.value);
+                });
+            });
+
+            // Load checkbox states
+            document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+                const savedState = localStorage.getItem(`ephesians-checkbox-${index}`);
+                if (savedState === 'true') {
+                    checkbox.checked = true;
+                }
+
+                // Save checkbox state on change
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`ephesians-checkbox-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romans: The Gospel Revealed - Interactive Bible Study</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --deep-blue: #1e3a8a;
+            --royal-purple: #6b46c1;
+            --warm-white: #fefefe;
+            --soft-gray: #f8fafc;
+            --text-dark: #1e293b;
+            --accent-red: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--warm-white) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .progress-tracker {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--royal-purple));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .chapter-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+            color: var(--text-dark);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+        }
+
+        .content-section {
+            display: none;
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--primary-gold);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--deep-blue);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .theme-box {
+            background: linear-gradient(135deg, var(--soft-gray), var(--warm-white));
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid var(--royal-purple);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .theme-box h3 {
+            color: var(--royal-purple);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .verse-highlight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-gold);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .interactive-element {
+            background: var(--soft-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed var(--primary-gold);
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--royal-purple);
+        }
+
+        .discussion-question {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .cross-reference {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--warm-white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cross-reference:hover {
+            background: var(--royal-purple);
+            transform: scale(1.05);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.3);
+            accent-color: var(--primary-gold);
+        }
+
+        .historical-context {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid var(--deep-blue);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-red);
+        }
+
+        .application-modern {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #16a34a;
+        }
+
+        .notes-section {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .study-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tool-card {
+            background: var(--warm-white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: var(--warm-white);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .completion-badge.show {
+            opacity: 1;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: var(--warm-white);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-left: 6px solid var(--primary-gold);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal h3 {
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-red);
+            color: var(--warm-white);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--royal-purple);
+            transform: scale(1.1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .chapter-nav {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 Romans Study Guide</h1>
+            <p class="subtitle">"The Gospel Revealed"</p>
+        </div>
+
+        <div class="progress-tracker">
+            <h3>Study Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0% Complete - Ready to explore Paul's masterpiece!</p>
+        </div>
+
+        <div class="chapter-nav">
+            <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
+            <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
+            <button class="nav-button" onclick="showSection('section1')">📖 Chapters 1-3</button>
+            <button class="nav-button" onclick="showSection('section2')">📖 Chapters 4-5</button>
+            <button class="nav-button" onclick="showSection('section3')">📖 Chapters 6-8</button>
+            <button class="nav-button" onclick="showSection('section4')">📖 Chapters 9-11</button>
+            <button class="nav-button" onclick="showSection('section5')">📖 Chapters 12-14</button>
+            <button class="nav-button" onclick="showSection('section6')">📖 Chapters 15-16</button>
+            <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="content-section active">
+            <h2 class="section-title">📋 Study Overview</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Purpose of This Study</h3>
+                <p>Welcome to an in-depth exploration of Paul's letter to the Romans! This comprehensive study will take you through Paul's theological masterpiece systematically, providing historical context, doctrinal insights, and practical applications for believers today.</p>
+            </div>
+
+            <div class="interactive-element">
+                <h3>🎯 Your Study Goals</h3>
+                <p>Check off each goal as you complete it:</p>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal1" onchange="updateProgress()">
+                    <label for="goal1">Understand the historical context of Paul's letter to Rome</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal2" onchange="updateProgress()">
+                    <label for="goal2">Grasp the doctrine of justification by faith alone</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal3" onchange="updateProgress()">
+                    <label for="goal3">Comprehend God's sovereignty in salvation and election</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal4" onchange="updateProgress()">
+                    <label for="goal4">Apply Paul's teachings on Christian living and unity</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal5" onchange="updateProgress()">
+                    <label for="goal5">Complete personal reflection exercises for each section</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal6" onchange="updateProgress()">
+                    <label for="goal6">Understand the relationship between law and grace</label>
+                </div>
+            </div>
+
+            <div class="study-tools">
+                <div class="tool-card">
+                    <h3>📝 Study Method</h3>
+                    <p>We'll use the <strong>OBSERVE</strong> method:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li><strong>O</strong>bserve - What does the text say?</li>
+                        <li><strong>B</strong>ackground - What's the context?</li>
+                        <li><strong>S</strong>tructure - How is it organized?</li>
+                        <li><strong>E</strong>xamine - What does it mean?</li>
+                        <li><strong>R</strong>elate - How does it connect?</li>
+                        <li><strong>V</strong>erify - What do other passages say?</li>
+                        <li><strong>E</strong>valuate - How does it apply?</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>⏰ Time Commitment</h3>
+                    <p>Each section study is designed for:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>45-60 minutes individual study</li>
+                        <li>90-120 minutes group discussion</li>
+                        <li>Weekly personal reflection</li>
+                        <li>Cross-reference meditation</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>📚 Resources Needed</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Bible (ESV, NASB, NIV recommended)</li>
+                        <li>Concordance or Bible app</li>
+                        <li>Notebook for detailed notes</li>
+                        <li>This comprehensive guide</li>
+                        <li>Heart open to God's Word!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Section -->
+        <div id="background" class="content-section">
+            <h2 class="section-title">🏛️ Historical Background</h2>
+            
+            <div class="historical-context">
+                <h3>🌍 The City of Rome</h3>
+                <p><strong>Location & Importance:</strong> Rome was the capital of the Roman Empire, the most powerful city in the ancient world. With over 1 million inhabitants, it was the political, economic, and cultural center of the Mediterranean world.</p>
+                
+                <p><strong>Religious Climate:</strong> Rome was incredibly diverse religiously - traditional Roman gods, Greek deities, mystery religions from the East, imperial cult worship, Judaism, and emerging Christianity all coexisted. The Jewish community was substantial (40,000-50,000 people) but had faced periodic expulsions.</p>
+                
+                <p><strong>The Roman Church:</strong> Likely founded by Jewish Christians who were present at Pentecost (Acts 2:10). By Paul's time (c. 57 AD), it was a thriving community of both Jewish and Gentile believers, though tensions existed between these groups.</p>
+            </div>
+
+            <div class="theme-box">
+                <h3>👤 Paul's Connection to Rome</h3>
+                <p><strong>Had not yet visited</strong> (Rom. 1:10-15, 15:22-24), but had strong connections through:</p>
+                <ul>
+                    <li><strong>Aquila and Priscilla</strong> - Worked with Paul in Corinth and Ephesus (Rom. 16:3)</li>
+                    <li><strong>Many co-workers</strong> - Extensive greetings in chapter 16 show deep relationships</li>
+                    <li><strong>Strategic importance</strong> - Rome was key to Paul's vision for reaching the western Mediterranean</li>
+                    <li><strong>Collection delivery</strong> - Writing from Corinth before taking the Jerusalem collection</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Tensions in the Roman Church</h3>
+                <p>Paul addresses several critical issues:</p>
+                
+                <div style="margin: 20px 0;">
+                    <h4>🕊️ Jewish-Gentile Relations:</h4>
+                    <ul>
+                        <li>Gentile believers potentially looking down on Jewish believers (Rom. 11:17-24)</li>
+                        <li>Jewish believers possibly trying to impose law on Gentiles</li>
+                        <li>Questions about dietary laws and special days (Rom. 14:1-15:13)</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>📜 Law vs. Grace Questions:</h4>
+                    <ul>
+                        <li>What role does the Mosaic Law play for Christians?</li>
+                        <li>How are Gentiles saved without keeping the Law?</li>
+                        <li>Does faith in Christ eliminate moral responsibility?</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>🤔 Theological Concerns:</h4>
+                    <ul>
+                        <li>God's faithfulness to His promises to Israel</li>
+                        <li>The relationship between election and human responsibility</li>
+                        <li>The future of ethnic Israel in God's plan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Modern Parallels</h3>
+                <p>Today's church faces similar challenges:</p>
+                <ul>
+                    <li><strong>Cultural Divisions:</strong> Race, class, political affiliations</li>
+                    <li><strong>Legalism vs. License:</strong> Rules-based vs. anything-goes Christianity</li>
+                    <li><strong>Theological Debates:</strong> Election, free will, social justice</li>
+                    <li><strong>Unity Challenges:</strong> Denominational and doctrinal divisions</li>
+                    <li><strong>Identity Questions:</strong> What makes someone a "real" Christian?</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What cultural or denominational barriers do you struggle with when relating to other believers?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can Paul's approach to unity in Romans guide our church relationships today?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Background</h3>
+                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Background Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal1" onchange="updateProgress()">
+                    <label for="bgGoal1">Understand the cultural and political context of Rome</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal2" onchange="updateProgress()">
+                    <label for="bgGoal2">Identify Paul's relationships with the Roman church</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal3" onchange="updateProgress()">
+                    <label for="bgGoal3">Recognize tensions between Jewish and Gentile believers</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal4" onchange="updateProgress()">
+                    <label for="bgGoal4">Reflect on modern parallels to these church issues</label>
+                </div>
+                <span class="completion-badge" id="bgBadge">Section Completed!</span>
+            </div>
+        </div>
+
+        <!-- Section 1: Chapters 1-3 -->
+        <div id="section1" class="content-section">
+            <h2 class="section-title">📖 Chapters 1-3: Universal Need for Salvation</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Paul's apostolic calling and the gospel's power (Rom. 1:1-17)</li>
+                    <li>God's wrath revealed against ungodliness (Rom. 1:18-32)</li>
+                    <li>Universal condemnation: Jews and Gentiles (Rom. 2:1-3:20)</li>
+                    <li>Righteousness through faith revealed (Rom. 3:21-31)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 1:16-17:</strong> "For I am not ashamed of the gospel, because it is the power of God that brings salvation to everyone who believes: first to the Jew, then to the Gentile. For in the gospel the righteousness of God is revealed—a righteousness that is by faith from first to last, just as it is written: 'The righteous will live by faith.'"</p>
+                <span class="cross-reference" data-scripture="Habakkuk 2:4" onclick="showScriptureModal('Habakkuk 2:4')">Habakkuk 2:4</span>
+                <span class="cross-reference" data-scripture="Galatians 3:11" onclick="showScriptureModal('Galatians 3:11')">Galatians 3:11</span>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ The Human Condition</h3>
+                <p>Paul systematically demonstrates universal sinfulness:</p>
+                <ul>
+                    <li><strong>Gentiles (1:18-32):</strong> Suppress truth, exchange glory of God for idols, receive God's judgment</li>
+                    <li><strong>Moralists (2:1-16):</strong> Condemn others while practicing the same things</li>
+                    <li><strong>Jews (2:17-3:8):</strong> Rely on law and circumcision but break God's law</li>
+                    <li><strong>All humanity (3:9-20):</strong> "There is no one righteous, not even one"</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 3:23-24:</strong> "For all have sinned and fall short of the glory of God, and all are justified freely by his grace through the redemption that came by Christ Jesus."</p>
+                <span class="cross-reference" data-scripture="Ephesians 2:8-9" onclick="showScriptureModal('Ephesians 2:8-9')">Ephesians 2:8-9</span>
+                <span class="cross-reference" data-scripture="Titus 3:5" onclick="showScriptureModal('Titus 3:5')">Titus 3:5</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapters 1-3 Today</h3>
+                <p>These chapters challenge us to:</p>
+                <ul>
+                    <li>Recognize our own sinfulness before judging others</li>
+                    <li>Understand that moral effort cannot save us</li>
+                    <li>Embrace the gospel as God's power for salvation</li>
+                    <li>Avoid both antinomianism and legalism</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How does recognizing universal sinfulness affect your attitude toward non-believers?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What are modern forms of "exchanging the glory of God for images"?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapters 1-3</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapters 1-3..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapters 1-3 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s1Goal1" onchange="updateProgress()">
+                    <label for="s1Goal1">Read Romans 1-3 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s1Goal2" onchange="updateProgress()">
+                    <label for="s1Goal2">Understand Paul's argument for universal sinfulness</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s1Goal3" onchange="updateProgress()">
+                    <label for="s1Goal3">Grasp the concept of justification by faith</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s1Goal4" onchange="updateProgress()">
+                    <label for="s1Goal4">Reflect on personal applications of God's righteousness</label>
+                </div>
+                <span class="completion-badge" id="s1Badge">Chapters 1-3 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Section 2: Chapters 4-5 -->
+        <div id="section2" class="content-section">
+            <h2 class="section-title">📖 Chapters 4-5: Justification by Faith</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Abraham as the model of faith (Rom. 4:1-25)</li>
+                    <li>Peace with God through justification (Rom. 5:1-11)</li>
+                    <li>Adam and Christ comparison (Rom. 5:12-21)</li>
+                    <li>The results and benefits of justification</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 4:16-17:</strong> "Therefore, the promise comes by faith, so that it may be by grace and may be guaranteed to all Abraham's offspring—not only to those who are of the law but also to those who have the faith of Abraham. He is the father of us all. As it is written: 'I have made you a father of many nations.'"</p>
+                <span class="cross-reference" data-scripture="Genesis 15:6" onclick="showScriptureModal('Genesis 15:6')">Genesis 15:6</span>
+                <span class="cross-reference" data-scripture="Galatians 3:6-9" onclick="showScriptureModal('Galatians 3:6-9')">Galatians 3:6-9</span>
+            </div>
+
+            <div class="historical-context">
+                <h3>🏛️ Abraham's Example</h3>
+                <p>Paul uses Abraham strategically because:</p>
+                <ul>
+                    <li>Jews and Gentiles both claimed Abraham as their father</li>
+                    <li>Abraham was justified by faith before circumcision (Gen. 15:6 vs. Gen. 17)</li>
+                    <li>Abraham was justified by faith before the Law was given (430 years later)</li>
+                    <li>God's promise to Abraham included "all nations" (Gen. 12:3)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 5:1-2:</strong> "Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ, through whom we have gained access by faith into this grace in which we now stand. And we boast in the hope of the glory of God."</p>
+                <span class="cross-reference" data-scripture="Ephesians 2:14" onclick="showScriptureModal('Ephesians 2:14')">Ephesians 2:14</span>
+                <span class="cross-reference" data-scripture="Colossians 1:20" onclick="showScriptureModal('Colossians 1:20')">Colossians 1:20</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapters 4-5 Today</h3>
+                <p>These chapters encourage us to:</p>
+                <ul>
+                    <li>Trust God's promises even when circumstances seem impossible</li>
+                    <li>Find assurance in our justification, not our performance</li>
+                    <li>Understand that suffering can produce character and hope</li>
+                    <li>Rejoice in our union with Christ rather than our connection to Adam</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> In what ways do you try to "work" for God's approval rather than rest in His grace?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How does the Adam-Christ comparison help us understand the scope of salvation?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapters 4-5</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapters 4-5..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapters 4-5 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s2Goal1" onchange="updateProgress()">
+                    <label for="s2Goal1">Read Romans 4-5 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s2Goal2" onchange="updateProgress()">
+                    <label for="s2Goal2">Understand Abraham as the model of faith</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s2Goal3" onchange="updateProgress()">
+                    <label for="s2Goal3">Grasp the benefits of justification</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s2Goal4" onchange="updateProgress()">
+                    <label for="s2Goal4">Reflect on the Adam-Christ parallel</label>
+                </div>
+                <span class="completion-badge" id="s2Badge">Chapters 4-5 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Section 3: Chapters 6-8 -->
+        <div id="section3" class="content-section">
+            <h2 class="section-title">📖 Chapters 6-8: Sanctification and Spirit Life</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Dead to sin, alive in Christ (Rom. 6:1-23)</li>
+                    <li>Freedom from the law's condemnation (Rom. 7:1-25)</li>
+                    <li>Life in the Spirit vs. life in the flesh (Rom. 8:1-17)</li>
+                    <li>Present suffering and future glory (Rom. 8:18-39)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 6:11-12:</strong> "In the same way, count yourselves dead to sin but alive to God in Christ Jesus. Therefore do not let sin reign in your mortal body so that you obey its evil desires."</p>
+                <span class="cross-reference" data-scripture="Galatians 2:20" onclick="showScriptureModal('Galatians 2:20')">Galatians 2:20</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 5:17" onclick="showScriptureModal('2 Corinthians 5:17')">2 Corinthians 5:17</span>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Paul Anticipates Objections</h3>
+                <p>Paul addresses potential misunderstandings:</p>
+                <ul>
+                    <li><strong>"Shall we sin more so grace may abound?"</strong> (6:1) - Absolutely not!</li>
+                    <li><strong>"Is the law sin?"</strong> (7:7) - Not at all! The law reveals sin.</li>
+                    <li><strong>"Who can live up to God's standard?"</strong> (7:24) - Only through the Spirit!</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 8:1-2:</strong> "Therefore, there is now no condemnation for those who are in Christ Jesus, because through Christ Jesus the law of the Spirit who gives life has set you free from the law of sin and death."</p>
+                <span class="cross-reference" data-scripture="John 5:24" onclick="showScriptureModal('John 5:24')">John 5:24</span>
+                <span class="cross-reference" data-scripture="Galatians 5:16" onclick="showScriptureModal('Galatians 5:16')">Galatians 5:16</span>
+            </div>
+
+            <div class="historical-context">
+                <h3>🏛️ The Role of the Holy Spirit</h3>
+                <p>Romans 8 presents the Spirit's ministry:</p>
+                <ul>
+                    <li>Gives life and freedom (8:2)</li>
+                    <li>Enables us to fulfill the law's requirements (8:4)</li>
+                    <li>Transforms our minds and desires (8:5-8)</li>
+                    <li>Assures us of our adoption (8:14-16)</li>
+                    <li>Helps us in our weakness and intercedes for us (8:26-27)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 8:28:</strong> "And we know that in all things God works for the good of those who love him, who have been called according to his purpose."</p>
+                <span class="cross-reference" data-scripture="Jeremiah 29:11" onclick="showScriptureModal('Jeremiah 29:11')">Jeremiah 29:11</span>
+                <span class="cross-reference" data-scripture="Ephesians 1:11" onclick="showScriptureModal('Ephesians 1:11')">Ephesians 1:11</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapters 6-8 Today</h3>
+                <p>These chapters teach us to:</p>
+                <ul>
+                    <li>Live out our new identity in Christ daily</li>
+                    <li>Rely on the Spirit's power rather than our own strength</li>
+                    <li>Find comfort in God's sovereignty during trials</li>
+                    <li>Remember that nothing can separate us from God's love</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What does it practically mean for you to "count yourself dead to sin"?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we help each other live by the Spirit rather than the flesh?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapters 6-8</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapters 6-8..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapters 6-8 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s3Goal1" onchange="updateProgress()">
+                    <label for="s3Goal1">Read Romans 6-8 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s3Goal2" onchange="updateProgress()">
+                    <label for="s3Goal2">Understand union with Christ in death and life</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s3Goal3" onchange="updateProgress()">
+                    <label for="s3Goal3">Grasp the role of the Holy Spirit in sanctification</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s3Goal4" onchange="updateProgress()">
+                    <label for="s3Goal4">Find assurance in God's unbreakable love</label>
+                </div>
+                <span class="completion-badge" id="s3Badge">Chapters 6-8 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Section 4: Chapters 9-11 -->
+        <div id="section4" class="content-section">
+            <h2 class="section-title">📖 Chapters 9-11: God's Sovereignty & Israel</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Paul's anguish for Israel (Rom. 9:1-5)</li>
+                    <li>God's sovereign election (Rom. 9:6-29)</li>
+                    <li>Israel's rejection and Gentile inclusion (Rom. 9:30-10:21)</li>
+                    <li>Israel's future restoration (Rom. 11:1-32)</li>
+                    <li>Praise for God's wisdom (Rom. 11:33-36)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 9:20-21:</strong> "But who are you, a human being, to talk back to God? Shall what is formed say to the one who formed it, 'Why did you make me like this?' Does not the potter have the right to make out of the same lump of clay some pottery for special purposes and some for common use?"</p>
+                <span class="cross-reference" data-scripture="Isaiah 29:16" onclick="showScriptureModal('Isaiah 29:16')">Isaiah 29:16</span>
+                <span class="cross-reference" data-scripture="Jeremiah 18:6" onclick="showScriptureModal('Jeremiah 18:6')">Jeremiah 18:6</span>
+            </div>
+
+            <div class="historical-context">
+                <h3>🏛️ The Israel Question</h3>
+                <p>Paul addresses crucial theological questions:</p>
+                <ul>
+                    <li>Has God's word failed since many Jews reject Christ?</li>
+                    <li>Is God unjust in His election?</li>
+                    <li>What is the relationship between divine sovereignty and human responsibility?</li>
+                    <li>What is the future for ethnic Israel?</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 10:9-10:</strong> "If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved."</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 12:3" onclick="showScriptureModal('1 Corinthians 12:3')">1 Corinthians 12:3</span>
+                <span class="cross-reference" data-scripture="Acts 16:31" onclick="showScriptureModal('Acts 16:31')">Acts 16:31</span>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Gentile Pride Warning</h3>
+                <p>Paul warns Gentile believers against:</p>
+                <ul>
+                    <li>Boasting against the natural branches (11:18)</li>
+                    <li>Thinking they're better than Jewish believers (11:20)</li>
+                    <li>Forgetting their dependence on Israel's root (11:17)</li>
+                    <li>Becoming conceited about their position (11:25)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 11:33-36:</strong> "Oh, the depth of the riches of the wisdom and knowledge of God! How unsearchable his judgments, and his paths beyond tracing out! 'Who has known the mind of the Lord? Or who has been his counselor?' 'Who has ever given to God, that God should repay them?' For from him and through him and to him are all things. To him be the glory forever! Amen."</p>
+                <span class="cross-reference" data-scripture="Isaiah 40:13" onclick="showScriptureModal('Isaiah 40:13')">Isaiah 40:13</span>
+                <span class="cross-reference" data-scripture="Job 41:11" onclick="showScriptureModal('Job 41:11')">Job 41:11</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapters 9-11 Today</h3>
+                <p>These chapters challenge us to:</p>
+                <ul>
+                    <li>Trust God's sovereignty even when we don't understand His ways</li>
+                    <li>Avoid pride and maintain humility before God</li>
+                    <li>Pray earnestly for those who haven't yet believed</li>
+                    <li>Support Jewish evangelism and honor our spiritual heritage</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How do you balance belief in God's sovereignty with urgency in evangelism?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What does Paul's "anguish" for Israel teach us about evangelistic passion?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapters 9-11</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapters 9-11..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapters 9-11 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s4Goal1" onchange="updateProgress()">
+                    <label for="s4Goal1">Read Romans 9-11 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s4Goal2" onchange="updateProgress()">
+                    <label for="s4Goal2">Wrestle with questions of election and sovereignty</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s4Goal3" onchange="updateProgress()">
+                    <label for="s4Goal3">Understand the olive tree illustration</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s4Goal4" onchange="updateProgress()">
+                    <label for="s4Goal4">Worship God for His unsearchable wisdom</label>
+                </div>
+                <span class="completion-badge" id="s4Badge">Chapters 9-11 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Section 5: Chapters 12-14 -->
+        <div id="section5" class="content-section">
+            <h2 class="section-title">📖 Chapters 12-14: Christian Living & Unity</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Living sacrifice and renewed minds (Rom. 12:1-2)</li>
+                    <li>Spiritual gifts and church unity (Rom. 12:3-8)</li>
+                    <li>Practical love in action (Rom. 12:9-21)</li>
+                    <li>Submission to governing authorities (Rom. 13:1-7)</li>
+                    <li>Love as the fulfillment of law (Rom. 13:8-14)</li>
+                    <li>Unity despite differences (Rom. 14:1-23)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 12:1-2:</strong> "Therefore, I urge you, brothers and sisters, in view of God's mercy, to offer your bodies as a living sacrifice, holy and pleasing to God—this is your true and proper worship. Do not conform to the pattern of this world, but be transformed by the renewing of your mind."</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 3:18" onclick="showScriptureModal('2 Corinthians 3:18')">2 Corinthians 3:18</span>
+                <span class="cross-reference" data-scripture="Ephesians 4:23" onclick="showScriptureModal('Ephesians 4:23')">Ephesians 4:23</span>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Practical Christian Living</h3>
+                <p>Paul provides concrete guidance:</p>
+                <ul>
+                    <li><strong>In the Church:</strong> Use gifts humbly, love genuinely, honor others</li>
+                    <li><strong>Toward Enemies:</strong> Bless persecutors, overcome evil with good</li>
+                    <li><strong>In Society:</strong> Submit to authorities, pay taxes, respect leaders</li>
+                    <li><strong>In Relationships:</strong> Love your neighbor, avoid causing others to stumble</li>
+                </ul>
+            </div>
+
+            <div class="historical-context">
+                <h3>🏛️ The "Weak" and "Strong" Debate</h3>
+                <p>Paul addresses specific conflicts in Rome:</p>
+                <ul>
+                    <li><strong>Food issues:</strong> Some ate only vegetables, others ate meat</li>
+                    <li><strong>Holy days:</strong> Some observed Jewish festivals, others didn't</li>
+                    <li><strong>The principle:</strong> Don't judge others or cause them to stumble</li>
+                    <li><strong>The goal:</strong> Unity in essentials, liberty in non-essentials</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 14:17-19:</strong> "For the kingdom of God is not a matter of eating and drinking, but of righteousness, peace and joy in the Holy Spirit, because anyone who serves Christ in this way is pleasing to God and receives human approval. Let us therefore make every effort to do what leads to peace and to mutual edification."</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 8:13" onclick="showScriptureModal('1 Corinthians 8:13')">1 Corinthians 8:13</span>
+                <span class="cross-reference" data-scripture="Galatians 5:22" onclick="showScriptureModal('Galatians 5:22')">Galatians 5:22</span>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What does it mean for you to be a "living sacrifice" in your current circumstances?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What are modern examples of "weak" and "strong" conscience issues in the church?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapters 12-14</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapters 12-14..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapters 12-14 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s5Goal1" onchange="updateProgress()">
+                    <label for="s5Goal1">Read Romans 12-14 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s5Goal2" onchange="updateProgress()">
+                    <label for="s5Goal2">Commit to being a "living sacrifice"</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s5Goal3" onchange="updateProgress()">
+                    <label for="s5Goal3">Practice love in practical relationships</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s5Goal4" onchange="updateProgress()">
+                    <label for="s5Goal4">Apply principles of Christian liberty and unity</label>
+                </div>
+                <span class="completion-badge" id="s5Badge">Chapters 12-14 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Section 6: Chapters 15-16 -->
+        <div id="section6" class="content-section">
+            <h2 class="section-title">📖 Chapters 15-16: Unity & Final Greetings</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Bearing with the weak and pleasing others (Rom. 15:1-7)</li>
+                    <li>Christ's ministry to Jews and Gentiles (Rom. 15:8-13)</li>
+                    <li>Paul's ministry and future plans (Rom. 15:14-33)</li>
+                    <li>Commendation of Phoebe and personal greetings (Rom. 16:1-16)</li>
+                    <li>Warning against divisive people (Rom. 16:17-20)</li>
+                    <li>Final greetings and doxology (Rom. 16:21-27)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 15:5-7:</strong> "May the God who gives endurance and encouragement give you the same attitude of mind toward each other that Christ Jesus had, so that with one mind and one voice you may glorify the God and Father of our Lord Jesus Christ. Accept one another, then, just as Christ accepted you, in order to bring praise to God."</p>
+                <span class="cross-reference" data-scripture="Philippians 2:2" onclick="showScriptureModal('Philippians 2:2')">Philippians 2:2</span>
+                <span class="cross-reference" data-scripture="Ephesians 4:2-3" onclick="showScriptureModal('Ephesians 4:2-3')">Ephesians 4:2-3</span>
+            </div>
+
+            <div class="historical-context">
+                <h3>🏛️ Paul's Ministry Vision</h3>
+                <p>Paul reveals his strategic thinking:</p>
+                <ul>
+                    <li><strong>Completed work:</strong> From Jerusalem to Illyricum (15:19)</li>
+                    <li><strong>Current mission:</strong> Delivering collection to Jerusalem (15:25-27)</li>
+                    <li><strong>Future plans:</strong> Spain via Rome (15:24, 28)</li>
+                    <li><strong>Prayer requests:</strong> Protection and acceptance in Jerusalem (15:30-32)</li>
+                </ul>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Personal Relationships Matter</h3>
+                <p>Romans 16 reveals Paul's relational ministry:</p>
+                <ul>
+                    <li>Names 26 people personally - showing individual care</li>
+                    <li>Commends Phoebe as a deacon and benefactor</li>
+                    <li>Honors women in ministry (Priscilla, Mary, Junia, etc.)</li>
+                    <li>Values fellow workers, fellow prisoners, and faithful servants</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Romans 16:25-27:</strong> "Now to him who is able to establish you in accordance with my gospel, the message I proclaim about Jesus Christ, in keeping with the revelation of the mystery hidden for long ages past, but now revealed and made known through the prophetic writings by the command of the eternal God, so that all the Gentiles might come to the obedience that comes from faith—to the only wise God be glory forever through Jesus Christ! Amen."</p>
+                <span class="cross-reference" data-scripture="Ephesians 3:4-6" onclick="showScriptureModal('Ephesians 3:4-6')">Ephesians 3:4-6</span>
+                <span class="cross-reference" data-scripture="Colossians 1:26-27" onclick="showScriptureModal('Colossians 1:26-27')">Colossians 1:26-27</span>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Watch Out for Divisive People</h3>
+                <p>Paul warns against those who:</p>
+                <ul>
+                    <li>Cause divisions contrary to apostolic teaching (16:17)</li>
+                    <li>Create obstacles to unity and growth</li>
+                    <li>Serve themselves rather than Christ (16:18)</li>
+                    <li>Deceive the naive with smooth talk</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How can you better "accept one another" as Christ has accepted you?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What can we learn from Paul's personal relationships and ministry partnerships?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapters 15-16</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapters 15-16..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapters 15-16 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s6Goal1" onchange="updateProgress()">
+                    <label for="s6Goal1">Read Romans 15-16 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s6Goal2" onchange="updateProgress()">
+                    <label for="s6Goal2">Understand Paul's ministry vision and strategy</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s6Goal3" onchange="updateProgress()">
+                    <label for="s6Goal3">Appreciate the importance of personal relationships in ministry</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="s6Goal4" onchange="updateProgress()">
+                    <label for="s6Goal4">Commit to unity and acceptance in the church</label>
+                </div>
+                <span class="completion-badge" id="s6Badge">Chapters 15-16 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div id="summary" class="content-section">
+            <h2 class="section-title">✅ Study Summary</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Key Takeaways from Romans</h3>
+                <ul>
+                    <li><strong>Universal Need:</strong> All humanity stands condemned before God and needs salvation</li>
+                    <li><strong>Justification by Faith:</strong> We are declared righteous through faith in Christ alone</li>
+                    <li><strong>Life in the Spirit:</strong> Christians are empowered to live holy lives by God's Spirit</li>
+                    <li><strong>God's Sovereignty:</strong> God's election and calling are according to His perfect will</li>
+                    <li><strong>Practical Holiness:</strong> Faith expresses itself in love and unity within the church</li>
+                    <li><strong>Global Mission:</strong> The gospel is for all people, Jews and Gentiles alike</li>
+                </ul>
+            </div>
+
+            <div class="historical-context">
+                <h3>🏛️ The Structure of Romans</h3>
+                <p>Paul's systematic presentation follows a logical flow:</p>
+                <ul>
+                    <li><strong>Problem:</strong> Universal sinfulness and condemnation (1-3)</li>
+                    <li><strong>Solution:</strong> Justification by faith through Christ (4-5)</li>
+                    <li><strong>Implementation:</strong> Sanctification by the Spirit's power (6-8)</li>
+                    <li><strong>Objection:</strong> What about God's promises to Israel? (9-11)</li>
+                    <li><strong>Application:</strong> How then shall we live? (12-16)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Key Memory Verses from Romans:</strong></p>
+                <ul style="margin-top: 15px; font-style: normal;">
+                    <li>"For I am not ashamed of the gospel..." (1:16-17)</li>
+                    <li>"For all have sinned and fall short..." (3:23-24)</li>
+                    <li>"Therefore, since we have been justified..." (5:1)</li>
+                    <li>"There is therefore now no condemnation..." (8:1)</li>
+                    <li>"And we know that in all things God works..." (8:28)</li>
+                    <li>"Therefore, I urge you, brothers and sisters..." (12:1-2)</li>
+                </ul>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Living Out Romans Today</h3>
+                <p>Romans challenges modern believers to:</p>
+                <ul>
+                    <li>Embrace the sufficiency of Christ's righteousness</li>
+                    <li>Reject both legalism and antinomianism</li>
+                    <li>Trust God's sovereignty while remaining evangelistic</li>
+                    <li>Pursue unity across cultural and ethnic boundaries</li>
+                    <li>Live as living sacrifices in practical daily life</li>
+                    <li>Build strong, supportive Christian communities</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Final Reflection</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How has studying Romans changed your understanding of salvation and Christian living?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What is one key principle from Romans your group can implement together?
+                </div>
+                <div class="discussion-question">
+                    <strong>Ongoing Study:</strong> Which sections of Romans do you want to study more deeply in the future?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Final Summary Notes</h3>
+                <textarea placeholder="Summarize your key insights from this comprehensive study of Romans..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Study Completion Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal1" onchange="updateProgress()">
+                    <label for="sumGoal1">Complete all section studies of Romans</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal2" onchange="updateProgress()">
+                    <label for="sumGoal2">Understand the flow of Paul's argument throughout the letter</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal3" onchange="updateProgress()">
+                    <label for="sumGoal3">Apply one key lesson to your personal life</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal4" onchange="updateProgress()">
+                    <label for="sumGoal4">Share insights with others or your study group</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal5" onchange="updateProgress()">
+                    <label for="sumGoal5">Commit to ongoing application of Romans' teachings</label>
+                </div>
+                <span class="completion-badge" id="sumBadge">Romans Study Completed!</span>
+            </div>
+
+            <div class="theme-box">
+                <h3>🎓 Congratulations!</h3>
+                <p>You have completed a comprehensive study of Paul's letter to the Romans. This letter has been called "the cathedral of Christian doctrine" and "the gospel according to Paul." The truths you've studied have shaped Christian theology for nearly 2000 years and continue to transform lives today.</p>
+                
+                <p style="margin-top: 15px;"><strong>Next Steps:</strong> Consider studying other Pauline epistles, sharing your insights with others, or leading a Romans study group. The gospel revealed in Romans is meant to be lived out and shared with the world.</p>
+            </div>
+        </div>
+
+        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+        <!-- Modal for Scripture References -->
+        <div class="modal-overlay" id="scriptureModal">
+            <div class="modal">
+                <h3 id="modalTitle"></h3>
+                <p id="modalText"></p>
+                <button class="modal-close" onclick="closeScriptureModal()">×</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scripture data for cross-references
+        const scriptureData = {
+            "Habakkuk 2:4": "See, the enemy is puffed up; his desires are not upright—but the righteous person will live by his faithfulness.",
+            "Galatians 3:11": "Clearly no one who relies on the law is justified before God, because 'the righteous will live by faith.'",
+            "Ephesians 2:8-9": "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast.",
+            "Titus 3:5": "He saved us through the washing of rebirth and renewal by the Holy Spirit.",
+            "Genesis 15:6": "Abram believed the Lord, and he credited it to him as righteousness.",
+            "Galatians 3:6-9": "So also Abraham 'believed God, and it was credited to him as righteousness.' Understand, then, that those who have faith are children of Abraham. Scripture foresaw that God would justify the Gentiles by faith, and announced the gospel in advance to Abraham: 'All nations will be blessed through you.' So those who rely on faith are blessed along with Abraham, the man of faith.",
+            "Ephesians 2:14": "For he himself is our peace, who has made the two groups one and has destroyed the barrier, the dividing wall of hostility.",
+            "Colossians 1:20": "And through him to reconcile to himself all things, whether things on earth or things in heaven, by making peace through his blood, shed on the cross.",
+            "Galatians 2:20": "I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me.",
+            "2 Corinthians 5:17": "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!",
+            "John 5:24": "Very truly I tell you, whoever hears my word and believes him who sent me has eternal life and will not be judged but has crossed over from death to life.",
+            "Galatians 5:16": "So I say, walk by the Spirit, and you will not gratify the desires of the flesh.",
+            "Jeremiah 29:11": "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
+            "Ephesians 1:11": "In him we were also chosen, having been predestined according to the plan of him who works out everything in conformity with the purpose of his will.",
+            "Isaiah 29:16": "You turn things upside down, as if the potter were thought to be like the clay! Shall what is formed say to the one who formed it, 'You did not make me'? Can the pot say to the potter, 'You know nothing'?",
+            "Jeremiah 18:6": "'Can I not do with you, Israel, as this potter does?' declares the Lord. 'Like clay in the hand of the potter, so are you in my hand, Israel.'",
+            "1 Corinthians 12:3": "Therefore I want you to know that no one who is speaking by the Spirit of God says, 'Jesus be cursed,' and no one can say, 'Jesus is Lord,' except by the Holy Spirit.",
+            "Acts 16:31": "They replied, 'Believe in the Lord Jesus, and you will be saved—you and your household.'",
+            "Isaiah 40:13": "Who can fathom the Spirit of the Lord, or instruct the Lord as his counselor?",
+            "Job 41:11": "Who has a claim against me that I must pay? Everything under heaven belongs to me.",
+            "2 Corinthians 3:18": "And we all, who with unveiled faces contemplate the Lord's glory, are being transformed into his image with ever-increasing glory, which comes from the Lord, who is the Spirit.",
+            "Ephesians 4:23": "To be made new in the attitude of your minds.",
+            "1 Corinthians 8:13": "Therefore, if what I eat causes my brother or sister to fall into sin, I will never eat meat again, so that I will not cause them to fall.",
+            "Galatians 5:22": "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness.",
+            "Philippians 2:2": "Then make my joy complete by being like-minded, having the same love, being one in spirit and of one mind.",
+            "Ephesians 4:2-3": "Be completely humble and gentle; be patient, bearing with one another in love. Make every effort to keep the unity of the Spirit through the bond of peace.",
+            "Ephesians 3:4-6": "In reading this, then, you will be able to understand my insight into the mystery of Christ, which was not made known to people in other generations as it has now been revealed by the Spirit to God's holy apostles and prophets. This mystery is that through the gospel the Gentiles are heirs together with Israel, members together of one body, and sharers together in the promise in Christ Jesus.",
+            "Colossians 1:26-27": "The mystery that has been kept hidden for ages and generations, but is now disclosed to the Lord's people. To them God has chosen to make known among the Gentiles the glorious riches of this mystery, which is Christ in you, the hope of glory."
+        };
+
+        // Show scripture modal
+        function showScriptureModal(reference) {
+            const modal = document.getElementById('scriptureModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalText = document.getElementById('modalText');
+
+            modalTitle.textContent = reference;
+            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
+            modal.style.display = 'flex';
+        }
+
+        // Close scripture modal
+        function closeScriptureModal() {
+            document.getElementById('scriptureModal').style.display = 'none';
+        }
+
+        // Initialize progress tracking
+        let totalCheckboxes = 0;
+        let checkedCount = 0;
+
+        // Count total checkboxes on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
+            updateProgress();
+            window.addEventListener('scroll', toggleBackToTop);
+        });
+
+        // Show/hide sections
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            
+            // Show completion badge if all checkboxes in section are checked
+            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                if (sectionBadge) sectionBadge.classList.add('show');
+            } else {
+                if (sectionBadge) sectionBadge.classList.remove('show');
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
+            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
+            
+            let progressMessage = '';
+            if (progressPercentage === 0) {
+                progressMessage = "Ready to explore Paul's masterpiece!";
+            } else if (progressPercentage < 25) {
+                progressMessage = "Great start - keep studying!";
+            } else if (progressPercentage < 50) {
+                progressMessage = "Making good progress through Romans!";
+            } else if (progressPercentage < 75) {
+                progressMessage = "Over halfway - you're doing great!";
+            } else if (progressPercentage < 100) {
+                progressMessage = "Almost finished with this theological masterpiece!";
+            } else {
+                progressMessage = "Congratulations! Study completed!";
+            }
+            
+            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - ${progressMessage}`;
+
+            // Update section badges
+            ['overview', 'background', 'section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'summary'].forEach(sectionId => {
+                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+                if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                    if (sectionBadge) sectionBadge.classList.add('show');
+                } else {
+                    if (sectionBadge) sectionBadge.classList.remove('show');
+                }
+            });
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle back-to-top button visibility
+        function toggleBackToTop() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

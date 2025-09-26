@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📖 Interactive Bible Study Guides</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #ff6b6b, #ffa726, #42a5f5, #ab47bc);
+      background-size: 400% 400%;
+      animation: gradientShift 6s ease infinite;
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1 {
+      font-size: 3.5em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: -1px;
+    }
+    
+    .subtitle {
+      font-size: 1.4em;
+      font-weight: 300;
+      opacity: 0.95;
+      margin-bottom: 0;
+    }
+    
+    .main-content {
+      padding: 50px 40px;
+    }
+    
+    .section {
+      margin-bottom: 50px;
+    }
+    
+    .section-title {
+      font-size: 2.2em;
+      font-weight: 600;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+    }
+    
+    .available .section-title {
+      color: #2e7d32;
+    }
+    
+    .available .section-title::after {
+      background: linear-gradient(90deg, #4caf50, #81c784);
+    }
+    
+    .coming-soon .section-title {
+      color: #f57c00;
+    }
+    
+    .coming-soon .section-title::after {
+      background: linear-gradient(90deg, #ff9800, #ffb74d);
+    }
+    
+    .future .section-title {
+      color: #7b1fa2;
+    }
+    
+    .future .section-title::after {
+      background: linear-gradient(90deg, #9c27b0, #ba68c8);
+    }
+    
+    .study-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .study-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .study-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .available .study-card::before {
+      background: linear-gradient(90deg, #4caf50, #81c784);
+    }
+    
+    .coming-soon .study-card::before {
+      background: linear-gradient(90deg, #ff9800, #ffb74d);
+    }
+    
+    .future .study-card::before {
+      background: linear-gradient(90deg, #9c27b0, #ba68c8);
+    }
+    
+    .study-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .available .study-card:hover {
+      border-color: #4caf50;
+    }
+    
+    .coming-soon .study-card:hover {
+      border-color: #ff9800;
+    }
+    
+    .future .study-card:hover {
+      border-color: #9c27b0;
+    }
+    
+    .study-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .study-icon {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+    
+    .available .study-icon {
+      color: #4caf50;
+    }
+    
+    .coming-soon .study-icon {
+      color: #ff9800;
+    }
+    
+    .future .study-icon {
+      color: #9c27b0;
+    }
+    
+    .study-name {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    
+    .study-status {
+      font-size: 0.9em;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .available .study-status {
+      color: #4caf50;
+    }
+    
+    .coming-soon .study-status {
+      color: #ff9800;
+    }
+    
+    .future .study-status {
+      color: #9c27b0;
+    }
+    
+    .single-study {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .single-study .study-card {
+      max-width: 350px;
+      width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        padding: 40px 20px;
+      }
+      
+      h1 {
+        font-size: 2.5em;
+      }
+      
+      .subtitle {
+        font-size: 1.1em;
+      }
+      
+      .main-content {
+        padding: 30px 20px;
+      }
+      
+      .section-title {
+        font-size: 1.8em;
+      }
+      
+      .study-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+      
+      .study-card {
+        padding: 25px 20px;
+      }
+      
+      .study-name {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>📖 Interactive Bible Study Guides</h1>
+        <p class="subtitle">Discover the depth of God's Word through guided study</p>
+      </div>
+    </header>
+    
+    <main class="main-content">
+      <section class="section available">
+        <h2 class="section-title">Currently Available</h2>
+        <div class="study-grid single-study">
+          <a href="colossians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">📜</div>
+              <div class="study-name">Colossians Study Guide</div>
+              <div class="study-status">Start Studying</div>
+            </div>
+          </a>
+        </div>
+      </section>
+      
+      <section class="section coming-soon">
+        <h2 class="section-title">Coming Soon</h2>
+        <div class="study-grid">
+          <a href="ephesians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">⭐</div>
+              <div class="study-name">Ephesians</div>
+              <div class="study-status">Coming Soon</div>
+            </div>
+          </a>
+          <a href="romans.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🏛️</div>
+              <div class="study-name">Romans</div>
+              <div class="study-status">Coming Soon</div>
+            </div>
+          </a>
+          <a href="1corinthians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">⛪</div>
+              <div class="study-name">1 Corinthians</div>
+              <div class="study-status">Coming Soon</div>
+            </div>
+          </a>
+          <a href="2corinthians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">💌</div>
+              <div class="study-name">2 Corinthians</div>
+              <div class="study-status">Coming Soon</div>
+            </div>
+          </a>
+        </div>
+      </section>
+      
+      <section class="section future">
+        <h2 class="section-title">Future Studies (Pauline Epistles)</h2>
+        <div class="study-grid">
+          <a href="galatians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🗝️</div>
+              <div class="study-name">Galatians</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="philippians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">😊</div>
+              <div class="study-name">Philippians</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="1thessalonians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🌅</div>
+              <div class="study-name">1 Thessalonians</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="2thessalonians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">⏰</div>
+              <div class="study-name">2 Thessalonians</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="1timothy.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">👨‍🏫</div>
+              <div class="study-name">1 Timothy</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="2timothy.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🎓</div>
+              <div class="study-name">2 Timothy</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="titus.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">⚖️</div>
+              <div class="study-name">Titus</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+          <a href="philemon.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🤝</div>
+              <div class="study-name">Philemon</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
