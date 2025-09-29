@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galatians: Freedom in Christ - Interactive Bible Study</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --deep-blue: #1e3a8a;
+            --royal-purple: #6b46c1;
+            --warm-white: #fefefe;
+            --soft-gray: #f8fafc;
+            --text-dark: #1e293b;
+            --accent-red: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--warm-white) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .progress-tracker {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--royal-purple));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .chapter-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+            color: var(--text-dark);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
+            color: var(--warm-white);
+        }
+
+        .content-section {
+            display: none;
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--primary-gold);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--deep-blue);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .theme-box {
+            background: linear-gradient(135deg, var(--soft-gray), var(--warm-white));
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid var(--royal-purple);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .theme-box h3 {
+            color: var(--royal-purple);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .verse-highlight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-gold);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .interactive-element {
+            background: var(--soft-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed var(--primary-gold);
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--royal-purple);
+        }
+
+        .discussion-question {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .cross-reference {
+            display: inline-block;
+            background: var(--deep-blue);
+            color: var(--warm-white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cross-reference:hover {
+            background: var(--royal-purple);
+            transform: scale(1.05);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.3);
+            accent-color: var(--primary-gold);
+        }
+
+        .historical-context {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid var(--deep-blue);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-red);
+        }
+
+        .application-modern {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #16a34a;
+        }
+
+        .notes-section {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .study-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tool-card {
+            background: var(--warm-white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: var(--warm-white);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .completion-badge.show {
+            opacity: 1;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: var(--warm-white);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-left: 6px solid var(--primary-gold);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal h3 {
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-red);
+            color: var(--warm-white);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--royal-purple);
+            transform: scale(1.1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .chapter-nav {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 Galatians Study Guide</h1>
+            <p class="subtitle">"Freedom in Christ"</p>
+        </div>
+
+        <div class="progress-tracker">
+            <h3>Study Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0% Complete - Ready to begin your journey!</p>
+        </div>
+
+        <div class="chapter-nav">
+            <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
+            <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
+            <button class="nav-button" onclick="showSection('chapter1')">📖 Chapter 1</button>
+            <button class="nav-button" onclick="showSection('chapter2')">📖 Chapter 2</button>
+            <button class="nav-button" onclick="showSection('chapter3')">📖 Chapter 3</button>
+            <button class="nav-button" onclick="showSection('chapter4')">📖 Chapter 4</button>
+            <button class="nav-button" onclick="showSection('chapter5')">📖 Chapter 5</button>
+            <button class="nav-button" onclick="showSection('chapter6')">📖 Chapter 6</button>
+            <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="content-section active">
+            <h2 class="section-title">📋 Study Overview</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Purpose of This Study</h3>
+                <p>Welcome to an in-depth exploration of Paul's letter to the Galatians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for modern believers. Galatians is Paul's passionate defense of the gospel of grace and freedom in Christ against legalism and works-based salvation.</p>
+            </div>
+
+            <div class="interactive-element">
+                <h3>🎯 Your Study Goals</h3>
+                <p>Check off each goal as you complete it:</p>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal1" onchange="updateProgress()">
+                    <label for="goal1">Understand the historical context of Galatia and the Judaizer controversy</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal2" onchange="updateProgress()">
+                    <label for="goal2">Grasp the doctrine of justification by faith alone</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal3" onchange="updateProgress()">
+                    <label for="goal3">Identify modern forms of legalism and works-righteousness</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal4" onchange="updateProgress()">
+                    <label for="goal4">Apply Paul's teachings on Christian liberty to contemporary life</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="goal5" onchange="updateProgress()">
+                    <label for="goal5">Complete personal reflection exercises for each chapter</label>
+                </div>
+            </div>
+
+            <div class="study-tools">
+                <div class="tool-card">
+                    <h3>📝 Study Method</h3>
+                    <p>We'll use the <strong>SOAP</strong> method:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li><strong>S</strong>cripture - Read the text</li>
+                        <li><strong>O</strong>bservation - What does it say?</li>
+                        <li><strong>A</strong>pplication - How does it apply?</li>
+                        <li><strong>P</strong>rayer - Talk to God about it</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>⏰ Time Commitment</h3>
+                    <p>Each chapter study is designed for:</p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>30-45 minutes individual study</li>
+                        <li>60-90 minutes group discussion</li>
+                        <li>Weekly personal reflection</li>
+                    </ul>
+                </div>
+                <div class="tool-card">
+                    <h3>📚 Resources Needed</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Bible (multiple translations helpful)</li>
+                        <li>Notebook for personal notes</li>
+                        <li>This interactive guide</li>
+                        <li>Open heart for God's Word!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Section -->
+        <div id="background" class="content-section">
+            <h2 class="section-title">🏛️ Historical Background</h2>
+            
+            <div class="historical-context">
+                <h3>🌍 The Region of Galatia</h3>
+                <p><strong>Location:</strong> Galatia was a region in central Asia Minor (modern-day Turkey). The exact location is debated - it could refer to ethnic Galatia in the north or the Roman province of Galatia in the south, which included cities like Antioch, Iconium, Lystra, and Derbe.</p>
+                
+                <p><strong>Historical Background:</strong> The Galatians were descendants of Celtic tribes who invaded the region in the 3rd century BC. By Paul's time, the area had been under Roman control and was ethnically diverse, with Celts, Greeks, Romans, and Jews living together.</p>
+                
+                <p><strong>Paul's Mission:</strong> Paul likely visited these churches during his first missionary journey (Acts 13-14) and possibly on his second journey. He had a close relationship with these believers and was deeply troubled by the false teaching that infiltrated their communities.</p>
+            </div>
+
+            <div class="theme-box">
+                <h3>👤 Paul's Connection to Galatia</h3>
+                <p><strong>Personal relationship</strong> with the churches:</p>
+                <ul>
+                    <li><strong>Founded the churches</strong> - Likely during his first missionary journey</li>
+                    <li><strong>Received warmly</strong> - Despite physical illness (Gal. 4:13-14)</li>
+                    <li><strong>Deep concern</strong> - Called them "my children" (Gal. 4:19)</li>
+                    <li><strong>Emotional tone</strong> - The letter is Paul's most passionate and urgent</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ The Judaizer Controversy</h3>
+                <p>Paul wrote to combat false teachers (Judaizers) who were perverting the gospel by adding requirements to faith in Christ:</p>
+                
+                <div style="margin: 20px 0;">
+                    <h4>✂️ Circumcision Requirement:</h4>
+                    <ul>
+                        <li>Insisted Gentile believers must be circumcised (Gal. 5:2-3)</li>
+                        <li>Claimed this was necessary for salvation</li>
+                        <li>Made the Mosaic Law binding on Christians</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>📜 Law Observance:</h4>
+                    <ul>
+                        <li>Required keeping Jewish ceremonial laws</li>
+                        <li>Special observance of days, months, seasons (Gal. 4:10)</li>
+                        <li>Dietary restrictions from the Law of Moses</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h4>🎭 The Core Error:</h4>
+                    <ul>
+                        <li>Faith in Christ PLUS works of the Law for salvation</li>
+                        <li>Undermined the sufficiency of Christ's sacrifice</li>
+                        <li>Created a two-tier Christianity (Jewish and Gentile)</li>
+                        <li>Questioned Paul's apostolic authority</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Modern Parallels</h3>
+                <p>Today's believers face similar challenges to the Galatians:</p>
+                <ul>
+                    <li><strong>Works-Based Salvation:</strong> Adding requirements to faith (baptism, church membership, good deeds)</li>
+                    <li><strong>Legalism:</strong> Strict rules about dress, entertainment, behavior as measures of spirituality</li>
+                    <li><strong>Performance Christianity:</strong> Earning God's favor through religious activity</li>
+                    <li><strong>Cultural Christianity:</strong> Conforming to traditions rather than gospel transformation</li>
+                    <li><strong>Prosperity Teaching:</strong> Obedience as a means to material blessing</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> Are there areas where you've added requirements to the gospel or measured your spirituality by external performance?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we distinguish between biblical standards for Christian living and legalistic additions to the gospel?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Background</h3>
+                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Background Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal1" onchange="updateProgress()">
+                    <label for="bgGoal1">Understand the cultural and religious context of Galatia</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal2" onchange="updateProgress()">
+                    <label for="bgGoal2">Identify the Judaizer controversy and its implications</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal3" onchange="updateProgress()">
+                    <label for="bgGoal3">Recognize Paul's relationship with the Galatian churches</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bgGoal4" onchange="updateProgress()">
+                    <label for="bgGoal4">Reflect on modern forms of legalism</label>
+                </div>
+                <span class="completion-badge" id="bgBadge">Section Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 1 Section -->
+        <div id="chapter1" class="content-section">
+            <h2 class="section-title">📖 Chapter 1: Paul's Authority & the True Gospel</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Paul's apostolic authority directly from Christ (Gal. 1:1, 11-12)</li>
+                    <li>The uniqueness of the gospel - no other version (Gal. 1:6-9)</li>
+                    <li>Paul's conversion and calling (Gal. 1:13-17)</li>
+                    <li>Independence from the Jerusalem apostles (Gal. 1:18-24)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 1:8-9:</strong> "But even if we or an angel from heaven should preach a gospel other than the one we preached to you, let them be under God's curse! As we have already said, so now I say again: If anybody is preaching to you a gospel other than what you accepted, let them be under God's curse!"</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 11:4" onclick="showScriptureModal('2 Corinthians 11:4')">2 Corinthians 11:4</span>
+                <span class="cross-reference" data-scripture="1 Timothy 1:3-4" onclick="showScriptureModal('1 Timothy 1:3-4')">1 Timothy 1:3-4</span>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Paul's Astonishment</h3>
+                <p>Paul expresses shock that the Galatians are "so quickly deserting" the one who called them. This reveals:</p>
+                <ul>
+                    <li>The speed at which false teaching can take root</li>
+                    <li>The serious nature of distorting the gospel</li>
+                    <li>The need for constant vigilance in doctrine</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How can you discern between the true gospel and distorted versions you might encounter?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> Why is Paul so forceful in his language about those who pervert the gospel? What does this teach us about truth?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 1 Today</h3>
+                <p>Guard the gospel by:</p>
+                <ul>
+                    <li><strong>Testing Teaching:</strong> Compare all teaching to Scripture</li>
+                    <li><strong>Knowing the Gospel:</strong> Be clear on what the gospel actually is</li>
+                    <li><strong>Rejecting Additions:</strong> Don't add to "faith alone in Christ alone"</li>
+                    <li><strong>Standing Firm:</strong> Don't be swayed by popular or appealing false teaching</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 1</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 1 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal1" onchange="updateProgress()">
+                    <label for="ch1Goal1">Read Galatians 1 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal2" onchange="updateProgress()">
+                    <label for="ch1Goal2">Understand Paul's defense of his apostolic authority</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1Goal3" onchange="updateProgress()">
+                    <label for="ch1Goal3">Identify what makes the gospel unique and unchangeable</label>
+                </div>
+                <span class="completion-badge" id="ch1Badge">Chapter 1 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 2 Section -->
+        <div id="chapter2" class="content-section">
+            <h2 class="section-title">📖 Chapter 2: Justification by Faith Alone</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Paul's gospel accepted by Jerusalem leaders (Gal. 2:1-10)</li>
+                    <li>Confrontation with Peter over hypocrisy (Gal. 2:11-14)</li>
+                    <li>Justification by faith, not works of law (Gal. 2:15-16)</li>
+                    <li>Crucified with Christ - new life (Gal. 2:20)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 2:16:</strong> "Know that a person is not justified by the works of the law, but by faith in Jesus Christ. So we, too, have put our faith in Christ Jesus that we may be justified by faith in Christ and not by the works of the law, because by the works of the law no one will be justified."</p>
+                <span class="cross-reference" data-scripture="Romans 3:28" onclick="showScriptureModal('Romans 3:28')">Romans 3:28</span>
+                <span class="cross-reference" data-scripture="Ephesians 2:8-9" onclick="showScriptureModal('Ephesians 2:8-9')">Ephesians 2:8-9</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 2:20:</strong> "I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me."</p>
+                <span class="cross-reference" data-scripture="Romans 6:6-8" onclick="showScriptureModal('Romans 6:6-8')">Romans 6:6-8</span>
+            </div>
+
+            <div class="historical-context">
+                <h3>📖 The Antioch Incident</h3>
+                <p>Paul confronted Peter publicly when Peter withdrew from eating with Gentile believers under pressure from Jewish Christians. This wasn't about table manners - it was about the gospel itself:</p>
+                <ul>
+                    <li>Peter's actions implied Gentiles were second-class Christians</li>
+                    <li>It suggested the gospel wasn't sufficient without Jewish customs</li>
+                    <li>Even Barnabas was led astray by this hypocrisy</li>
+                    <li>Paul recognized this undermined justification by faith alone</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> Are there ways you live as though you must earn God's acceptance rather than resting in Christ's finished work?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can our actions communicate that some Christians are more acceptable than others? How does this contradict the gospel?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 2 Today</h3>
+                <p>Live by faith in Christ by:</p>
+                <ul>
+                    <li><strong>Resting in Christ:</strong> Your identity is in Him, not your performance</li>
+                    <li><strong>Rejecting Merit-Based Acceptance:</strong> You're fully accepted through Christ</li>
+                    <li><strong>Avoiding Hypocrisy:</strong> Don't create barriers between believers</li>
+                    <li><strong>Embracing Grace:</strong> Live out of gratitude, not obligation</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 2</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 2 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal1" onchange="updateProgress()">
+                    <label for="ch2Goal1">Read Galatians 2 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal2" onchange="updateProgress()">
+                    <label for="ch2Goal2">Understand justification by faith alone</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2Goal3" onchange="updateProgress()">
+                    <label for="ch2Goal3">Reflect on being crucified with Christ</label>
+                </div>
+                <span class="completion-badge" id="ch2Badge">Chapter 2 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 3 Section -->
+        <div id="chapter3" class="content-section">
+            <h2 class="section-title">📖 Chapter 3: Faith vs. Law</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Receiving the Spirit by faith, not works (Gal. 3:1-5)</li>
+                    <li>Abraham justified by faith (Gal. 3:6-9)</li>
+                    <li>The curse of the law and Christ's redemption (Gal. 3:10-14)</li>
+                    <li>The purpose of the law (Gal. 3:19-25)</li>
+                    <li>Unity in Christ - no distinctions (Gal. 3:26-29)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 3:13-14:</strong> "Christ redeemed us from the curse of the law by becoming a curse for us, for it is written: 'Cursed is everyone who is hung on a pole.' He redeemed us in order that the blessing given to Abraham might come to the Gentiles through Christ Jesus, so that by faith we might receive the promise of the Spirit."</p>
+                <span class="cross-reference" data-scripture="Romans 8:3-4" onclick="showScriptureModal('Romans 8:3-4')">Romans 8:3-4</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 5:21" onclick="showScriptureModal('2 Corinthians 5:21')">2 Corinthians 5:21</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 3:28:</strong> "There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus."</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 12:13" onclick="showScriptureModal('1 Corinthians 12:13')">1 Corinthians 12:13</span>
+            </div>
+
+            <div class="theme-box">
+                <h3>📚 The Purpose of the Law</h3>
+                <p>Paul explains the law was never meant to save but to:</p>
+                <ul>
+                    <li><strong>Reveal sin</strong> - Show us our need for a Savior</li>
+                    <li><strong>Be a guardian</strong> - Lead us to Christ (like a tutor)</li>
+                    <li><strong>Temporary function</strong> - Until Christ came</li>
+                    <li><strong>Point to faith</strong> - Show that faith is the only way</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How does understanding that you're justified by faith (not law-keeping) change how you approach daily Christian living?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What does it mean that we are "all one in Christ Jesus"? How should this affect how we treat one another?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 3 Today</h3>
+                <p>Walk by faith by:</p>
+                <ul>
+                    <li><strong>Trusting Christ Alone:</strong> Not your religious performance</li>
+                    <li><strong>Embracing Unity:</strong> No spiritual hierarchy among believers</li>
+                    <li><strong>Living by the Spirit:</strong> The Spirit came by faith, not works</li>
+                    <li><strong>Following Abraham's Example:</strong> Faith that believes God's promises</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 3</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 3 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal1" onchange="updateProgress()">
+                    <label for="ch3Goal1">Read Galatians 3 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal2" onchange="updateProgress()">
+                    <label for="ch3Goal2">Understand the purpose of the law</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3Goal3" onchange="updateProgress()">
+                    <label for="ch3Goal3">Reflect on unity in Christ</label>
+                </div>
+                <span class="completion-badge" id="ch3Badge">Chapter 3 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 4 Section -->
+        <div id="chapter4" class="content-section">
+            <h2 class="section-title">📖 Chapter 4: Sons, Not Slaves</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>From slaves to sons through adoption (Gal. 4:1-7)</li>
+                    <li>Paul's concern for the Galatians (Gal. 4:8-20)</li>
+                    <li>Allegory of Hagar and Sarah (Gal. 4:21-31)</li>
+                    <li>Children of promise, not slavery</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 4:6-7:</strong> "Because you are his sons, God sent the Spirit of his Son into our hearts, the Spirit who calls out, 'Abba, Father.' So you are no longer a slave, but God's child; and since you are his child, God has made you also an heir."</p>
+                <span class="cross-reference" data-scripture="Romans 8:15-17" onclick="showScriptureModal('Romans 8:15-17')">Romans 8:15-17</span>
+                <span class="cross-reference" data-scripture="John 1:12" onclick="showScriptureModal('John 1:12')">John 1:12</span>
+            </div>
+
+            <div class="historical-context">
+                <h3>👶 Understanding Adoption</h3>
+                <p>In Roman culture, adoption gave full legal status as a son with complete inheritance rights. Paul uses this to show:</p>
+                <ul>
+                    <li>We're not second-class citizens in God's family</li>
+                    <li>We have full rights as heirs with Christ</li>
+                    <li>The Spirit confirms our adoption ("Abba, Father")</li>
+                    <li>We're chosen and wanted by God</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Returning to Slavery</h3>
+                <p>Paul is amazed the Galatians want to return to slavery under the law after experiencing freedom in Christ:</p>
+                <ul>
+                    <li>Observing special days and seasons (Gal. 4:10)</li>
+                    <li>Submitting again to bondage (Gal. 4:9)</li>
+                    <li>Trading sonship for slavery</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> Do you live more like a slave trying to earn approval or like a beloved son/daughter who already has it?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What does it mean to call God "Abba"? How does this shape our relationship with Him?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 4 Today</h3>
+                <p>Live as God's child by:</p>
+                <ul>
+                    <li><strong>Embracing Your Identity:</strong> You're a son/daughter, not a slave</li>
+                    <li><strong>Approaching God Intimately:</strong> He's your Father ("Abba")</li>
+                    <li><strong>Rejecting Performance-Based Acceptance:</strong> You're already accepted</li>
+                    <li><strong>Living in Freedom:</strong> Don't return to bondage</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 4</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 4 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal1" onchange="updateProgress()">
+                    <label for="ch4Goal1">Read Galatians 4 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal2" onchange="updateProgress()">
+                    <label for="ch4Goal2">Understand adoption as sons of God</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4Goal3" onchange="updateProgress()">
+                    <label for="ch4Goal3">Reflect on living as a child, not a slave</label>
+                </div>
+                <span class="completion-badge" id="ch4Badge">Chapter 4 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 5 Section -->
+        <div id="chapter5" class="content-section">
+            <h2 class="section-title">📖 Chapter 5: Freedom & the Spirit</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Stand firm in freedom (Gal. 5:1)</li>
+                    <li>Circumcision nullifies Christ's work (Gal. 5:2-6)</li>
+                    <li>Freedom is not license for sin (Gal. 5:13-15)</li>
+                    <li>Walk by the Spirit (Gal. 5:16-18)</li>
+                    <li>Fruit of the Spirit vs. works of the flesh (Gal. 5:19-26)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 5:1:</strong> "It is for freedom that Christ has set us free. Stand firm, then, and do not let yourselves be burdened again by a yoke of slavery."</p>
+                <span class="cross-reference" data-scripture="John 8:36" onclick="showScriptureModal('John 8:36')">John 8:36</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 5:22-23:</strong> "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law."</p>
+                <span class="cross-reference" data-scripture="Colossians 3:12-14" onclick="showScriptureModal('Colossians 3:12-14')">Colossians 3:12-14</span>
+            </div>
+
+            <div class="theme-box">
+                <h3>⚖️ Two Ways to Live</h3>
+                <p><strong>The Flesh (Sinful Nature):</strong></p>
+                <ul>
+                    <li>Sexual immorality, impurity, debauchery</li>
+                    <li>Idolatry, witchcraft</li>
+                    <li>Hatred, discord, jealousy, rage</li>
+                    <li>Selfish ambition, dissensions, factions</li>
+                    <li>Envy, drunkenness, orgies</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>The Spirit:</strong></p>
+                <ul>
+                    <li>Love, joy, peace</li>
+                    <li>Patience, kindness, goodness</li>
+                    <li>Faithfulness, gentleness, self-control</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Don't Misuse Freedom</h3>
+                <p>Paul warns against two extremes:</p>
+                <ul>
+                    <li><strong>Legalism:</strong> Trying to be justified by law (bondage)</li>
+                    <li><strong>License:</strong> Using freedom as excuse for sin (Gal. 5:13)</li>
+                </ul>
+                <p style="margin-top: 15px;">The answer: <strong>Walk by the Spirit</strong> - neither legalism nor license</p>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> Which fruit of the Spirit do you see growing in your life? Which do you need to cultivate more?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we support one another in walking by the Spirit rather than gratifying the flesh?
+                </div>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 5 Today</h3>
+                <p>Live in freedom by:</p>
+                <ul>
+                    <li><strong>Walking by the Spirit:</strong> Daily dependence on God's power</li>
+                    <li><strong>Serving in Love:</strong> Use freedom to serve others</li>
+                    <li><strong>Cultivating Fruit:</strong> Let the Spirit produce His character in you</li>
+                    <li><strong>Crucifying the Flesh:</strong> Say no to sinful desires</li>
+                </ul>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 5</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 5..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 5 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal1" onchange="updateProgress()">
+                    <label for="ch5Goal1">Read Galatians 5 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal2" onchange="updateProgress()">
+                    <label for="ch5Goal2">Understand freedom in Christ</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5Goal3" onchange="updateProgress()">
+                    <label for="ch5Goal3">Identify the fruit of the Spirit in your life</label>
+                </div>
+                <span class="completion-badge" id="ch5Badge">Chapter 5 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Chapter 6 Section -->
+        <div id="chapter6" class="content-section">
+            <h2 class="section-title">📖 Chapter 6: Practical Christian Living</h2>
+            
+            <div class="theme-box">
+                <h3>🔑 Key Themes</h3>
+                <ul>
+                    <li>Restore the fallen gently (Gal. 6:1-2)</li>
+                    <li>Personal responsibility (Gal. 6:3-5)</li>
+                    <li>Sowing and reaping (Gal. 6:7-10)</li>
+                    <li>The cross - Paul's only boast (Gal. 6:14)</li>
+                    <li>New creation in Christ (Gal. 6:15)</li>
+                </ul>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 6:2:</strong> "Carry each other's burdens, and in this way you will fulfill the law of Christ."</p>
+                <span class="cross-reference" data-scripture="Romans 15:1" onclick="showScriptureModal('Romans 15:1')">Romans 15:1</span>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:14" onclick="showScriptureModal('1 Thessalonians 5:14')">1 Thessalonians 5:14</span>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 6:9:</strong> "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up."</p>
+            </div>
+
+            <div class="verse-highlight">
+                <p><strong>Galatians 6:14:</strong> "May I never boast except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world."</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 1:23-24" onclick="showScriptureModal('1 Corinthians 1:23-24')">1 Corinthians 1:23-24</span>
+            </div>
+
+            <div class="theme-box">
+                <h3>🌱 Sowing and Reaping</h3>
+                <p>Paul uses agricultural imagery to teach spiritual truth:</p>
+                <ul>
+                    <li><strong>Sowing to the flesh:</strong> Results in destruction</li>
+                    <li><strong>Sowing to the Spirit:</strong> Results in eternal life</li>
+                    <li><strong>Don't grow weary:</strong> Harvest comes in God's timing</li>
+                    <li><strong>Do good to all:</strong> Especially to believers</li>
+                </ul>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Applying Chapter 6 Today</h3>
+                <p>Live out your faith by:</p>
+                <ul>
+                    <li><strong>Bearing Burdens:</strong> Help those struggling with gentleness</li>
+                    <li><strong>Taking Responsibility:</strong> Examine your own life</li>
+                    <li><strong>Persevering in Good:</strong> Don't give up doing right</li>
+                    <li><strong>Boasting in the Cross:</strong> Not in circumcision or uncircumcision</li>
+                    <li><strong>Living as New Creation:</strong> Old things passed away</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Reflection Questions</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> What are you "sowing" in your daily life - to the flesh or to the Spirit?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> How can we better bear one another's burdens while also taking personal responsibility?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Notes on Chapter 6</h3>
+                <textarea placeholder="Write your observations, questions, or insights about Chapter 6..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Chapter 6 Study Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal1" onchange="updateProgress()">
+                    <label for="ch6Goal1">Read Galatians 6 carefully</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal2" onchange="updateProgress()">
+                    <label for="ch6Goal2">Understand sowing and reaping principles</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6Goal3" onchange="updateProgress()">
+                    <label for="ch6Goal3">Commit to bearing others' burdens</label>
+                </div>
+                <span class="completion-badge" id="ch6Badge">Chapter 6 Completed!</span>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div id="summary" class="content-section">
+            <h2 class="section-title">✅ Study Summary</h2>
+            
+            <div class="theme-box">
+                <h3>🎯 Key Takeaways from Galatians</h3>
+                <ul>
+                    <li><strong>Justification by Faith Alone:</strong> We are saved by faith in Christ, not by works of the law</li>
+                    <li><strong>Freedom in Christ:</strong> Christ has set us free from the bondage of legalism</li>
+                    <li><strong>Walk by the Spirit:</strong> Freedom is not license for sin but empowerment for holy living</li>
+                    <li><strong>Unity in Christ:</strong> All believers are one in Christ regardless of background</li>
+                    <li><strong>The Cross is Central:</strong> Boast only in the cross of Christ</li>
+                </ul>
+            </div>
+
+            <div class="historical-context">
+                <h3>📊 The Message of Galatians</h3>
+                <p><strong>The Problem:</strong> False teachers were adding requirements to the gospel</p>
+                <p><strong>Paul's Response:</strong> Passionately defend the gospel of grace</p>
+                <p><strong>The Solution:</strong> Faith in Christ alone + nothing = salvation</p>
+                <p><strong>The Result:</strong> Freedom to live by the Spirit, not under law</p>
+                <p><strong>The Application:</strong> Walk in freedom while serving others in love</p>
+            </div>
+
+            <div class="application-modern">
+                <h3>🔄 Living Out Galatians Today</h3>
+                <p>Apply the book's message by:</p>
+                <ul>
+                    <li>Rejecting all forms of works-righteousness</li>
+                    <li>Resting in Christ's finished work</li>
+                    <li>Walking daily by the Spirit's power</li>
+                    <li>Using freedom to serve others in love</li>
+                    <li>Maintaining the purity of the gospel</li>
+                    <li>Bearing one another's burdens</li>
+                </ul>
+            </div>
+
+            <div class="reflection-box">
+                <h3>🤔 Final Reflection</h3>
+                <div class="discussion-question">
+                    <strong>Personal:</strong> How has studying Galatians changed your understanding of the gospel and Christian freedom?
+                </div>
+                <div class="discussion-question">
+                    <strong>Group Discussion:</strong> What is one practical way your group can live out the message of Galatians this week?
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>📝 Your Final Notes</h3>
+                <textarea placeholder="Summarize your key insights from this study of Galatians..."></textarea>
+            </div>
+
+            <div class="interactive-element">
+                <h3>✅ Study Completion Checklist</h3>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal1" onchange="updateProgress()">
+                    <label for="sumGoal1">Complete all chapter studies</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal2" onchange="updateProgress()">
+                    <label for="sumGoal2">Reflect on the overall message of Galatians</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sumGoal3" onchange="updateProgress()">
+                    <label for="sumGoal3">Apply one key lesson to your life</label>
+                </div>
+                <span class="completion-badge" id="sumBadge">Study Completed!</span>
+            </div>
+        </div>
+
+        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+        <!-- Modal for Scripture References -->
+        <div class="modal-overlay" id="scriptureModal">
+            <div class="modal">
+                <h3 id="modalTitle"></h3>
+                <p id="modalText"></p>
+                <button class="modal-close" onclick="closeScriptureModal()">×</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptureData = {
+            "2 Corinthians 11:4": "For if someone comes to you and preaches a Jesus other than the Jesus we preached, or if you receive a different spirit from the Spirit you received, or a different gospel from the one you accepted, you put up with it easily enough.",
+            "1 Timothy 1:3-4": "As I urged you when I went into Macedonia, stay there in Ephesus so that you may command certain people not to teach false doctrines any longer or to devote themselves to myths and endless genealogies. Such things promote controversial speculations rather than advancing God's work—which is by faith.",
+            "Romans 3:28": "For we maintain that a person is justified by faith apart from the works of the law.",
+            "Ephesians 2:8-9": "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God— not by works, so that no one can boast.",
+            "Romans 6:6-8": "For we know that our old self was crucified with him so that the body ruled by sin might be done away with, that we should no longer be slaves to sin— because anyone who has died has been set free from sin. Now if we died with Christ, we believe that we will also live with him.",
+            "Romans 8:3-4": "For what the law was powerless to do because it was weakened by the flesh, God did by sending his own Son in the likeness of sinful flesh to be a sin offering. And so he condemned sin in the flesh, in order that the righteous requirement of the law might be fully met in us, who do not live according to the flesh but according to the Spirit.",
+            "2 Corinthians 5:21": "God made him who had no sin to be sin for us, so that in him we might become the righteousness of God.",
+            "1 Corinthians 12:13": "For we were all baptized by one Spirit so as to form one body—whether Jews or Gentiles, slave or free—and we were all given the one Spirit to drink.",
+            "Romans 8:15-17": "The Spirit you received does not make you slaves, so that you live in fear again; rather, the Spirit you received brought about your adoption to sonship. And by him we cry, 'Abba, Father.' The Spirit himself testifies with our spirit that we are God's children. Now if we are children, then we are heirs—heirs of God and co-heirs with Christ.",
+            "John 1:12": "Yet to all who did receive him, to those who believed in his name, he gave the right to become children of God.",
+            "John 8:36": "So if the Son sets you free, you will be free indeed.",
+            "Colossians 3:12-14": "Therefore, as God's chosen people, holy and dearly loved, clothe yourselves with compassion, kindness, humility, gentleness and patience. Bear with each other and forgive one another if any of you has a grievance against someone. Forgive as the Lord forgave you. And over all these virtues put on love, which binds them all together in perfect unity.",
+            "Romans 15:1": "We who are strong ought to bear with the failings of the weak and not to please ourselves.",
+            "1 Thessalonians 5:14": "And we urge you, brothers and sisters, warn those who are idle and disruptive, encourage the disheartened, help the weak, be patient with everyone.",
+            "1 Corinthians 1:23-24": "But we preach Christ crucified: a stumbling block to Jews and foolishness to Gentiles, but to those whom God has called, both Jews and Greeks, Christ the power of God and the wisdom of God."
+        };
+
+        function showScriptureModal(reference) {
+            const modal = document.getElementById('scriptureModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalText = document.getElementById('modalText');
+
+            modalTitle.textContent = reference;
+            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
+            modal.style.display = 'flex';
+        }
+
+        function closeScriptureModal() {
+            document.getElementById('scriptureModal').style.display = 'none';
+        }
+
+        let totalCheckboxes = 0;
+        let checkedCount = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
+            updateProgress();
+            window.addEventListener('scroll', toggleBackToTop);
+        });
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            
+            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                sectionBadge.classList.add('show');
+            } else {
+                sectionBadge.classList.remove('show');
+            }
+        }
+
+        function updateProgress() {
+            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
+            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
+            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - Keep going!`;
+
+            ['overview', 'background', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'summary'].forEach(sectionId => {
+                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
+                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
+                if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
+                    sectionBadge.classList.add('show');
+                } else {
+                    sectionBadge.classList.remove('show');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleBackToTop() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
