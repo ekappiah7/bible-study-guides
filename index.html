@@ -233,14 +233,28 @@
       color: #9c27b0;
     }
     
-    .single-study {
-      display: flex;
-      justify-content: center;
+    .journey-note {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      margin-top: 50px;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
     }
     
-    .single-study .study-card {
-      max-width: 350px;
-      width: 100%;
+    .journey-note h3 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .journey-note p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto;
     }
     
     @media (max-width: 768px) {
@@ -267,6 +281,18 @@
       .study-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+      
+      .journey-note {
+        padding: 30px 20px;
+      }
+      
+      .journey-note h3 {
+        font-size: 1.6em;
+      }
+      
+      .journey-note p {
+        font-size: 1.1em;
       }
     }
     
@@ -297,11 +323,39 @@
     <main class="main-content">
       <section class="section available">
         <h2 class="section-title">Currently Available</h2>
-        <div class="study-grid single-study">
+        <div class="study-grid">
+          <a href="galatians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🗝️</div>
+              <div class="study-name">Galatians</div>
+              <div class="study-status">Start Studying</div>
+            </div>
+          </a>
+          <a href="ephesians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">⭐</div>
+              <div class="study-name">Ephesians</div>
+              <div class="study-status">Start Studying</div>
+            </div>
+          </a>
+          <a href="romans.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">🏛️</div>
+              <div class="study-name">Romans</div>
+              <div class="study-status">Start Studying</div>
+            </div>
+          </a>
           <a href="colossians.html" class="study-link">
             <div class="study-card">
               <div class="study-icon">📜</div>
-              <div class="study-name">Colossians Study Guide</div>
+              <div class="study-name">Colossians</div>
+              <div class="study-status">Start Studying</div>
+            </div>
+          </a>
+          <a href="philippians.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">😊</div>
+              <div class="study-name">Philippians</div>
               <div class="study-status">Start Studying</div>
             </div>
           </a>
@@ -311,17 +365,17 @@
       <section class="section coming-soon">
         <h2 class="section-title">Coming Soon</h2>
         <div class="study-grid">
-          <a href="ephesians.html" class="study-link">
+          <a href="1thessalonians.html" class="study-link">
             <div class="study-card">
-              <div class="study-icon">⭐</div>
-              <div class="study-name">Ephesians</div>
+              <div class="study-icon">🌅</div>
+              <div class="study-name">1 Thessalonians</div>
               <div class="study-status">Coming Soon</div>
             </div>
           </a>
-          <a href="romans.html" class="study-link">
+          <a href="2thessalonians.html" class="study-link">
             <div class="study-card">
-              <div class="study-icon">🏛️</div>
-              <div class="study-name">Romans</div>
+              <div class="study-icon">⏰</div>
+              <div class="study-name">2 Thessalonians</div>
               <div class="study-status">Coming Soon</div>
             </div>
           </a>
@@ -345,34 +399,6 @@
       <section class="section future">
         <h2 class="section-title">Future Studies (Pauline Epistles)</h2>
         <div class="study-grid">
-          <a href="galatians.html" class="study-link">
-            <div class="study-card">
-              <div class="study-icon">🗝️</div>
-              <div class="study-name">Galatians</div>
-              <div class="study-status">Future Study</div>
-            </div>
-          </a>
-          <a href="philippians.html" class="study-link">
-            <div class="study-card">
-              <div class="study-icon">😊</div>
-              <div class="study-name">Philippians</div>
-              <div class="study-status">Future Study</div>
-            </div>
-          </a>
-          <a href="1thessalonians.html" class="study-link">
-            <div class="study-card">
-              <div class="study-icon">🌅</div>
-              <div class="study-name">1 Thessalonians</div>
-              <div class="study-status">Future Study</div>
-            </div>
-          </a>
-          <a href="2thessalonians.html" class="study-link">
-            <div class="study-card">
-              <div class="study-icon">⏰</div>
-              <div class="study-name">2 Thessalonians</div>
-              <div class="study-status">Future Study</div>
-            </div>
-          </a>
           <a href="1timothy.html" class="study-link">
             <div class="study-card">
               <div class="study-icon">👨‍🏫</div>
@@ -401,8 +427,22 @@
               <div class="study-status">Future Study</div>
             </div>
           </a>
+          <a href="hebrews.html" class="study-link">
+            <div class="study-card">
+              <div class="study-icon">✝️</div>
+              <div class="study-name">Hebrews</div>
+              <div class="study-status">Future Study</div>
+            </div>
+          </a>
         </div>
       </section>
+      
+      <div class="journey-note">
+        <h3>🌟 Our Journey Through Scripture</h3>
+        <p>
+          After completing Paul's epistles, we'll embark on an exploration of the four Gospels—Matthew, Mark, Luke, and John—to encounter the life and teachings of Jesus Christ. Beyond that, we'll journey back to the foundations of faith in the Old Testament, discovering God's redemptive story from Genesis to Malachi. Stay tuned as we continue to build a comprehensive library of interactive Bible studies!
+        </p>
+      </div>
     </main>
   </div>
 </body>
