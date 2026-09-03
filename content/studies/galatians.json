@@ -1,0 +1,1069 @@
+{
+  "$schema": "../schema.json",
+  "id": "galatians",
+  "kind": "book",
+  "status": "published",
+  "slug": "galatians",
+  "title": "Galatians",
+  "pageTitle": "Galatians Study Guide",
+  "tagline": "Freedom in Christ",
+  "docTitle": "Galatians: Freedom in Christ - Interactive Bible Study",
+  "metaDescription": "A free, in-depth study guide to Paul's letter to the Galatians, with Berean Study Bible passages, reflection questions and progress tracking.",
+  "canon": {
+    "testament": "new",
+    "group": "Pauline epistles",
+    "order": 9,
+    "chapters": 6
+  },
+  "progressOpening": "Ready to begin your journey!",
+  "units": [
+    {
+      "id": "overview",
+      "navLabel": "Overview",
+      "title": "Study Overview",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Purpose of This Study",
+          "body": [
+            {
+              "p": "Welcome to an in-depth exploration of Paul's letter to the Galatians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for modern believers. Galatians is Paul's passionate defense of the gospel of grace and freedom in Christ against legalism and works-based salvation."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Your Study Goals",
+          "items": [
+            {
+              "id": "goal1",
+              "text": "Understand the historical context of Galatia and the Judaizer controversy"
+            },
+            {
+              "id": "goal2",
+              "text": "Grasp the doctrine of justification by faith alone"
+            },
+            {
+              "id": "goal3",
+              "text": "Identify modern forms of legalism and works-righteousness"
+            },
+            {
+              "id": "goal4",
+              "text": "Apply Paul's teachings on Christian liberty to contemporary life"
+            },
+            {
+              "id": "goal5",
+              "text": "Complete personal reflection exercises for each chapter"
+            }
+          ],
+          "intro": "Check off each goal as you complete it:"
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Study Method",
+              "body": [
+                {
+                  "p": "We'll use the <strong>SOAP</strong> method:"
+                },
+                {
+                  "ul": [
+                    "<strong>S</strong>cripture - Read the text",
+                    "<strong>O</strong>bservation - What does it say?",
+                    "<strong>A</strong>pplication - How does it apply?",
+                    "<strong>P</strong>rayer - Talk to God about it"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Time Commitment",
+              "body": [
+                {
+                  "p": "Each chapter study is designed for:"
+                },
+                {
+                  "ul": [
+                    "30-45 minutes individual study",
+                    "60-90 minutes group discussion",
+                    "Weekly personal reflection"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Resources Needed",
+              "body": [
+                {
+                  "ul": [
+                    "Bible (multiple translations helpful)",
+                    "Notebook for personal notes",
+                    "This interactive guide",
+                    "Open heart for God's Word!"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "navLabel": "Background",
+      "title": "Historical Background",
+      "blocks": [
+        {
+          "type": "context",
+          "heading": "The Region of Galatia",
+          "body": [
+            {
+              "p": "<strong>Location:</strong> Galatia was a region in central Asia Minor (modern-day Turkey). The exact location is debated - it could refer to ethnic Galatia in the north or the Roman province of Galatia in the south, which included cities like Antioch, Iconium, Lystra, and Derbe."
+            },
+            {
+              "p": "<strong>Historical Background:</strong> The Galatians were descendants of Celtic tribes who invaded the region in the 3rd century BC. By Paul's time, the area had been under Roman control and was ethnically diverse, with Celts, Greeks, Romans, and Jews living together."
+            },
+            {
+              "p": "<strong>Paul's Mission:</strong> Paul likely visited these churches during his first missionary journey (Acts 13-14) and possibly on his second journey. He had a close relationship with these believers and was deeply troubled by the false teaching that infiltrated their communities."
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Paul's Connection to Galatia",
+          "body": [
+            {
+              "p": "<strong>Personal relationship</strong> with the churches:"
+            },
+            {
+              "ul": [
+                "<strong>Founded the churches</strong> - Likely during his first missionary journey",
+                "<strong>Received warmly</strong> - Despite physical illness (Gal. 4:13-14)",
+                "<strong>Deep concern</strong> - Called them \"my children\" (Gal. 4:19)",
+                "<strong>Emotional tone</strong> - The letter is Paul's most passionate and urgent"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "The Judaizer Controversy",
+          "body": [
+            {
+              "p": "Paul wrote to combat false teachers (Judaizers) who were perverting the gospel by adding requirements to faith in Christ:"
+            },
+            {
+              "h4": "Circumcision Requirement:"
+            },
+            {
+              "ul": [
+                "Insisted Gentile believers must be circumcised (Gal. 5:2-3)",
+                "Claimed this was necessary for salvation",
+                "Made the Mosaic Law binding on Christians"
+              ]
+            },
+            {
+              "h4": "Law Observance:"
+            },
+            {
+              "ul": [
+                "Required keeping Jewish ceremonial laws",
+                "Special observance of days, months, seasons (Gal. 4:10)",
+                "Dietary restrictions from the Law of Moses"
+              ]
+            },
+            {
+              "h4": "The Core Error:"
+            },
+            {
+              "ul": [
+                "Faith in Christ PLUS works of the Law for salvation",
+                "Undermined the sufficiency of Christ's sacrifice",
+                "Created a two-tier Christianity (Jewish and Gentile)",
+                "Questioned Paul's apostolic authority"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Modern Parallels",
+          "body": [
+            {
+              "p": "Today's believers face similar challenges to the Galatians:"
+            },
+            {
+              "ul": [
+                "<strong>Works-Based Salvation:</strong> Adding requirements to faith (baptism, church membership, good deeds)",
+                "<strong>Legalism:</strong> Strict rules about dress, entertainment, behavior as measures of spirituality",
+                "<strong>Performance Christianity:</strong> Earning God's favor through religious activity",
+                "<strong>Cultural Christianity:</strong> Conforming to traditions rather than gospel transformation",
+                "<strong>Prosperity Teaching:</strong> Obedience as a means to material blessing"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "Are there areas where you've added requirements to the gospel or measured your spirituality by external performance?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we distinguish between biblical standards for Christian living and legalistic additions to the gospel?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Background",
+          "id": "notes-background-1",
+          "placeholder": "Write your observations, questions, or insights about the historical background..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Background Study Checklist",
+          "items": [
+            {
+              "id": "bgGoal1",
+              "text": "Understand the cultural and religious context of Galatia"
+            },
+            {
+              "id": "bgGoal2",
+              "text": "Identify the Judaizer controversy and its implications"
+            },
+            {
+              "id": "bgGoal3",
+              "text": "Recognize Paul's relationship with the Galatian churches"
+            },
+            {
+              "id": "bgGoal4",
+              "text": "Reflect on modern forms of legalism"
+            }
+          ],
+          "badge": {
+            "id": "bgBadge",
+            "text": "Section Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study1",
+      "navLabel": "Chapter 1",
+      "title": "Chapter 1: Paul's Authority & the True Gospel",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Paul's apostolic authority directly from Christ (Gal. 1:1, 11-12)",
+                "The uniqueness of the gospel - no other version (Gal. 1:6-9)",
+                "Paul's conversion and calling (Gal. 1:13-17)",
+                "Independence from the Jerusalem apostles (Gal. 1:18-24)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 1:8-9",
+          "crossRefs": [
+            "2 Corinthians 11:4",
+            "1 Timothy 1:3-4"
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Paul's Astonishment",
+          "body": [
+            {
+              "p": "Paul expresses shock that the Galatians are \"so quickly deserting\" the one who called them. This reveals:"
+            },
+            {
+              "ul": [
+                "The speed at which false teaching can take root",
+                "The serious nature of distorting the gospel",
+                "The need for constant vigilance in doctrine"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How can you discern between the true gospel and distorted versions you might encounter?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "Why is Paul so forceful in his language about those who pervert the gospel? What does this teach us about truth?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 1 Today",
+          "body": [
+            {
+              "p": "Guard the gospel by:"
+            },
+            {
+              "ul": [
+                "<strong>Testing Teaching:</strong> Compare all teaching to Scripture",
+                "<strong>Knowing the Gospel:</strong> Be clear on what the gospel actually is",
+                "<strong>Rejecting Additions:</strong> Don't add to \"faith alone in Christ alone\"",
+                "<strong>Standing Firm:</strong> Don't be swayed by popular or appealing false teaching"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 1",
+          "id": "notes-study1-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 1..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 1 Study Checklist",
+          "items": [
+            {
+              "id": "ch1Goal1",
+              "text": "Read Galatians 1 carefully"
+            },
+            {
+              "id": "ch1Goal2",
+              "text": "Understand Paul's defense of his apostolic authority"
+            },
+            {
+              "id": "ch1Goal3",
+              "text": "Identify what makes the gospel unique and unchangeable"
+            }
+          ],
+          "badge": {
+            "id": "ch1Badge",
+            "text": "Chapter 1 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study2",
+      "navLabel": "Chapter 2",
+      "title": "Chapter 2: Justification by Faith Alone",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Paul's gospel accepted by Jerusalem leaders (Gal. 2:1-10)",
+                "Confrontation with Peter over hypocrisy (Gal. 2:11-14)",
+                "Justification by faith, not works of law (Gal. 2:15-16)",
+                "Crucified with Christ - new life (Gal. 2:20)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 2:16",
+          "crossRefs": [
+            "Romans 3:28",
+            "Ephesians 2:8-9"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 2:20",
+          "crossRefs": [
+            "Romans 6:6-8"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Antioch Incident",
+          "body": [
+            {
+              "p": "Paul confronted Peter publicly when Peter withdrew from eating with Gentile believers under pressure from Jewish Christians. This wasn't about table manners - it was about the gospel itself:"
+            },
+            {
+              "ul": [
+                "Peter's actions implied Gentiles were second-class Christians",
+                "It suggested the gospel wasn't sufficient without Jewish customs",
+                "Even Barnabas was led astray by this hypocrisy",
+                "Paul recognized this undermined justification by faith alone"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "Are there ways you live as though you must earn God's acceptance rather than resting in Christ's finished work?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can our actions communicate that some Christians are more acceptable than others? How does this contradict the gospel?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 2 Today",
+          "body": [
+            {
+              "p": "Live by faith in Christ by:"
+            },
+            {
+              "ul": [
+                "<strong>Resting in Christ:</strong> Your identity is in Him, not your performance",
+                "<strong>Rejecting Merit-Based Acceptance:</strong> You're fully accepted through Christ",
+                "<strong>Avoiding Hypocrisy:</strong> Don't create barriers between believers",
+                "<strong>Embracing Grace:</strong> Live out of gratitude, not obligation"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 2",
+          "id": "notes-study2-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 2..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 2 Study Checklist",
+          "items": [
+            {
+              "id": "ch2Goal1",
+              "text": "Read Galatians 2 carefully"
+            },
+            {
+              "id": "ch2Goal2",
+              "text": "Understand justification by faith alone"
+            },
+            {
+              "id": "ch2Goal3",
+              "text": "Reflect on being crucified with Christ"
+            }
+          ],
+          "badge": {
+            "id": "ch2Badge",
+            "text": "Chapter 2 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study3",
+      "navLabel": "Chapter 3",
+      "title": "Chapter 3: Faith vs. Law",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Receiving the Spirit by faith, not works (Gal. 3:1-5)",
+                "Abraham justified by faith (Gal. 3:6-9)",
+                "The curse of the law and Christ's redemption (Gal. 3:10-14)",
+                "The purpose of the law (Gal. 3:19-25)",
+                "Unity in Christ - no distinctions (Gal. 3:26-29)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 3:13-14",
+          "crossRefs": [
+            "Romans 8:3-4",
+            "2 Corinthians 5:21"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 3:28",
+          "crossRefs": [
+            "1 Corinthians 12:13"
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "The Purpose of the Law",
+          "body": [
+            {
+              "p": "Paul explains the law was never meant to save but to:"
+            },
+            {
+              "ul": [
+                "<strong>Reveal sin</strong> - Show us our need for a Savior",
+                "<strong>Be a guardian</strong> - Lead us to Christ (like a tutor)",
+                "<strong>Temporary function</strong> - Until Christ came",
+                "<strong>Point to faith</strong> - Show that faith is the only way"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How does understanding that you're justified by faith (not law-keeping) change how you approach daily Christian living?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What does it mean that we are \"all one in Christ Jesus\"? How should this affect how we treat one another?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 3 Today",
+          "body": [
+            {
+              "p": "Walk by faith by:"
+            },
+            {
+              "ul": [
+                "<strong>Trusting Christ Alone:</strong> Not your religious performance",
+                "<strong>Embracing Unity:</strong> No spiritual hierarchy among believers",
+                "<strong>Living by the Spirit:</strong> The Spirit came by faith, not works",
+                "<strong>Following Abraham's Example:</strong> Faith that believes God's promises"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 3",
+          "id": "notes-study3-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 3..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 3 Study Checklist",
+          "items": [
+            {
+              "id": "ch3Goal1",
+              "text": "Read Galatians 3 carefully"
+            },
+            {
+              "id": "ch3Goal2",
+              "text": "Understand the purpose of the law"
+            },
+            {
+              "id": "ch3Goal3",
+              "text": "Reflect on unity in Christ"
+            }
+          ],
+          "badge": {
+            "id": "ch3Badge",
+            "text": "Chapter 3 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study4",
+      "navLabel": "Chapter 4",
+      "title": "Chapter 4: Sons, Not Slaves",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "From slaves to sons through adoption (Gal. 4:1-7)",
+                "Paul's concern for the Galatians (Gal. 4:8-20)",
+                "Allegory of Hagar and Sarah (Gal. 4:21-31)",
+                "Children of promise, not slavery"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 4:6-7",
+          "crossRefs": [
+            "Romans 8:15-17",
+            "John 1:12"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Understanding Adoption",
+          "body": [
+            {
+              "p": "In Roman culture, adoption gave full legal status as a son with complete inheritance rights. Paul uses this to show:"
+            },
+            {
+              "ul": [
+                "We're not second-class citizens in God's family",
+                "We have full rights as heirs with Christ",
+                "The Spirit confirms our adoption (\"Abba, Father\")",
+                "We're chosen and wanted by God"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Returning to Slavery",
+          "body": [
+            {
+              "p": "Paul is amazed the Galatians want to return to slavery under the law after experiencing freedom in Christ:"
+            },
+            {
+              "ul": [
+                "Observing special days and seasons (Gal. 4:10)",
+                "Submitting again to bondage (Gal. 4:9)",
+                "Trading sonship for slavery"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "Do you live more like a slave trying to earn approval or like a beloved son/daughter who already has it?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What does it mean to call God \"Abba\"? How does this shape our relationship with Him?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 4 Today",
+          "body": [
+            {
+              "p": "Live as God's child by:"
+            },
+            {
+              "ul": [
+                "<strong>Embracing Your Identity:</strong> You're a son/daughter, not a slave",
+                "<strong>Approaching God Intimately:</strong> He's your Father (\"Abba\")",
+                "<strong>Rejecting Performance-Based Acceptance:</strong> You're already accepted",
+                "<strong>Living in Freedom:</strong> Don't return to bondage"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 4",
+          "id": "notes-study4-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 4..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 4 Study Checklist",
+          "items": [
+            {
+              "id": "ch4Goal1",
+              "text": "Read Galatians 4 carefully"
+            },
+            {
+              "id": "ch4Goal2",
+              "text": "Understand adoption as sons of God"
+            },
+            {
+              "id": "ch4Goal3",
+              "text": "Reflect on living as a child, not a slave"
+            }
+          ],
+          "badge": {
+            "id": "ch4Badge",
+            "text": "Chapter 4 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study5",
+      "navLabel": "Chapter 5",
+      "title": "Chapter 5: Freedom & the Spirit",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Stand firm in freedom (Gal. 5:1)",
+                "Circumcision nullifies Christ's work (Gal. 5:2-6)",
+                "Freedom is not license for sin (Gal. 5:13-15)",
+                "Walk by the Spirit (Gal. 5:16-18)",
+                "Fruit of the Spirit vs. works of the flesh (Gal. 5:19-26)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 5:1",
+          "crossRefs": [
+            "John 8:36"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 5:22-23",
+          "crossRefs": [
+            "Colossians 3:12-14"
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Two Ways to Live",
+          "body": [
+            {
+              "p": "<strong>The Flesh (Sinful Nature):</strong>"
+            },
+            {
+              "ul": [
+                "Sexual immorality, impurity, debauchery",
+                "Idolatry, witchcraft",
+                "Hatred, discord, jealousy, rage",
+                "Selfish ambition, dissensions, factions",
+                "Envy, drunkenness, orgies"
+              ]
+            },
+            {
+              "p": "<strong>The Spirit:</strong>"
+            },
+            {
+              "ul": [
+                "Love, joy, peace",
+                "Patience, kindness, goodness",
+                "Faithfulness, gentleness, self-control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Don't Misuse Freedom",
+          "body": [
+            {
+              "p": "Paul warns against two extremes:"
+            },
+            {
+              "ul": [
+                "<strong>Legalism:</strong> Trying to be justified by law (bondage)",
+                "<strong>License:</strong> Using freedom as excuse for sin (Gal. 5:13)"
+              ]
+            },
+            {
+              "p": "The answer: <strong>Walk by the Spirit</strong> - neither legalism nor license"
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "Which fruit of the Spirit do you see growing in your life? Which do you need to cultivate more?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we support one another in walking by the Spirit rather than gratifying the flesh?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 5 Today",
+          "body": [
+            {
+              "p": "Live in freedom by:"
+            },
+            {
+              "ul": [
+                "<strong>Walking by the Spirit:</strong> Daily dependence on God's power",
+                "<strong>Serving in Love:</strong> Use freedom to serve others",
+                "<strong>Cultivating Fruit:</strong> Let the Spirit produce His character in you",
+                "<strong>Crucifying the Flesh:</strong> Say no to sinful desires"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 5",
+          "id": "notes-study5-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 5..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 5 Study Checklist",
+          "items": [
+            {
+              "id": "ch5Goal1",
+              "text": "Read Galatians 5 carefully"
+            },
+            {
+              "id": "ch5Goal2",
+              "text": "Understand freedom in Christ"
+            },
+            {
+              "id": "ch5Goal3",
+              "text": "Identify the fruit of the Spirit in your life"
+            }
+          ],
+          "badge": {
+            "id": "ch5Badge",
+            "text": "Chapter 5 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study6",
+      "navLabel": "Chapter 6",
+      "title": "Chapter 6: Practical Christian Living",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Restore the fallen gently (Gal. 6:1-2)",
+                "Personal responsibility (Gal. 6:3-5)",
+                "Sowing and reaping (Gal. 6:7-10)",
+                "The cross - Paul's only boast (Gal. 6:14)",
+                "New creation in Christ (Gal. 6:15)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 6:2",
+          "crossRefs": [
+            "Romans 15:1",
+            "1 Thessalonians 5:14"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 6:9"
+        },
+        {
+          "type": "passage",
+          "ref": "Galatians 6:14",
+          "crossRefs": [
+            "1 Corinthians 1:23-24"
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Sowing and Reaping",
+          "body": [
+            {
+              "p": "Paul uses agricultural imagery to teach spiritual truth:"
+            },
+            {
+              "ul": [
+                "<strong>Sowing to the flesh:</strong> Results in destruction",
+                "<strong>Sowing to the Spirit:</strong> Results in eternal life",
+                "<strong>Don't grow weary:</strong> Harvest comes in God's timing",
+                "<strong>Do good to all:</strong> Especially to believers"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 6 Today",
+          "body": [
+            {
+              "p": "Live out your faith by:"
+            },
+            {
+              "ul": [
+                "<strong>Bearing Burdens:</strong> Help those struggling with gentleness",
+                "<strong>Taking Responsibility:</strong> Examine your own life",
+                "<strong>Persevering in Good:</strong> Don't give up doing right",
+                "<strong>Boasting in the Cross:</strong> Not in circumcision or uncircumcision",
+                "<strong>Living as New Creation:</strong> Old things passed away"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What are you \"sowing\" in your daily life - to the flesh or to the Spirit?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we better bear one another's burdens while also taking personal responsibility?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 6",
+          "id": "notes-study6-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 6..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 6 Study Checklist",
+          "items": [
+            {
+              "id": "ch6Goal1",
+              "text": "Read Galatians 6 carefully"
+            },
+            {
+              "id": "ch6Goal2",
+              "text": "Understand sowing and reaping principles"
+            },
+            {
+              "id": "ch6Goal3",
+              "text": "Commit to bearing others' burdens"
+            }
+          ],
+          "badge": {
+            "id": "ch6Badge",
+            "text": "Chapter 6 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "navLabel": "Summary",
+      "title": "Study Summary",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Takeaways from Galatians",
+          "body": [
+            {
+              "ul": [
+                "<strong>Justification by Faith Alone:</strong> We are saved by faith in Christ, not by works of the law",
+                "<strong>Freedom in Christ:</strong> Christ has set us free from the bondage of legalism",
+                "<strong>Walk by the Spirit:</strong> Freedom is not license for sin but empowerment for holy living",
+                "<strong>Unity in Christ:</strong> All believers are one in Christ regardless of background",
+                "<strong>The Cross is Central:</strong> Boast only in the cross of Christ"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Message of Galatians",
+          "body": [
+            {
+              "p": "<strong>The Problem:</strong> False teachers were adding requirements to the gospel"
+            },
+            {
+              "p": "<strong>Paul's Response:</strong> Passionately defend the gospel of grace"
+            },
+            {
+              "p": "<strong>The Solution:</strong> Faith in Christ alone + nothing = salvation"
+            },
+            {
+              "p": "<strong>The Result:</strong> Freedom to live by the Spirit, not under law"
+            },
+            {
+              "p": "<strong>The Application:</strong> Walk in freedom while serving others in love"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Living Out Galatians Today",
+          "body": [
+            {
+              "p": "Apply the book's message by:"
+            },
+            {
+              "ul": [
+                "Rejecting all forms of works-righteousness",
+                "Resting in Christ's finished work",
+                "Walking daily by the Spirit's power",
+                "Using freedom to serve others in love",
+                "Maintaining the purity of the gospel",
+                "Bearing one another's burdens"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Final Reflection",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How has studying Galatians changed your understanding of the gospel and Christian freedom?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What is one practical way your group can live out the message of Galatians this week?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Final Notes",
+          "id": "notes-summary-1",
+          "placeholder": "Summarize your key insights from this study of Galatians..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Study Completion Checklist",
+          "items": [
+            {
+              "id": "sumGoal1",
+              "text": "Complete all chapter studies"
+            },
+            {
+              "id": "sumGoal2",
+              "text": "Reflect on the overall message of Galatians"
+            },
+            {
+              "id": "sumGoal3",
+              "text": "Apply one key lesson to your life"
+            }
+          ],
+          "badge": {
+            "id": "sumBadge",
+            "text": "Study Completed!"
+          }
+        }
+      ]
+    }
+  ]
+}

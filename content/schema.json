@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bible-study-guides/content/schema.json",
+  "title": "Study",
+  "description": "One study: a book of the Bible, or a topical or thematic study across passages. Enforcement lives in tools/validate.mjs, which gives better error messages than a schema can; this file exists for editor autocomplete and as documentation.",
+  "type": "object",
+  "required": ["id", "kind", "status", "slug", "title", "units"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable identifier. Notes and progress are saved under bsg:<id>: in the reader's browser, so NEVER change it once published."
+    },
+    "kind": {
+      "enum": ["book", "topic"],
+      "description": "book = one book of the Bible, worked through in order. topic = a theme traced across passages from many books."
+    },
+    "status": {
+      "enum": ["published", "draft"],
+      "description": "Only published studies are built into the site. Drafts build with: node tools/build.mjs --drafts"
+    },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "URL and filename, e.g. romans -> /romans" },
+    "title": { "type": "string", "description": "Short name, e.g. Romans, or The Fruit of the Spirit" },
+    "pageTitle": { "type": "string", "description": "The h1. Defaults to title plus Study Guide." },
+    "tagline": { "type": "string", "description": "One line under the h1." },
+    "docTitle": { "type": "string", "description": "Browser tab and search result title." },
+    "metaDescription": { "type": "string", "description": "One or two sentences for search results and link previews." },
+    "progressOpening": { "type": "string", "description": "The message shown beside the progress bar at 0%." },
+    "canon": {
+      "type": "object",
+      "description": "For kind book: where it sits in Scripture. Used for ordering on the home page.",
+      "required": ["testament", "order"],
+      "properties": {
+        "testament": { "enum": ["old", "new"] },
+        "group": { "type": "string", "description": "e.g. Pauline epistles, Torah, Major prophets, Gospels" },
+        "order": { "type": "integer", "minimum": 1, "maximum": 66, "description": "Canonical position, Genesis 1 to Revelation 66" },
+        "chapters": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "description": "For kind topic.",
+      "properties": {
+        "category": { "type": "string", "description": "e.g. Christian living, Doctrine, Prayer, Character" },
+        "anchorBooks": { "type": "array", "items": { "type": "string" }, "description": "The books this study draws on most." }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "description": "Where the historical and background claims come from. Study guides that assert history should say who says so.",
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "properties": {
+          "label": { "type": "string" },
+          "detail": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "units": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The tabs of the study, in order. Conventionally overview, background, study1..studyN, summary.",
+      "items": { "$ref": "#/$defs/unit" }
+    }
+  },
+  "$defs": {
+    "unit": {
+      "type": "object",
+      "required": ["id", "navLabel", "blocks"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+$",
+          "description": "Stable unit id, also the URL hash (#study3). Never change it once published."
+        },
+        "navLabel": { "type": "string", "description": "Text on the tab button." },
+        "title": { "type": "string", "description": "The h2 at the top of the unit." },
+        "passages": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "The passage or passages this unit works through, e.g. [\"Romans 1-3\"] or, for a topical study, several references from different books."
+        },
+        "badge": { "$ref": "#/$defs/badge" },
+        "blocks": { "type": "array", "items": { "$ref": "#/$defs/block" } }
+      }
+    },
+    "badge": {
+      "type": "object",
+      "required": ["id", "text"],
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "block": {
+      "description": "One card in a unit. The type decides how it looks and what it means.",
+      "oneOf": [
+        {
+          "title": "themes / prose / context / warning / application / highlight / observe / wordstudy / hardquestion",
+          "type": "object",
+          "required": ["type", "body"],
+          "properties": {
+            "type": {
+              "enum": ["themes", "prose", "context", "warning", "application", "highlight", "observe", "wordstudy", "hardquestion"],
+              "description": "themes: key themes. prose: plain teaching. context: historical background. warning: a caution or a false teaching. application: living it out. highlight: a featured callout. observe: observation prompts to do before being told what it means. wordstudy: a Greek or Hebrew term. hardquestion: an honest difficulty in the text, named rather than avoided."
+            },
+            "heading": { "type": "string" },
+            "body": { "type": "array", "items": { "$ref": "#/$defs/node" }, "minItems": 1 }
+          }
+        },
+        {
+          "title": "passage",
+          "type": "object",
+          "required": ["type", "ref"],
+          "properties": {
+            "type": { "const": "passage" },
+            "ref": { "type": "string", "description": "e.g. Galatians 3:13-14. The text is filled in at build time from content/scripture, never typed here." },
+            "crossRefs": { "type": "array", "items": { "type": "string" }, "description": "References the reader can open and read in place." }
+          }
+        },
+        {
+          "title": "passageList",
+          "type": "object",
+          "required": ["type", "refs"],
+          "properties": {
+            "type": { "const": "passageList" },
+            "heading": { "type": "string" },
+            "refs": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          }
+        },
+        {
+          "title": "pullquote",
+          "type": "object",
+          "required": ["type", "ref"],
+          "properties": {
+            "type": { "const": "pullquote" },
+            "ref": { "type": "string" },
+            "text": { "type": "string", "description": "Optional. Left out, the passage text is used." }
+          }
+        },
+        {
+          "title": "reflection",
+          "type": "object",
+          "required": ["type", "questions"],
+          "properties": {
+            "type": { "const": "reflection" },
+            "heading": { "type": "string" },
+            "questions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["audience", "text"],
+                "properties": {
+                  "audience": { "type": "string", "description": "e.g. Personal, Group Discussion, For leaders" },
+                  "text": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "notes",
+          "type": "object",
+          "required": ["type", "id"],
+          "properties": {
+            "type": { "const": "notes" },
+            "heading": { "type": "string" },
+            "id": { "type": "string", "pattern": "^notes-[a-z0-9]+-[0-9]+$", "description": "Stable id. The reader's saved notes are keyed to it, so never change it once published." },
+            "placeholder": { "type": "string" }
+          }
+        },
+        {
+          "title": "checklist",
+          "type": "object",
+          "required": ["type", "items"],
+          "properties": {
+            "type": { "const": "checklist" },
+            "heading": { "type": "string" },
+            "intro": { "type": "string" },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["id", "text"],
+                "properties": {
+                  "id": { "type": "string", "description": "Stable id. Saved ticks are keyed to it, so never change it once published." },
+                  "text": { "type": "string" }
+                }
+              }
+            },
+            "badge": { "$ref": "#/$defs/badge" }
+          }
+        },
+        {
+          "title": "toolgrid",
+          "type": "object",
+          "required": ["type", "cards"],
+          "properties": {
+            "type": { "const": "toolgrid" },
+            "cards": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["body"],
+                "properties": {
+                  "heading": { "type": "string" },
+                  "body": { "type": "array", "items": { "$ref": "#/$defs/node" } }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "node": {
+      "description": "One piece of content inside a card. Exactly one key. Inline markup allowed in text: strong, em, a.",
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "p": { "type": "string", "description": "A paragraph." },
+        "h4": { "type": "string", "description": "A small sub-heading inside the card." },
+        "ul": { "type": "array", "items": { "type": "string" }, "description": "A bulleted list." },
+        "ol": { "type": "array", "items": { "type": "string" }, "description": "A numbered list." }
+      }
+    }
+  }
+}

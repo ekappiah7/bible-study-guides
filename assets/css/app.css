@@ -528,7 +528,11 @@ body {
 .interactive-element,
 .notes-section,
 .verse-highlight,
-.tool-card {
+.tool-card,
+.prose-box,
+.observe-box,
+.wordstudy-box,
+.hardquestion-box {
   border-radius: var(--r-md);
   padding: clamp(20px, 3vw, 30px);
   margin-bottom: clamp(18px, 2.6vw, 26px);
@@ -615,7 +619,11 @@ body {
 .warning-box > h3::before,
 .application-modern > h3::before,
 .interactive-element > h3::before,
-.notes-section > h3::before {
+.notes-section > h3::before,
+.prose-box > h3::before,
+.observe-box > h3::before,
+.wordstudy-box > h3::before,
+.hardquestion-box > h3::before {
   content: "";
   display: inline-block;
   width: 7px;
@@ -639,8 +647,108 @@ body {
   background: var(--olive);
 }
 
-.notes-section > h3::before {
+.notes-section > h3::before,
+.prose-box > h3::before {
   background: var(--tan);
+}
+
+.wordstudy-box > h3::before {
+  background: var(--brown-mid);
+}
+
+.hardquestion-box > h3::before {
+  background: var(--rust);
+}
+
+
+/* neutral teaching card */
+.prose-box {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--tan-soft);
+}
+
+/* observation prompts: work the reader does before being told what it means */
+.observe-box {
+  background: var(--surface);
+  border: 1px dashed var(--gold);
+  border-left: 4px solid var(--gold);
+}
+
+.observe-box > h3::after {
+  content: "before you read on";
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+/* a Greek or Hebrew term */
+.wordstudy-box {
+  background: linear-gradient(135deg, var(--cream-3), var(--surface) 72%);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brown-mid);
+}
+
+.wordstudy-box > h3 {
+  font-style: italic;
+}
+
+/* an honest difficulty in the text, named rather than avoided */
+.hardquestion-box {
+  background: var(--surface);
+  border: 1px solid rgba(166, 82, 44, 0.3);
+  border-left: 4px solid var(--rust);
+  box-shadow: var(--shadow-2);
+}
+
+.hardquestion-box > h3::after {
+  content: "an honest difficulty";
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+/* closing pull quote */
+.verse-highlight.pullquote {
+  text-align: center;
+  padding: clamp(28px, 4vw, 44px);
+  margin-top: clamp(26px, 4vw, 40px);
+}
+
+.verse-highlight.pullquote::before {
+  inset: auto 0 auto 0;
+  top: 0;
+  bottom: auto;
+  width: auto;
+  height: 5px;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+}
+
+.pullquote-text {
+  font-size: clamp(1.2rem, 3vw, 1.6rem) !important;
+  line-height: 1.5;
+  max-width: 46ch;
+  margin: 0 auto 14px !important;
+}
+
+.pullquote-ref {
+  font-family: var(--font-body) !important;
+  font-size: 0.72rem !important;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 0 auto !important;
 }
 
 /* ---------- passage + cross references ---------- */

@@ -1,0 +1,691 @@
+{
+  "$schema": "../schema.json",
+  "id": "colossians",
+  "kind": "book",
+  "status": "published",
+  "slug": "colossians",
+  "title": "Colossians",
+  "pageTitle": "Colossians Study Guide",
+  "tagline": "Christ Supreme & Sufficient",
+  "docTitle": "Colossians: Christ Supreme & Sufficient - Interactive Bible Study",
+  "metaDescription": "A free, in-depth study guide to Paul's letter to the Colossians, with Berean Study Bible passages, reflection questions and progress tracking.",
+  "canon": {
+    "testament": "new",
+    "group": "Pauline epistles",
+    "order": 12,
+    "chapters": 4
+  },
+  "progressOpening": "Ready to begin your journey!",
+  "units": [
+    {
+      "id": "overview",
+      "navLabel": "Overview",
+      "title": "Study Overview",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Purpose of This Study",
+          "body": [
+            {
+              "p": "Welcome to an in-depth exploration of Paul's letter to the Colossians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for modern believers."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Your Study Goals",
+          "items": [
+            {
+              "id": "goal1",
+              "text": "Understand the historical context of Colossae and the false teachings Paul addressed"
+            },
+            {
+              "id": "goal2",
+              "text": "Grasp the supremacy and sufficiency of Christ as presented in this letter"
+            },
+            {
+              "id": "goal3",
+              "text": "Identify modern parallels to the Colossian heresy"
+            },
+            {
+              "id": "goal4",
+              "text": "Apply Paul's teachings to contemporary Christian living"
+            },
+            {
+              "id": "goal5",
+              "text": "Complete personal reflection exercises for each chapter"
+            }
+          ],
+          "intro": "Check off each goal as you complete it:"
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Study Method",
+              "body": [
+                {
+                  "p": "We'll use the <strong>SOAP</strong> method:"
+                },
+                {
+                  "ul": [
+                    "<strong>S</strong>cripture - Read the text",
+                    "<strong>O</strong>bservation - What does it say?",
+                    "<strong>A</strong>pplication - How does it apply?",
+                    "<strong>P</strong>rayer - Talk to God about it"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Time Commitment",
+              "body": [
+                {
+                  "p": "Each chapter study is designed for:"
+                },
+                {
+                  "ul": [
+                    "30-45 minutes individual study",
+                    "60-90 minutes group discussion",
+                    "Weekly personal reflection"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Resources Needed",
+              "body": [
+                {
+                  "ul": [
+                    "Bible (multiple translations helpful)",
+                    "Notebook for personal notes",
+                    "This interactive guide",
+                    "Open heart for God's Word!"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "navLabel": "Background",
+      "title": "Historical Background",
+      "blocks": [
+        {
+          "type": "context",
+          "heading": "The City of Colossae",
+          "body": [
+            {
+              "p": "<strong>Location:</strong> Colossae was located in the Lycus River valley in ancient Phrygia (modern-day Turkey), about 100 miles east of Ephesus. It sat alongside two other cities: Laodicea and Hierapolis."
+            },
+            {
+              "p": "<strong>Economic Status:</strong> Once a prosperous city on major trade routes, by Paul's time Colossae had declined in importance, overshadowed by nearby Laodicea. The city was known for its wool industry and distinctive dark red/purple dye called \"colossinus.\""
+            },
+            {
+              "p": "<strong>Religious Climate:</strong> The city was a melting pot of religions - Greek polytheism, Roman imperial cult, Jewish communities, and various mystery religions and philosophical schools converged here."
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Paul's Connection to Colossae",
+          "body": [
+            {
+              "p": "<strong>Likely never visited personally</strong> (Col. 2:1 suggests this), but had strong connections through:"
+            },
+            {
+              "ul": [
+                "<strong>Epaphras</strong> - Probably founded the church there (Col. 1:7, 4:12)",
+                "<strong>Philemon</strong> - Church likely met in his house",
+                "<strong>Onesimus</strong> - The runaway slave was from Colossae (Col. 4:9)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "The Colossian Heresy",
+          "body": [
+            {
+              "p": "Paul wrote to combat a dangerous syncretistic teaching that combined several elements:"
+            },
+            {
+              "h4": "Mystical Elements:"
+            },
+            {
+              "ul": [
+                "Worship of angels as intermediaries (Col. 2:18)",
+                "Claims of special visions and revelations",
+                "Secret knowledge (gnosis) required for spiritual maturity"
+              ]
+            },
+            {
+              "h4": "Jewish Legalistic Elements:"
+            },
+            {
+              "ul": [
+                "Observance of festivals, new moons, Sabbaths (Col. 2:16)",
+                "Dietary restrictions and food laws",
+                "Circumcision requirements"
+              ]
+            },
+            {
+              "h4": "Ascetic Practices:"
+            },
+            {
+              "ul": [
+                "\"Do not handle, taste, or touch\" (Col. 2:21)",
+                "Harsh treatment of the body (Col. 2:23)",
+                "Self-imposed worship and humility"
+              ]
+            },
+            {
+              "h4": "Philosophical Components:"
+            },
+            {
+              "ul": [
+                "Greek philosophical traditions",
+                "Human wisdom and traditions (Col. 2:8)",
+                "Elementary principles of the world"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Modern Parallels",
+          "body": [
+            {
+              "p": "Today's believers face similar challenges:"
+            },
+            {
+              "ul": [
+                "<strong>New Age Spirituality:</strong> Angels, crystals, channeling",
+                "<strong>Prosperity Gospel:</strong> Adding works to faith for blessing",
+                "<strong>Legalism:</strong> Rules-based Christianity",
+                "<strong>Secular Philosophy:</strong> Humanism, relativism, scientism",
+                "<strong>Religious Syncretism:</strong> Mixing Christianity with other beliefs"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What modern teachings or philosophies do you find most appealing or challenging to your faith?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we identify and guard against teachings that add to or subtract from the gospel?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Background",
+          "id": "notes-background-1",
+          "placeholder": "Write your observations, questions, or insights about the historical background..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Background Study Checklist",
+          "items": [
+            {
+              "id": "bgGoal1",
+              "text": "Understand the cultural and religious context of Colossae"
+            },
+            {
+              "id": "bgGoal2",
+              "text": "Identify key figures in the Colossian church"
+            },
+            {
+              "id": "bgGoal3",
+              "text": "Recognize elements of the Colossian heresy"
+            },
+            {
+              "id": "bgGoal4",
+              "text": "Reflect on modern parallels to these false teachings"
+            }
+          ],
+          "badge": {
+            "id": "bgBadge",
+            "text": "Section Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study1",
+      "navLabel": "Chapter 1",
+      "title": "Chapter 1: Christ’s Supremacy",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Christ’s preeminence over creation (Col. 1:15-17)",
+                "Christ’s headship over the church (Col. 1:18)",
+                "Reconciliation through Christ’s sacrifice (Col. 1:19-22)",
+                "Paul’s ministry and suffering for the gospel (Col. 1:24-29)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Colossians 1:15-17",
+          "crossRefs": [
+            "John 1:1-3",
+            "Hebrews 1:2-3"
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How does recognizing Christ as supreme over all creation affect your view of daily challenges?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we live out the reality of Christ’s headship in our church communities?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 1 Today",
+          "body": [
+            {
+              "p": "Consider how Christ’s supremacy challenges:"
+            },
+            {
+              "ul": [
+                "<strong>Materialism:</strong> Prioritizing possessions over Christ",
+                "<strong>Self-Reliance:</strong> Trusting in human effort instead of Christ’s sufficiency",
+                "<strong>Cultural Idols:</strong> Elevating trends or ideologies above Christ"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 1",
+          "id": "notes-study1-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 1..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 1 Study Checklist",
+          "items": [
+            {
+              "id": "ch1Goal1",
+              "text": "Read Colossians 1 carefully"
+            },
+            {
+              "id": "ch1Goal2",
+              "text": "Identify key themes of Christ’s supremacy"
+            },
+            {
+              "id": "ch1Goal3",
+              "text": "Reflect on personal applications"
+            }
+          ],
+          "badge": {
+            "id": "ch1Badge",
+            "text": "Chapter 1 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study2",
+      "navLabel": "Chapter 2",
+      "title": "Chapter 2: Freedom in Christ",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Fullness in Christ (Col. 2:9-10)",
+                "Freedom from human traditions and legalism (Col. 2:8, 16-23)",
+                "Spiritual circumcision through Christ (Col. 2:11-12)",
+                "Victory over spiritual powers (Col. 2:15)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Colossians 2:9-10",
+          "crossRefs": [
+            "Ephesians 1:22-23",
+            "Philippians 2:9-11"
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Dangers of False Teaching",
+          "body": [
+            {
+              "p": "Paul warns against being taken captive by:"
+            },
+            {
+              "ul": [
+                "Hollow and deceptive philosophy (Col. 2:8)",
+                "Judgment over religious practices (Col. 2:16)",
+                "Self-imposed rules that lack value (Col. 2:20-23)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What human traditions or philosophies have you encountered that compete with Christ’s sufficiency?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we discern between helpful traditions and those that distract from Christ?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 2 Today",
+          "body": [
+            {
+              "p": "Embrace freedom in Christ by:"
+            },
+            {
+              "ul": [
+                "Rejecting legalistic pressures in your faith community",
+                "Focusing on Christ as the source of spiritual fullness",
+                "Guarding against worldly philosophies that undermine the gospel"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 2",
+          "id": "notes-study2-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 2..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 2 Study Checklist",
+          "items": [
+            {
+              "id": "ch2Goal1",
+              "text": "Read Colossians 2 carefully"
+            },
+            {
+              "id": "ch2Goal2",
+              "text": "Understand warnings against false teaching"
+            },
+            {
+              "id": "ch2Goal3",
+              "text": "Reflect on personal freedom in Christ"
+            }
+          ],
+          "badge": {
+            "id": "ch2Badge",
+            "text": "Chapter 2 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study3",
+      "navLabel": "Chapter 3",
+      "title": "Chapter 3: New Life in Christ",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Living as those raised with Christ (Col. 3:1-4)",
+                "Putting off the old self (Col. 3:5-11)",
+                "Putting on the new self (Col. 3:12-17)",
+                "Christian household relationships (Col. 3:18-21)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Colossians 3:12-14",
+          "crossRefs": [
+            "Galatians 5:22-23",
+            "1 Corinthians 13:4-7"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 3 Today",
+          "body": [
+            {
+              "p": "Live out your new identity by:"
+            },
+            {
+              "ul": [
+                "Practicing forgiveness in relationships",
+                "Letting Christ’s peace rule in decision-making",
+                "Building up your household through love and respect"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What aspects of your “old self” do you need to put off, and what virtues do you want to cultivate?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we encourage one another to live out the virtues listed in Colossians 3:12-14?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 3",
+          "id": "notes-study3-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 3..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 3 Study Checklist",
+          "items": [
+            {
+              "id": "ch3Goal1",
+              "text": "Read Colossians 3 carefully"
+            },
+            {
+              "id": "ch3Goal2",
+              "text": "Reflect on the old vs. new self"
+            },
+            {
+              "id": "ch3Goal3",
+              "text": "Apply virtues to daily life"
+            }
+          ],
+          "badge": {
+            "id": "ch3Badge",
+            "text": "Chapter 3 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study4",
+      "navLabel": "Chapter 4",
+      "title": "Chapter 4: Practical Christian Living",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Prayer and watchfulness (Col. 4:2-4)",
+                "Wise conduct toward outsiders (Col. 4:5-6)",
+                "Christian community and partnerships (Col. 4:7-17)",
+                "Final greetings and instructions (Col. 4:18)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Colossians 4:5-6",
+          "crossRefs": [
+            "1 Peter 3:15",
+            "Ephesians 5:15-16"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 4 Today",
+          "body": [
+            {
+              "p": "Live wisely by:"
+            },
+            {
+              "ul": [
+                "Praying consistently for opportunities to share your faith",
+                "Engaging non-believers with grace and wisdom",
+                "Building strong Christian community relationships"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How can you season your conversations with grace when interacting with non-believers?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can our church community better support one another, as seen in Paul’s greetings?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 4",
+          "id": "notes-study4-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 4..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 4 Study Checklist",
+          "items": [
+            {
+              "id": "ch4Goal1",
+              "text": "Read Colossians 4 carefully"
+            },
+            {
+              "id": "ch4Goal2",
+              "text": "Reflect on wise conduct and prayer"
+            },
+            {
+              "id": "ch4Goal3",
+              "text": "Apply practical living principles"
+            }
+          ],
+          "badge": {
+            "id": "ch4Badge",
+            "text": "Chapter 4 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "navLabel": "Summary",
+      "title": "Study Summary",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Takeaways from Colossians",
+          "body": [
+            {
+              "ul": [
+                "Christ is supreme over all creation and sufficient for salvation",
+                "Believers are free from human traditions and legalism",
+                "Live out the new self through virtues and wise conduct",
+                "Build strong Christian communities rooted in love"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Final Reflection",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How has studying Colossians deepened your understanding of Christ’s role in your life?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What is one practical step your group can take to live out Colossians’ teachings?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Final Notes",
+          "id": "notes-summary-1",
+          "placeholder": "Summarize your key insights from this study of Colossians..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Study Completion Checklist",
+          "items": [
+            {
+              "id": "sumGoal1",
+              "text": "Complete all chapter studies"
+            },
+            {
+              "id": "sumGoal2",
+              "text": "Reflect on the overall message of Colossians"
+            },
+            {
+              "id": "sumGoal3",
+              "text": "Apply one key lesson to your life"
+            }
+          ],
+          "badge": {
+            "id": "sumBadge",
+            "text": "Study Completed!"
+          }
+        }
+      ]
+    }
+  ]
+}

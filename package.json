@@ -1,0 +1,14 @@
+{
+  "name": "bible-study-guides",
+  "private": true,
+  "description": "Free Bible study guides. Static site generated from content/ with no dependencies.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "validate": "node tools/validate.mjs",
+    "build": "node tools/validate.mjs && node tools/build.mjs",
+    "build:drafts": "node tools/validate.mjs && node tools/build.mjs --drafts",
+    "serve": "python3 -m http.server 8000",
+    "deploy": "npm run build && firebase deploy --only hosting"
+  }
+}

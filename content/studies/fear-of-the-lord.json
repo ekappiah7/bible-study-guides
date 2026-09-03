@@ -1,0 +1,354 @@
+{
+  "$schema": "../schema.json",
+  "id": "fear-of-the-lord",
+  "kind": "topic",
+  "status": "draft",
+  "slug": "fear-of-the-lord",
+  "title": "The Fear of the Lord",
+  "pageTitle": "The Fear of the Lord",
+  "tagline": "A theme traced from Deuteronomy to Revelation",
+  "docTitle": "The Fear of the Lord: a topical Bible study",
+  "metaDescription": "A free topical Bible study tracing the fear of the Lord through the Law, the Psalms, the Wisdom books and the New Testament, with Berean Study Bible passages and questions for personal and group use.",
+  "progressOpening": "Ready to trace this theme through Scripture!",
+  "topic": {
+    "category": "Character and worship",
+    "anchorBooks": ["Deuteronomy", "Proverbs", "Psalms", "Hebrews"]
+  },
+  "units": [
+    {
+      "id": "overview",
+      "navLabel": "Overview",
+      "title": "Study Overview",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Why This Study",
+          "body": [
+            { "p": "Scripture calls the fear of the Lord the beginning of wisdom and the beginning of knowledge, and yet it is one of the phrases modern believers find hardest to say plainly. Some hear it and think only of terror. Others empty it out until it means nothing more than respect." },
+            { "p": "This study does not settle the question in advance. It walks the theme through the Law, the Wisdom books, the Psalms and the New Testament, and lets the weight of the texts do the work. The aim is that by the end you could explain to someone else what Scripture means when it commands us to fear God, and why that command sits so close to the promise of his love." }
+          ]
+        },
+        {
+          "type": "prose",
+          "heading": "How a Topical Study Differs",
+          "body": [
+            { "p": "In a book study the text sets the order and you follow it. In a topical study you set the order, which is a real danger: it is easy to line up verses that agree with you and quietly skip the ones that do not." },
+            { "p": "Two safeguards are built into this study. Every passage is read in its own context before it is used, and the hardest text for the conclusion, not the easiest, is faced directly in unit three." }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Your Study Goals",
+          "intro": "Check off each goal as you complete it:",
+          "items": [
+            { "id": "folGoal1", "text": "Trace the fear of the Lord across both testaments rather than from a single verse" },
+            { "id": "folGoal2", "text": "Distinguish the fear that drives people from God from the fear that draws them to him" },
+            { "id": "folGoal3", "text": "Face how 1 John 4:18 relates to the command to fear God, rather than avoiding it" },
+            { "id": "folGoal4", "text": "Be able to explain this theme to someone else in your own words" }
+          ],
+          "badge": { "id": "folOverviewBadge", "text": "Overview Completed!" }
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Study Method",
+              "body": [
+                { "p": "Each unit follows the same four steps:" },
+                { "ol": [
+                  "<strong>Read</strong> the passage in its own chapter, not only as quoted here",
+                  "<strong>Observe</strong> before interpreting, using the prompts given",
+                  "<strong>Compare</strong> the passage with the others in the unit",
+                  "<strong>Apply</strong> what the text actually says, not what you expected it to say"
+                ] }
+              ]
+            },
+            {
+              "heading": "Time Commitment",
+              "body": [
+                { "ul": [
+                  "40 to 60 minutes per unit alone",
+                  "60 to 90 minutes per unit in a group",
+                  "Four units, so four sittings"
+                ] }
+              ]
+            },
+            {
+              "heading": "What You Need",
+              "body": [
+                { "ul": [
+                  "A Bible you can read the full chapters in",
+                  "Something to write with, or the notes boxes here",
+                  "Willingness to be corrected by the text"
+                ] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "study1",
+      "navLabel": "In the Law and Wisdom",
+      "title": "Where the Fear of the Lord Begins",
+      "passages": ["Deuteronomy 10:12-13", "Proverbs 1:7", "Proverbs 9:10"],
+      "blocks": [
+        {
+          "type": "observe",
+          "heading": "Observe First",
+          "body": [
+            { "p": "Read Deuteronomy 10 and Proverbs 1 in full before reading any further here. Then answer from the text alone:" },
+            { "ol": [
+              "In Deuteronomy 10:12, what else is the Israelite asked to do alongside fearing God? List every verb.",
+              "Is the fear commanded there presented as a burden or as a benefit? Which words tell you?",
+              "In Proverbs 1:7, what is the fear of the Lord the beginning of, and what is the opposite of it in the same verse?",
+              "Proverbs 9:10 repeats the thought with one word changed. Which word, and does it change the meaning?"
+            ] }
+          ]
+        },
+        { "type": "passage", "ref": "Deuteronomy 10:12-13", "crossRefs": ["Deuteronomy 6:1-2", "Ecclesiastes 12:13"] },
+        { "type": "passage", "ref": "Proverbs 1:7", "crossRefs": ["Proverbs 9:10", "Job 28:28"] },
+        {
+          "type": "wordstudy",
+          "heading": "yare'",
+          "body": [
+            { "p": "The Hebrew verb behind almost every Old Testament instance is <em>yare'</em>. Its range runs from plain terror, as when Adam says he was afraid and hid, through to reverence and awe, as when Jacob wakes at Bethel and says how awesome is this place." },
+            { "p": "The same word covers both because both are responses to something genuinely larger than you. Which end of the range is meant is settled by context, not by the word itself, which is why single-verse arguments about this theme go wrong so often." },
+            { "p": "Note what Deuteronomy 10:12 does: it puts fearing God in a list with walking in his ways, loving him and serving him with all your heart. Terror does not belong in that company. Something closer to awed loyalty does." }
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Who Was Being Addressed",
+          "body": [
+            { "p": "Deuteronomy 10 is spoken to a people who had already seen Sinai burn and had already made the golden calf. They were not being introduced to a God they had never met; they were being asked to respond rightly to a God they had seen act, in both judgement and mercy." },
+            { "p": "Proverbs 1 addresses the opposite situation: a young person at the start of life with everything still to learn. To such a person the claim is that all real knowledge starts here. Not that fear is one subject among many, but that it is the doorway to the rest." }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            { "audience": "Personal", "text": "Proverbs 1:7 says fools despise wisdom and instruction. Where in your life are you most resistant to being taught, and what does that resistance suggest about your fear of God?" },
+            { "audience": "Group Discussion", "text": "Deuteronomy 10:13 says these commands were given for your own good. How does that phrase change the way we hear the command to fear God?" }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Living This Out",
+          "body": [
+            { "ul": [
+              "<strong>Take instruction:</strong> a person who fears God can be corrected without collapsing or retaliating",
+              "<strong>Start with God, not with technique:</strong> wisdom that skips reverence is only cleverness",
+              "<strong>Obey in small things:</strong> Deuteronomy ties fear to walking, loving and serving, all of them daily"
+            ] }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on the Law and Wisdom",
+          "id": "notes-study1-1",
+          "placeholder": "Write your observations, questions or insights..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Unit Checklist",
+          "items": [
+            { "id": "folS1a", "text": "Read Deuteronomy 10 and Proverbs 1 in full" },
+            { "id": "folS1b", "text": "Answer the observation prompts before reading the notes" },
+            { "id": "folS1c", "text": "Write down your own definition of the fear of the Lord so far" }
+          ],
+          "badge": { "id": "folS1Badge", "text": "Unit Completed!" }
+        }
+      ]
+    },
+    {
+      "id": "study2",
+      "navLabel": "In the Psalms",
+      "title": "What It Sounds Like in the Psalms",
+      "passages": ["Psalm 25:14", "Psalm 34:11", "Psalm 103:11-13", "Psalm 111:10"],
+      "blocks": [
+        {
+          "type": "observe",
+          "heading": "Observe First",
+          "body": [
+            { "p": "Read Psalm 25, Psalm 34 and Psalm 103 in full. Then, from the text alone:" },
+            { "ol": [
+              "In Psalm 25:14, what does the Lord give to those who fear him? Who else in the psalm is described this way?",
+              "Psalm 34:11 introduces the fear of the Lord as something that can be taught. What does the psalmist then teach in verses 12 to 14?",
+              "In Psalm 103:11-13, what two images describe God's posture toward those who fear him?",
+              "Across these psalms, is the fear of the Lord ever paired with hiding from God? What is it paired with instead?"
+            ] }
+          ]
+        },
+        { "type": "passage", "ref": "Psalm 25:14", "crossRefs": ["Psalm 111:10", "Proverbs 3:32"] },
+        { "type": "passage", "ref": "Psalm 103:11-13", "crossRefs": ["Psalm 34:11", "Isaiah 11:2-3"] },
+        {
+          "type": "highlight",
+          "heading": "The Company the Psalms Keep",
+          "body": [
+            { "p": "Notice what the Psalms put next to the fear of the Lord:" },
+            { "ul": [
+              "<strong>Friendship and confidence:</strong> the Lord confides in those who fear him (25:14)",
+              "<strong>Fatherly compassion:</strong> as a father has compassion on his children (103:13)",
+              "<strong>Steadfast love, measured by the height of the heavens (103:11)</strong>",
+              "<strong>Something teachable, passed from one generation to the next (34:11)</strong>"
+            ] },
+            { "p": "A fear that produces intimacy, compassion and instruction is not the fear of a threatened animal. It is the fear of a child who knows exactly who their father is." }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            { "audience": "Personal", "text": "Psalm 25:14 links fearing God with being trusted with his counsel. Does your prayer life look like someone being confided in, or someone keeping a safe distance?" },
+            { "audience": "Group Discussion", "text": "Psalm 34:11 treats the fear of the Lord as teachable. How would you actually teach it to a child or a new believer, in practice rather than in theory?" }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on the Psalms",
+          "id": "notes-study2-1",
+          "placeholder": "Write your observations, questions or insights..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Unit Checklist",
+          "items": [
+            { "id": "folS2a", "text": "Read Psalms 25, 34 and 103 in full" },
+            { "id": "folS2b", "text": "List what the Psalms pair with the fear of the Lord" },
+            { "id": "folS2c", "text": "Revise your definition from unit one if the Psalms have changed it" }
+          ],
+          "badge": { "id": "folS2Badge", "text": "Unit Completed!" }
+        }
+      ]
+    },
+    {
+      "id": "study3",
+      "navLabel": "After the Cross",
+      "title": "The Fear of the Lord After the Cross",
+      "passages": ["Acts 9:31", "2 Corinthians 5:11", "Hebrews 12:28-29", "1 John 4:18"],
+      "blocks": [
+        {
+          "type": "observe",
+          "heading": "Observe First",
+          "body": [
+            { "p": "Read Acts 9:31, 2 Corinthians 5, Hebrews 12:18-29 and 1 John 4 in full. Then:" },
+            { "ol": [
+              "In Acts 9:31, what is the church doing while living in the fear of the Lord? Is the fear presented as a problem to be solved?",
+              "Hebrews 12:28-29 gives a reason for reverence. What is it, and what has just been said in verses 18 to 24 about how believers now come to God?",
+              "1 John 4:18 says perfect love drives out fear. Read the whole verse: what kind of fear does John name, and what does he say it has to do with?"
+            ] }
+          ]
+        },
+        { "type": "passage", "ref": "Acts 9:31", "crossRefs": ["2 Corinthians 7:1", "Philippians 2:12-13"] },
+        { "type": "passage", "ref": "Hebrews 12:28-29", "crossRefs": ["Revelation 14:7", "Luke 12:4-5"] },
+        {
+          "type": "hardquestion",
+          "heading": "Does Perfect Love Not Drive Out Fear?",
+          "body": [
+            { "p": "This is the text that makes the whole theme feel contradictory, and it deserves to be met head on rather than managed." },
+            { "p": "John's own sentence supplies the answer. He does not say that love drives out all fear; he says there is no fear in love because fear has to do with punishment, and the one who fears is not perfected in love. The fear John excludes is the fear of a defendant waiting for sentence. For anyone in Christ that fear is finished, and John's point is precisely that it should be." },
+            { "p": "What is not excluded is the reverence Hebrews commands in the same breath as thanksgiving, offered by people who have come to Mount Zion rather than Sinai and who are told, in that very context, that our God is a consuming fire. Nor is it the fear the church in Acts lived in while being built up and encouraged." },
+            { "p": "So the two are not rivals. Punishment-fear and love cannot share a heart. Reverence and love cannot be separated. Where a believer still carries dread of condemnation, the answer is not less fear of God in general but a firmer grasp of what the cross settled." },
+            { "h4": "Test it yourself" },
+            { "p": "This is a conclusion, not a proof text. Read 1 John 4:17-19 and Hebrews 12:18-29 side by side and check whether the reading above does justice to both, or whether it has smoothed something over. Write down any objection you cannot answer, and bring it to your group." }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            { "audience": "Personal", "text": "Which of the two fears do you actually live with: dread of being condemned, or reverence toward a Father you are safe with? What in your habits gives away the answer?" },
+            { "audience": "Group Discussion", "text": "Acts 9:31 puts the fear of the Lord alongside encouragement and growth. What would a church look like today if those three went together, and where do we tend to trade one for another?" }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Living This Out",
+          "body": [
+            { "ul": [
+              "<strong>Stop paying a debt already settled:</strong> if your fear is about punishment, take it to the cross rather than to harder effort",
+              "<strong>Recover reverence in worship:</strong> casual handling of holy things is not the mark of a person who has grasped grace",
+              "<strong>Let it make you kind:</strong> Paul's fear of the Lord in 2 Corinthians 5:11 sends him to persuade people, not to condemn them"
+            ] }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on the New Testament",
+          "id": "notes-study3-1",
+          "placeholder": "Write your observations, questions or insights..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Unit Checklist",
+          "items": [
+            { "id": "folS3a", "text": "Read Hebrews 12:18-29 and 1 John 4 in full" },
+            { "id": "folS3b", "text": "Write out the difference between the two fears in your own words" },
+            { "id": "folS3c", "text": "Note any objection to the reading given here that you cannot yet answer" }
+          ],
+          "badge": { "id": "folS3Badge", "text": "Unit Completed!" }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "navLabel": "Summary",
+      "title": "Drawing It Together",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "What the Whole Sweep Shows",
+          "body": [
+            { "ul": [
+              "<strong>It is commanded, not optional,</strong> and commanded for our good (Deuteronomy 10:12-13)",
+              "<strong>It is where knowledge starts,</strong> so it is not a stage believers grow out of (Proverbs 1:7)",
+              "<strong>It produces intimacy,</strong> because the Lord confides in those who fear him (Psalm 25:14)",
+              "<strong>It survives the cross,</strong> marking the healthiest churches in Acts (Acts 9:31)",
+              "<strong>It is not the fear of punishment,</strong> which love does drive out (1 John 4:18)"
+            ] }
+          ]
+        },
+        { "type": "pullquote", "ref": "Psalm 111:10" },
+        {
+          "type": "reflection",
+          "heading": "Final Reflection",
+          "questions": [
+            { "audience": "Personal", "text": "Write one paragraph, without looking at these notes, explaining what Scripture means by the fear of the Lord. Where you cannot yet be clear, that is the part to keep studying." }
+          ]
+        },
+        {
+          "type": "prose",
+          "heading": "Going Deeper",
+          "body": [
+            { "ul": [
+              "Trace the phrase through Isaiah, where it appears in the description of the Messiah himself (Isaiah 11:2-3)",
+              "Read Ecclesiastes as a whole and notice where it lands in 12:13",
+              "Compare Luke 12:4-5 with 1 John 4:18 and work out how both can be true at once"
+            ] }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Final Notes",
+          "id": "notes-summary-1",
+          "placeholder": "Your own summary of the fear of the Lord..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Study Completion",
+          "items": [
+            { "id": "folDone1", "text": "Completed all three units" },
+            { "id": "folDone2", "text": "Written my own definition without notes" },
+            { "id": "folDone3", "text": "Identified one habit to change" }
+          ],
+          "badge": { "id": "folDoneBadge", "text": "Study Completed!" }
+        }
+      ]
+    }
+  ],
+  "sources": [
+    { "label": "Berean Study Bible", "detail": "passage text", "url": "http://berean.bible" }
+  ]
+}

@@ -8,7 +8,12 @@
       ".firebaserc",
       "**/.*",
       "**/node_modules/**",
+      "content/**",
+      "tools/**",
+      "package.json",
+      "package-lock.json",
       "README.md",
+      "CONTENT.md",
       "LICENSE"
     ],
     "headers": [

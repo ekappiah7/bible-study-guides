@@ -1,0 +1,994 @@
+{
+  "$schema": "../schema.json",
+  "id": "philippians",
+  "kind": "book",
+  "status": "published",
+  "slug": "philippians",
+  "title": "Philippians",
+  "pageTitle": "Philippians Study Guide",
+  "tagline": "Joy in Christ",
+  "docTitle": "Philippians: Joy in Christ - Interactive Bible Study",
+  "metaDescription": "A free, in-depth study guide to Paul's letter to the Philippians, with Berean Study Bible passages, reflection questions and progress tracking.",
+  "canon": {
+    "testament": "new",
+    "group": "Pauline epistles",
+    "order": 11,
+    "chapters": 4
+  },
+  "progressOpening": "Ready to begin your journey!",
+  "units": [
+    {
+      "id": "overview",
+      "navLabel": "Overview",
+      "title": "Study Overview",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Purpose of This Study",
+          "body": [
+            {
+              "p": "Welcome to an in-depth exploration of Paul's letter to the Philippians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for finding joy in Christ regardless of circumstances."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Your Study Goals",
+          "items": [
+            {
+              "id": "goal1",
+              "text": "Understand the historical context of Philippi and Paul's relationship with the church"
+            },
+            {
+              "id": "goal2",
+              "text": "Grasp the theme of joy in the midst of suffering"
+            },
+            {
+              "id": "goal3",
+              "text": "Study the profound Christ hymn in Philippians 2:5-11"
+            },
+            {
+              "id": "goal4",
+              "text": "Apply Paul's teachings on contentment and partnership in the gospel"
+            },
+            {
+              "id": "goal5",
+              "text": "Complete personal reflection exercises for each chapter"
+            }
+          ],
+          "intro": "Check off each goal as you complete it:"
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Study Method",
+              "body": [
+                {
+                  "p": "We'll use the <strong>SOAP</strong> method:"
+                },
+                {
+                  "ul": [
+                    "<strong>S</strong>cripture - Read the text",
+                    "<strong>O</strong>bservation - What does it say?",
+                    "<strong>A</strong>pplication - How does it apply?",
+                    "<strong>P</strong>rayer - Talk to God about it"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Time Commitment",
+              "body": [
+                {
+                  "p": "Each chapter study is designed for:"
+                },
+                {
+                  "ul": [
+                    "30-45 minutes individual study",
+                    "60-90 minutes group discussion",
+                    "Weekly personal reflection"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Resources Needed",
+              "body": [
+                {
+                  "ul": [
+                    "Bible (multiple translations helpful)",
+                    "Notebook for personal notes",
+                    "This interactive guide",
+                    "Open heart for God's Word!"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "navLabel": "Background",
+      "title": "Historical Background",
+      "blocks": [
+        {
+          "type": "context",
+          "heading": "The City of Philippi",
+          "body": [
+            {
+              "p": "<strong>Location:</strong> Philippi was a leading city in the district of Macedonia (northern Greece), located on the Via Egnatia, the main road connecting Rome with the eastern provinces. It was about 10 miles inland from the Aegean Sea port of Neapolis."
+            },
+            {
+              "p": "<strong>Historical Significance:</strong> Named after Philip II of Macedon (Alexander the Great's father), Philippi became famous for the battle in 42 BC where Octavian and Mark Antony defeated Brutus and Cassius. After the battle, it became a Roman colony with Italian rights, meaning its citizens had the same privileges as those living in Italy."
+            },
+            {
+              "p": "<strong>Cultural Climate:</strong> As a Roman colony, Philippi was proudly Roman in character. Latin was the official language, Roman law prevailed, and citizens took great pride in their Roman citizenship. The city had a strong military veteran presence and reflected Roman values and customs."
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Paul's Connection to Philippi",
+          "body": [
+            {
+              "p": "<strong>First European Church:</strong> Philippi was the first place in Europe where Paul preached the gospel (Acts 16:11-40). Key events included:"
+            },
+            {
+              "ul": [
+                "<strong>Lydia's Conversion</strong> - A businesswoman and the first European convert (Acts 16:14-15)",
+                "<strong>The Demon-Possessed Girl</strong> - Paul cast out a spirit, leading to his imprisonment (Acts 16:16-18)",
+                "<strong>The Philippian Jailer</strong> - Converted after an earthquake freed Paul and Silas (Acts 16:25-34)",
+                "<strong>Special Partnership</strong> - The Philippian church supported Paul financially multiple times (Phil. 4:15-16)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Occasion for Writing",
+          "body": [
+            {
+              "p": "<strong>Paul's Imprisonment:</strong> Written from Rome around AD 60-62 during Paul's first Roman imprisonment (though some scholars suggest Caesarea or Ephesus). Paul was under house arrest awaiting trial before Caesar."
+            },
+            {
+              "p": "<strong>The Philippians' Gift:</strong> The church had sent Epaphroditus with a financial gift to support Paul (Phil. 4:18). Epaphroditus had become seriously ill, nearly dying, which caused the Philippians concern (Phil. 2:25-30)."
+            },
+            {
+              "p": "<strong>Paul's Purposes:</strong>"
+            },
+            {
+              "ul": [
+                "Thank the Philippians for their financial support",
+                "Update them on his circumstances and encourage them",
+                "Warn against false teachers (Judaizers and antinomians)",
+                "Call for unity between Euodia and Syntyche (Phil. 4:2-3)",
+                "Encourage joy and contentment despite circumstances"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Challenges Facing the Church",
+          "body": [
+            {
+              "h4": "External Persecution:"
+            },
+            {
+              "ul": [
+                "Opposition from the community (Phil. 1:27-30)",
+                "Suffering for the gospel's sake",
+                "Pressure to conform to Roman culture and emperor worship"
+              ]
+            },
+            {
+              "h4": "False Teachers:"
+            },
+            {
+              "ul": [
+                "Judaizers promoting circumcision and law-keeping (Phil. 3:2-3)",
+                "Those living as \"enemies of the cross\" - likely antinomians (Phil. 3:18-19)"
+              ]
+            },
+            {
+              "h4": "Internal Discord:"
+            },
+            {
+              "ul": [
+                "Disunity between believers (Phil. 2:1-4)",
+                "Specific conflict between Euodia and Syntyche (Phil. 4:2)",
+                "Selfish ambition and vain conceit (Phil. 2:3)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Modern Parallels",
+          "body": [
+            {
+              "p": "Today's believers face similar challenges:"
+            },
+            {
+              "ul": [
+                "<strong>Cultural Pressure:</strong> Conforming to secular values vs. living as citizens of heaven",
+                "<strong>Pursuing Joy:</strong> Finding contentment in a consumerist, comparison-driven culture",
+                "<strong>Church Unity:</strong> Maintaining unity amid diverse opinions and personalities",
+                "<strong>False Teaching:</strong> Legalism, prosperity gospel, or moral relativism",
+                "<strong>Suffering Well:</strong> Responding to trials with joy and faith rather than bitterness"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How does your cultural citizenship (nationality, social identity) sometimes conflict with your heavenly citizenship?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What modern challenges to unity exist in our church, and how can Philippians help us address them?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Background",
+          "id": "notes-background-1",
+          "placeholder": "Write your observations, questions, or insights about the historical background..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Background Study Checklist",
+          "items": [
+            {
+              "id": "bgGoal1",
+              "text": "Understand the cultural and historical context of Philippi"
+            },
+            {
+              "id": "bgGoal2",
+              "text": "Identify key figures in the Philippian church"
+            },
+            {
+              "id": "bgGoal3",
+              "text": "Recognize the occasion and purpose for Paul's letter"
+            },
+            {
+              "id": "bgGoal4",
+              "text": "Reflect on modern parallels to these challenges"
+            }
+          ],
+          "badge": {
+            "id": "bgBadge",
+            "text": "Section Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study1",
+      "navLabel": "Chapter 1",
+      "title": "Chapter 1: Partnership in the Gospel",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Thanksgiving for partnership in the gospel (Phil. 1:3-8)",
+                "Paul's prayer for the Philippians (Phil. 1:9-11)",
+                "Christ proclaimed despite opposition (Phil. 1:12-18)",
+                "To live is Christ, to die is gain (Phil. 1:19-26)",
+                "Living worthy of the gospel (Phil. 1:27-30)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 1:6",
+          "crossRefs": [
+            "Romans 8:29-30",
+            "1 Thessalonians 5:23-24"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 1:21",
+          "crossRefs": [
+            "Galatians 2:20",
+            "2 Corinthians 5:8"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Key Observations",
+          "body": [
+            {
+              "p": "<strong>Paul's Chains Advance the Gospel (1:12-14):</strong> Rather than hindering the gospel, Paul's imprisonment in Rome had actually helped spread it - the whole palace guard heard about Christ, and other believers were emboldened to speak more courageously."
+            },
+            {
+              "p": "<strong>Mixed Motives (1:15-18):</strong> Some preached Christ from envy and rivalry, hoping to stir up trouble for Paul. But Paul rejoiced because regardless of motive, Christ was being proclaimed. This shows remarkable spiritual maturity and focus on what matters most."
+            },
+            {
+              "p": "<strong>Paul's Dilemma (1:22-26):</strong> Torn between his desire to depart and be with Christ (which is better by far) and his need to remain for the Philippians' progress and joy in the faith. He valued eternal perspective while remaining committed to earthly ministry."
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "Can you honestly say \"to live is Christ\"? What competes with Christ for being your reason for living?"
+            },
+            {
+              "audience": "Personal",
+              "text": "How do you typically respond when things don't go as planned? Can you see God advancing His purposes through difficulties?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we maintain joy when others in ministry have wrong motives or when we face opposition?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 1 Today",
+          "body": [
+            {
+              "p": "Consider how Chapter 1 challenges us to:"
+            },
+            {
+              "ul": [
+                "<strong>Trust God's Faithfulness:</strong> He will complete what He started in you (1:6)",
+                "<strong>Redefine Success:</strong> Advance of the gospel matters more than personal comfort (1:12-14)",
+                "<strong>Focus on What Matters:</strong> Rejoice when Christ is preached, even if motives aren't pure (1:18)",
+                "<strong>Live with Eternal Perspective:</strong> Death is gain, not loss (1:21)",
+                "<strong>Stand Firm Together:</strong> Unity in contending for the faith (1:27)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 1",
+          "id": "notes-study1-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 1..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 1 Study Checklist",
+          "items": [
+            {
+              "id": "ch1Goal1",
+              "text": "Read Philippians 1 carefully"
+            },
+            {
+              "id": "ch1Goal2",
+              "text": "Identify key themes of partnership and joy"
+            },
+            {
+              "id": "ch1Goal3",
+              "text": "Reflect on personal applications"
+            }
+          ],
+          "badge": {
+            "id": "ch1Badge",
+            "text": "Chapter 1 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study2",
+      "navLabel": "Chapter 2",
+      "title": "Chapter 2: The Mind of Christ",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Call to unity and humility (Phil. 2:1-4)",
+                "The Christ Hymn - Jesus' humiliation and exaltation (Phil. 2:5-11)",
+                "Working out salvation with fear and trembling (Phil. 2:12-13)",
+                "Shining as lights in the world (Phil. 2:14-18)",
+                "Examples of service - Timothy and Epaphroditus (Phil. 2:19-30)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 2:3-4",
+          "crossRefs": [
+            "Romans 12:10",
+            "1 Corinthians 10:24"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 2:5-8",
+          "crossRefs": [
+            "John 1:1,14",
+            "Hebrews 2:14-17"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Christ Hymn (2:5-11)",
+          "body": [
+            {
+              "p": "This passage is one of the most profound theological statements about Jesus in the New Testament. It describes two movements:"
+            },
+            {
+              "p": "<strong>The Descent (Humiliation):</strong>"
+            },
+            {
+              "ul": [
+                "<strong>Pre-existence:</strong> Existing in the form of God (2:6)",
+                "<strong>Incarnation:</strong> Emptied Himself, taking the form of a servant (2:7)",
+                "<strong>Crucifixion:</strong> Became obedient to death, even death on a cross (2:8)"
+              ]
+            },
+            {
+              "p": "<strong>The Ascent (Exaltation):</strong>"
+            },
+            {
+              "ul": [
+                "<strong>Resurrection/Ascension:</strong> God exalted Him to the highest place (2:9)",
+                "<strong>Universal Acknowledgment:</strong> Every knee will bow, every tongue confess (2:10-11)",
+                "<strong>Purpose:</strong> To the glory of God the Father (2:11)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Working Out Salvation (2:12-13)",
+          "body": [
+            {
+              "p": "<strong>Not Earning Salvation:</strong> Paul is not teaching salvation by works. \"Work out\" means to bring to completion or carry out what is already present."
+            },
+            {
+              "p": "<strong>Divine Partnership:</strong> We work because God is at work in us (2:13). It's His power enabling us to will and to act according to His good purpose."
+            },
+            {
+              "p": "<strong>Fear and Trembling:</strong> Not terror, but reverent awe and serious dedication to living out our salvation."
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "In what areas of your life do you struggle with selfish ambition or vain conceit? How would adopting Christ's mindset change those situations?"
+            },
+            {
+              "audience": "Personal",
+              "text": "How does the descent and exaltation of Christ inspire you to serve others humbly?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we as a church community better exemplify the servant-hearted attitude of Christ, Timothy, and Epaphroditus?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 2 Today",
+          "body": [
+            {
+              "p": "Embrace Christ's mindset by:"
+            },
+            {
+              "ul": [
+                "<strong>Practicing Humility:</strong> Looking to others' interests, not just your own",
+                "<strong>Embracing Service:</strong> Following Christ's example of descending to serve",
+                "<strong>Living Without Complaining:</strong> Being blameless and pure (2:14-15)",
+                "<strong>Shining as Lights:</strong> Holding firmly to the word of life in a dark world (2:15-16)",
+                "<strong>Supporting Fellow Workers:</strong> Honoring those who serve sacrificially like Epaphroditus"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 2",
+          "id": "notes-study2-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 2..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 2 Study Checklist",
+          "items": [
+            {
+              "id": "ch2Goal1",
+              "text": "Read Philippians 2 carefully"
+            },
+            {
+              "id": "ch2Goal2",
+              "text": "Study the Christ Hymn deeply"
+            },
+            {
+              "id": "ch2Goal3",
+              "text": "Reflect on humility and service"
+            }
+          ],
+          "badge": {
+            "id": "ch2Badge",
+            "text": "Chapter 2 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study3",
+      "navLabel": "Chapter 3",
+      "title": "Chapter 3: Knowing Christ",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Warning against false teachers (Phil. 3:1-3)",
+                "Paul's credentials and their worthlessness compared to Christ (Phil. 3:4-9)",
+                "Knowing Christ and the power of His resurrection (Phil. 3:10-11)",
+                "Pressing on toward the goal (Phil. 3:12-14)",
+                "Citizens of heaven (Phil. 3:17-21)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 3:7-8",
+          "crossRefs": [
+            "Matthew 13:44-46",
+            "Luke 14:33"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 3:13-14",
+          "crossRefs": [
+            "1 Corinthians 9:24-27",
+            "Hebrews 12:1-2"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Paul's Pedigree (3:4-6)",
+          "body": [
+            {
+              "p": "Paul lists his impressive Jewish credentials to show what he gave up for Christ:"
+            },
+            {
+              "ul": [
+                "<strong>Circumcised on the eighth day:</strong> Properly Jewish, not a convert",
+                "<strong>Of the people of Israel:</strong> Not a Gentile proselyte",
+                "<strong>Of the tribe of Benjamin:</strong> A prestigious tribe (Israel's first king came from Benjamin)",
+                "<strong>A Hebrew of Hebrews:</strong> Maintained Hebrew language and customs",
+                "<strong>A Pharisee:</strong> Most strict and respected Jewish sect",
+                "<strong>Persecutor of the church:</strong> Zealous for Jewish traditions",
+                "<strong>Legalistic righteousness:</strong> Faultless according to the law"
+              ]
+            },
+            {
+              "p": "All this he counted as \"garbage\" (literally \"dung\" or \"rubbish\") compared to knowing Christ!"
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Warning Against False Teachers (3:2-3, 18-19)",
+          "body": [
+            {
+              "p": "<strong>The Judaizers (3:2-3):</strong> Called \"dogs\" and \"those who mutilate the flesh\" - they taught that Gentiles must be circumcised and follow Jewish law to be saved. Paul declares true circumcision is of the heart, by the Spirit."
+            },
+            {
+              "p": "<strong>Enemies of the Cross (3:18-19):</strong> Those who:"
+            },
+            {
+              "ul": [
+                "Their god is their stomach (physical/sensual appetites)",
+                "Glory in their shame (boast in shameful things)",
+                "Mind is set on earthly things (no eternal perspective)"
+              ]
+            },
+            {
+              "p": "These may be antinomians - those who used grace as license for sin."
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What \"credentials\" or achievements do you tend to rely on instead of Christ alone? What would it look like to count them as loss?"
+            },
+            {
+              "audience": "Personal",
+              "text": "What past failures or successes do you need to \"forget\" in order to press forward toward God's calling?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we help each other live as citizens of heaven while still living on earth?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 3 Today",
+          "body": [
+            {
+              "p": "Live as a citizen of heaven by:"
+            },
+            {
+              "ul": [
+                "<strong>Rejecting Religious Pride:</strong> Not trusting in accomplishments, status, or good works",
+                "<strong>Pursuing Intimacy with Christ:</strong> Knowing Him as the supreme treasure",
+                "<strong>Embracing Suffering:</strong> Fellowship in His sufferings leads to resurrection power (3:10)",
+                "<strong>Pressing Forward:</strong> Not dwelling on past failures or successes, but pursuing God's call",
+                "<strong>Living with Eternity in Mind:</strong> Our citizenship is in heaven, awaiting Christ's return (3:20)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 3",
+          "id": "notes-study3-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 3..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 3 Study Checklist",
+          "items": [
+            {
+              "id": "ch3Goal1",
+              "text": "Read Philippians 3 carefully"
+            },
+            {
+              "id": "ch3Goal2",
+              "text": "Reflect on what you treasure most"
+            },
+            {
+              "id": "ch3Goal3",
+              "text": "Apply principles of pressing forward"
+            }
+          ],
+          "badge": {
+            "id": "ch3Badge",
+            "text": "Chapter 3 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study4",
+      "navLabel": "Chapter 4",
+      "title": "Chapter 4: Joy and Contentment",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Call to unity and rejoicing (Phil. 4:1-4)",
+                "Gentleness and prayer instead of anxiety (Phil. 4:5-7)",
+                "Think on noble things (Phil. 4:8-9)",
+                "The secret of contentment (Phil. 4:10-13)",
+                "Partnership in giving and receiving (Phil. 4:14-20)",
+                "Final greetings (Phil. 4:21-23)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 4:4",
+          "crossRefs": [
+            "1 Thessalonians 5:16-18",
+            "James 1:2-4"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 4:6-7",
+          "crossRefs": [
+            "Matthew 6:25-34",
+            "1 Peter 5:7"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Philippians 4:13",
+          "crossRefs": [
+            "2 Corinthians 12:9-10",
+            "John 15:5"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Secret of Contentment (4:10-13)",
+          "body": [
+            {
+              "p": "<strong>Context Matters:</strong> Paul learned to be content in every situation - whether in plenty or in want, well-fed or hungry, living in plenty or in need. This isn't about achieving whatever we want, but about having Christ's strength in every circumstance."
+            },
+            {
+              "p": "<strong>Contentment is Learned:</strong> Paul says \"I have learned\" (4:11) - it's not natural or automatic. It's cultivated through experience, trust in God, and focus on eternal realities."
+            },
+            {
+              "p": "<strong>Secret Revealed:</strong> The secret is Christ's empowering presence (4:13). We can endure all things (the context of \"all this\") through His strength, not our own."
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Think on These Things (4:8)",
+          "body": [
+            {
+              "p": "Paul provides a filter for our thought life:"
+            },
+            {
+              "ul": [
+                "<strong>Whatever is true:</strong> Not false, deceptive, or based on lies",
+                "<strong>Whatever is noble:</strong> Worthy of respect, honorable",
+                "<strong>Whatever is right:</strong> Just, righteous, morally upright",
+                "<strong>Whatever is pure:</strong> Clean, holy, without moral blemish",
+                "<strong>Whatever is lovely:</strong> Attractive, gracious, pleasing",
+                "<strong>Whatever is admirable:</strong> Worthy of praise, commendable",
+                "<strong>If anything is excellent or praiseworthy:</strong> The highest standards of virtue"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What situations or circumstances tend to rob you of joy? How can you practice rejoicing in the Lord regardless?"
+            },
+            {
+              "audience": "Personal",
+              "text": "What anxieties do you need to trade for God's peace through prayer? What would change if you approached every worry with thanksgiving?"
+            },
+            {
+              "audience": "Personal",
+              "text": "Looking at the list in 4:8, what types of media, conversations, or thoughts do you need to eliminate or add to your life?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we as a church support one another financially and relationally, following the Philippians' example?"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 4 Today",
+          "body": [
+            {
+              "p": "Live joyfully and contentedly by:"
+            },
+            {
+              "ul": [
+                "<strong>Choosing Joy:</strong> Rejoicing always, not based on circumstances but on Christ",
+                "<strong>Pursuing Peace:</strong> Replacing anxiety with prayer and thanksgiving (4:6-7)",
+                "<strong>Guarding Your Mind:</strong> Intentionally focusing on what is true, noble, right, pure (4:8)",
+                "<strong>Learning Contentment:</strong> Finding sufficiency in Christ in every situation (4:11-13)",
+                "<strong>Practicing Generosity:</strong> Sharing with those in need, investing in gospel ministry (4:14-19)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 4",
+          "id": "notes-study4-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 4..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 4 Study Checklist",
+          "items": [
+            {
+              "id": "ch4Goal1",
+              "text": "Read Philippians 4 carefully"
+            },
+            {
+              "id": "ch4Goal2",
+              "text": "Reflect on joy, peace, and contentment"
+            },
+            {
+              "id": "ch4Goal3",
+              "text": "Apply principles of guarding your mind"
+            }
+          ],
+          "badge": {
+            "id": "ch4Badge",
+            "text": "Chapter 4 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "navLabel": "Summary",
+      "title": "Study Summary",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Takeaways from Philippians",
+          "body": [
+            {
+              "ul": [
+                "<strong>Joy in All Circumstances:</strong> True joy comes from Christ, not circumstances (mentioned 16 times!)",
+                "<strong>Unity Through Humility:</strong> The church thrives when believers have Christ's servant-hearted mindset",
+                "<strong>Christ is Supreme:</strong> Knowing Him surpasses all earthly achievements and credentials",
+                "<strong>Contentment is Learned:</strong> We can be content in any situation through Christ's strength",
+                "<strong>Press Forward:</strong> Forget the past and strain toward God's calling",
+                "<strong>Partnership in the Gospel:</strong> Supporting one another in ministry and life"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "highlight",
+          "heading": "The Joy Progression in Philippians",
+          "body": [
+            {
+              "ul": [
+                "<strong>Chapter 1:</strong> Joy in gospel advancement despite opposition",
+                "<strong>Chapter 2:</strong> Joy in humble service and unity",
+                "<strong>Chapter 3:</strong> Joy in knowing Christ above all else",
+                "<strong>Chapter 4:</strong> Joy as a command and practice, regardless of circumstances"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The \"One Another\" Commands in Philippians",
+          "body": [
+            {
+              "p": "Paul emphasizes community throughout this letter:"
+            },
+            {
+              "ul": [
+                "Partner together in the gospel (1:5)",
+                "Stand firm together (1:27)",
+                "Value others above yourselves (2:3)",
+                "Look to others' interests (2:4)",
+                "Follow godly examples together (3:17)",
+                "Help those who contend at your side (4:3)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Living Out Philippians Today",
+          "body": [
+            {
+              "p": "<strong>Personal Applications:</strong>"
+            },
+            {
+              "ul": [
+                "Daily choose joy in Christ, not in circumstances",
+                "Cultivate contentment through gratitude and trust",
+                "Guard your mind by focusing on what is pure and praiseworthy",
+                "Count worldly achievements as loss compared to knowing Christ",
+                "Serve others with genuine humility, following Christ's example"
+              ]
+            },
+            {
+              "p": "<strong>Church Applications:</strong>"
+            },
+            {
+              "ul": [
+                "Pursue unity by resolving conflicts quickly and humbly",
+                "Support missionaries and gospel workers financially and prayerfully",
+                "Celebrate gospel advancement even when motives are mixed",
+                "Create a culture of encouragement and partnership",
+                "Model Christ's humility in leadership and relationships"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Final Reflection",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How has studying Philippians challenged or encouraged you? What is one specific area where you need to apply what you've learned?"
+            },
+            {
+              "audience": "Personal",
+              "text": "If you could summarize Philippians in one sentence for someone who's never read it, what would you say?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What is one practical step your group can take together to live out Philippians' teachings on joy, unity, and partnership?"
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Going Deeper",
+          "body": [
+            {
+              "p": "To continue growing in your understanding of Philippians:"
+            },
+            {
+              "ul": [
+                "Memorize key verses like Phil. 2:5-8, 3:13-14, 4:6-7, 4:13",
+                "Read about Paul's first visit to Philippi in Acts 16:11-40",
+                "Study other \"Prison Epistles\": Ephesians, Colossians, Philemon",
+                "Keep a \"joy journal\" tracking how you experience joy in Christ",
+                "Practice the \"4:8 filter\" - evaluate your media and thought patterns",
+                "Find ways to partner with others in gospel ministry"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Final Notes",
+          "id": "notes-summary-1",
+          "placeholder": "Summarize your key insights from this study of Philippians..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Study Completion Checklist",
+          "items": [
+            {
+              "id": "sumGoal1",
+              "text": "Complete all chapter studies"
+            },
+            {
+              "id": "sumGoal2",
+              "text": "Reflect on the overall message of Philippians"
+            },
+            {
+              "id": "sumGoal3",
+              "text": "Apply one key lesson to your life"
+            },
+            {
+              "id": "sumGoal4",
+              "text": "Share what you learned with someone else"
+            }
+          ],
+          "badge": {
+            "id": "sumBadge",
+            "text": "Study Completed!"
+          }
+        },
+        {
+          "type": "pullquote",
+          "ref": "Philippians 1:21"
+        }
+      ]
+    }
+  ]
+}

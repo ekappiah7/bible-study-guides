@@ -1,0 +1,62 @@
+{
+  "name": "Interactive Bible Study Guides",
+  "tagline": "Discover the depth of God's Word through guided study",
+  "metaDescription": "Free, in-depth Bible study guides for personal and group study. Berean Study Bible passages, reflection questions, notes that save, and progress tracking. No account needed.",
+  "baseUrl": "",
+  "themeColor": "#6b4423",
+  "sections": [
+    {
+      "id": "available",
+      "variant": "available",
+      "title": "Currently Available",
+      "source": "published-books"
+    },
+    {
+      "id": "topics",
+      "variant": "available",
+      "title": "Topical Studies",
+      "source": "published-topics",
+      "hideWhenEmpty": true
+    },
+    {
+      "id": "coming-soon",
+      "variant": "coming-soon",
+      "title": "Coming Soon",
+      "status": "Coming Soon",
+      "studies": [
+        { "title": "1 Thessalonians", "monogram": "1Th" },
+        { "title": "2 Thessalonians", "monogram": "2Th" },
+        { "title": "1 Corinthians", "monogram": "1Co" },
+        { "title": "2 Corinthians", "monogram": "2Co" }
+      ]
+    },
+    {
+      "id": "future",
+      "variant": "future",
+      "title": "Future Studies",
+      "status": "Future Study",
+      "studies": [
+        { "title": "1 Timothy", "monogram": "1Ti" },
+        { "title": "2 Timothy", "monogram": "2Ti" },
+        { "title": "Titus", "monogram": "Tit" },
+        { "title": "Philemon", "monogram": "Phm" },
+        { "title": "Hebrews", "monogram": "Heb" }
+      ]
+    }
+  ],
+  "journeyNote": {
+    "heading": "Our Journey Through Scripture",
+    "body": "After Paul's epistles we move to the four Gospels, Matthew, Mark, Luke and John, to encounter the life and teaching of Jesus. Beyond that we go back to the foundations in the Old Testament, following God's redemptive story from Genesis to Malachi. Alongside the books, topical studies trace single themes across the whole of Scripture. Everything here stays free."
+  },
+  "footer": [
+    "<strong>Free to use.</strong> These guides are free for personal, family and church study. Copy them, print them, teach from them.",
+    "<strong>Your notes stay with you.</strong> Notes and progress are saved in your own browser on your own device. Nothing is uploaded and no account is needed.",
+    "<strong>Scripture text.</strong> Quotations are from the Holy Bible, Berean Study Bible (BSB), Copyright &copy; 2016, 2020 by Bible Hub. All rights reserved worldwide. Used under the free licence granted for websites, apps, software and audio: <a href=\"http://berean.bible/licensing.htm\" rel=\"noopener\">berean.bible/licensing.htm</a>."
+  ],
+  "notFound": {
+    "docTitle": "Page not found",
+    "heading": "We could not find that study",
+    "body": "The page may have moved, or the study may not be written yet. Every guide that is ready is listed on the home page, and all of them are free.",
+    "cta": "Go to the study library"
+  }
+}

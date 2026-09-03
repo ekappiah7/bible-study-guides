@@ -1,0 +1,1176 @@
+{
+  "$schema": "../schema.json",
+  "id": "romans",
+  "kind": "book",
+  "status": "published",
+  "slug": "romans",
+  "title": "Romans",
+  "pageTitle": "Romans Study Guide",
+  "tagline": "The Gospel Revealed",
+  "docTitle": "Romans: The Gospel Revealed - Interactive Bible Study",
+  "metaDescription": "A free, in-depth study guide to Paul's letter to the Romans, covering all sixteen chapters with Berean Study Bible passages and progress tracking.",
+  "canon": {
+    "testament": "new",
+    "group": "Pauline epistles",
+    "order": 6,
+    "chapters": 16
+  },
+  "progressOpening": "Ready to explore Paul's masterpiece!",
+  "units": [
+    {
+      "id": "overview",
+      "navLabel": "Overview",
+      "title": "Study Overview",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Purpose of This Study",
+          "body": [
+            {
+              "p": "Welcome to an in-depth exploration of Paul's letter to the Romans! This comprehensive study will take you through Paul's theological masterpiece systematically, providing historical context, doctrinal insights, and practical applications for believers today."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Your Study Goals",
+          "items": [
+            {
+              "id": "goal1",
+              "text": "Understand the historical context of Paul's letter to Rome"
+            },
+            {
+              "id": "goal2",
+              "text": "Grasp the doctrine of justification by faith alone"
+            },
+            {
+              "id": "goal3",
+              "text": "Comprehend God's sovereignty in salvation and election"
+            },
+            {
+              "id": "goal4",
+              "text": "Apply Paul's teachings on Christian living and unity"
+            },
+            {
+              "id": "goal5",
+              "text": "Complete personal reflection exercises for each section"
+            },
+            {
+              "id": "goal6",
+              "text": "Understand the relationship between law and grace"
+            }
+          ],
+          "intro": "Check off each goal as you complete it:"
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Study Method",
+              "body": [
+                {
+                  "p": "We'll use the <strong>OBSERVE</strong> method:"
+                },
+                {
+                  "ul": [
+                    "<strong>O</strong>bserve - What does the text say?",
+                    "<strong>B</strong>ackground - What's the context?",
+                    "<strong>S</strong>tructure - How is it organized?",
+                    "<strong>E</strong>xamine - What does it mean?",
+                    "<strong>R</strong>elate - How does it connect?",
+                    "<strong>V</strong>erify - What do other passages say?",
+                    "<strong>E</strong>valuate - How does it apply?"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Time Commitment",
+              "body": [
+                {
+                  "p": "Each section study is designed for:"
+                },
+                {
+                  "ul": [
+                    "45-60 minutes individual study",
+                    "90-120 minutes group discussion",
+                    "Weekly personal reflection",
+                    "Cross-reference meditation"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Resources Needed",
+              "body": [
+                {
+                  "ul": [
+                    "Bible (ESV, NASB, NIV recommended)",
+                    "Concordance or Bible app",
+                    "Notebook for detailed notes",
+                    "This comprehensive guide",
+                    "Heart open to God's Word!"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "navLabel": "Background",
+      "title": "Historical Background",
+      "blocks": [
+        {
+          "type": "context",
+          "heading": "The City of Rome",
+          "body": [
+            {
+              "p": "<strong>Location &amp; Importance:</strong> Rome was the capital of the Roman Empire, the most powerful city in the ancient world. With over 1 million inhabitants, it was the political, economic, and cultural center of the Mediterranean world."
+            },
+            {
+              "p": "<strong>Religious Climate:</strong> Rome was incredibly diverse religiously - traditional Roman gods, Greek deities, mystery religions from the East, imperial cult worship, Judaism, and emerging Christianity all coexisted. The Jewish community was substantial (40,000-50,000 people) but had faced periodic expulsions."
+            },
+            {
+              "p": "<strong>The Roman Church:</strong> Likely founded by Jewish Christians who were present at Pentecost (Acts 2:10). By Paul's time (c. 57 AD), it was a thriving community of both Jewish and Gentile believers, though tensions existed between these groups."
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Paul's Connection to Rome",
+          "body": [
+            {
+              "p": "<strong>Had not yet visited</strong> (Rom. 1:10-15, 15:22-24), but had strong connections through:"
+            },
+            {
+              "ul": [
+                "<strong>Aquila and Priscilla</strong> - Worked with Paul in Corinth and Ephesus (Rom. 16:3)",
+                "<strong>Many co-workers</strong> - Extensive greetings in chapter 16 show deep relationships",
+                "<strong>Strategic importance</strong> - Rome was key to Paul's vision for reaching the western Mediterranean",
+                "<strong>Collection delivery</strong> - Writing from Corinth before taking the Jerusalem collection"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Tensions in the Roman Church",
+          "body": [
+            {
+              "p": "Paul addresses several critical issues:"
+            },
+            {
+              "h4": "Jewish-Gentile Relations:"
+            },
+            {
+              "ul": [
+                "Gentile believers potentially looking down on Jewish believers (Rom. 11:17-24)",
+                "Jewish believers possibly trying to impose law on Gentiles",
+                "Questions about dietary laws and special days (Rom. 14:1-15:13)"
+              ]
+            },
+            {
+              "h4": "Law vs. Grace Questions:"
+            },
+            {
+              "ul": [
+                "What role does the Mosaic Law play for Christians?",
+                "How are Gentiles saved without keeping the Law?",
+                "Does faith in Christ eliminate moral responsibility?"
+              ]
+            },
+            {
+              "h4": "Theological Concerns:"
+            },
+            {
+              "ul": [
+                "God's faithfulness to His promises to Israel",
+                "The relationship between election and human responsibility",
+                "The future of ethnic Israel in God's plan"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Modern Parallels",
+          "body": [
+            {
+              "p": "Today's church faces similar challenges:"
+            },
+            {
+              "ul": [
+                "<strong>Cultural Divisions:</strong> Race, class, political affiliations",
+                "<strong>Legalism vs. License:</strong> Rules-based vs. anything-goes Christianity",
+                "<strong>Theological Debates:</strong> Election, free will, social justice",
+                "<strong>Unity Challenges:</strong> Denominational and doctrinal divisions",
+                "<strong>Identity Questions:</strong> What makes someone a \"real\" Christian?"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What cultural or denominational barriers do you struggle with when relating to other believers?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can Paul's approach to unity in Romans guide our church relationships today?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Background",
+          "id": "notes-background-1",
+          "placeholder": "Write your observations, questions, or insights about the historical background..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Background Study Checklist",
+          "items": [
+            {
+              "id": "bgGoal1",
+              "text": "Understand the cultural and political context of Rome"
+            },
+            {
+              "id": "bgGoal2",
+              "text": "Identify Paul's relationships with the Roman church"
+            },
+            {
+              "id": "bgGoal3",
+              "text": "Recognize tensions between Jewish and Gentile believers"
+            },
+            {
+              "id": "bgGoal4",
+              "text": "Reflect on modern parallels to these church issues"
+            }
+          ],
+          "badge": {
+            "id": "bgBadge",
+            "text": "Section Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study1",
+      "navLabel": "Chapters 1-3",
+      "title": "Chapters 1-3: Universal Need for Salvation",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Paul's apostolic calling and the gospel's power (Rom. 1:1-17)",
+                "God's wrath revealed against ungodliness (Rom. 1:18-32)",
+                "Universal condemnation: Jews and Gentiles (Rom. 2:1-3:20)",
+                "Righteousness through faith revealed (Rom. 3:21-31)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 1:16-17",
+          "crossRefs": [
+            "Habakkuk 2:4",
+            "Galatians 3:11"
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "The Human Condition",
+          "body": [
+            {
+              "p": "Paul systematically demonstrates universal sinfulness:"
+            },
+            {
+              "ul": [
+                "<strong>Gentiles (1:18-32):</strong> Suppress truth, exchange glory of God for idols, receive God's judgment",
+                "<strong>Moralists (2:1-16):</strong> Condemn others while practicing the same things",
+                "<strong>Jews (2:17-3:8):</strong> Rely on law and circumcision but break God's law",
+                "<strong>All humanity (3:9-20):</strong> \"There is no one righteous, not even one\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 3:23-24",
+          "crossRefs": [
+            "Ephesians 2:8-9",
+            "Titus 3:5"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapters 1-3 Today",
+          "body": [
+            {
+              "p": "These chapters challenge us to:"
+            },
+            {
+              "ul": [
+                "Recognize our own sinfulness before judging others",
+                "Understand that moral effort cannot save us",
+                "Embrace the gospel as God's power for salvation",
+                "Avoid both antinomianism and legalism"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How does recognizing universal sinfulness affect your attitude toward non-believers?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What are modern forms of \"exchanging the glory of God for images\"?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapters 1-3",
+          "id": "notes-study1-1",
+          "placeholder": "Write your observations, questions, or insights about Chapters 1-3..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapters 1-3 Study Checklist",
+          "items": [
+            {
+              "id": "s1Goal1",
+              "text": "Read Romans 1-3 carefully"
+            },
+            {
+              "id": "s1Goal2",
+              "text": "Understand Paul's argument for universal sinfulness"
+            },
+            {
+              "id": "s1Goal3",
+              "text": "Grasp the concept of justification by faith"
+            },
+            {
+              "id": "s1Goal4",
+              "text": "Reflect on personal applications of God's righteousness"
+            }
+          ],
+          "badge": {
+            "id": "s1Badge",
+            "text": "Chapters 1-3 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study2",
+      "navLabel": "Chapters 4-5",
+      "title": "Chapters 4-5: Justification by Faith",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Abraham as the model of faith (Rom. 4:1-25)",
+                "Peace with God through justification (Rom. 5:1-11)",
+                "Adam and Christ comparison (Rom. 5:12-21)",
+                "The results and benefits of justification"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 4:16-17",
+          "crossRefs": [
+            "Genesis 15:6",
+            "Galatians 3:6-9"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Abraham's Example",
+          "body": [
+            {
+              "p": "Paul uses Abraham strategically because:"
+            },
+            {
+              "ul": [
+                "Jews and Gentiles both claimed Abraham as their father",
+                "Abraham was justified by faith before circumcision (Gen. 15:6 vs. Gen. 17)",
+                "Abraham was justified by faith before the Law was given (430 years later)",
+                "God's promise to Abraham included \"all nations\" (Gen. 12:3)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 5:1-2",
+          "crossRefs": [
+            "Ephesians 2:14",
+            "Colossians 1:20"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapters 4-5 Today",
+          "body": [
+            {
+              "p": "These chapters encourage us to:"
+            },
+            {
+              "ul": [
+                "Trust God's promises even when circumstances seem impossible",
+                "Find assurance in our justification, not our performance",
+                "Understand that suffering can produce character and hope",
+                "Rejoice in our union with Christ rather than our connection to Adam"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "In what ways do you try to \"work\" for God's approval rather than rest in His grace?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How does the Adam-Christ comparison help us understand the scope of salvation?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapters 4-5",
+          "id": "notes-study2-1",
+          "placeholder": "Write your observations, questions, or insights about Chapters 4-5..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapters 4-5 Study Checklist",
+          "items": [
+            {
+              "id": "s2Goal1",
+              "text": "Read Romans 4-5 carefully"
+            },
+            {
+              "id": "s2Goal2",
+              "text": "Understand Abraham as the model of faith"
+            },
+            {
+              "id": "s2Goal3",
+              "text": "Grasp the benefits of justification"
+            },
+            {
+              "id": "s2Goal4",
+              "text": "Reflect on the Adam-Christ parallel"
+            }
+          ],
+          "badge": {
+            "id": "s2Badge",
+            "text": "Chapters 4-5 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study3",
+      "navLabel": "Chapters 6-8",
+      "title": "Chapters 6-8: Sanctification and Spirit Life",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Dead to sin, alive in Christ (Rom. 6:1-23)",
+                "Freedom from the law's condemnation (Rom. 7:1-25)",
+                "Life in the Spirit vs. life in the flesh (Rom. 8:1-17)",
+                "Present suffering and future glory (Rom. 8:18-39)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 6:11-12",
+          "crossRefs": [
+            "Galatians 2:20",
+            "2 Corinthians 5:17"
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Paul Anticipates Objections",
+          "body": [
+            {
+              "p": "Paul addresses potential misunderstandings:"
+            },
+            {
+              "ul": [
+                "<strong>\"Shall we sin more so grace may abound?\"</strong> (6:1) - Absolutely not!",
+                "<strong>\"Is the law sin?\"</strong> (7:7) - Not at all! The law reveals sin.",
+                "<strong>\"Who can live up to God's standard?\"</strong> (7:24) - Only through the Spirit!"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 8:1-2",
+          "crossRefs": [
+            "John 5:24",
+            "Galatians 5:16"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Role of the Holy Spirit",
+          "body": [
+            {
+              "p": "Romans 8 presents the Spirit's ministry:"
+            },
+            {
+              "ul": [
+                "Gives life and freedom (8:2)",
+                "Enables us to fulfill the law's requirements (8:4)",
+                "Transforms our minds and desires (8:5-8)",
+                "Assures us of our adoption (8:14-16)",
+                "Helps us in our weakness and intercedes for us (8:26-27)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 8:28",
+          "crossRefs": [
+            "Jeremiah 29:11",
+            "Ephesians 1:11"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapters 6-8 Today",
+          "body": [
+            {
+              "p": "These chapters teach us to:"
+            },
+            {
+              "ul": [
+                "Live out our new identity in Christ daily",
+                "Rely on the Spirit's power rather than our own strength",
+                "Find comfort in God's sovereignty during trials",
+                "Remember that nothing can separate us from God's love"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What does it practically mean for you to \"count yourself dead to sin\"?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we help each other live by the Spirit rather than the flesh?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapters 6-8",
+          "id": "notes-study3-1",
+          "placeholder": "Write your observations, questions, or insights about Chapters 6-8..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapters 6-8 Study Checklist",
+          "items": [
+            {
+              "id": "s3Goal1",
+              "text": "Read Romans 6-8 carefully"
+            },
+            {
+              "id": "s3Goal2",
+              "text": "Understand union with Christ in death and life"
+            },
+            {
+              "id": "s3Goal3",
+              "text": "Grasp the role of the Holy Spirit in sanctification"
+            },
+            {
+              "id": "s3Goal4",
+              "text": "Find assurance in God's unbreakable love"
+            }
+          ],
+          "badge": {
+            "id": "s3Badge",
+            "text": "Chapters 6-8 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study4",
+      "navLabel": "Chapters 9-11",
+      "title": "Chapters 9-11: God's Sovereignty & Israel",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Paul's anguish for Israel (Rom. 9:1-5)",
+                "God's sovereign election (Rom. 9:6-29)",
+                "Israel's rejection and Gentile inclusion (Rom. 9:30-10:21)",
+                "Israel's future restoration (Rom. 11:1-32)",
+                "Praise for God's wisdom (Rom. 11:33-36)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 9:20-21",
+          "crossRefs": [
+            "Isaiah 29:16",
+            "Jeremiah 18:6"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Israel Question",
+          "body": [
+            {
+              "p": "Paul addresses crucial theological questions:"
+            },
+            {
+              "ul": [
+                "Has God's word failed since many Jews reject Christ?",
+                "Is God unjust in His election?",
+                "What is the relationship between divine sovereignty and human responsibility?",
+                "What is the future for ethnic Israel?"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 10:9-10",
+          "crossRefs": [
+            "1 Corinthians 12:3",
+            "Acts 16:31"
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Gentile Pride Warning",
+          "body": [
+            {
+              "p": "Paul warns Gentile believers against:"
+            },
+            {
+              "ul": [
+                "Boasting against the natural branches (11:18)",
+                "Thinking they're better than Jewish believers (11:20)",
+                "Forgetting their dependence on Israel's root (11:17)",
+                "Becoming conceited about their position (11:25)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 11:33-36",
+          "crossRefs": [
+            "Isaiah 40:13",
+            "Job 41:11"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapters 9-11 Today",
+          "body": [
+            {
+              "p": "These chapters challenge us to:"
+            },
+            {
+              "ul": [
+                "Trust God's sovereignty even when we don't understand His ways",
+                "Avoid pride and maintain humility before God",
+                "Pray earnestly for those who haven't yet believed",
+                "Support Jewish evangelism and honor our spiritual heritage"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How do you balance belief in God's sovereignty with urgency in evangelism?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What does Paul's \"anguish\" for Israel teach us about evangelistic passion?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapters 9-11",
+          "id": "notes-study4-1",
+          "placeholder": "Write your observations, questions, or insights about Chapters 9-11..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapters 9-11 Study Checklist",
+          "items": [
+            {
+              "id": "s4Goal1",
+              "text": "Read Romans 9-11 carefully"
+            },
+            {
+              "id": "s4Goal2",
+              "text": "Wrestle with questions of election and sovereignty"
+            },
+            {
+              "id": "s4Goal3",
+              "text": "Understand the olive tree illustration"
+            },
+            {
+              "id": "s4Goal4",
+              "text": "Worship God for His unsearchable wisdom"
+            }
+          ],
+          "badge": {
+            "id": "s4Badge",
+            "text": "Chapters 9-11 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study5",
+      "navLabel": "Chapters 12-14",
+      "title": "Chapters 12-14: Christian Living & Unity",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Living sacrifice and renewed minds (Rom. 12:1-2)",
+                "Spiritual gifts and church unity (Rom. 12:3-8)",
+                "Practical love in action (Rom. 12:9-21)",
+                "Submission to governing authorities (Rom. 13:1-7)",
+                "Love as the fulfillment of law (Rom. 13:8-14)",
+                "Unity despite differences (Rom. 14:1-23)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 12:1-2",
+          "crossRefs": [
+            "2 Corinthians 3:18",
+            "Ephesians 4:23"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Practical Christian Living",
+          "body": [
+            {
+              "p": "Paul provides concrete guidance:"
+            },
+            {
+              "ul": [
+                "<strong>In the Church:</strong> Use gifts humbly, love genuinely, honor others",
+                "<strong>Toward Enemies:</strong> Bless persecutors, overcome evil with good",
+                "<strong>In Society:</strong> Submit to authorities, pay taxes, respect leaders",
+                "<strong>In Relationships:</strong> Love your neighbor, avoid causing others to stumble"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The \"Weak\" and \"Strong\" Debate",
+          "body": [
+            {
+              "p": "Paul addresses specific conflicts in Rome:"
+            },
+            {
+              "ul": [
+                "<strong>Food issues:</strong> Some ate only vegetables, others ate meat",
+                "<strong>Holy days:</strong> Some observed Jewish festivals, others didn't",
+                "<strong>The principle:</strong> Don't judge others or cause them to stumble",
+                "<strong>The goal:</strong> Unity in essentials, liberty in non-essentials"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 14:17-19",
+          "crossRefs": [
+            "1 Corinthians 8:13",
+            "Galatians 5:22"
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What does it mean for you to be a \"living sacrifice\" in your current circumstances?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What are modern examples of \"weak\" and \"strong\" conscience issues in the church?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapters 12-14",
+          "id": "notes-study5-1",
+          "placeholder": "Write your observations, questions, or insights about Chapters 12-14..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapters 12-14 Study Checklist",
+          "items": [
+            {
+              "id": "s5Goal1",
+              "text": "Read Romans 12-14 carefully"
+            },
+            {
+              "id": "s5Goal2",
+              "text": "Commit to being a \"living sacrifice\""
+            },
+            {
+              "id": "s5Goal3",
+              "text": "Practice love in practical relationships"
+            },
+            {
+              "id": "s5Goal4",
+              "text": "Apply principles of Christian liberty and unity"
+            }
+          ],
+          "badge": {
+            "id": "s5Badge",
+            "text": "Chapters 12-14 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study6",
+      "navLabel": "Chapters 15-16",
+      "title": "Chapters 15-16: Unity & Final Greetings",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Bearing with the weak and pleasing others (Rom. 15:1-7)",
+                "Christ's ministry to Jews and Gentiles (Rom. 15:8-13)",
+                "Paul's ministry and future plans (Rom. 15:14-33)",
+                "Commendation of Phoebe and personal greetings (Rom. 16:1-16)",
+                "Warning against divisive people (Rom. 16:17-20)",
+                "Final greetings and doxology (Rom. 16:21-27)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 15:5-7",
+          "crossRefs": [
+            "Philippians 2:2",
+            "Ephesians 4:2-3"
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "Paul's Ministry Vision",
+          "body": [
+            {
+              "p": "Paul reveals his strategic thinking:"
+            },
+            {
+              "ul": [
+                "<strong>Completed work:</strong> From Jerusalem to Illyricum (15:19)",
+                "<strong>Current mission:</strong> Delivering collection to Jerusalem (15:25-27)",
+                "<strong>Future plans:</strong> Spain via Rome (15:24, 28)",
+                "<strong>Prayer requests:</strong> Protection and acceptance in Jerusalem (15:30-32)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Personal Relationships Matter",
+          "body": [
+            {
+              "p": "Romans 16 reveals Paul's relational ministry:"
+            },
+            {
+              "ul": [
+                "Names 26 people personally - showing individual care",
+                "Commends Phoebe as a deacon and benefactor",
+                "Honors women in ministry (Priscilla, Mary, Junia, etc.)",
+                "Values fellow workers, fellow prisoners, and faithful servants"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Romans 16:25-27",
+          "crossRefs": [
+            "Ephesians 3:4-6",
+            "Colossians 1:26-27"
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Watch Out for Divisive People",
+          "body": [
+            {
+              "p": "Paul warns against those who:"
+            },
+            {
+              "ul": [
+                "Cause divisions contrary to apostolic teaching (16:17)",
+                "Create obstacles to unity and growth",
+                "Serve themselves rather than Christ (16:18)",
+                "Deceive the naive with smooth talk"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How can you better \"accept one another\" as Christ has accepted you?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What can we learn from Paul's personal relationships and ministry partnerships?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapters 15-16",
+          "id": "notes-study6-1",
+          "placeholder": "Write your observations, questions, or insights about Chapters 15-16..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapters 15-16 Study Checklist",
+          "items": [
+            {
+              "id": "s6Goal1",
+              "text": "Read Romans 15-16 carefully"
+            },
+            {
+              "id": "s6Goal2",
+              "text": "Understand Paul's ministry vision and strategy"
+            },
+            {
+              "id": "s6Goal3",
+              "text": "Appreciate the importance of personal relationships in ministry"
+            },
+            {
+              "id": "s6Goal4",
+              "text": "Commit to unity and acceptance in the church"
+            }
+          ],
+          "badge": {
+            "id": "s6Badge",
+            "text": "Chapters 15-16 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "navLabel": "Summary",
+      "title": "Study Summary",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Takeaways from Romans",
+          "body": [
+            {
+              "ul": [
+                "<strong>Universal Need:</strong> All humanity stands condemned before God and needs salvation",
+                "<strong>Justification by Faith:</strong> We are declared righteous through faith in Christ alone",
+                "<strong>Life in the Spirit:</strong> Christians are empowered to live holy lives by God's Spirit",
+                "<strong>God's Sovereignty:</strong> God's election and calling are according to His perfect will",
+                "<strong>Practical Holiness:</strong> Faith expresses itself in love and unity within the church",
+                "<strong>Global Mission:</strong> The gospel is for all people, Jews and Gentiles alike"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "context",
+          "heading": "The Structure of Romans",
+          "body": [
+            {
+              "p": "Paul's systematic presentation follows a logical flow:"
+            },
+            {
+              "ul": [
+                "<strong>Problem:</strong> Universal sinfulness and condemnation (1-3)",
+                "<strong>Solution:</strong> Justification by faith through Christ (4-5)",
+                "<strong>Implementation:</strong> Sanctification by the Spirit's power (6-8)",
+                "<strong>Objection:</strong> What about God's promises to Israel? (9-11)",
+                "<strong>Application:</strong> How then shall we live? (12-16)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passageList",
+          "heading": "Key Memory Verses from Romans",
+          "refs": [
+            "Romans 1:16-17",
+            "Romans 3:23-24",
+            "Romans 5:1",
+            "Romans 8:1",
+            "Romans 8:28",
+            "Romans 12:1-2"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Living Out Romans Today",
+          "body": [
+            {
+              "p": "Romans challenges modern believers to:"
+            },
+            {
+              "ul": [
+                "Embrace the sufficiency of Christ's righteousness",
+                "Reject both legalism and antinomianism",
+                "Trust God's sovereignty while remaining evangelistic",
+                "Pursue unity across cultural and ethnic boundaries",
+                "Live as living sacrifices in practical daily life",
+                "Build strong, supportive Christian communities"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Final Reflection",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How has studying Romans changed your understanding of salvation and Christian living?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What is one key principle from Romans your group can implement together?"
+            },
+            {
+              "audience": "Ongoing Study",
+              "text": "Which sections of Romans do you want to study more deeply in the future?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Final Summary Notes",
+          "id": "notes-summary-1",
+          "placeholder": "Summarize your key insights from this comprehensive study of Romans..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Study Completion Checklist",
+          "items": [
+            {
+              "id": "sumGoal1",
+              "text": "Complete all section studies of Romans"
+            },
+            {
+              "id": "sumGoal2",
+              "text": "Understand the flow of Paul's argument throughout the letter"
+            },
+            {
+              "id": "sumGoal3",
+              "text": "Apply one key lesson to your personal life"
+            },
+            {
+              "id": "sumGoal4",
+              "text": "Share insights with others or your study group"
+            },
+            {
+              "id": "sumGoal5",
+              "text": "Commit to ongoing application of Romans' teachings"
+            }
+          ],
+          "badge": {
+            "id": "sumBadge",
+            "text": "Romans Study Completed!"
+          }
+        },
+        {
+          "type": "themes",
+          "heading": "Congratulations!",
+          "body": [
+            {
+              "p": "You have completed a comprehensive study of Paul's letter to the Romans. This letter has been called \"the cathedral of Christian doctrine\" and \"the gospel according to Paul.\" The truths you've studied have shaped Christian theology for nearly 2000 years and continue to transform lives today."
+            },
+            {
+              "p": "<strong>Next Steps:</strong> Consider studying other Pauline epistles, sharing your insights with others, or leading a Romans study group. The gospel revealed in Romans is meant to be lived out and shared with the world."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

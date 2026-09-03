@@ -1,26 +1,35 @@
+<!--
+  GENERATED FILE. Do not edit by hand: your changes will be overwritten.
+  Source: content/studies/*.json and content/site.json
+  Rebuild: node tools/build.mjs
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="A free, in-depth study guide to Paul's letter to the Philippians, with Berean Study Bible passages, reflection questions and progress tracking.">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philippians: Joy in Christ - Interactive Bible Study</title>
+  <title>Philippians: Joy in Christ - Interactive Bible Study</title>
+  <meta name="description" content="A free, in-depth study guide to Paul's letter to the Philippians, with Berean Study Bible passages, reflection questions and progress tracking.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Philippians: Joy in Christ - Interactive Bible Study">
+  <meta property="og:description" content="A free, in-depth study guide to Paul's letter to the Philippians, with Berean Study Bible passages, reflection questions and progress tracking.">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/instrument-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/app.css">
   <meta name="theme-color" content="#6b4423">
 </head>
-<body>
+<body data-study="philippians" data-opening="Ready to begin your journey!">
     <div class="container">
         <div class="header">
             <h1>Philippians Study Guide</h1>
-            <p class="subtitle">"Joy in Christ"</p>
+            <p class="subtitle">Joy in Christ</p>
         </div>
 
         <div class="progress-tracker">
             <h3>Study Progress</h3>
-            <div class="progress-bar">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Study progress">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <p id="progressText">0% Complete - Ready to begin your journey!</p>
@@ -30,20 +39,18 @@
             </div>
         </div>
 
-        <div class="chapter-nav">
-            <button class="nav-button active" onclick="showSection('overview')">Overview</button>
-            <button class="nav-button" onclick="showSection('background')">Background</button>
-            <button class="nav-button" onclick="showSection('study1')">Chapter 1</button>
-            <button class="nav-button" onclick="showSection('study2')">Chapter 2</button>
-            <button class="nav-button" onclick="showSection('study3')">Chapter 3</button>
-            <button class="nav-button" onclick="showSection('study4')">Chapter 4</button>
-            <button class="nav-button" onclick="showSection('summary')">Summary</button>
+        <div class="chapter-nav" role="tablist" aria-label="Study sections">
+                <button class="nav-button active" data-unit="overview" role="tab" aria-selected="true" aria-controls="overview">Overview</button>
+                <button class="nav-button" data-unit="background" role="tab" aria-selected="false" aria-controls="background">Background</button>
+                <button class="nav-button" data-unit="study1" role="tab" aria-selected="false" aria-controls="study1">Chapter 1</button>
+                <button class="nav-button" data-unit="study2" role="tab" aria-selected="false" aria-controls="study2">Chapter 2</button>
+                <button class="nav-button" data-unit="study3" role="tab" aria-selected="false" aria-controls="study3">Chapter 3</button>
+                <button class="nav-button" data-unit="study4" role="tab" aria-selected="false" aria-controls="study4">Chapter 4</button>
+                <button class="nav-button" data-unit="summary" role="tab" aria-selected="false" aria-controls="summary">Summary</button>
         </div>
 
-        <!-- Overview Section -->
-        <div id="overview" class="content-section active">
+        <div id="overview" class="content-section active" role="tabpanel">
             <h2 class="section-title">Study Overview</h2>
-            
             <div class="theme-box">
                 <h3>Purpose of This Study</h3>
                 <p>Welcome to an in-depth exploration of Paul's letter to the Philippians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for finding joy in Christ regardless of circumstances.</p>
@@ -53,23 +60,23 @@
                 <h3>Your Study Goals</h3>
                 <p>Check off each goal as you complete it:</p>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="goal1" onchange="updateProgress()">
+                    <input type="checkbox" id="goal1">
                     <label for="goal1">Understand the historical context of Philippi and Paul's relationship with the church</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="goal2" onchange="updateProgress()">
+                    <input type="checkbox" id="goal2">
                     <label for="goal2">Grasp the theme of joy in the midst of suffering</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="goal3" onchange="updateProgress()">
+                    <input type="checkbox" id="goal3">
                     <label for="goal3">Study the profound Christ hymn in Philippians 2:5-11</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="goal4" onchange="updateProgress()">
+                    <input type="checkbox" id="goal4">
                     <label for="goal4">Apply Paul's teachings on contentment and partnership in the gospel</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="goal5" onchange="updateProgress()">
+                    <input type="checkbox" id="goal5">
                     <label for="goal5">Complete personal reflection exercises for each chapter</label>
                 </div>
             </div>
@@ -78,7 +85,7 @@
                 <div class="tool-card">
                     <h3>Study Method</h3>
                     <p>We'll use the <strong>SOAP</strong> method:</p>
-                    <ul style="text-align: left; margin-top: 15px;">
+                    <ul>
                         <li><strong>S</strong>cripture - Read the text</li>
                         <li><strong>O</strong>bservation - What does it say?</li>
                         <li><strong>A</strong>pplication - How does it apply?</li>
@@ -88,7 +95,7 @@
                 <div class="tool-card">
                     <h3>Time Commitment</h3>
                     <p>Each chapter study is designed for:</p>
-                    <ul style="text-align: left; margin-top: 15px;">
+                    <ul>
                         <li>30-45 minutes individual study</li>
                         <li>60-90 minutes group discussion</li>
                         <li>Weekly personal reflection</li>
@@ -96,7 +103,7 @@
                 </div>
                 <div class="tool-card">
                     <h3>Resources Needed</h3>
-                    <ul style="text-align: left; margin-top: 15px;">
+                    <ul>
                         <li>Bible (multiple translations helpful)</li>
                         <li>Notebook for personal notes</li>
                         <li>This interactive guide</li>
@@ -106,16 +113,12 @@
             </div>
         </div>
 
-        <!-- Background Section -->
-        <div id="background" class="content-section">
+        <div id="background" class="content-section" role="tabpanel">
             <h2 class="section-title">Historical Background</h2>
-            
             <div class="historical-context">
                 <h3>The City of Philippi</h3>
                 <p><strong>Location:</strong> Philippi was a leading city in the district of Macedonia (northern Greece), located on the Via Egnatia, the main road connecting Rome with the eastern provinces. It was about 10 miles inland from the Aegean Sea port of Neapolis.</p>
-                
                 <p><strong>Historical Significance:</strong> Named after Philip II of Macedon (Alexander the Great's father), Philippi became famous for the battle in 42 BC where Octavian and Mark Antony defeated Brutus and Cassius. After the battle, it became a Roman colony with Italian rights, meaning its citizens had the same privileges as those living in Italy.</p>
-                
                 <p><strong>Cultural Climate:</strong> As a Roman colony, Philippi was proudly Roman in character. Latin was the official language, Roman law prevailed, and citizens took great pride in their Roman citizenship. The city had a strong military veteran presence and reflected Roman values and customs.</p>
             </div>
 
@@ -133,9 +136,7 @@
             <div class="historical-context">
                 <h3>Occasion for Writing</h3>
                 <p><strong>Paul's Imprisonment:</strong> Written from Rome around AD 60-62 during Paul's first Roman imprisonment (though some scholars suggest Caesarea or Ephesus). Paul was under house arrest awaiting trial before Caesar.</p>
-                
                 <p><strong>The Philippians' Gift:</strong> The church had sent Epaphroditus with a financial gift to support Paul (Phil. 4:18). Epaphroditus had become seriously ill, nearly dying, which caused the Philippians concern (Phil. 2:25-30).</p>
-                
                 <p><strong>Paul's Purposes:</strong></p>
                 <ul>
                     <li>Thank the Philippians for their financial support</li>
@@ -148,31 +149,23 @@
 
             <div class="theme-box">
                 <h3>Challenges Facing the Church</h3>
-                <div style="margin: 20px 0;">
-                    <h4>External Persecution:</h4>
-                    <ul>
-                        <li>Opposition from the community (Phil. 1:27-30)</li>
-                        <li>Suffering for the gospel's sake</li>
-                        <li>Pressure to conform to Roman culture and emperor worship</li>
-                    </ul>
-                </div>
-
-                <div style="margin: 20px 0;">
-                    <h4>False Teachers:</h4>
-                    <ul>
-                        <li>Judaizers promoting circumcision and law-keeping (Phil. 3:2-3)</li>
-                        <li>Those living as "enemies of the cross" - likely antinomians (Phil. 3:18-19)</li>
-                    </ul>
-                </div>
-
-                <div style="margin: 20px 0;">
-                    <h4>Internal Discord:</h4>
-                    <ul>
-                        <li>Disunity between believers (Phil. 2:1-4)</li>
-                        <li>Specific conflict between Euodia and Syntyche (Phil. 4:2)</li>
-                        <li>Selfish ambition and vain conceit (Phil. 2:3)</li>
-                    </ul>
-                </div>
+                <h4>External Persecution:</h4>
+                <ul>
+                    <li>Opposition from the community (Phil. 1:27-30)</li>
+                    <li>Suffering for the gospel's sake</li>
+                    <li>Pressure to conform to Roman culture and emperor worship</li>
+                </ul>
+                <h4>False Teachers:</h4>
+                <ul>
+                    <li>Judaizers promoting circumcision and law-keeping (Phil. 3:2-3)</li>
+                    <li>Those living as "enemies of the cross" - likely antinomians (Phil. 3:18-19)</li>
+                </ul>
+                <h4>Internal Discord:</h4>
+                <ul>
+                    <li>Disunity between believers (Phil. 2:1-4)</li>
+                    <li>Specific conflict between Euodia and Syntyche (Phil. 4:2)</li>
+                    <li>Selfish ambition and vain conceit (Phil. 2:3)</li>
+                </ul>
             </div>
 
             <div class="application-modern">
@@ -205,29 +198,27 @@
             <div class="interactive-element">
                 <h3>Background Study Checklist</h3>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="bgGoal1" onchange="updateProgress()">
+                    <input type="checkbox" id="bgGoal1">
                     <label for="bgGoal1">Understand the cultural and historical context of Philippi</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="bgGoal2" onchange="updateProgress()">
+                    <input type="checkbox" id="bgGoal2">
                     <label for="bgGoal2">Identify key figures in the Philippian church</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="bgGoal3" onchange="updateProgress()">
+                    <input type="checkbox" id="bgGoal3">
                     <label for="bgGoal3">Recognize the occasion and purpose for Paul's letter</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="bgGoal4" onchange="updateProgress()">
+                    <input type="checkbox" id="bgGoal4">
                     <label for="bgGoal4">Reflect on modern parallels to these challenges</label>
                 </div>
                 <span class="completion-badge" id="bgBadge">Section Completed!</span>
             </div>
         </div>
 
-        <!-- Chapter 1 Section -->
-        <div id="study1" class="content-section">
+        <div id="study1" class="content-section" role="tabpanel">
             <h2 class="section-title">Chapter 1: Partnership in the Gospel</h2>
-            
             <div class="theme-box">
                 <h3>Key Themes</h3>
                 <ul>
@@ -240,23 +231,21 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 1:6:</strong> &ldquo;being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.&rdquo;</p>
-                <span class="cross-reference" data-scripture="Romans 8:29-30" role="button" tabindex="0" onclick="showScriptureModal('Romans 8:29-30')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 8:29-30');}">Romans 8:29-30</span>
-                <span class="cross-reference" data-scripture="1 Thessalonians 5:23-24" role="button" tabindex="0" onclick="showScriptureModal('1 Thessalonians 5:23-24')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Thessalonians 5:23-24');}">1 Thessalonians 5:23-24</span>
+                <p><strong>Philippians 1:6:</strong> being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.</p>
+                <span class="cross-reference" data-scripture="Romans 8:29-30" role="button" tabindex="0">Romans 8:29-30</span>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:23-24" role="button" tabindex="0">1 Thessalonians 5:23-24</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 1:21:</strong> &ldquo;For to me, to live is Christ, and to die is gain.&rdquo;</p>
-                <span class="cross-reference" data-scripture="Galatians 2:20" role="button" tabindex="0" onclick="showScriptureModal('Galatians 2:20')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 2:20');}">Galatians 2:20</span>
-                <span class="cross-reference" data-scripture="2 Corinthians 5:8" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 5:8')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 5:8');}">2 Corinthians 5:8</span>
+                <p><strong>Philippians 1:21:</strong> For to me, to live is Christ, and to die is gain.</p>
+                <span class="cross-reference" data-scripture="Galatians 2:20" role="button" tabindex="0">Galatians 2:20</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 5:8" role="button" tabindex="0">2 Corinthians 5:8</span>
             </div>
 
             <div class="historical-context">
                 <h3>Key Observations</h3>
                 <p><strong>Paul's Chains Advance the Gospel (1:12-14):</strong> Rather than hindering the gospel, Paul's imprisonment in Rome had actually helped spread it - the whole palace guard heard about Christ, and other believers were emboldened to speak more courageously.</p>
-                
                 <p><strong>Mixed Motives (1:15-18):</strong> Some preached Christ from envy and rivalry, hoping to stir up trouble for Paul. But Paul rejoiced because regardless of motive, Christ was being proclaimed. This shows remarkable spiritual maturity and focus on what matters most.</p>
-                
                 <p><strong>Paul's Dilemma (1:22-26):</strong> Torn between his desire to depart and be with Christ (which is better by far) and his need to remain for the Philippians' progress and joy in the faith. He valued eternal perspective while remaining committed to earthly ministry.</p>
             </div>
 
@@ -293,25 +282,23 @@
             <div class="interactive-element">
                 <h3>Chapter 1 Study Checklist</h3>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch1Goal1" onchange="updateProgress()">
+                    <input type="checkbox" id="ch1Goal1">
                     <label for="ch1Goal1">Read Philippians 1 carefully</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch1Goal2" onchange="updateProgress()">
+                    <input type="checkbox" id="ch1Goal2">
                     <label for="ch1Goal2">Identify key themes of partnership and joy</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch1Goal3" onchange="updateProgress()">
+                    <input type="checkbox" id="ch1Goal3">
                     <label for="ch1Goal3">Reflect on personal applications</label>
                 </div>
                 <span class="completion-badge" id="ch1Badge">Chapter 1 Completed!</span>
             </div>
         </div>
 
-        <!-- Chapter 2 Section -->
-        <div id="study2" class="content-section">
+        <div id="study2" class="content-section" role="tabpanel">
             <h2 class="section-title">Chapter 2: The Mind of Christ</h2>
-            
             <div class="theme-box">
                 <h3>Key Themes</h3>
                 <ul>
@@ -324,28 +311,26 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 2:3-4:</strong> &ldquo;Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves. Each of you should look not only to your own interests, but also to the interests of others.&rdquo;</p>
-                <span class="cross-reference" data-scripture="Romans 12:10" role="button" tabindex="0" onclick="showScriptureModal('Romans 12:10')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 12:10');}">Romans 12:10</span>
-                <span class="cross-reference" data-scripture="1 Corinthians 10:24" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 10:24')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 10:24');}">1 Corinthians 10:24</span>
+                <p><strong>Philippians 2:3-4:</strong> Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves. Each of you should look not only to your own interests, but also to the interests of others.</p>
+                <span class="cross-reference" data-scripture="Romans 12:10" role="button" tabindex="0">Romans 12:10</span>
+                <span class="cross-reference" data-scripture="1 Corinthians 10:24" role="button" tabindex="0">1 Corinthians 10:24</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 2:5-8:</strong> &ldquo;Let this mind be in you which was also in Christ Jesus: Who, existing in the form of God, did not consider equality with God something to be grasped, but emptied Himself, taking the form of a servant, being made in human likeness. And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.&rdquo;</p>
-                <span class="cross-reference" data-scripture="John 1:1,14" role="button" tabindex="0" onclick="showScriptureModal('John 1:1,14')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 1:1,14');}">John 1:1,14</span>
-                <span class="cross-reference" data-scripture="Hebrews 2:14-17" role="button" tabindex="0" onclick="showScriptureModal('Hebrews 2:14-17')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Hebrews 2:14-17');}">Hebrews 2:14-17</span>
+                <p><strong>Philippians 2:5-8:</strong> Let this mind be in you which was also in Christ Jesus: Who, existing in the form of God, did not consider equality with God something to be grasped, but emptied Himself, taking the form of a servant, being made in human likeness. And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.</p>
+                <span class="cross-reference" data-scripture="John 1:1,14" role="button" tabindex="0">John 1:1,14</span>
+                <span class="cross-reference" data-scripture="Hebrews 2:14-17" role="button" tabindex="0">Hebrews 2:14-17</span>
             </div>
 
             <div class="historical-context">
                 <h3>The Christ Hymn (2:5-11)</h3>
                 <p>This passage is one of the most profound theological statements about Jesus in the New Testament. It describes two movements:</p>
-                
                 <p><strong>The Descent (Humiliation):</strong></p>
                 <ul>
                     <li><strong>Pre-existence:</strong> Existing in the form of God (2:6)</li>
                     <li><strong>Incarnation:</strong> Emptied Himself, taking the form of a servant (2:7)</li>
                     <li><strong>Crucifixion:</strong> Became obedient to death, even death on a cross (2:8)</li>
                 </ul>
-                
                 <p><strong>The Ascent (Exaltation):</strong></p>
                 <ul>
                     <li><strong>Resurrection/Ascension:</strong> God exalted Him to the highest place (2:9)</li>
@@ -394,25 +379,23 @@
             <div class="interactive-element">
                 <h3>Chapter 2 Study Checklist</h3>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch2Goal1" onchange="updateProgress()">
+                    <input type="checkbox" id="ch2Goal1">
                     <label for="ch2Goal1">Read Philippians 2 carefully</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch2Goal2" onchange="updateProgress()">
+                    <input type="checkbox" id="ch2Goal2">
                     <label for="ch2Goal2">Study the Christ Hymn deeply</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch2Goal3" onchange="updateProgress()">
+                    <input type="checkbox" id="ch2Goal3">
                     <label for="ch2Goal3">Reflect on humility and service</label>
                 </div>
                 <span class="completion-badge" id="ch2Badge">Chapter 2 Completed!</span>
             </div>
         </div>
 
-        <!-- Chapter 3 Section -->
-        <div id="study3" class="content-section">
+        <div id="study3" class="content-section" role="tabpanel">
             <h2 class="section-title">Chapter 3: Knowing Christ</h2>
-            
             <div class="theme-box">
                 <h3>Key Themes</h3>
                 <ul>
@@ -425,15 +408,15 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 3:7-8:</strong> &ldquo;But whatever was gain to me I count as loss for the sake of Christ. More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ&rdquo;</p>
-                <span class="cross-reference" data-scripture="Matthew 13:44-46" role="button" tabindex="0" onclick="showScriptureModal('Matthew 13:44-46')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Matthew 13:44-46');}">Matthew 13:44-46</span>
-                <span class="cross-reference" data-scripture="Luke 14:33" role="button" tabindex="0" onclick="showScriptureModal('Luke 14:33')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Luke 14:33');}">Luke 14:33</span>
+                <p><strong>Philippians 3:7-8:</strong> But whatever was gain to me I count as loss for the sake of Christ. More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ</p>
+                <span class="cross-reference" data-scripture="Matthew 13:44-46" role="button" tabindex="0">Matthew 13:44-46</span>
+                <span class="cross-reference" data-scripture="Luke 14:33" role="button" tabindex="0">Luke 14:33</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 3:13-14:</strong> &ldquo;Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.&rdquo;</p>
-                <span class="cross-reference" data-scripture="1 Corinthians 9:24-27" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 9:24-27')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 9:24-27');}">1 Corinthians 9:24-27</span>
-                <span class="cross-reference" data-scripture="Hebrews 12:1-2" role="button" tabindex="0" onclick="showScriptureModal('Hebrews 12:1-2')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Hebrews 12:1-2');}">Hebrews 12:1-2</span>
+                <p><strong>Philippians 3:13-14:</strong> Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 9:24-27" role="button" tabindex="0">1 Corinthians 9:24-27</span>
+                <span class="cross-reference" data-scripture="Hebrews 12:1-2" role="button" tabindex="0">Hebrews 12:1-2</span>
             </div>
 
             <div class="historical-context">
@@ -454,7 +437,6 @@
             <div class="warning-box">
                 <h3>Warning Against False Teachers (3:2-3, 18-19)</h3>
                 <p><strong>The Judaizers (3:2-3):</strong> Called "dogs" and "those who mutilate the flesh" - they taught that Gentiles must be circumcised and follow Jewish law to be saved. Paul declares true circumcision is of the heart, by the Spirit.</p>
-                
                 <p><strong>Enemies of the Cross (3:18-19):</strong> Those who:</p>
                 <ul>
                     <li>Their god is their stomach (physical/sensual appetites)</li>
@@ -497,25 +479,23 @@
             <div class="interactive-element">
                 <h3>Chapter 3 Study Checklist</h3>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch3Goal1" onchange="updateProgress()">
+                    <input type="checkbox" id="ch3Goal1">
                     <label for="ch3Goal1">Read Philippians 3 carefully</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch3Goal2" onchange="updateProgress()">
+                    <input type="checkbox" id="ch3Goal2">
                     <label for="ch3Goal2">Reflect on what you treasure most</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch3Goal3" onchange="updateProgress()">
+                    <input type="checkbox" id="ch3Goal3">
                     <label for="ch3Goal3">Apply principles of pressing forward</label>
                 </div>
                 <span class="completion-badge" id="ch3Badge">Chapter 3 Completed!</span>
             </div>
         </div>
 
-        <!-- Chapter 4 Section -->
-        <div id="study4" class="content-section">
+        <div id="study4" class="content-section" role="tabpanel">
             <h2 class="section-title">Chapter 4: Joy and Contentment</h2>
-            
             <div class="theme-box">
                 <h3>Key Themes</h3>
                 <ul>
@@ -529,29 +509,27 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 4:4:</strong> &ldquo;Rejoice in the Lord always. I will say it again: Rejoice!&rdquo;</p>
-                <span class="cross-reference" data-scripture="1 Thessalonians 5:16-18" role="button" tabindex="0" onclick="showScriptureModal('1 Thessalonians 5:16-18')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Thessalonians 5:16-18');}">1 Thessalonians 5:16-18</span>
-                <span class="cross-reference" data-scripture="James 1:2-4" role="button" tabindex="0" onclick="showScriptureModal('James 1:2-4')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('James 1:2-4');}">James 1:2-4</span>
+                <p><strong>Philippians 4:4:</strong> Rejoice in the Lord always. I will say it again: Rejoice!</p>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:16-18" role="button" tabindex="0">1 Thessalonians 5:16-18</span>
+                <span class="cross-reference" data-scripture="James 1:2-4" role="button" tabindex="0">James 1:2-4</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 4:6-7:</strong> &ldquo;Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.&rdquo;</p>
-                <span class="cross-reference" data-scripture="Matthew 6:25-34" role="button" tabindex="0" onclick="showScriptureModal('Matthew 6:25-34')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Matthew 6:25-34');}">Matthew 6:25-34</span>
-                <span class="cross-reference" data-scripture="1 Peter 5:7" role="button" tabindex="0" onclick="showScriptureModal('1 Peter 5:7')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Peter 5:7');}">1 Peter 5:7</span>
+                <p><strong>Philippians 4:6-7:</strong> Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.</p>
+                <span class="cross-reference" data-scripture="Matthew 6:25-34" role="button" tabindex="0">Matthew 6:25-34</span>
+                <span class="cross-reference" data-scripture="1 Peter 5:7" role="button" tabindex="0">1 Peter 5:7</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 4:13:</strong> &ldquo;I can do all things through Christ who gives me strength.&rdquo;</p>
-                <span class="cross-reference" data-scripture="2 Corinthians 12:9-10" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 12:9-10')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 12:9-10');}">2 Corinthians 12:9-10</span>
-                <span class="cross-reference" data-scripture="John 15:5" role="button" tabindex="0" onclick="showScriptureModal('John 15:5')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 15:5');}">John 15:5</span>
+                <p><strong>Philippians 4:13:</strong> I can do all things through Christ who gives me strength.</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 12:9-10" role="button" tabindex="0">2 Corinthians 12:9-10</span>
+                <span class="cross-reference" data-scripture="John 15:5" role="button" tabindex="0">John 15:5</span>
             </div>
 
             <div class="historical-context">
                 <h3>The Secret of Contentment (4:10-13)</h3>
                 <p><strong>Context Matters:</strong> Paul learned to be content in every situation - whether in plenty or in want, well-fed or hungry, living in plenty or in need. This isn't about achieving whatever we want, but about having Christ's strength in every circumstance.</p>
-                
                 <p><strong>Contentment is Learned:</strong> Paul says "I have learned" (4:11) - it's not natural or automatic. It's cultivated through experience, trust in God, and focus on eternal realities.</p>
-                
                 <p><strong>Secret Revealed:</strong> The secret is Christ's empowering presence (4:13). We can endure all things (the context of "all this") through His strength, not our own.</p>
             </div>
 
@@ -605,25 +583,23 @@
             <div class="interactive-element">
                 <h3>Chapter 4 Study Checklist</h3>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch4Goal1" onchange="updateProgress()">
+                    <input type="checkbox" id="ch4Goal1">
                     <label for="ch4Goal1">Read Philippians 4 carefully</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch4Goal2" onchange="updateProgress()">
+                    <input type="checkbox" id="ch4Goal2">
                     <label for="ch4Goal2">Reflect on joy, peace, and contentment</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="ch4Goal3" onchange="updateProgress()">
+                    <input type="checkbox" id="ch4Goal3">
                     <label for="ch4Goal3">Apply principles of guarding your mind</label>
                 </div>
                 <span class="completion-badge" id="ch4Badge">Chapter 4 Completed!</span>
             </div>
         </div>
 
-        <!-- Summary Section -->
-        <div id="summary" class="content-section">
+        <div id="summary" class="content-section" role="tabpanel">
             <h2 class="section-title">Study Summary</h2>
-            
             <div class="theme-box">
                 <h3>Key Takeaways from Philippians</h3>
                 <ul>
@@ -637,12 +613,12 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>The Joy Progression in Philippians:</strong></p>
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li>📖 <strong>Chapter 1:</strong> Joy in gospel advancement despite opposition</li>
-                    <li>📖 <strong>Chapter 2:</strong> Joy in humble service and unity</li>
-                    <li>📖 <strong>Chapter 3:</strong> Joy in knowing Christ above all else</li>
-                    <li>📖 <strong>Chapter 4:</strong> Joy as a command and practice, regardless of circumstances</li>
+                <p><strong>The Joy Progression in Philippians</strong></p>
+                <ul>
+                    <li><strong>Chapter 1:</strong> Joy in gospel advancement despite opposition</li>
+                    <li><strong>Chapter 2:</strong> Joy in humble service and unity</li>
+                    <li><strong>Chapter 3:</strong> Joy in knowing Christ above all else</li>
+                    <li><strong>Chapter 4:</strong> Joy as a command and practice, regardless of circumstances</li>
                 </ul>
             </div>
 
@@ -669,7 +645,6 @@
                     <li>Count worldly achievements as loss compared to knowing Christ</li>
                     <li>Serve others with genuine humility, following Christ's example</li>
                 </ul>
-                
                 <p><strong>Church Applications:</strong></p>
                 <ul>
                     <li>Pursue unity by resolving conflicts quickly and humbly</li>
@@ -714,332 +689,49 @@
             <div class="interactive-element">
                 <h3>Study Completion Checklist</h3>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="sumGoal1" onchange="updateProgress()">
+                    <input type="checkbox" id="sumGoal1">
                     <label for="sumGoal1">Complete all chapter studies</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="sumGoal2" onchange="updateProgress()">
+                    <input type="checkbox" id="sumGoal2">
                     <label for="sumGoal2">Reflect on the overall message of Philippians</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="sumGoal3" onchange="updateProgress()">
+                    <input type="checkbox" id="sumGoal3">
                     <label for="sumGoal3">Apply one key lesson to your life</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="sumGoal4" onchange="updateProgress()">
+                    <input type="checkbox" id="sumGoal4">
                     <label for="sumGoal4">Share what you learned with someone else</label>
                 </div>
                 <span class="completion-badge" id="sumBadge">Study Completed!</span>
             </div>
 
-            <div class="verse-highlight" style="text-align: center; margin-top: 40px;">
-                <p style="font-size: 1.3rem;"><strong>&ldquo;For to me, to live is Christ, and to die is gain.&rdquo;</strong></p>
-                <p>- Philippians 1:21</p>
+            <div class="verse-highlight pullquote">
+                <p class="pullquote-text">For to me, to live is Christ, and to die is gain.</p>
+                <p class="pullquote-ref">Philippians 1:21</p>
             </div>
         </div>
 
-
         <footer class="scripture-credit">
-            <p><strong>Scripture text.</strong> Quotations are from the Holy Bible, Berean Study Bible (BSB),
-            Copyright &copy; 2016, 2020 by Bible Hub. All rights reserved worldwide. Used under the free
-            licence granted for websites, apps, software and audio:
-            <a href="http://berean.bible/licensing.htm" rel="noopener">berean.bible/licensing.htm</a>.</p>
+            <p><strong>Scripture text.</strong> The Holy Bible, Berean Study Bible, BSB. Copyright © 2016, 2020 by Bible Hub. All rights reserved worldwide. Used under the free licence granted for websites, apps, software and audio.
+            <a href="http://berean.bible/licensing.htm" rel="noopener">berean.bible/licensing.htm</a></p>
             <p><strong>Free to use.</strong> This guide is free for personal, family and church study.
             Your notes and ticks are saved only in this browser on this device, and are never uploaded.</p>
         </footer>
 
-        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+        <button class="back-to-top" type="button" aria-label="Back to top">&uarr;</button>
 
-        <!-- Modal for Scripture References -->
-        <div class="modal-overlay" id="scriptureModal">
+        <div class="modal-overlay" id="scriptureModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <div class="modal">
                 <h3 id="modalTitle"></h3>
                 <p id="modalText"></p>
-                <button class="modal-close" onclick="closeScriptureModal()">×</button>
+                <button class="modal-close" type="button" aria-label="Close">&times;</button>
             </div>
         </div>
     </div>
 
-    <script>
-        // Scripture text: Berean Study Bible (see attribution in the page footer).
-        // Generated from a licensed dataset, not hand-typed. Do not edit by hand.
-        const scriptureData = {
-            "1 Corinthians 10:24": "No one should seek his own good, but the good of others.",
-            "1 Corinthians 9:24-27": "Do you not know that in a race all the runners run, but only one receives the prize? Run in such a way as to take the prize. Everyone who competes in the games trains with strict discipline. They do it for a crown that is perishable, but we do it for a crown that is imperishable. Therefore I do not run aimlessly; I do not fight like I am beating the air. No, I discipline my body and make it my slave, so that after I have preached to others, I myself will not be disqualified.",
-            "1 Peter 5:7": "Cast all your anxiety on Him, because He cares for you.",
-            "1 Thessalonians 5:16-18": "Rejoice at all times. Pray without ceasing. Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.",
-            "1 Thessalonians 5:23-24": "Now may the God of peace Himself sanctify you completely, and may your entire spirit, soul, and body be kept blameless at the coming of our Lord Jesus Christ. The One who calls you is faithful, and He will do it.",
-            "2 Corinthians 12:9-10": "But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.” Therefore I will boast all the more gladly in my weaknesses, so that the power of Christ may rest on me. That is why, for the sake of Christ, I delight in weaknesses, in insults, in hardships, in persecutions, in difficulties. For when I am weak, then I am strong.",
-            "2 Corinthians 5:8": "We are confident, then, and would prefer to be away from the body and at home with the Lord.",
-            "Galatians 2:20": "I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.",
-            "Hebrews 12:1-2": "Therefore, since we are surrounded by such a great cloud of witnesses, let us throw off every encumbrance and the sin that so easily entangles, and let us run with endurance the race set out for us. Let us fix our eyes on Jesus, the author and perfecter of our faith, who for the joy set before Him endured the cross, scorning its shame, and sat down at the right hand of the throne of God.",
-            "Hebrews 2:14-17": "Now since the children have flesh and blood, He too shared in their humanity, so that by His death He might destroy him who holds the power of death, that is, the devil, and free those who all their lives were held in slavery by their fear of death. For surely it is not the angels He helps, but the descendants of Abraham. For this reason He had to be made like His brothers in every way, so that He might become a merciful and faithful high priest in service to God, in order to make atonement for the sins of the people.",
-            "James 1:2-4": "Consider it pure joy, my brothers, when you encounter trials of many kinds, because you know that the testing of your faith develops perseverance. Allow perseverance to finish its work, so that you may be mature and complete, not lacking anything.",
-            "John 15:5": "I am the vine and you are the branches. The one who remains in Me, and I in him, will bear much fruit. For apart from Me you can do nothing.",
-            "John 1:1,14": "In the beginning was the Word, and the Word was with God, and the Word was God. The Word became flesh and made His dwelling among us. We have seen His glory, the glory of the one and only Son from the Father, full of grace and truth.",
-            "Luke 14:33": "In the same way, any one of you who does not give up everything he has cannot be My disciple.",
-            "Matthew 13:44-46": "The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and in his joy he went and sold all he had and bought that field. Again, the kingdom of heaven is like a merchant in search of fine pearls. When he found one very precious pearl, he went away and sold all he had and bought it.",
-            "Matthew 6:25-34": "Therefore I tell you, do not worry about your life, what you will eat or drink; or about your body, what you will wear. Is not life more than food, and the body more than clothes? Look at the birds of the air: They do not sow or reap or gather into barns—and yet your heavenly Father feeds them. Are you not much more valuable than they? Who of you by worrying can add a single hour to his life? And why do you worry about clothes? Consider how the lilies of the field grow: They do not labor or spin. Yet I tell you that not even Solomon in all his glory was adorned like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the furnace, will He not much more clothe you, O you of little faith? Therefore do not worry, saying, ‘What shall we eat?’ or ‘What shall we drink?’ or ‘What shall we wear?’ For the Gentiles strive after all these things, and your heavenly Father knows that you need them. But seek first the kingdom of God and His righteousness, and all these things will be added unto you. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Today has enough trouble of its own.",
-            "Philippians 1:21": "For to me, to live is Christ, and to die is gain.",
-            "Philippians 1:6": "being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.",
-            "Philippians 2:3-4": "Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves. Each of you should look not only to your own interests, but also to the interests of others.",
-            "Philippians 2:5-8": "Let this mind be in you which was also in Christ Jesus: Who, existing in the form of God, did not consider equality with God something to be grasped, but emptied Himself, taking the form of a servant, being made in human likeness. And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.",
-            "Philippians 3:13-14": "Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.",
-            "Philippians 3:7-8": "But whatever was gain to me I count as loss for the sake of Christ. More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ",
-            "Philippians 4:13": "I can do all things through Christ who gives me strength.",
-            "Philippians 4:4": "Rejoice in the Lord always. I will say it again: Rejoice!",
-            "Philippians 4:6-7": "Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.",
-            "Romans 12:10": "Be devoted to one another in brotherly love. Outdo yourselves in honoring one another.",
-            "Romans 8:29-30": "For those God foreknew, He also predestined to be conformed to the image of His Son, so that He would be the firstborn among many brothers. And those He predestined, He also called; those He called, He also justified; those He justified, He also glorified."
-        };
-
-        (function () {
-            'use strict';
-
-            const BOOK = 'philippians';
-            const PREFIX = 'bsg:' + BOOK + ':';
-            const OPENING = 'Ready to begin your journey!';
-
-            /* ---------- storage: never throws, degrades to memory ---------- */
-            const store = (function () {
-                let backend = null;
-                try {
-                    const probe = '__bsg_probe__';
-                    window.localStorage.setItem(probe, '1');
-                    window.localStorage.removeItem(probe);
-                    backend = window.localStorage;
-                } catch (e) {
-                    backend = null;
-                }
-                const memory = {};
-                return {
-                    durable: backend !== null,
-                    get: function (key) {
-                        try {
-                            return backend ? backend.getItem(PREFIX + key) : (key in memory ? memory[key] : null);
-                        } catch (e) { return null; }
-                    },
-                    set: function (key, value) {
-                        try {
-                            if (backend) { backend.setItem(PREFIX + key, value); } else { memory[key] = value; }
-                            return true;
-                        } catch (e) { return false; }
-                    },
-                    clearBook: function () {
-                        try {
-                            if (!backend) { Object.keys(memory).forEach(function (k) { delete memory[k]; }); return true; }
-                            const doomed = [];
-                            for (let i = 0; i < backend.length; i++) {
-                                const k = backend.key(i);
-                                if (k && k.indexOf(PREFIX) === 0) { doomed.push(k); }
-                            }
-                            doomed.forEach(function (k) { backend.removeItem(k); });
-                            return true;
-                        } catch (e) { return false; }
-                    }
-                };
-            })();
-
-            /* ---------- one-time migration from the old index-based keys ---------- */
-            function migrateLegacyKeys() {
-                if (!store.durable) { return; }
-                if (store.get('schema') === '2') { return; }
-                try {
-                    document.querySelectorAll('textarea[id]').forEach(function (el, i) {
-                        const old = window.localStorage.getItem(BOOK + '-notes-' + i);
-                        if (old !== null && store.get('notes:' + el.id) === null) {
-                            store.set('notes:' + el.id, old);
-                        }
-                    });
-                    document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el, i) {
-                        const old = window.localStorage.getItem(BOOK + '-checkbox-' + i);
-                        if (old !== null && store.get('check:' + el.id) === null) {
-                            store.set('check:' + el.id, old === 'true' ? '1' : '0');
-                        }
-                    });
-                } catch (e) { /* migration is best effort */ }
-                store.set('schema', '2');
-            }
-
-            /* ---------- scripture modal ---------- */
-            function showScriptureModal(reference) {
-                const modal = document.getElementById('scriptureModal');
-                document.getElementById('modalTitle').textContent = reference;
-                document.getElementById('modalText').textContent =
-                    scriptureData[reference] || 'Passage text is not loaded for this reference yet.';
-                modal.style.display = 'flex';
-                const closer = modal.querySelector('.modal-close');
-                if (closer) { closer.focus(); }
-            }
-
-            function closeScriptureModal() {
-                document.getElementById('scriptureModal').style.display = 'none';
-            }
-
-            /* ---------- sections ---------- */
-            function sectionIds() {
-                return Array.prototype.map.call(
-                    document.querySelectorAll('.content-section'),
-                    function (el) { return el.id; }
-                ).filter(Boolean);
-            }
-
-            function showSection(sectionId) {
-                const target = document.getElementById(sectionId);
-                if (!target) { return; }
-                document.querySelectorAll('.content-section').forEach(function (el) {
-                    el.classList.remove('active');
-                });
-                document.querySelectorAll('.nav-button').forEach(function (el) {
-                    el.classList.remove('active');
-                    el.setAttribute('aria-selected', 'false');
-                });
-                target.classList.add('active');
-                const button = document.querySelector('[onclick="showSection(\'' + sectionId + '\')"]');
-                if (button) {
-                    button.classList.add('active');
-                    button.setAttribute('aria-selected', 'true');
-                }
-                store.set('section', sectionId);
-                refreshBadges();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            function refreshBadges() {
-                sectionIds().forEach(function (id) {
-                    const boxes = document.querySelectorAll('#' + id + ' input[type="checkbox"]');
-                    const badge = document.querySelector('#' + id + ' .completion-badge');
-                    if (!badge) { return; }
-                    const done = boxes.length > 0 &&
-                        Array.prototype.every.call(boxes, function (b) { return b.checked; });
-                    badge.classList.toggle('show', done);
-                });
-            }
-
-            /* ---------- progress ---------- */
-            function progressMessage(pct) {
-                if (pct === 0) { return OPENING; }
-                if (pct < 25) { return 'Great start, keep studying!'; }
-                if (pct < 50) { return 'Making good progress!'; }
-                if (pct < 75) { return "Over halfway, you're doing well!"; }
-                if (pct < 100) { return 'Almost there!'; }
-                return 'Study complete. Well done!';
-            }
-
-            function updateProgress() {
-                const all = document.querySelectorAll('input[type="checkbox"]');
-                const done = document.querySelectorAll('input[type="checkbox"]:checked');
-                const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
-                const fill = document.getElementById('progressFill');
-                const text = document.getElementById('progressText');
-                if (fill) {
-                    fill.style.width = pct + '%';
-                    const bar = fill.parentElement;
-                    if (bar) {
-                        bar.setAttribute('role', 'progressbar');
-                        bar.setAttribute('aria-valuenow', String(pct));
-                        bar.setAttribute('aria-valuemin', '0');
-                        bar.setAttribute('aria-valuemax', '100');
-                    }
-                }
-                if (text) {
-                    text.textContent = pct + '% Complete - ' + progressMessage(pct) +
-                        ' (' + done.length + ' of ' + all.length + ')';
-                }
-                refreshBadges();
-            }
-
-            /* ---------- save indicator ---------- */
-            let saveTimer = null;
-            function flagSaved(ok) {
-                const el = document.getElementById('saveStatus');
-                if (!el) { return; }
-                if (!store.durable) {
-                    el.textContent = 'Private browsing: your notes will not be kept after you close this tab.';
-                    return;
-                }
-                el.textContent = ok ? 'Saved on this device' : 'Could not save (storage full?)';
-                if (saveTimer) { window.clearTimeout(saveTimer); }
-                saveTimer = window.setTimeout(function () { el.textContent = ''; }, 2000);
-            }
-
-            /* ---------- wiring ---------- */
-            function restoreAndBind() {
-                document.querySelectorAll('textarea[id]').forEach(function (el) {
-                    const saved = store.get('notes:' + el.id);
-                    if (saved !== null) { el.value = saved; }
-                    let debounce = null;
-                    el.addEventListener('input', function () {
-                        if (debounce) { window.clearTimeout(debounce); }
-                        debounce = window.setTimeout(function () {
-                            flagSaved(store.set('notes:' + el.id, el.value));
-                        }, 400);
-                    });
-                });
-
-                document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) {
-                    if (store.get('check:' + el.id) === '1') { el.checked = true; }
-                    el.addEventListener('change', function () {
-                        flagSaved(store.set('check:' + el.id, el.checked ? '1' : '0'));
-                        updateProgress();
-                    });
-                });
-
-                const reset = document.getElementById('resetProgress');
-                if (reset) {
-                    reset.addEventListener('click', function () {
-                        const warning = 'This clears every note and tick you have saved for ' + BOOK +
-                            ' on this device. This cannot be undone. Continue?';
-                        if (!window.confirm(warning)) { return; }
-                        store.clearBook();
-                        document.querySelectorAll('textarea[id]').forEach(function (el) { el.value = ''; });
-                        document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) { el.checked = false; });
-                        updateProgress();
-                        const el = document.getElementById('saveStatus');
-                        if (el) { el.textContent = 'Cleared'; }
-                    });
-                }
-            }
-
-            function scrollToTop() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            function toggleBackToTop() {
-                const button = document.querySelector('.back-to-top');
-                if (button) { button.classList.toggle('show', window.scrollY > 300); }
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                migrateLegacyKeys();
-                restoreAndBind();
-                updateProgress();
-
-                const last = store.get('section');
-                if (last && document.getElementById(last)) { showSection(last); }
-
-                window.addEventListener('scroll', toggleBackToTop);
-                toggleBackToTop();
-
-                if (!store.durable) { flagSaved(false); }
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') { closeScriptureModal(); }
-            });
-
-            document.addEventListener('click', function (e) {
-                const modal = document.getElementById('scriptureModal');
-                if (modal && e.target === modal) { closeScriptureModal(); }
-            });
-
-            // exposed for the inline handlers in the markup
-            window.showSection = showSection;
-            window.updateProgress = updateProgress;
-            window.showScriptureModal = showScriptureModal;
-            window.closeScriptureModal = closeScriptureModal;
-            window.scrollToTop = scrollToTop;
-        })();
-    </script>
+    <script type="application/json" id="passageData">{"1 Corinthians 10:24":"No one should seek his own good, but the good of others.","1 Corinthians 9:24-27":"Do you not know that in a race all the runners run, but only one receives the prize? Run in such a way as to take the prize. Everyone who competes in the games trains with strict discipline. They do it for a crown that is perishable, but we do it for a crown that is imperishable. Therefore I do not run aimlessly; I do not fight like I am beating the air. No, I discipline my body and make it my slave, so that after I have preached to others, I myself will not be disqualified.","1 Peter 5:7":"Cast all your anxiety on Him, because He cares for you.","1 Thessalonians 5:16-18":"Rejoice at all times. Pray without ceasing. Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.","1 Thessalonians 5:23-24":"Now may the God of peace Himself sanctify you completely, and may your entire spirit, soul, and body be kept blameless at the coming of our Lord Jesus Christ. The One who calls you is faithful, and He will do it.","2 Corinthians 12:9-10":"But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.” Therefore I will boast all the more gladly in my weaknesses, so that the power of Christ may rest on me. That is why, for the sake of Christ, I delight in weaknesses, in insults, in hardships, in persecutions, in difficulties. For when I am weak, then I am strong.","2 Corinthians 5:8":"We are confident, then, and would prefer to be away from the body and at home with the Lord.","Galatians 2:20":"I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.","Hebrews 12:1-2":"Therefore, since we are surrounded by such a great cloud of witnesses, let us throw off every encumbrance and the sin that so easily entangles, and let us run with endurance the race set out for us. Let us fix our eyes on Jesus, the author and perfecter of our faith, who for the joy set before Him endured the cross, scorning its shame, and sat down at the right hand of the throne of God.","Hebrews 2:14-17":"Now since the children have flesh and blood, He too shared in their humanity, so that by His death He might destroy him who holds the power of death, that is, the devil, and free those who all their lives were held in slavery by their fear of death. For surely it is not the angels He helps, but the descendants of Abraham. For this reason He had to be made like His brothers in every way, so that He might become a merciful and faithful high priest in service to God, in order to make atonement for the sins of the people.","James 1:2-4":"Consider it pure joy, my brothers, when you encounter trials of many kinds, because you know that the testing of your faith develops perseverance. Allow perseverance to finish its work, so that you may be mature and complete, not lacking anything.","John 15:5":"I am the vine and you are the branches. The one who remains in Me, and I in him, will bear much fruit. For apart from Me you can do nothing.","John 1:1,14":"In the beginning was the Word, and the Word was with God, and the Word was God. The Word became flesh and made His dwelling among us. We have seen His glory, the glory of the one and only Son from the Father, full of grace and truth.","Luke 14:33":"In the same way, any one of you who does not give up everything he has cannot be My disciple.","Matthew 13:44-46":"The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and in his joy he went and sold all he had and bought that field. Again, the kingdom of heaven is like a merchant in search of fine pearls. When he found one very precious pearl, he went away and sold all he had and bought it.","Matthew 6:25-34":"Therefore I tell you, do not worry about your life, what you will eat or drink; or about your body, what you will wear. Is not life more than food, and the body more than clothes? Look at the birds of the air: They do not sow or reap or gather into barns—and yet your heavenly Father feeds them. Are you not much more valuable than they? Who of you by worrying can add a single hour to his life? And why do you worry about clothes? Consider how the lilies of the field grow: They do not labor or spin. Yet I tell you that not even Solomon in all his glory was adorned like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the furnace, will He not much more clothe you, O you of little faith? Therefore do not worry, saying, ‘What shall we eat?’ or ‘What shall we drink?’ or ‘What shall we wear?’ For the Gentiles strive after all these things, and your heavenly Father knows that you need them. But seek first the kingdom of God and His righteousness, and all these things will be added unto you. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Today has enough trouble of its own.","Philippians 1:21":"For to me, to live is Christ, and to die is gain.","Philippians 1:6":"being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.","Philippians 2:3-4":"Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves. Each of you should look not only to your own interests, but also to the interests of others.","Philippians 2:5-8":"Let this mind be in you which was also in Christ Jesus: Who, existing in the form of God, did not consider equality with God something to be grasped, but emptied Himself, taking the form of a servant, being made in human likeness. And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.","Philippians 3:13-14":"Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.","Philippians 3:7-8":"But whatever was gain to me I count as loss for the sake of Christ. More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ","Philippians 4:13":"I can do all things through Christ who gives me strength.","Philippians 4:4":"Rejoice in the Lord always. I will say it again: Rejoice!","Philippians 4:6-7":"Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.","Romans 12:10":"Be devoted to one another in brotherly love. Outdo yourselves in honoring one another.","Romans 8:29-30":"For those God foreknew, He also predestined to be conformed to the image of His Son, so that He would be the firstborn among many brothers. And those He predestined, He also called; those He called, He also justified; those He justified, He also glorified."}</script>
+    <script src="assets/js/study.js"></script>
 </body>
 </html>

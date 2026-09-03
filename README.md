@@ -6,10 +6,29 @@ Notes and progress are saved in the reader's own browser on their own device.
 Available now
 
 Romans, Galatians, Ephesians, Philippians and Colossians. Open index.html, or the
-hosted site, and pick a book.
+hosted site, and pick a book. The Fear of the Lord, a topical study across both
+testaments, is written and sitting in draft awaiting review.
 
 Planned, in this order: 1 and 2 Thessalonians, 1 and 2 Corinthians, 1 and 2 Timothy,
 Titus, Philemon, Hebrews, then the four Gospels, then the Old Testament one book at a time.
+
+How the site is built
+
+The pages at the repository root are generated. The sources are in content/: one JSON
+file per study, plus content/site.json for the home page and content/scripture/bsb.json
+for the passage text. Nothing is typed into HTML by hand.
+
+    node tools/validate.mjs     check the content
+    node tools/build.mjs        rebuild every page
+
+There is no framework and there are no dependencies: the build runs on a bare Node
+install and writes plain static HTML. That is a deliberate choice for a site that has to
+stay free, load on a weak connection, be readable with JavaScript off, and still be
+maintainable in five years. CONTENT.md explains how to write a study.
+
+Adding a book, or a topical study, is now writing one content file. The same schema
+covers both, so tracing a theme across Genesis and Hebrews works exactly like walking
+through Colossians chapter by chapter.
 
 How each guide works
 
@@ -82,13 +101,10 @@ cache lifetimes.
 
 Contributing a study
 
-Guides are plain HTML today. Keep the section structure and the naming already in use:
-content sections are overview, background, study1 through studyN, and summary; note boxes
-are notes-<section>-<n>; checkboxes need a unique id so the saved state survives edits to
-the page. Reuse the existing block classes (theme-box, historical-context, warning-box,
-reflection-box, application-modern, interactive-element, notes-section, verse-highlight)
-rather than writing new CSS, and put no style attributes or style blocks in the page. Do
-not paste in passage text from a copyrighted translation.
+Read CONTENT.md. In short: studies are JSON files in content/studies, validated by
+tools/validate.mjs and rendered by tools/build.mjs. Never edit the generated HTML at the
+repository root, and never change an id that has already been published, because readers'
+saved notes and ticks are keyed to those ids.
 
 Licence
 

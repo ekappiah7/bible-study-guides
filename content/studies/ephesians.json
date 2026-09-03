@@ -1,0 +1,1139 @@
+{
+  "$schema": "../schema.json",
+  "id": "ephesians",
+  "kind": "book",
+  "status": "published",
+  "slug": "ephesians",
+  "title": "Ephesians",
+  "pageTitle": "Ephesians Study Guide",
+  "tagline": "God's Eternal Plan of Unity",
+  "docTitle": "Ephesians: God's Eternal Plan - Interactive Bible Study",
+  "metaDescription": "A free, in-depth study guide to Paul's letter to the Ephesians, with an eight week plan, Berean Study Bible passages and progress tracking.",
+  "canon": {
+    "testament": "new",
+    "group": "Pauline epistles",
+    "order": 10,
+    "chapters": 6
+  },
+  "progressOpening": "Ready to discover God's eternal plan!",
+  "units": [
+    {
+      "id": "overview",
+      "navLabel": "Overview",
+      "title": "Study Overview",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Purpose of This Study",
+          "body": [
+            {
+              "p": "Welcome to an exploration of Paul's letter to the Ephesians! This profound epistle reveals God's eternal plan to unite all things in Christ. Through this interactive study, you'll discover the spiritual riches believers have in Christ and how to live out our heavenly calling in practical ways."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Your Study Goals",
+          "items": [
+            {
+              "id": "goal1",
+              "text": "Understand God's eternal plan for unity in Christ"
+            },
+            {
+              "id": "goal2",
+              "text": "Grasp the spiritual blessings available to believers"
+            },
+            {
+              "id": "goal3",
+              "text": "Learn how to walk worthy of your calling"
+            },
+            {
+              "id": "goal4",
+              "text": "Apply principles of Christian unity and relationships"
+            },
+            {
+              "id": "goal5",
+              "text": "Understand spiritual warfare and put on God's armor"
+            }
+          ],
+          "intro": "Check off each goal as you complete it:"
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Study Method",
+              "body": [
+                {
+                  "p": "We'll use the <strong>SOAP</strong> method:"
+                },
+                {
+                  "ul": [
+                    "<strong>S</strong>cripture - Read the text",
+                    "<strong>O</strong>bservation - What does it say?",
+                    "<strong>A</strong>pplication - How does it apply?",
+                    "<strong>P</strong>rayer - Talk to God about it"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Time Commitment",
+              "body": [
+                {
+                  "p": "Each chapter study is designed for:"
+                },
+                {
+                  "ul": [
+                    "30-45 minutes individual study",
+                    "60-90 minutes group discussion",
+                    "Weekly personal reflection"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Resources Needed",
+              "body": [
+                {
+                  "ul": [
+                    "Bible (multiple translations helpful)",
+                    "Notebook for personal notes",
+                    "This interactive guide",
+                    "Open heart for God's Word!"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "navLabel": "Schedule",
+      "title": "Study Schedule",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "8-Week Study Plan",
+          "body": [
+            {
+              "p": "This comprehensive study of Ephesians is designed to be completed over 8 weeks, allowing time for deep reflection and application. Each week includes individual study time and group discussion."
+            }
+          ]
+        },
+        {
+          "type": "toolgrid",
+          "cards": [
+            {
+              "heading": "Week 1: Overview & Background",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Understanding the context"
+                },
+                {
+                  "ul": [
+                    "Historical background of Ephesus",
+                    "Paul's relationship with the church",
+                    "Study goals and methodology"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 2: Chapter 1",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Spiritual Blessings in Christ"
+                },
+                {
+                  "ul": [
+                    "God's eternal plan",
+                    "Election and predestination",
+                    "Sealed with the Holy Spirit"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 3: Chapter 2",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Made Alive in Christ"
+                },
+                {
+                  "ul": [
+                    "From death to life",
+                    "Salvation by grace through faith",
+                    "Unity between Jews and Gentiles"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 4: Chapter 3",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> God's Eternal Purpose"
+                },
+                {
+                  "ul": [
+                    "Paul's ministry to Gentiles",
+                    "Prayer for spiritual strength",
+                    "God's immeasurable power"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 5: Chapter 4",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Unity and Maturity"
+                },
+                {
+                  "ul": [
+                    "Unity in the body of Christ",
+                    "Spiritual gifts for building up",
+                    "New life vs. old life"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 6: Chapter 5",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Walking in Love and Light"
+                },
+                {
+                  "ul": [
+                    "Imitating God and walking in love",
+                    "Spirit-filled living",
+                    "Christian relationships"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 7: Chapter 6",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Spiritual Warfare"
+                },
+                {
+                  "ul": [
+                    "Family and work relationships",
+                    "Reality of spiritual warfare",
+                    "The full armor of God"
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "Week 8: Summary & Application",
+              "body": [
+                {
+                  "p": "<strong>Focus:</strong> Living Out Ephesians"
+                },
+                {
+                  "ul": [
+                    "Key takeaways review",
+                    "Personal application planning",
+                    "Commitment to ongoing growth"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Weekly Time Commitment",
+          "body": [
+            {
+              "ul": [
+                "<strong>Individual Study:</strong> 45-60 minutes per week",
+                "<strong>Group Discussion:</strong> 90 minutes per week",
+                "<strong>Personal Reflection:</strong> 15 minutes daily",
+                "<strong>Scripture Memorization:</strong> 10 minutes daily"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "heading": "Schedule Preparation Checklist",
+          "items": [
+            {
+              "id": "schedGoal1",
+              "text": "Set aside dedicated study time each week"
+            },
+            {
+              "id": "schedGoal2",
+              "text": "Find or form a study group"
+            },
+            {
+              "id": "schedGoal3",
+              "text": "Gather necessary study materials"
+            },
+            {
+              "id": "schedGoal4",
+              "text": "Commit to the full 8-week journey"
+            }
+          ],
+          "badge": {
+            "id": "schedBadge",
+            "text": "Schedule Set!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "navLabel": "Background",
+      "title": "Historical Background",
+      "blocks": [
+        {
+          "type": "context",
+          "heading": "The City of Ephesus",
+          "body": [
+            {
+              "p": "<strong>Location:</strong> Ephesus was the capital city of the Roman province of Asia (modern-day Turkey), strategically located on the Aegean Sea. It was one of the largest cities in the Roman Empire, with a population of around 250,000-500,000 people."
+            },
+            {
+              "p": "<strong>Economic Status:</strong> A major commercial and trade center, Ephesus was incredibly wealthy. The city was famous for its magnificent harbor, extensive road systems, and as a center of banking and commerce."
+            },
+            {
+              "p": "<strong>Religious Climate:</strong> Ephesus was home to the Temple of Artemis (Diana), one of the Seven Wonders of the Ancient World. The city was a center of pagan worship, magic practices, and emperor worship, making it a challenging environment for Christian witness."
+            }
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "Paul's Relationship with Ephesus",
+          "body": [
+            {
+              "p": "<strong>Extended Ministry:</strong> Paul spent approximately three years in Ephesus (Acts 19:8-10, 20:31), his longest recorded ministry in any single location. This deep relationship is evident in the emotional farewell recorded in Acts 20:17-38."
+            },
+            {
+              "ul": [
+                "<strong>Church Planting:</strong> Established a strong, influential church",
+                "<strong>Training Center:</strong> Taught daily in the school of Tyrannus",
+                "<strong>Regional Impact:</strong> Ministry spread throughout Asia Minor",
+                "<strong>Miraculous Ministry:</strong> Extraordinary miracles occurred (Acts 19:11-12)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "warning",
+          "heading": "Challenges Facing the Ephesian Church",
+          "body": [
+            {
+              "h4": "Spiritual Warfare:"
+            },
+            {
+              "ul": [
+                "Surrounded by pagan temples and practices",
+                "Magic and occult practices were common",
+                "Demonic opposition was real and active"
+              ]
+            },
+            {
+              "h4": "Cultural Pressures:"
+            },
+            {
+              "ul": [
+                "Emperor worship was mandatory",
+                "Guild system created economic pressures",
+                "Greek philosophical influences"
+              ]
+            },
+            {
+              "h4": "Internal Church Issues:"
+            },
+            {
+              "ul": [
+                "Jewish-Gentile tensions over unity",
+                "Questions about Christian behavior",
+                "Need for spiritual maturity and leadership"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Modern Parallels",
+          "body": [
+            {
+              "p": "Today's believers face similar challenges:"
+            },
+            {
+              "ul": [
+                "<strong>Secular Worldview:</strong> Materialism and humanism",
+                "<strong>Spiritual Opposition:</strong> New Age practices and occultism",
+                "<strong>Cultural Diversity:</strong> Unity across ethnic and cultural lines",
+                "<strong>Moral Relativism:</strong> Pressure to compromise biblical standards",
+                "<strong>Economic Pressures:</strong> Career vs. faith conflicts"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What cultural pressures in your environment most challenge your Christian walk?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we create unity in our diverse church communities like the Ephesians needed to do?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Background",
+          "id": "notes-background-1",
+          "placeholder": "Write your observations, questions, or insights about the historical background..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Background Study Checklist",
+          "items": [
+            {
+              "id": "bgGoal1",
+              "text": "Understand the cultural and religious context of Ephesus"
+            },
+            {
+              "id": "bgGoal2",
+              "text": "Recognize Paul's deep relationship with the Ephesian church"
+            },
+            {
+              "id": "bgGoal3",
+              "text": "Identify challenges facing early Christians in Ephesus"
+            },
+            {
+              "id": "bgGoal4",
+              "text": "Reflect on modern parallels to these challenges"
+            }
+          ],
+          "badge": {
+            "id": "bgBadge",
+            "text": "Section Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study1",
+      "navLabel": "Chapter 1",
+      "title": "Chapter 1: Spiritual Blessings in Christ",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Spiritual blessings in heavenly places (Eph. 1:3)",
+                "God's eternal plan of election and predestination (Eph. 1:4-6)",
+                "Redemption and forgiveness through Christ's blood (Eph. 1:7-8)",
+                "The mystery of God's will revealed (Eph. 1:9-10)",
+                "Sealed with the Holy Spirit (Eph. 1:13-14)",
+                "Paul's prayer for wisdom and revelation (Eph. 1:15-23)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 1:3-4",
+          "crossRefs": [
+            "2 Timothy 1:9",
+            "1 Peter 1:2"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 1:13-14",
+          "crossRefs": [
+            "2 Corinthians 1:22",
+            "Romans 8:16"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 1 Today",
+          "body": [
+            {
+              "p": "Live in the reality of your spiritual blessings by:"
+            },
+            {
+              "ul": [
+                "<strong>Identity:</strong> Remember you were chosen before the foundation of the world",
+                "<strong>Security:</strong> Rest in your sealed relationship with God through the Holy Spirit",
+                "<strong>Purpose:</strong> Live for God's glory as His adopted children",
+                "<strong>Prayer:</strong> Ask for spiritual wisdom and revelation like Paul did"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How does knowing you were chosen \"before the creation of the world\" affect your self-worth and purpose?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What does it mean practically to live in \"heavenly realms\" while still on earth?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 1",
+          "id": "notes-study1-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 1..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 1 Study Checklist",
+          "items": [
+            {
+              "id": "ch1Goal1",
+              "text": "Read Ephesians 1 carefully, noting spiritual blessings"
+            },
+            {
+              "id": "ch1Goal2",
+              "text": "Understand God's eternal plan and your place in it"
+            },
+            {
+              "id": "ch1Goal3",
+              "text": "Reflect on the Holy Spirit as your seal and guarantee"
+            },
+            {
+              "id": "ch1Goal4",
+              "text": "Pray Paul's prayer (1:17-19) for yourself and others"
+            }
+          ],
+          "badge": {
+            "id": "ch1Badge",
+            "text": "Chapter 1 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study2",
+      "navLabel": "Chapter 2",
+      "title": "Chapter 2: Made Alive in Christ",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "From spiritual death to spiritual life (Eph. 2:1-3)",
+                "Salvation by grace through faith (Eph. 2:4-10)",
+                "Unity between Jews and Gentiles (Eph. 2:11-18)",
+                "The church as God's temple (Eph. 2:19-22)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 2:8-10",
+          "crossRefs": [
+            "Romans 3:24",
+            "Titus 3:5"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 2:14",
+          "crossRefs": [
+            "Galatians 3:28",
+            "Colossians 3:11"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 2 Today",
+          "body": [
+            {
+              "p": "Live out your salvation and unity by:"
+            },
+            {
+              "ul": [
+                "<strong>Gratitude:</strong> Regularly thank God for His grace in saving you",
+                "<strong>Humility:</strong> Remember salvation is entirely God's work, not yours",
+                "<strong>Good Works:</strong> Serve others as God's workmanship",
+                "<strong>Unity:</strong> Break down barriers between different groups of people"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How has God's grace transformed you from spiritual death to spiritual life?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What barriers exist in our community that Christ wants to break down?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 2",
+          "id": "notes-study2-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 2..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 2 Study Checklist",
+          "items": [
+            {
+              "id": "ch2Goal1",
+              "text": "Read Ephesians 2 carefully, noting the before and after"
+            },
+            {
+              "id": "ch2Goal2",
+              "text": "Understand salvation by grace through faith"
+            },
+            {
+              "id": "ch2Goal3",
+              "text": "Reflect on unity between different groups of people"
+            },
+            {
+              "id": "ch2Goal4",
+              "text": "Consider your role in God's temple (the church)"
+            }
+          ],
+          "badge": {
+            "id": "ch2Badge",
+            "text": "Chapter 2 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study3",
+      "navLabel": "Chapter 3",
+      "title": "Chapter 3: God's Eternal Purpose",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Paul's ministry to the Gentiles (Eph. 3:1-6)",
+                "The mystery of Christ revealed (Eph. 3:7-13)",
+                "Paul's prayer for spiritual strength (Eph. 3:14-19)",
+                "Doxology - God's power at work (Eph. 3:20-21)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 3:17-19",
+          "crossRefs": [
+            "Romans 8:39",
+            "1 John 4:16"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 3:20-21",
+          "crossRefs": [
+            "Romans 16:25",
+            "Philippians 4:19"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 3 Today",
+          "body": [
+            {
+              "p": "Experience God's love and power by:"
+            },
+            {
+              "ul": [
+                "<strong>Prayer:</strong> Use Paul's prayer as a model for intercession",
+                "<strong>Expectation:</strong> Believe God can do more than you imagine",
+                "<strong>Love:</strong> Seek to comprehend Christ's immeasurable love",
+                "<strong>Ministry:</strong> Serve others with the mystery of the gospel"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How can you begin to grasp the width, length, height, and depth of Christ's love?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What \"immeasurably more\" might God want to do in our church or community?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 3",
+          "id": "notes-study3-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 3..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 3 Study Checklist",
+          "items": [
+            {
+              "id": "ch3Goal1",
+              "text": "Read Ephesians 3 carefully"
+            },
+            {
+              "id": "ch3Goal2",
+              "text": "Understand the mystery of Gentile inclusion"
+            },
+            {
+              "id": "ch3Goal3",
+              "text": "Pray Paul's prayer for yourself and others"
+            },
+            {
+              "id": "ch3Goal4",
+              "text": "Reflect on God's ability to do \"immeasurably more\""
+            }
+          ],
+          "badge": {
+            "id": "ch3Badge",
+            "text": "Chapter 3 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study4",
+      "navLabel": "Chapter 4",
+      "title": "Chapter 4: Unity and Maturity",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Unity in the body of Christ (Eph. 4:1-6)",
+                "Spiritual gifts for building up the body (Eph. 4:7-16)",
+                "New life vs. old life (Eph. 4:17-24)",
+                "Practical instructions for Christian living (Eph. 4:25-32)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 4:2-3",
+          "crossRefs": [
+            "Philippians 2:3",
+            "Colossians 3:12-14"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 4:15-16",
+          "crossRefs": [
+            "1 Corinthians 12:12",
+            "Romans 12:4-5"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 4 Today",
+          "body": [
+            {
+              "p": "Live in unity and maturity by:"
+            },
+            {
+              "ul": [
+                "<strong>Humility:</strong> Put others before yourself",
+                "<strong>Gifts:</strong> Use your spiritual gifts to build up others",
+                "<strong>Truth:</strong> Speak truth in love, not harshness",
+                "<strong>Renewal:</strong> Put off old patterns, put on new life in Christ"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What spiritual gift has God given you to build up the body of Christ?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we better \"speak truth in love\" when we disagree?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 4",
+          "id": "notes-study4-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 4..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 4 Study Checklist",
+          "items": [
+            {
+              "id": "ch4Goal1",
+              "text": "Read Ephesians 4 carefully"
+            },
+            {
+              "id": "ch4Goal2",
+              "text": "Understand your role in maintaining unity"
+            },
+            {
+              "id": "ch4Goal3",
+              "text": "Identify your spiritual gifts for building up others"
+            },
+            {
+              "id": "ch4Goal4",
+              "text": "Apply practical instructions for Christian living"
+            }
+          ],
+          "badge": {
+            "id": "ch4Badge",
+            "text": "Chapter 4 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study5",
+      "navLabel": "Chapter 5",
+      "title": "Chapter 5: Walking in Love and Light",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Imitating God and walking in love (Eph. 5:1-7)",
+                "Living as children of light (Eph. 5:8-14)",
+                "Wise living and Spirit-filled life (Eph. 5:15-21)",
+                "Marriage as a picture of Christ and the church (Eph. 5:22-33)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 5:1-2",
+          "crossRefs": [
+            "1 John 4:19",
+            "John 13:34"
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 5:18-19",
+          "crossRefs": [
+            "Galatians 5:16",
+            "Colossians 3:16"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 5 Today",
+          "body": [
+            {
+              "p": "Walk in love and light by:"
+            },
+            {
+              "ul": [
+                "<strong>Imitation:</strong> Follow God's example of sacrificial love",
+                "<strong>Purity:</strong> Avoid sexual immorality and greed",
+                "<strong>Spirit-filled living:</strong> Let the Holy Spirit control your life",
+                "<strong>Relationships:</strong> Honor God in marriage and family"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "What does it mean practically to \"be filled with the Spirit\" in your daily life?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How does the Christ-church relationship model healthy human relationships?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 5",
+          "id": "notes-study5-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 5..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 5 Study Checklist",
+          "items": [
+            {
+              "id": "ch5Goal1",
+              "text": "Read Ephesians 5 carefully"
+            },
+            {
+              "id": "ch5Goal2",
+              "text": "Understand what it means to walk in love"
+            },
+            {
+              "id": "ch5Goal3",
+              "text": "Reflect on being filled with the Spirit"
+            },
+            {
+              "id": "ch5Goal4",
+              "text": "Apply principles to your relationships"
+            }
+          ],
+          "badge": {
+            "id": "ch5Badge",
+            "text": "Chapter 5 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "study6",
+      "navLabel": "Chapter 6",
+      "title": "Chapter 6: Spiritual Warfare",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Themes",
+          "body": [
+            {
+              "ul": [
+                "Family relationships and obedience (Eph. 6:1-4)",
+                "Work relationships and integrity (Eph. 6:5-9)",
+                "The reality of spiritual warfare (Eph. 6:10-12)",
+                "The full armor of God (Eph. 6:13-18)",
+                "Prayer for Paul's ministry (Eph. 6:19-24)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 6:10-11",
+          "crossRefs": [
+            "1 Peter 5:8",
+            "2 Corinthians 10:4"
+          ]
+        },
+        {
+          "type": "themes",
+          "heading": "The Full Armor of God",
+          "body": [
+            {
+              "ul": [
+                "<strong>Belt of Truth</strong> - Foundational honesty and integrity",
+                "<strong>Breastplate of Righteousness</strong> - Right living and purity",
+                "<strong>Gospel of Peace</strong> - Readiness to share the good news",
+                "<strong>Shield of Faith</strong> - Trust in God that blocks Satan's attacks",
+                "<strong>Helmet of Salvation</strong> - Security in your salvation",
+                "<strong>Sword of the Spirit</strong> - God's Word as offensive weapon"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "passage",
+          "ref": "Ephesians 6:18",
+          "crossRefs": [
+            "1 Thessalonians 5:17",
+            "Romans 8:26"
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Applying Chapter 6 Today",
+          "body": [
+            {
+              "p": "Engage in spiritual warfare by:"
+            },
+            {
+              "ul": [
+                "<strong>Preparation:</strong> Daily put on the full armor of God",
+                "<strong>Prayer:</strong> Pray constantly and specifically for others",
+                "<strong>Scripture:</strong> Use God's Word as your weapon",
+                "<strong>Relationships:</strong> Honor God in family and work"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Reflection Questions",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "Which piece of spiritual armor do you most need to strengthen in your life?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "How can we pray more effectively for one another in spiritual battle?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Notes on Chapter 6",
+          "id": "notes-study6-1",
+          "placeholder": "Write your observations, questions, or insights about Chapter 6..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Chapter 6 Study Checklist",
+          "items": [
+            {
+              "id": "ch6Goal1",
+              "text": "Read Ephesians 6 carefully"
+            },
+            {
+              "id": "ch6Goal2",
+              "text": "Understand the reality of spiritual warfare"
+            },
+            {
+              "id": "ch6Goal3",
+              "text": "Learn each piece of spiritual armor"
+            },
+            {
+              "id": "ch6Goal4",
+              "text": "Commit to regular prayer and armor-putting-on"
+            }
+          ],
+          "badge": {
+            "id": "ch6Badge",
+            "text": "Chapter 6 Completed!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "navLabel": "Summary",
+      "title": "Study Summary",
+      "blocks": [
+        {
+          "type": "themes",
+          "heading": "Key Takeaways from Ephesians",
+          "body": [
+            {
+              "ul": [
+                "God's eternal plan to unite all things in Christ",
+                "Believers are blessed with every spiritual blessing in Christ",
+                "Salvation is entirely by grace through faith",
+                "The church is called to unity, maturity, and love",
+                "Christians must walk worthy of their calling",
+                "Spiritual warfare is real and requires God's armor"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "heading": "Living Out Ephesians",
+          "body": [
+            {
+              "p": "Apply the truths of Ephesians by:"
+            },
+            {
+              "ul": [
+                "<strong>Identity:</strong> Live knowing you are chosen, adopted, and sealed",
+                "<strong>Unity:</strong> Work to bring people together across differences",
+                "<strong>Growth:</strong> Use your gifts to build up the body of Christ",
+                "<strong>Relationships:</strong> Honor God in marriage, family, and work",
+                "<strong>Warfare:</strong> Daily put on God's armor for spiritual battle"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "heading": "Final Reflection",
+          "questions": [
+            {
+              "audience": "Personal",
+              "text": "How has studying Ephesians changed your understanding of God's plan for your life?"
+            },
+            {
+              "audience": "Group Discussion",
+              "text": "What is one way your group can live out God's calling to unity and love?"
+            }
+          ]
+        },
+        {
+          "type": "notes",
+          "heading": "Your Final Notes",
+          "id": "notes-summary-1",
+          "placeholder": "Summarize your key insights from this study of Ephesians..."
+        },
+        {
+          "type": "checklist",
+          "heading": "Study Completion Checklist",
+          "items": [
+            {
+              "id": "sumGoal1",
+              "text": "Complete all chapter studies"
+            },
+            {
+              "id": "sumGoal2",
+              "text": "Understand God's eternal plan of unity"
+            },
+            {
+              "id": "sumGoal3",
+              "text": "Apply at least one key lesson to daily life"
+            },
+            {
+              "id": "sumGoal4",
+              "text": "Commit to ongoing spiritual growth"
+            }
+          ],
+          "badge": {
+            "id": "sumBadge",
+            "text": "Study Completed!"
+          }
+        }
+      ]
+    }
+  ]
+}
