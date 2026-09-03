@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A free, in-depth study guide to Paul's letter to the Philippians, with Berean Study Bible passages, reflection questions and progress tracking.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philippians: Joy in Christ - Interactive Bible Study</title>
     <style>
         :root {
@@ -429,6 +430,54 @@
                 padding: 20px;
             }
         }
+
+        .save-status {
+            min-height: 1.2em;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .progress-actions {
+            margin-top: 12px;
+        }
+
+        .reset-button {
+            background: transparent;
+            color: #6a4a8a;
+            border: 1px solid rgba(106, 74, 138, 0.5);
+            border-radius: 20px;
+            padding: 7px 18px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .reset-button:hover {
+            background: rgba(106, 74, 138, 0.1);
+            color: #4a2f68;
+        }
+
+        .reset-button:focus-visible,
+        .nav-button:focus-visible,
+        .cross-reference:focus-visible {
+            outline: 3px solid #ffd54f;
+            outline-offset: 2px;
+        }
+
+        .scripture-credit {
+            margin: 40px 0 0;
+            padding: 24px 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+        }
+
+        .scripture-credit p {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -444,15 +493,19 @@
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <p id="progressText">0% Complete - Ready to begin your journey!</p>
+            <p class="save-status" id="saveStatus" role="status" aria-live="polite"></p>
+            <div class="progress-actions">
+                <button type="button" class="reset-button" id="resetProgress">Clear my saved notes and ticks</button>
+            </div>
         </div>
 
         <div class="chapter-nav">
             <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
             <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
-            <button class="nav-button" onclick="showSection('chapter1')">📖 Chapter 1</button>
-            <button class="nav-button" onclick="showSection('chapter2')">📖 Chapter 2</button>
-            <button class="nav-button" onclick="showSection('chapter3')">📖 Chapter 3</button>
-            <button class="nav-button" onclick="showSection('chapter4')">📖 Chapter 4</button>
+            <button class="nav-button" onclick="showSection('study1')">📖 Chapter 1</button>
+            <button class="nav-button" onclick="showSection('study2')">📖 Chapter 2</button>
+            <button class="nav-button" onclick="showSection('study3')">📖 Chapter 3</button>
+            <button class="nav-button" onclick="showSection('study4')">📖 Chapter 4</button>
             <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
         </div>
 
@@ -615,7 +668,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Background</h3>
-                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+                <textarea id="notes-background-1" placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -641,7 +694,7 @@
         </div>
 
         <!-- Chapter 1 Section -->
-        <div id="chapter1" class="content-section">
+        <div id="study1" class="content-section">
             <h2 class="section-title">📖 Chapter 1: Partnership in the Gospel</h2>
             
             <div class="theme-box">
@@ -656,15 +709,15 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 1:6:</strong> "Being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus."</p>
-                <span class="cross-reference" data-scripture="Romans 8:29-30" onclick="showScriptureModal('Romans 8:29-30')">Romans 8:29-30</span>
-                <span class="cross-reference" data-scripture="1 Thessalonians 5:23-24" onclick="showScriptureModal('1 Thessalonians 5:23-24')">1 Thessalonians 5:23-24</span>
+                <p><strong>Philippians 1:6:</strong> &ldquo;being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 8:29-30" role="button" tabindex="0" onclick="showScriptureModal('Romans 8:29-30')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 8:29-30');}">Romans 8:29-30</span>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:23-24" role="button" tabindex="0" onclick="showScriptureModal('1 Thessalonians 5:23-24')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Thessalonians 5:23-24');}">1 Thessalonians 5:23-24</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 1:21:</strong> "For to me, to live is Christ and to die is gain."</p>
-                <span class="cross-reference" data-scripture="Galatians 2:20" onclick="showScriptureModal('Galatians 2:20')">Galatians 2:20</span>
-                <span class="cross-reference" data-scripture="2 Corinthians 5:8" onclick="showScriptureModal('2 Corinthians 5:8')">2 Corinthians 5:8</span>
+                <p><strong>Philippians 1:21:</strong> &ldquo;For to me, to live is Christ, and to die is gain.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Galatians 2:20" role="button" tabindex="0" onclick="showScriptureModal('Galatians 2:20')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 2:20');}">Galatians 2:20</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 5:8" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 5:8')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 5:8');}">2 Corinthians 5:8</span>
             </div>
 
             <div class="historical-context">
@@ -703,7 +756,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 1</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
+                <textarea id="notes-study1-1" placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -725,7 +778,7 @@
         </div>
 
         <!-- Chapter 2 Section -->
-        <div id="chapter2" class="content-section">
+        <div id="study2" class="content-section">
             <h2 class="section-title">📖 Chapter 2: The Mind of Christ</h2>
             
             <div class="theme-box">
@@ -740,15 +793,15 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 2:3-4:</strong> "Do nothing out of selfish ambition or vain conceit. Rather, in humility value others above yourselves, not looking to your own interests but each of you to the interests of the others."</p>
-                <span class="cross-reference" data-scripture="Romans 12:10" onclick="showScriptureModal('Romans 12:10')">Romans 12:10</span>
-                <span class="cross-reference" data-scripture="1 Corinthians 10:24" onclick="showScriptureModal('1 Corinthians 10:24')">1 Corinthians 10:24</span>
+                <p><strong>Philippians 2:3-4:</strong> &ldquo;Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves. Each of you should look not only to your own interests, but also to the interests of others.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 12:10" role="button" tabindex="0" onclick="showScriptureModal('Romans 12:10')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 12:10');}">Romans 12:10</span>
+                <span class="cross-reference" data-scripture="1 Corinthians 10:24" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 10:24')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 10:24');}">1 Corinthians 10:24</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 2:5-8:</strong> "In your relationships with one another, have the same mindset as Christ Jesus: Who, being in very nature God, did not consider equality with God something to be used to his own advantage; rather, he made himself nothing by taking the very nature of a servant, being made in human likeness. And being found in appearance as a man, he humbled himself by becoming obedient to death—even death on a cross!"</p>
-                <span class="cross-reference" data-scripture="John 1:1,14" onclick="showScriptureModal('John 1:1,14')">John 1:1,14</span>
-                <span class="cross-reference" data-scripture="Hebrews 2:14-17" onclick="showScriptureModal('Hebrews 2:14-17')">Hebrews 2:14-17</span>
+                <p><strong>Philippians 2:5-8:</strong> &ldquo;Let this mind be in you which was also in Christ Jesus: Who, existing in the form of God, did not consider equality with God something to be grasped, but emptied Himself, taking the form of a servant, being made in human likeness. And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.&rdquo;</p>
+                <span class="cross-reference" data-scripture="John 1:1,14" role="button" tabindex="0" onclick="showScriptureModal('John 1:1,14')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 1:1,14');}">John 1:1,14</span>
+                <span class="cross-reference" data-scripture="Hebrews 2:14-17" role="button" tabindex="0" onclick="showScriptureModal('Hebrews 2:14-17')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Hebrews 2:14-17');}">Hebrews 2:14-17</span>
             </div>
 
             <div class="historical-context">
@@ -757,14 +810,14 @@
                 
                 <p><strong>The Descent (Humiliation):</strong></p>
                 <ul>
-                    <li><strong>Pre-existence:</strong> Being in very nature God (2:6)</li>
-                    <li><strong>Incarnation:</strong> Made himself nothing, took nature of servant (2:7)</li>
-                    <li><strong>Crucifixion:</strong> Obedient to death on a cross (2:8)</li>
+                    <li><strong>Pre-existence:</strong> Existing in the form of God (2:6)</li>
+                    <li><strong>Incarnation:</strong> Emptied Himself, taking the form of a servant (2:7)</li>
+                    <li><strong>Crucifixion:</strong> Became obedient to death, even death on a cross (2:8)</li>
                 </ul>
                 
                 <p><strong>The Ascent (Exaltation):</strong></p>
                 <ul>
-                    <li><strong>Resurrection/Ascension:</strong> God exalted him to highest place (2:9)</li>
+                    <li><strong>Resurrection/Ascension:</strong> God exalted Him to the highest place (2:9)</li>
                     <li><strong>Universal Acknowledgment:</strong> Every knee will bow, every tongue confess (2:10-11)</li>
                     <li><strong>Purpose:</strong> To the glory of God the Father (2:11)</li>
                 </ul>
@@ -804,7 +857,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 2</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
+                <textarea id="notes-study2-1" placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -826,7 +879,7 @@
         </div>
 
         <!-- Chapter 3 Section -->
-        <div id="chapter3" class="content-section">
+        <div id="study3" class="content-section">
             <h2 class="section-title">📖 Chapter 3: Knowing Christ</h2>
             
             <div class="theme-box">
@@ -841,15 +894,15 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 3:7-8:</strong> "But whatever were gains to me I now consider loss for the sake of Christ. What is more, I consider everything a loss because of the surpassing worth of knowing Christ Jesus my Lord, for whose sake I have lost all things. I consider them garbage, that I may gain Christ."</p>
-                <span class="cross-reference" data-scripture="Matthew 13:44-46" onclick="showScriptureModal('Matthew 13:44-46')">Matthew 13:44-46</span>
-                <span class="cross-reference" data-scripture="Luke 14:33" onclick="showScriptureModal('Luke 14:33')">Luke 14:33</span>
+                <p><strong>Philippians 3:7-8:</strong> &ldquo;But whatever was gain to me I count as loss for the sake of Christ. More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ&rdquo;</p>
+                <span class="cross-reference" data-scripture="Matthew 13:44-46" role="button" tabindex="0" onclick="showScriptureModal('Matthew 13:44-46')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Matthew 13:44-46');}">Matthew 13:44-46</span>
+                <span class="cross-reference" data-scripture="Luke 14:33" role="button" tabindex="0" onclick="showScriptureModal('Luke 14:33')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Luke 14:33');}">Luke 14:33</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 3:13-14:</strong> "Brothers and sisters, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize for which God has called me heavenward in Christ Jesus."</p>
-                <span class="cross-reference" data-scripture="1 Corinthians 9:24-27" onclick="showScriptureModal('1 Corinthians 9:24-27')">1 Corinthians 9:24-27</span>
-                <span class="cross-reference" data-scripture="Hebrews 12:1-2" onclick="showScriptureModal('Hebrews 12:1-2')">Hebrews 12:1-2</span>
+                <p><strong>Philippians 3:13-14:</strong> &ldquo;Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.&rdquo;</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 9:24-27" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 9:24-27')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 9:24-27');}">1 Corinthians 9:24-27</span>
+                <span class="cross-reference" data-scripture="Hebrews 12:1-2" role="button" tabindex="0" onclick="showScriptureModal('Hebrews 12:1-2')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Hebrews 12:1-2');}">Hebrews 12:1-2</span>
             </div>
 
             <div class="historical-context">
@@ -907,7 +960,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 3</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
+                <textarea id="notes-study3-1" placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -929,7 +982,7 @@
         </div>
 
         <!-- Chapter 4 Section -->
-        <div id="chapter4" class="content-section">
+        <div id="study4" class="content-section">
             <h2 class="section-title">📖 Chapter 4: Joy and Contentment</h2>
             
             <div class="theme-box">
@@ -945,21 +998,21 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 4:4:</strong> "Rejoice in the Lord always. I will say it again: Rejoice!"</p>
-                <span class="cross-reference" data-scripture="1 Thessalonians 5:16-18" onclick="showScriptureModal('1 Thessalonians 5:16-18')">1 Thessalonians 5:16-18</span>
-                <span class="cross-reference" data-scripture="James 1:2-4" onclick="showScriptureModal('James 1:2-4')">James 1:2-4</span>
+                <p><strong>Philippians 4:4:</strong> &ldquo;Rejoice in the Lord always. I will say it again: Rejoice!&rdquo;</p>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:16-18" role="button" tabindex="0" onclick="showScriptureModal('1 Thessalonians 5:16-18')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Thessalonians 5:16-18');}">1 Thessalonians 5:16-18</span>
+                <span class="cross-reference" data-scripture="James 1:2-4" role="button" tabindex="0" onclick="showScriptureModal('James 1:2-4')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('James 1:2-4');}">James 1:2-4</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 4:6-7:</strong> "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."</p>
-                <span class="cross-reference" data-scripture="Matthew 6:25-34" onclick="showScriptureModal('Matthew 6:25-34')">Matthew 6:25-34</span>
-                <span class="cross-reference" data-scripture="1 Peter 5:7" onclick="showScriptureModal('1 Peter 5:7')">1 Peter 5:7</span>
+                <p><strong>Philippians 4:6-7:</strong> &ldquo;Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Matthew 6:25-34" role="button" tabindex="0" onclick="showScriptureModal('Matthew 6:25-34')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Matthew 6:25-34');}">Matthew 6:25-34</span>
+                <span class="cross-reference" data-scripture="1 Peter 5:7" role="button" tabindex="0" onclick="showScriptureModal('1 Peter 5:7')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Peter 5:7');}">1 Peter 5:7</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Philippians 4:13:</strong> "I can do all this through him who gives me strength."</p>
-                <span class="cross-reference" data-scripture="2 Corinthians 12:9-10" onclick="showScriptureModal('2 Corinthians 12:9-10')">2 Corinthians 12:9-10</span>
-                <span class="cross-reference" data-scripture="John 15:5" onclick="showScriptureModal('John 15:5')">John 15:5</span>
+                <p><strong>Philippians 4:13:</strong> &ldquo;I can do all things through Christ who gives me strength.&rdquo;</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 12:9-10" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 12:9-10')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 12:9-10');}">2 Corinthians 12:9-10</span>
+                <span class="cross-reference" data-scripture="John 15:5" role="button" tabindex="0" onclick="showScriptureModal('John 15:5')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 15:5');}">John 15:5</span>
             </div>
 
             <div class="historical-context">
@@ -1015,7 +1068,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 4</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
+                <textarea id="notes-study4-1" placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1124,7 +1177,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Final Notes</h3>
-                <textarea placeholder="Summarize your key insights from this study of Philippians..."></textarea>
+                <textarea id="notes-summary-1" placeholder="Summarize your key insights from this study of Philippians..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1149,10 +1202,20 @@
             </div>
 
             <div class="verse-highlight" style="text-align: center; margin-top: 40px;">
-                <p style="font-size: 1.3rem;"><strong>"To live is Christ and to die is gain."</strong></p>
+                <p style="font-size: 1.3rem;"><strong>&ldquo;For to me, to live is Christ, and to die is gain.&rdquo;</strong></p>
                 <p>- Philippians 1:21</p>
             </div>
         </div>
+
+
+        <footer class="scripture-credit">
+            <p><strong>Scripture text.</strong> Quotations are from the Holy Bible, Berean Study Bible (BSB),
+            Copyright &copy; 2016, 2020 by Bible Hub. All rights reserved worldwide. Used under the free
+            licence granted for websites, apps, software and audio:
+            <a href="http://berean.bible/licensing.htm" rel="noopener">berean.bible/licensing.htm</a>.</p>
+            <p><strong>Free to use.</strong> This guide is free for personal, family and church study.
+            Your notes and ticks are saved only in this browser on this device, and are never uploaded.</p>
+        </footer>
 
         <button class="back-to-top" onclick="scrollToTop()">↑</button>
 
@@ -1167,110 +1230,285 @@
     </div>
 
     <script>
-        // Scripture data for cross-references
+        // Scripture text: Berean Study Bible (see attribution in the page footer).
+        // Generated from a licensed dataset, not hand-typed. Do not edit by hand.
         const scriptureData = {
-            "Romans 8:29-30": "For those God foreknew he also predestined to be conformed to the image of his Son, that he might be the firstborn among many brothers and sisters. And those he predestined, he also called; those he called, he also justified; those he justified, he also glorified.",
-            "1 Thessalonians 5:23-24": "May God himself, the God of peace, sanctify you through and through. May your whole spirit, soul and body be kept blameless at the coming of our Lord Jesus Christ. The one who calls you is faithful, and he will do it.",
-            "Galatians 2:20": "I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me.",
-            "2 Corinthians 5:8": "We are confident, I say, and would prefer to be away from the body and at home with the Lord.",
-            "Romans 12:10": "Be devoted to one another in love. Honor one another above yourselves.",
-            "1 Corinthians 10:24": "No one should seek their own good, but the good of others.",
-            "John 1:1,14": "In the beginning was the Word, and the Word was with God, and the Word was God... The Word became flesh and made his dwelling among us.",
-            "Hebrews 2:14-17": "Since the children have flesh and blood, he too shared in their humanity so that by his death he might break the power of him who holds the power of death... For this reason he had to be made like them, fully human in every way.",
-            "Matthew 13:44-46": "The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and then in his joy went and sold all he had and bought that field. Again, the kingdom of heaven is like a merchant looking for fine pearls. When he found one of great value, he went away and sold everything he had and bought it.",
-            "Luke 14:33": "In the same way, those of you who do not give up everything you have cannot be my disciples.",
-            "1 Corinthians 9:24-27": "Do you not know that in a race all the runners run, but only one gets the prize? Run in such a way as to get the prize. Everyone who competes in the games goes into strict training. They do it to get a crown that will not last, but we do it to get a crown that will last forever.",
-            "Hebrews 12:1-2": "Therefore, since we are surrounded by such a great cloud of witnesses, let us throw off everything that hinders and the sin that so easily entangles. And let us run with perseverance the race marked out for us, fixing our eyes on Jesus, the pioneer and perfecter of faith.",
-            "1 Thessalonians 5:16-18": "Rejoice always, pray continually, give thanks in all circumstances; for this is God's will for you in Christ Jesus.",
-            "James 1:2-4": "Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything.",
-            "Matthew 6:25-34": "Therefore I tell you, do not worry about your life, what you will eat or drink; or about your body, what you will wear... But seek first his kingdom and his righteousness, and all these things will be given to you as well.",
-            "1 Peter 5:7": "Cast all your anxiety on him because he cares for you.",
-            "2 Corinthians 12:9-10": "But he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.' Therefore I will boast all the more gladly about my weaknesses, so that Christ's power may rest on me.",
-            "John 15:5": "I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."
+            "1 Corinthians 10:24": "No one should seek his own good, but the good of others.",
+            "1 Corinthians 9:24-27": "Do you not know that in a race all the runners run, but only one receives the prize? Run in such a way as to take the prize. Everyone who competes in the games trains with strict discipline. They do it for a crown that is perishable, but we do it for a crown that is imperishable. Therefore I do not run aimlessly; I do not fight like I am beating the air. No, I discipline my body and make it my slave, so that after I have preached to others, I myself will not be disqualified.",
+            "1 Peter 5:7": "Cast all your anxiety on Him, because He cares for you.",
+            "1 Thessalonians 5:16-18": "Rejoice at all times. Pray without ceasing. Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.",
+            "1 Thessalonians 5:23-24": "Now may the God of peace Himself sanctify you completely, and may your entire spirit, soul, and body be kept blameless at the coming of our Lord Jesus Christ. The One who calls you is faithful, and He will do it.",
+            "2 Corinthians 12:9-10": "But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.” Therefore I will boast all the more gladly in my weaknesses, so that the power of Christ may rest on me. That is why, for the sake of Christ, I delight in weaknesses, in insults, in hardships, in persecutions, in difficulties. For when I am weak, then I am strong.",
+            "2 Corinthians 5:8": "We are confident, then, and would prefer to be away from the body and at home with the Lord.",
+            "Galatians 2:20": "I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.",
+            "Hebrews 12:1-2": "Therefore, since we are surrounded by such a great cloud of witnesses, let us throw off every encumbrance and the sin that so easily entangles, and let us run with endurance the race set out for us. Let us fix our eyes on Jesus, the author and perfecter of our faith, who for the joy set before Him endured the cross, scorning its shame, and sat down at the right hand of the throne of God.",
+            "Hebrews 2:14-17": "Now since the children have flesh and blood, He too shared in their humanity, so that by His death He might destroy him who holds the power of death, that is, the devil, and free those who all their lives were held in slavery by their fear of death. For surely it is not the angels He helps, but the descendants of Abraham. For this reason He had to be made like His brothers in every way, so that He might become a merciful and faithful high priest in service to God, in order to make atonement for the sins of the people.",
+            "James 1:2-4": "Consider it pure joy, my brothers, when you encounter trials of many kinds, because you know that the testing of your faith develops perseverance. Allow perseverance to finish its work, so that you may be mature and complete, not lacking anything.",
+            "John 15:5": "I am the vine and you are the branches. The one who remains in Me, and I in him, will bear much fruit. For apart from Me you can do nothing.",
+            "John 1:1,14": "In the beginning was the Word, and the Word was with God, and the Word was God. The Word became flesh and made His dwelling among us. We have seen His glory, the glory of the one and only Son from the Father, full of grace and truth.",
+            "Luke 14:33": "In the same way, any one of you who does not give up everything he has cannot be My disciple.",
+            "Matthew 13:44-46": "The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and in his joy he went and sold all he had and bought that field. Again, the kingdom of heaven is like a merchant in search of fine pearls. When he found one very precious pearl, he went away and sold all he had and bought it.",
+            "Matthew 6:25-34": "Therefore I tell you, do not worry about your life, what you will eat or drink; or about your body, what you will wear. Is not life more than food, and the body more than clothes? Look at the birds of the air: They do not sow or reap or gather into barns—and yet your heavenly Father feeds them. Are you not much more valuable than they? Who of you by worrying can add a single hour to his life? And why do you worry about clothes? Consider how the lilies of the field grow: They do not labor or spin. Yet I tell you that not even Solomon in all his glory was adorned like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the furnace, will He not much more clothe you, O you of little faith? Therefore do not worry, saying, ‘What shall we eat?’ or ‘What shall we drink?’ or ‘What shall we wear?’ For the Gentiles strive after all these things, and your heavenly Father knows that you need them. But seek first the kingdom of God and His righteousness, and all these things will be added unto you. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Today has enough trouble of its own.",
+            "Philippians 1:21": "For to me, to live is Christ, and to die is gain.",
+            "Philippians 1:6": "being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.",
+            "Philippians 2:3-4": "Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves. Each of you should look not only to your own interests, but also to the interests of others.",
+            "Philippians 2:5-8": "Let this mind be in you which was also in Christ Jesus: Who, existing in the form of God, did not consider equality with God something to be grasped, but emptied Himself, taking the form of a servant, being made in human likeness. And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.",
+            "Philippians 3:13-14": "Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.",
+            "Philippians 3:7-8": "But whatever was gain to me I count as loss for the sake of Christ. More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ",
+            "Philippians 4:13": "I can do all things through Christ who gives me strength.",
+            "Philippians 4:4": "Rejoice in the Lord always. I will say it again: Rejoice!",
+            "Philippians 4:6-7": "Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.",
+            "Romans 12:10": "Be devoted to one another in brotherly love. Outdo yourselves in honoring one another.",
+            "Romans 8:29-30": "For those God foreknew, He also predestined to be conformed to the image of His Son, so that He would be the firstborn among many brothers. And those He predestined, He also called; those He called, He also justified; those He justified, He also glorified."
         };
 
-        // Show scripture modal
-        function showScriptureModal(reference) {
-            const modal = document.getElementById('scriptureModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalText = document.getElementById('modalText');
+        (function () {
+            'use strict';
 
-            modalTitle.textContent = reference;
-            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
-            modal.style.display = 'flex';
-        }
+            const BOOK = 'philippians';
+            const PREFIX = 'bsg:' + BOOK + ':';
+            const OPENING = 'Ready to begin your journey!';
 
-        // Close scripture modal
-        function closeScriptureModal() {
-            document.getElementById('scriptureModal').style.display = 'none';
-        }
-
-        // Initialize progress tracking
-        let totalCheckboxes = 0;
-        let checkedCount = 0;
-
-        // Count total checkboxes on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
-            updateProgress();
-            window.addEventListener('scroll', toggleBackToTop);
-        });
-
-        // Show/hide sections
-        function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-
-            document.getElementById(sectionId).classList.add('active');
-            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
-            
-            // Show completion badge if all checkboxes in section are checked
-            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
-            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
-            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
-                sectionBadge.classList.add('show');
-            } else {
-                sectionBadge.classList.remove('show');
-            }
-        }
-
-        // Update progress bar
-        function updateProgress() {
-            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
-            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
-            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
-            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - Keep going!`;
-
-            // Update section badges
-            ['overview', 'background', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'summary'].forEach(sectionId => {
-                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
-                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
-                if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
-                    sectionBadge.classList.add('show');
-                } else {
-                    sectionBadge.classList.remove('show');
+            /* ---------- storage: never throws, degrades to memory ---------- */
+            const store = (function () {
+                let backend = null;
+                try {
+                    const probe = '__bsg_probe__';
+                    window.localStorage.setItem(probe, '1');
+                    window.localStorage.removeItem(probe);
+                    backend = window.localStorage;
+                } catch (e) {
+                    backend = null;
                 }
-            });
-        }
+                const memory = {};
+                return {
+                    durable: backend !== null,
+                    get: function (key) {
+                        try {
+                            return backend ? backend.getItem(PREFIX + key) : (key in memory ? memory[key] : null);
+                        } catch (e) { return null; }
+                    },
+                    set: function (key, value) {
+                        try {
+                            if (backend) { backend.setItem(PREFIX + key, value); } else { memory[key] = value; }
+                            return true;
+                        } catch (e) { return false; }
+                    },
+                    clearBook: function () {
+                        try {
+                            if (!backend) { Object.keys(memory).forEach(function (k) { delete memory[k]; }); return true; }
+                            const doomed = [];
+                            for (let i = 0; i < backend.length; i++) {
+                                const k = backend.key(i);
+                                if (k && k.indexOf(PREFIX) === 0) { doomed.push(k); }
+                            }
+                            doomed.forEach(function (k) { backend.removeItem(k); });
+                            return true;
+                        } catch (e) { return false; }
+                    }
+                };
+            })();
 
-        // Scroll to top
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Toggle back-to-top button visibility
-        function toggleBackToTop() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
+            /* ---------- one-time migration from the old index-based keys ---------- */
+            function migrateLegacyKeys() {
+                if (!store.durable) { return; }
+                if (store.get('schema') === '2') { return; }
+                try {
+                    document.querySelectorAll('textarea[id]').forEach(function (el, i) {
+                        const old = window.localStorage.getItem(BOOK + '-notes-' + i);
+                        if (old !== null && store.get('notes:' + el.id) === null) {
+                            store.set('notes:' + el.id, old);
+                        }
+                    });
+                    document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el, i) {
+                        const old = window.localStorage.getItem(BOOK + '-checkbox-' + i);
+                        if (old !== null && store.get('check:' + el.id) === null) {
+                            store.set('check:' + el.id, old === 'true' ? '1' : '0');
+                        }
+                    });
+                } catch (e) { /* migration is best effort */ }
+                store.set('schema', '2');
             }
-        }
+
+            /* ---------- scripture modal ---------- */
+            function showScriptureModal(reference) {
+                const modal = document.getElementById('scriptureModal');
+                document.getElementById('modalTitle').textContent = reference;
+                document.getElementById('modalText').textContent =
+                    scriptureData[reference] || 'Passage text is not loaded for this reference yet.';
+                modal.style.display = 'flex';
+                const closer = modal.querySelector('.modal-close');
+                if (closer) { closer.focus(); }
+            }
+
+            function closeScriptureModal() {
+                document.getElementById('scriptureModal').style.display = 'none';
+            }
+
+            /* ---------- sections ---------- */
+            function sectionIds() {
+                return Array.prototype.map.call(
+                    document.querySelectorAll('.content-section'),
+                    function (el) { return el.id; }
+                ).filter(Boolean);
+            }
+
+            function showSection(sectionId) {
+                const target = document.getElementById(sectionId);
+                if (!target) { return; }
+                document.querySelectorAll('.content-section').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+                document.querySelectorAll('.nav-button').forEach(function (el) {
+                    el.classList.remove('active');
+                    el.setAttribute('aria-selected', 'false');
+                });
+                target.classList.add('active');
+                const button = document.querySelector('[onclick="showSection(\'' + sectionId + '\')"]');
+                if (button) {
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                }
+                store.set('section', sectionId);
+                refreshBadges();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function refreshBadges() {
+                sectionIds().forEach(function (id) {
+                    const boxes = document.querySelectorAll('#' + id + ' input[type="checkbox"]');
+                    const badge = document.querySelector('#' + id + ' .completion-badge');
+                    if (!badge) { return; }
+                    const done = boxes.length > 0 &&
+                        Array.prototype.every.call(boxes, function (b) { return b.checked; });
+                    badge.classList.toggle('show', done);
+                });
+            }
+
+            /* ---------- progress ---------- */
+            function progressMessage(pct) {
+                if (pct === 0) { return OPENING; }
+                if (pct < 25) { return 'Great start, keep studying!'; }
+                if (pct < 50) { return 'Making good progress!'; }
+                if (pct < 75) { return "Over halfway, you're doing well!"; }
+                if (pct < 100) { return 'Almost there!'; }
+                return 'Study complete. Well done!';
+            }
+
+            function updateProgress() {
+                const all = document.querySelectorAll('input[type="checkbox"]');
+                const done = document.querySelectorAll('input[type="checkbox"]:checked');
+                const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+                const fill = document.getElementById('progressFill');
+                const text = document.getElementById('progressText');
+                if (fill) {
+                    fill.style.width = pct + '%';
+                    const bar = fill.parentElement;
+                    if (bar) {
+                        bar.setAttribute('role', 'progressbar');
+                        bar.setAttribute('aria-valuenow', String(pct));
+                        bar.setAttribute('aria-valuemin', '0');
+                        bar.setAttribute('aria-valuemax', '100');
+                    }
+                }
+                if (text) {
+                    text.textContent = pct + '% Complete - ' + progressMessage(pct) +
+                        ' (' + done.length + ' of ' + all.length + ')';
+                }
+                refreshBadges();
+            }
+
+            /* ---------- save indicator ---------- */
+            let saveTimer = null;
+            function flagSaved(ok) {
+                const el = document.getElementById('saveStatus');
+                if (!el) { return; }
+                if (!store.durable) {
+                    el.textContent = 'Private browsing: your notes will not be kept after you close this tab.';
+                    return;
+                }
+                el.textContent = ok ? 'Saved on this device' : 'Could not save (storage full?)';
+                if (saveTimer) { window.clearTimeout(saveTimer); }
+                saveTimer = window.setTimeout(function () { el.textContent = ''; }, 2000);
+            }
+
+            /* ---------- wiring ---------- */
+            function restoreAndBind() {
+                document.querySelectorAll('textarea[id]').forEach(function (el) {
+                    const saved = store.get('notes:' + el.id);
+                    if (saved !== null) { el.value = saved; }
+                    let debounce = null;
+                    el.addEventListener('input', function () {
+                        if (debounce) { window.clearTimeout(debounce); }
+                        debounce = window.setTimeout(function () {
+                            flagSaved(store.set('notes:' + el.id, el.value));
+                        }, 400);
+                    });
+                });
+
+                document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) {
+                    if (store.get('check:' + el.id) === '1') { el.checked = true; }
+                    el.addEventListener('change', function () {
+                        flagSaved(store.set('check:' + el.id, el.checked ? '1' : '0'));
+                        updateProgress();
+                    });
+                });
+
+                const reset = document.getElementById('resetProgress');
+                if (reset) {
+                    reset.addEventListener('click', function () {
+                        const warning = 'This clears every note and tick you have saved for ' + BOOK +
+                            ' on this device. This cannot be undone. Continue?';
+                        if (!window.confirm(warning)) { return; }
+                        store.clearBook();
+                        document.querySelectorAll('textarea[id]').forEach(function (el) { el.value = ''; });
+                        document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) { el.checked = false; });
+                        updateProgress();
+                        const el = document.getElementById('saveStatus');
+                        if (el) { el.textContent = 'Cleared'; }
+                    });
+                }
+            }
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function toggleBackToTop() {
+                const button = document.querySelector('.back-to-top');
+                if (button) { button.classList.toggle('show', window.scrollY > 300); }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                migrateLegacyKeys();
+                restoreAndBind();
+                updateProgress();
+
+                const last = store.get('section');
+                if (last && document.getElementById(last)) { showSection(last); }
+
+                window.addEventListener('scroll', toggleBackToTop);
+                toggleBackToTop();
+
+                if (!store.durable) { flagSaved(false); }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') { closeScriptureModal(); }
+            });
+
+            document.addEventListener('click', function (e) {
+                const modal = document.getElementById('scriptureModal');
+                if (modal && e.target === modal) { closeScriptureModal(); }
+            });
+
+            // exposed for the inline handlers in the markup
+            window.showSection = showSection;
+            window.updateProgress = updateProgress;
+            window.showScriptureModal = showScriptureModal;
+            window.closeScriptureModal = closeScriptureModal;
+            window.scrollToTop = scrollToTop;
+        })();
     </script>
 </body>
 </html>

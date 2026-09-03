@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A free, in-depth study guide to Paul's letter to the Galatians, with Berean Study Bible passages, reflection questions and progress tracking.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galatians: Freedom in Christ - Interactive Bible Study</title>
     <style>
         :root {
@@ -429,6 +430,54 @@
                 padding: 20px;
             }
         }
+
+        .save-status {
+            min-height: 1.2em;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .progress-actions {
+            margin-top: 12px;
+        }
+
+        .reset-button {
+            background: transparent;
+            color: #6a4a8a;
+            border: 1px solid rgba(106, 74, 138, 0.5);
+            border-radius: 20px;
+            padding: 7px 18px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .reset-button:hover {
+            background: rgba(106, 74, 138, 0.1);
+            color: #4a2f68;
+        }
+
+        .reset-button:focus-visible,
+        .nav-button:focus-visible,
+        .cross-reference:focus-visible {
+            outline: 3px solid #ffd54f;
+            outline-offset: 2px;
+        }
+
+        .scripture-credit {
+            margin: 40px 0 0;
+            padding: 24px 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+        }
+
+        .scripture-credit p {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -444,17 +493,21 @@
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <p id="progressText">0% Complete - Ready to begin your journey!</p>
+            <p class="save-status" id="saveStatus" role="status" aria-live="polite"></p>
+            <div class="progress-actions">
+                <button type="button" class="reset-button" id="resetProgress">Clear my saved notes and ticks</button>
+            </div>
         </div>
 
         <div class="chapter-nav">
             <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
             <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
-            <button class="nav-button" onclick="showSection('chapter1')">📖 Chapter 1</button>
-            <button class="nav-button" onclick="showSection('chapter2')">📖 Chapter 2</button>
-            <button class="nav-button" onclick="showSection('chapter3')">📖 Chapter 3</button>
-            <button class="nav-button" onclick="showSection('chapter4')">📖 Chapter 4</button>
-            <button class="nav-button" onclick="showSection('chapter5')">📖 Chapter 5</button>
-            <button class="nav-button" onclick="showSection('chapter6')">📖 Chapter 6</button>
+            <button class="nav-button" onclick="showSection('study1')">📖 Chapter 1</button>
+            <button class="nav-button" onclick="showSection('study2')">📖 Chapter 2</button>
+            <button class="nav-button" onclick="showSection('study3')">📖 Chapter 3</button>
+            <button class="nav-button" onclick="showSection('study4')">📖 Chapter 4</button>
+            <button class="nav-button" onclick="showSection('study5')">📖 Chapter 5</button>
+            <button class="nav-button" onclick="showSection('study6')">📖 Chapter 6</button>
             <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
         </div>
 
@@ -605,7 +658,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Background</h3>
-                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+                <textarea id="notes-background-1" placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -631,7 +684,7 @@
         </div>
 
         <!-- Chapter 1 Section -->
-        <div id="chapter1" class="content-section">
+        <div id="study1" class="content-section">
             <h2 class="section-title">📖 Chapter 1: Paul's Authority & the True Gospel</h2>
             
             <div class="theme-box">
@@ -645,9 +698,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 1:8-9:</strong> "But even if we or an angel from heaven should preach a gospel other than the one we preached to you, let them be under God's curse! As we have already said, so now I say again: If anybody is preaching to you a gospel other than what you accepted, let them be under God's curse!"</p>
-                <span class="cross-reference" data-scripture="2 Corinthians 11:4" onclick="showScriptureModal('2 Corinthians 11:4')">2 Corinthians 11:4</span>
-                <span class="cross-reference" data-scripture="1 Timothy 1:3-4" onclick="showScriptureModal('1 Timothy 1:3-4')">1 Timothy 1:3-4</span>
+                <p><strong>Galatians 1:8-9:</strong> &ldquo;But even if we or an angel from heaven should preach a gospel contrary to the one we preached to you, let him be under a curse! As we have said before, so now I say again: If anyone is preaching to you a gospel contrary to the one you received, let him be under a curse!&rdquo;</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 11:4" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 11:4')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 11:4');}">2 Corinthians 11:4</span>
+                <span class="cross-reference" data-scripture="1 Timothy 1:3-4" role="button" tabindex="0" onclick="showScriptureModal('1 Timothy 1:3-4')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Timothy 1:3-4');}">1 Timothy 1:3-4</span>
             </div>
 
             <div class="warning-box">
@@ -683,7 +736,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 1</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
+                <textarea id="notes-study1-1" placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -705,7 +758,7 @@
         </div>
 
         <!-- Chapter 2 Section -->
-        <div id="chapter2" class="content-section">
+        <div id="study2" class="content-section">
             <h2 class="section-title">📖 Chapter 2: Justification by Faith Alone</h2>
             
             <div class="theme-box">
@@ -719,14 +772,14 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 2:16:</strong> "Know that a person is not justified by the works of the law, but by faith in Jesus Christ. So we, too, have put our faith in Christ Jesus that we may be justified by faith in Christ and not by the works of the law, because by the works of the law no one will be justified."</p>
-                <span class="cross-reference" data-scripture="Romans 3:28" onclick="showScriptureModal('Romans 3:28')">Romans 3:28</span>
-                <span class="cross-reference" data-scripture="Ephesians 2:8-9" onclick="showScriptureModal('Ephesians 2:8-9')">Ephesians 2:8-9</span>
+                <p><strong>Galatians 2:16:</strong> &ldquo;know that a man is not justified by works of the law, but by faith in Jesus Christ. So we, too, have believed in Christ Jesus, that we may be justified by faith in Christ and not by works of the law, because by works of the law no one will be justified.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 3:28" role="button" tabindex="0" onclick="showScriptureModal('Romans 3:28')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 3:28');}">Romans 3:28</span>
+                <span class="cross-reference" data-scripture="Ephesians 2:8-9" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 2:8-9')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 2:8-9');}">Ephesians 2:8-9</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 2:20:</strong> "I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me."</p>
-                <span class="cross-reference" data-scripture="Romans 6:6-8" onclick="showScriptureModal('Romans 6:6-8')">Romans 6:6-8</span>
+                <p><strong>Galatians 2:20:</strong> &ldquo;I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 6:6-8" role="button" tabindex="0" onclick="showScriptureModal('Romans 6:6-8')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 6:6-8');}">Romans 6:6-8</span>
             </div>
 
             <div class="historical-context">
@@ -763,7 +816,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 2</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
+                <textarea id="notes-study2-1" placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -785,7 +838,7 @@
         </div>
 
         <!-- Chapter 3 Section -->
-        <div id="chapter3" class="content-section">
+        <div id="study3" class="content-section">
             <h2 class="section-title">📖 Chapter 3: Faith vs. Law</h2>
             
             <div class="theme-box">
@@ -800,14 +853,14 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 3:13-14:</strong> "Christ redeemed us from the curse of the law by becoming a curse for us, for it is written: 'Cursed is everyone who is hung on a pole.' He redeemed us in order that the blessing given to Abraham might come to the Gentiles through Christ Jesus, so that by faith we might receive the promise of the Spirit."</p>
-                <span class="cross-reference" data-scripture="Romans 8:3-4" onclick="showScriptureModal('Romans 8:3-4')">Romans 8:3-4</span>
-                <span class="cross-reference" data-scripture="2 Corinthians 5:21" onclick="showScriptureModal('2 Corinthians 5:21')">2 Corinthians 5:21</span>
+                <p><strong>Galatians 3:13-14:</strong> &ldquo;Christ redeemed us from the curse of the law by becoming a curse for us. For it is written: “Cursed is everyone who is hung on a tree.” He redeemed us in order that the blessing promised to Abraham would come to the Gentiles in Christ Jesus, so that by faith we might receive the promise of the Spirit.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 8:3-4" role="button" tabindex="0" onclick="showScriptureModal('Romans 8:3-4')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 8:3-4');}">Romans 8:3-4</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 5:21" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 5:21')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 5:21');}">2 Corinthians 5:21</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 3:28:</strong> "There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus."</p>
-                <span class="cross-reference" data-scripture="1 Corinthians 12:13" onclick="showScriptureModal('1 Corinthians 12:13')">1 Corinthians 12:13</span>
+                <p><strong>Galatians 3:28:</strong> &ldquo;There is neither Jew nor Greek, slave nor free, male nor female, for you are all one in Christ Jesus.&rdquo;</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 12:13" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 12:13')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 12:13');}">1 Corinthians 12:13</span>
             </div>
 
             <div class="theme-box">
@@ -844,7 +897,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 3</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
+                <textarea id="notes-study3-1" placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -866,7 +919,7 @@
         </div>
 
         <!-- Chapter 4 Section -->
-        <div id="chapter4" class="content-section">
+        <div id="study4" class="content-section">
             <h2 class="section-title">📖 Chapter 4: Sons, Not Slaves</h2>
             
             <div class="theme-box">
@@ -880,9 +933,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 4:6-7:</strong> "Because you are his sons, God sent the Spirit of his Son into our hearts, the Spirit who calls out, 'Abba, Father.' So you are no longer a slave, but God's child; and since you are his child, God has made you also an heir."</p>
-                <span class="cross-reference" data-scripture="Romans 8:15-17" onclick="showScriptureModal('Romans 8:15-17')">Romans 8:15-17</span>
-                <span class="cross-reference" data-scripture="John 1:12" onclick="showScriptureModal('John 1:12')">John 1:12</span>
+                <p><strong>Galatians 4:6-7:</strong> &ldquo;And because you are sons, God sent the Spirit of His Son into our hearts, crying out, “Abba, Father!” So you are no longer a slave, but a son; and since you are a son, you are also an heir through God.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 8:15-17" role="button" tabindex="0" onclick="showScriptureModal('Romans 8:15-17')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 8:15-17');}">Romans 8:15-17</span>
+                <span class="cross-reference" data-scripture="John 1:12" role="button" tabindex="0" onclick="showScriptureModal('John 1:12')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 1:12');}">John 1:12</span>
             </div>
 
             <div class="historical-context">
@@ -929,7 +982,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 4</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
+                <textarea id="notes-study4-1" placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -951,7 +1004,7 @@
         </div>
 
         <!-- Chapter 5 Section -->
-        <div id="chapter5" class="content-section">
+        <div id="study5" class="content-section">
             <h2 class="section-title">📖 Chapter 5: Freedom & the Spirit</h2>
             
             <div class="theme-box">
@@ -966,13 +1019,13 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 5:1:</strong> "It is for freedom that Christ has set us free. Stand firm, then, and do not let yourselves be burdened again by a yoke of slavery."</p>
-                <span class="cross-reference" data-scripture="John 8:36" onclick="showScriptureModal('John 8:36')">John 8:36</span>
+                <p><strong>Galatians 5:1:</strong> &ldquo;It is for freedom that Christ has set us free. Stand firm, then, and do not be encumbered once more by a yoke of slavery.&rdquo;</p>
+                <span class="cross-reference" data-scripture="John 8:36" role="button" tabindex="0" onclick="showScriptureModal('John 8:36')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 8:36');}">John 8:36</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 5:22-23:</strong> "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law."</p>
-                <span class="cross-reference" data-scripture="Colossians 3:12-14" onclick="showScriptureModal('Colossians 3:12-14')">Colossians 3:12-14</span>
+                <p><strong>Galatians 5:22-23:</strong> &ldquo;But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self-control. Against such things there is no law.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Colossians 3:12-14" role="button" tabindex="0" onclick="showScriptureModal('Colossians 3:12-14')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Colossians 3:12-14');}">Colossians 3:12-14</span>
             </div>
 
             <div class="theme-box">
@@ -1026,7 +1079,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 5</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 5..."></textarea>
+                <textarea id="notes-study5-1" placeholder="Write your observations, questions, or insights about Chapter 5..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1048,7 +1101,7 @@
         </div>
 
         <!-- Chapter 6 Section -->
-        <div id="chapter6" class="content-section">
+        <div id="study6" class="content-section">
             <h2 class="section-title">📖 Chapter 6: Practical Christian Living</h2>
             
             <div class="theme-box">
@@ -1063,18 +1116,18 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 6:2:</strong> "Carry each other's burdens, and in this way you will fulfill the law of Christ."</p>
-                <span class="cross-reference" data-scripture="Romans 15:1" onclick="showScriptureModal('Romans 15:1')">Romans 15:1</span>
-                <span class="cross-reference" data-scripture="1 Thessalonians 5:14" onclick="showScriptureModal('1 Thessalonians 5:14')">1 Thessalonians 5:14</span>
+                <p><strong>Galatians 6:2:</strong> &ldquo;Carry one another’s burdens, and in this way you will fulfill the law of Christ.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Romans 15:1" role="button" tabindex="0" onclick="showScriptureModal('Romans 15:1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Romans 15:1');}">Romans 15:1</span>
+                <span class="cross-reference" data-scripture="1 Thessalonians 5:14" role="button" tabindex="0" onclick="showScriptureModal('1 Thessalonians 5:14')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Thessalonians 5:14');}">1 Thessalonians 5:14</span>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 6:9:</strong> "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up."</p>
+                <p><strong>Galatians 6:9:</strong> &ldquo;Let us not grow weary in well-doing, for in due time we will reap a harvest if we do not give up.&rdquo;</p>
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Galatians 6:14:</strong> "May I never boast except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world."</p>
-                <span class="cross-reference" data-scripture="1 Corinthians 1:23-24" onclick="showScriptureModal('1 Corinthians 1:23-24')">1 Corinthians 1:23-24</span>
+                <p><strong>Galatians 6:14:</strong> &ldquo;But as for me, may I never boast, except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world.&rdquo;</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 1:23-24" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 1:23-24')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 1:23-24');}">1 Corinthians 1:23-24</span>
             </div>
 
             <div class="theme-box">
@@ -1112,7 +1165,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapter 6</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapter 6..."></textarea>
+                <textarea id="notes-study6-1" placeholder="Write your observations, questions, or insights about Chapter 6..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1182,7 +1235,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Final Notes</h3>
-                <textarea placeholder="Summarize your key insights from this study of Galatians..."></textarea>
+                <textarea id="notes-summary-1" placeholder="Summarize your key insights from this study of Galatians..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1203,6 +1256,16 @@
             </div>
         </div>
 
+
+        <footer class="scripture-credit">
+            <p><strong>Scripture text.</strong> Quotations are from the Holy Bible, Berean Study Bible (BSB),
+            Copyright &copy; 2016, 2020 by Bible Hub. All rights reserved worldwide. Used under the free
+            licence granted for websites, apps, software and audio:
+            <a href="http://berean.bible/licensing.htm" rel="noopener">berean.bible/licensing.htm</a>.</p>
+            <p><strong>Free to use.</strong> This guide is free for personal, family and church study.
+            Your notes and ticks are saved only in this browser on this device, and are never uploaded.</p>
+        </footer>
+
         <button class="back-to-top" onclick="scrollToTop()">↑</button>
 
         <!-- Modal for Scripture References -->
@@ -1216,96 +1279,284 @@
     </div>
 
     <script>
+        // Scripture text: Berean Study Bible (see attribution in the page footer).
+        // Generated from a licensed dataset, not hand-typed. Do not edit by hand.
         const scriptureData = {
-            "2 Corinthians 11:4": "For if someone comes to you and preaches a Jesus other than the Jesus we preached, or if you receive a different spirit from the Spirit you received, or a different gospel from the one you accepted, you put up with it easily enough.",
-            "1 Timothy 1:3-4": "As I urged you when I went into Macedonia, stay there in Ephesus so that you may command certain people not to teach false doctrines any longer or to devote themselves to myths and endless genealogies. Such things promote controversial speculations rather than advancing God's work—which is by faith.",
-            "Romans 3:28": "For we maintain that a person is justified by faith apart from the works of the law.",
-            "Ephesians 2:8-9": "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God— not by works, so that no one can boast.",
-            "Romans 6:6-8": "For we know that our old self was crucified with him so that the body ruled by sin might be done away with, that we should no longer be slaves to sin— because anyone who has died has been set free from sin. Now if we died with Christ, we believe that we will also live with him.",
-            "Romans 8:3-4": "For what the law was powerless to do because it was weakened by the flesh, God did by sending his own Son in the likeness of sinful flesh to be a sin offering. And so he condemned sin in the flesh, in order that the righteous requirement of the law might be fully met in us, who do not live according to the flesh but according to the Spirit.",
-            "2 Corinthians 5:21": "God made him who had no sin to be sin for us, so that in him we might become the righteousness of God.",
-            "1 Corinthians 12:13": "For we were all baptized by one Spirit so as to form one body—whether Jews or Gentiles, slave or free—and we were all given the one Spirit to drink.",
-            "Romans 8:15-17": "The Spirit you received does not make you slaves, so that you live in fear again; rather, the Spirit you received brought about your adoption to sonship. And by him we cry, 'Abba, Father.' The Spirit himself testifies with our spirit that we are God's children. Now if we are children, then we are heirs—heirs of God and co-heirs with Christ.",
-            "John 1:12": "Yet to all who did receive him, to those who believed in his name, he gave the right to become children of God.",
+            "1 Corinthians 12:13": "For in one Spirit we were all baptized into one body, whether Jews or Greeks, slave or free, and we were all given one Spirit to drink.",
+            "1 Corinthians 1:23-24": "but we preach Christ crucified, a stumbling block to Jews and foolishness to Gentiles, but to those who are called, both Jews and Greeks, Christ the power of God and the wisdom of God.",
+            "1 Thessalonians 5:14": "And we urge you, brothers, to admonish the unruly, encourage the fainthearted, help the weak, and be patient with everyone.",
+            "1 Timothy 1:3-4": "As I urged you on my departure to Macedonia, you should stay on at Ephesus to instruct certain men not to teach false doctrines or devote themselves to myths and endless genealogies, which promote speculation rather than the stewardship of God’s work, which is by faith.",
+            "2 Corinthians 11:4": "For if someone comes and proclaims a Jesus other than the One we proclaimed, or if you receive a different spirit than the One you received, or a different gospel than the one you accepted, you put up with it way too easily.",
+            "2 Corinthians 5:21": "God made Him who knew no sin to be sin on our behalf, so that in Him we might become the righteousness of God.",
+            "Colossians 3:12-14": "Therefore, as the elect of God, holy and beloved, clothe yourselves with hearts of compassion, kindness, humility, gentleness, and patience. Bear with one another and forgive any complaint you may have against someone else. Forgive as the Lord forgave you. And over all these virtues put on love, which is the bond of perfect unity.",
+            "Ephesians 2:8-9": "For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God, not by works, so that no one can boast.",
+            "Galatians 1:8-9": "But even if we or an angel from heaven should preach a gospel contrary to the one we preached to you, let him be under a curse! As we have said before, so now I say again: If anyone is preaching to you a gospel contrary to the one you received, let him be under a curse!",
+            "Galatians 2:16": "know that a man is not justified by works of the law, but by faith in Jesus Christ. So we, too, have believed in Christ Jesus, that we may be justified by faith in Christ and not by works of the law, because by works of the law no one will be justified.",
+            "Galatians 2:20": "I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.",
+            "Galatians 3:13-14": "Christ redeemed us from the curse of the law by becoming a curse for us. For it is written: “Cursed is everyone who is hung on a tree.” He redeemed us in order that the blessing promised to Abraham would come to the Gentiles in Christ Jesus, so that by faith we might receive the promise of the Spirit.",
+            "Galatians 3:28": "There is neither Jew nor Greek, slave nor free, male nor female, for you are all one in Christ Jesus.",
+            "Galatians 4:6-7": "And because you are sons, God sent the Spirit of His Son into our hearts, crying out, “Abba, Father!” So you are no longer a slave, but a son; and since you are a son, you are also an heir through God.",
+            "Galatians 5:1": "It is for freedom that Christ has set us free. Stand firm, then, and do not be encumbered once more by a yoke of slavery.",
+            "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self-control. Against such things there is no law.",
+            "Galatians 6:14": "But as for me, may I never boast, except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world.",
+            "Galatians 6:2": "Carry one another’s burdens, and in this way you will fulfill the law of Christ.",
+            "Galatians 6:9": "Let us not grow weary in well-doing, for in due time we will reap a harvest if we do not give up.",
+            "John 1:12": "But to all who did receive Him, to those who believed in His name, He gave the right to become children of God—",
             "John 8:36": "So if the Son sets you free, you will be free indeed.",
-            "Colossians 3:12-14": "Therefore, as God's chosen people, holy and dearly loved, clothe yourselves with compassion, kindness, humility, gentleness and patience. Bear with each other and forgive one another if any of you has a grievance against someone. Forgive as the Lord forgave you. And over all these virtues put on love, which binds them all together in perfect unity.",
-            "Romans 15:1": "We who are strong ought to bear with the failings of the weak and not to please ourselves.",
-            "1 Thessalonians 5:14": "And we urge you, brothers and sisters, warn those who are idle and disruptive, encourage the disheartened, help the weak, be patient with everyone.",
-            "1 Corinthians 1:23-24": "But we preach Christ crucified: a stumbling block to Jews and foolishness to Gentiles, but to those whom God has called, both Jews and Greeks, Christ the power of God and the wisdom of God."
+            "Romans 15:1": "We who are strong ought to bear with the shortcomings of the weak and not to please ourselves.",
+            "Romans 3:28": "For we maintain that a man is justified by faith apart from works of the law.",
+            "Romans 6:6-8": "We know that our old self was crucified with Him so that the body of sin might be rendered powerless, that we should no longer be slaves to sin. For anyone who has died has been freed from sin. Now if we died with Christ, we believe that we will also live with Him.",
+            "Romans 8:15-17": "For you did not receive a spirit of slavery that returns you to fear, but you received the Spirit of sonship, by whom we cry, “Abba! Father!” The Spirit Himself testifies with our spirit that we are God’s children. And if we are children, then we are heirs: heirs of God and co-heirs with Christ—if indeed we suffer with Him, so that we may also be glorified with Him.",
+            "Romans 8:3-4": "For what the law was powerless to do in that it was weakened by the flesh, God did by sending His own Son in the likeness of sinful man, as an offering for sin. He thus condemned sin in the flesh, so that the righteous standard of the law might be fulfilled in us, who do not walk according to the flesh but according to the Spirit."
         };
 
-        function showScriptureModal(reference) {
-            const modal = document.getElementById('scriptureModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalText = document.getElementById('modalText');
+        (function () {
+            'use strict';
 
-            modalTitle.textContent = reference;
-            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
-            modal.style.display = 'flex';
-        }
+            const BOOK = 'galatians';
+            const PREFIX = 'bsg:' + BOOK + ':';
+            const OPENING = 'Ready to begin your journey!';
 
-        function closeScriptureModal() {
-            document.getElementById('scriptureModal').style.display = 'none';
-        }
-
-        let totalCheckboxes = 0;
-        let checkedCount = 0;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
-            updateProgress();
-            window.addEventListener('scroll', toggleBackToTop);
-        });
-
-        function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-
-            document.getElementById(sectionId).classList.add('active');
-            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
-            
-            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
-            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
-            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
-                sectionBadge.classList.add('show');
-            } else {
-                sectionBadge.classList.remove('show');
-            }
-        }
-
-        function updateProgress() {
-            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
-            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
-            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
-            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - Keep going!`;
-
-            ['overview', 'background', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'summary'].forEach(sectionId => {
-                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
-                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
-                if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
-                    sectionBadge.classList.add('show');
-                } else {
-                    sectionBadge.classList.remove('show');
+            /* ---------- storage: never throws, degrades to memory ---------- */
+            const store = (function () {
+                let backend = null;
+                try {
+                    const probe = '__bsg_probe__';
+                    window.localStorage.setItem(probe, '1');
+                    window.localStorage.removeItem(probe);
+                    backend = window.localStorage;
+                } catch (e) {
+                    backend = null;
                 }
-            });
-        }
+                const memory = {};
+                return {
+                    durable: backend !== null,
+                    get: function (key) {
+                        try {
+                            return backend ? backend.getItem(PREFIX + key) : (key in memory ? memory[key] : null);
+                        } catch (e) { return null; }
+                    },
+                    set: function (key, value) {
+                        try {
+                            if (backend) { backend.setItem(PREFIX + key, value); } else { memory[key] = value; }
+                            return true;
+                        } catch (e) { return false; }
+                    },
+                    clearBook: function () {
+                        try {
+                            if (!backend) { Object.keys(memory).forEach(function (k) { delete memory[k]; }); return true; }
+                            const doomed = [];
+                            for (let i = 0; i < backend.length; i++) {
+                                const k = backend.key(i);
+                                if (k && k.indexOf(PREFIX) === 0) { doomed.push(k); }
+                            }
+                            doomed.forEach(function (k) { backend.removeItem(k); });
+                            return true;
+                        } catch (e) { return false; }
+                    }
+                };
+            })();
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleBackToTop() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
+            /* ---------- one-time migration from the old index-based keys ---------- */
+            function migrateLegacyKeys() {
+                if (!store.durable) { return; }
+                if (store.get('schema') === '2') { return; }
+                try {
+                    document.querySelectorAll('textarea[id]').forEach(function (el, i) {
+                        const old = window.localStorage.getItem(BOOK + '-notes-' + i);
+                        if (old !== null && store.get('notes:' + el.id) === null) {
+                            store.set('notes:' + el.id, old);
+                        }
+                    });
+                    document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el, i) {
+                        const old = window.localStorage.getItem(BOOK + '-checkbox-' + i);
+                        if (old !== null && store.get('check:' + el.id) === null) {
+                            store.set('check:' + el.id, old === 'true' ? '1' : '0');
+                        }
+                    });
+                } catch (e) { /* migration is best effort */ }
+                store.set('schema', '2');
             }
-        }
+
+            /* ---------- scripture modal ---------- */
+            function showScriptureModal(reference) {
+                const modal = document.getElementById('scriptureModal');
+                document.getElementById('modalTitle').textContent = reference;
+                document.getElementById('modalText').textContent =
+                    scriptureData[reference] || 'Passage text is not loaded for this reference yet.';
+                modal.style.display = 'flex';
+                const closer = modal.querySelector('.modal-close');
+                if (closer) { closer.focus(); }
+            }
+
+            function closeScriptureModal() {
+                document.getElementById('scriptureModal').style.display = 'none';
+            }
+
+            /* ---------- sections ---------- */
+            function sectionIds() {
+                return Array.prototype.map.call(
+                    document.querySelectorAll('.content-section'),
+                    function (el) { return el.id; }
+                ).filter(Boolean);
+            }
+
+            function showSection(sectionId) {
+                const target = document.getElementById(sectionId);
+                if (!target) { return; }
+                document.querySelectorAll('.content-section').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+                document.querySelectorAll('.nav-button').forEach(function (el) {
+                    el.classList.remove('active');
+                    el.setAttribute('aria-selected', 'false');
+                });
+                target.classList.add('active');
+                const button = document.querySelector('[onclick="showSection(\'' + sectionId + '\')"]');
+                if (button) {
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                }
+                store.set('section', sectionId);
+                refreshBadges();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function refreshBadges() {
+                sectionIds().forEach(function (id) {
+                    const boxes = document.querySelectorAll('#' + id + ' input[type="checkbox"]');
+                    const badge = document.querySelector('#' + id + ' .completion-badge');
+                    if (!badge) { return; }
+                    const done = boxes.length > 0 &&
+                        Array.prototype.every.call(boxes, function (b) { return b.checked; });
+                    badge.classList.toggle('show', done);
+                });
+            }
+
+            /* ---------- progress ---------- */
+            function progressMessage(pct) {
+                if (pct === 0) { return OPENING; }
+                if (pct < 25) { return 'Great start, keep studying!'; }
+                if (pct < 50) { return 'Making good progress!'; }
+                if (pct < 75) { return "Over halfway, you're doing well!"; }
+                if (pct < 100) { return 'Almost there!'; }
+                return 'Study complete. Well done!';
+            }
+
+            function updateProgress() {
+                const all = document.querySelectorAll('input[type="checkbox"]');
+                const done = document.querySelectorAll('input[type="checkbox"]:checked');
+                const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+                const fill = document.getElementById('progressFill');
+                const text = document.getElementById('progressText');
+                if (fill) {
+                    fill.style.width = pct + '%';
+                    const bar = fill.parentElement;
+                    if (bar) {
+                        bar.setAttribute('role', 'progressbar');
+                        bar.setAttribute('aria-valuenow', String(pct));
+                        bar.setAttribute('aria-valuemin', '0');
+                        bar.setAttribute('aria-valuemax', '100');
+                    }
+                }
+                if (text) {
+                    text.textContent = pct + '% Complete - ' + progressMessage(pct) +
+                        ' (' + done.length + ' of ' + all.length + ')';
+                }
+                refreshBadges();
+            }
+
+            /* ---------- save indicator ---------- */
+            let saveTimer = null;
+            function flagSaved(ok) {
+                const el = document.getElementById('saveStatus');
+                if (!el) { return; }
+                if (!store.durable) {
+                    el.textContent = 'Private browsing: your notes will not be kept after you close this tab.';
+                    return;
+                }
+                el.textContent = ok ? 'Saved on this device' : 'Could not save (storage full?)';
+                if (saveTimer) { window.clearTimeout(saveTimer); }
+                saveTimer = window.setTimeout(function () { el.textContent = ''; }, 2000);
+            }
+
+            /* ---------- wiring ---------- */
+            function restoreAndBind() {
+                document.querySelectorAll('textarea[id]').forEach(function (el) {
+                    const saved = store.get('notes:' + el.id);
+                    if (saved !== null) { el.value = saved; }
+                    let debounce = null;
+                    el.addEventListener('input', function () {
+                        if (debounce) { window.clearTimeout(debounce); }
+                        debounce = window.setTimeout(function () {
+                            flagSaved(store.set('notes:' + el.id, el.value));
+                        }, 400);
+                    });
+                });
+
+                document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) {
+                    if (store.get('check:' + el.id) === '1') { el.checked = true; }
+                    el.addEventListener('change', function () {
+                        flagSaved(store.set('check:' + el.id, el.checked ? '1' : '0'));
+                        updateProgress();
+                    });
+                });
+
+                const reset = document.getElementById('resetProgress');
+                if (reset) {
+                    reset.addEventListener('click', function () {
+                        const warning = 'This clears every note and tick you have saved for ' + BOOK +
+                            ' on this device. This cannot be undone. Continue?';
+                        if (!window.confirm(warning)) { return; }
+                        store.clearBook();
+                        document.querySelectorAll('textarea[id]').forEach(function (el) { el.value = ''; });
+                        document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) { el.checked = false; });
+                        updateProgress();
+                        const el = document.getElementById('saveStatus');
+                        if (el) { el.textContent = 'Cleared'; }
+                    });
+                }
+            }
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function toggleBackToTop() {
+                const button = document.querySelector('.back-to-top');
+                if (button) { button.classList.toggle('show', window.scrollY > 300); }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                migrateLegacyKeys();
+                restoreAndBind();
+                updateProgress();
+
+                const last = store.get('section');
+                if (last && document.getElementById(last)) { showSection(last); }
+
+                window.addEventListener('scroll', toggleBackToTop);
+                toggleBackToTop();
+
+                if (!store.durable) { flagSaved(false); }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') { closeScriptureModal(); }
+            });
+
+            document.addEventListener('click', function (e) {
+                const modal = document.getElementById('scriptureModal');
+                if (modal && e.target === modal) { closeScriptureModal(); }
+            });
+
+            // exposed for the inline handlers in the markup
+            window.showSection = showSection;
+            window.updateProgress = updateProgress;
+            window.showScriptureModal = showScriptureModal;
+            window.closeScriptureModal = closeScriptureModal;
+            window.scrollToTop = scrollToTop;
+        })();
     </script>
 </body>
 </html>

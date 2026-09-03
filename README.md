@@ -1,23 +1,76 @@
-# 📖 Interactive Bible Study Guides
+Interactive Bible Study Guides
 
-This repository contains interactive HTML-based Bible study guides.
+A free platform for personal and group Bible study. No account, no payment, no tracking.
+Notes and progress are saved in the reader's own browser on their own device.
 
-### Current Studies
-- [Colossians](./colossians.html)
+Available now
 
-### Planned Studies
-- Colossians
-- Ephesians
-- Romans
-- Philippians
-- 1 & 2 Corinthians
-- 1 & 2 Timothy
-- Rest of the Pauline epistles
-- The four Gospels
-- The Old Testament (one book at a time)
+Romans, Galatians, Ephesians, Philippians and Colossians. Open index.html, or the
+hosted site, and pick a book.
 
-### How to View
-1. Enable **GitHub Pages** in repository settings.  
-2. Visit: `https://yourusername.github.io/bible-study-guides/`  
-3. Use the homepage to navigate to different study guides.  
+Planned, in this order: 1 and 2 Thessalonians, 1 and 2 Corinthians, 1 and 2 Timothy,
+Titus, Philemon, Hebrews, then the four Gospels, then the Old Testament one book at a time.
 
+How each guide works
+
+Every guide is one page with tabbed sections: an overview, historical background, a study
+unit for each chapter or chapter block, and a closing summary. Each unit carries key themes,
+the passage text, cross references you can click to read in place, reflection questions for
+personal and group use, application notes, a notes box and a checklist. The progress bar
+reflects the checklist items you have ticked across the whole book.
+
+Scripture text
+
+Quotations are from the Holy Bible, Berean Study Bible (BSB), Copyright 2016, 2020 by
+Bible Hub. All rights reserved worldwide. Used under the free licence granted for websites,
+apps, software and audio: http://berean.bible/licensing.htm
+
+The passage text in each guide is generated from a licensed dataset rather than typed by
+hand, so it can be regenerated or swapped for another translation without editing the pages.
+
+Your notes and your privacy
+
+Notes and ticks are stored with the browser's local storage, under keys prefixed
+bsg:<book>:. Nothing leaves the device and nothing is sent to a server. On a shared or
+public computer, use the "Clear my saved notes and ticks" button under the progress bar
+before you walk away. In a private browsing window the page still works, and it says
+plainly that the notes will not be kept.
+
+Running it locally
+
+No build step and no dependencies. Open index.html in a browser, or serve the folder:
+
+    python3 -m http.server 8000
+
+then visit http://localhost:8000
+
+Deploying to Firebase Hosting
+
+The site is static, so it runs on the Firebase Spark (free) plan. Once only, install the
+CLI and point the folder at your Firebase project:
+
+    npm install -g firebase-tools
+    firebase login
+    firebase use --add
+
+That writes a .firebaserc naming your project, which is deliberately not committed here so
+nobody deploys to the wrong project by accident. Then deploy:
+
+    firebase deploy --only hosting
+
+firebase.json is already configured: the repository root is the web root, clean URLs are on
+so /romans works as well as /romans.html, 404.html serves as the not-found page, HTML is
+served must-revalidate so updates reach readers immediately, and static assets get long
+cache lifetimes.
+
+Contributing a study
+
+Guides are plain HTML today. Keep the section structure and the naming already in use:
+content sections are overview, background, study1 through studyN, and summary; note boxes
+are notes-<section>-<n>; checkboxes need a unique id so the saved state survives edits to
+the page. Do not paste in passage text from a copyrighted translation.
+
+Licence
+
+The study material in this repository is free to use, copy, print and teach from, for
+personal, family and church use. The Scripture text carries the Berean licence noted above.

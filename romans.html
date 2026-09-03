@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A free, in-depth study guide to Paul's letter to the Romans, covering all sixteen chapters with Berean Study Bible passages and progress tracking.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Romans: The Gospel Revealed - Interactive Bible Study</title>
     <style>
         :root {
@@ -429,6 +430,54 @@
                 padding: 20px;
             }
         }
+
+        .save-status {
+            min-height: 1.2em;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .progress-actions {
+            margin-top: 12px;
+        }
+
+        .reset-button {
+            background: transparent;
+            color: #6a4a8a;
+            border: 1px solid rgba(106, 74, 138, 0.5);
+            border-radius: 20px;
+            padding: 7px 18px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .reset-button:hover {
+            background: rgba(106, 74, 138, 0.1);
+            color: #4a2f68;
+        }
+
+        .reset-button:focus-visible,
+        .nav-button:focus-visible,
+        .cross-reference:focus-visible {
+            outline: 3px solid #ffd54f;
+            outline-offset: 2px;
+        }
+
+        .scripture-credit {
+            margin: 40px 0 0;
+            padding: 24px 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+        }
+
+        .scripture-credit p {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -444,17 +493,21 @@
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <p id="progressText">0% Complete - Ready to explore Paul's masterpiece!</p>
+            <p class="save-status" id="saveStatus" role="status" aria-live="polite"></p>
+            <div class="progress-actions">
+                <button type="button" class="reset-button" id="resetProgress">Clear my saved notes and ticks</button>
+            </div>
         </div>
 
         <div class="chapter-nav">
             <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
             <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
-            <button class="nav-button" onclick="showSection('section1')">📖 Chapters 1-3</button>
-            <button class="nav-button" onclick="showSection('section2')">📖 Chapters 4-5</button>
-            <button class="nav-button" onclick="showSection('section3')">📖 Chapters 6-8</button>
-            <button class="nav-button" onclick="showSection('section4')">📖 Chapters 9-11</button>
-            <button class="nav-button" onclick="showSection('section5')">📖 Chapters 12-14</button>
-            <button class="nav-button" onclick="showSection('section6')">📖 Chapters 15-16</button>
+            <button class="nav-button" onclick="showSection('study1')">📖 Chapters 1-3</button>
+            <button class="nav-button" onclick="showSection('study2')">📖 Chapters 4-5</button>
+            <button class="nav-button" onclick="showSection('study3')">📖 Chapters 6-8</button>
+            <button class="nav-button" onclick="showSection('study4')">📖 Chapters 9-11</button>
+            <button class="nav-button" onclick="showSection('study5')">📖 Chapters 12-14</button>
+            <button class="nav-button" onclick="showSection('study6')">📖 Chapters 15-16</button>
             <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
         </div>
 
@@ -613,7 +666,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Background</h3>
-                <textarea placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
+                <textarea id="notes-background-1" placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -639,7 +692,7 @@
         </div>
 
         <!-- Section 1: Chapters 1-3 -->
-        <div id="section1" class="content-section">
+        <div id="study1" class="content-section">
             <h2 class="section-title">📖 Chapters 1-3: Universal Need for Salvation</h2>
             
             <div class="theme-box">
@@ -653,9 +706,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 1:16-17:</strong> "For I am not ashamed of the gospel, because it is the power of God that brings salvation to everyone who believes: first to the Jew, then to the Gentile. For in the gospel the righteousness of God is revealed—a righteousness that is by faith from first to last, just as it is written: 'The righteous will live by faith.'"</p>
-                <span class="cross-reference" data-scripture="Habakkuk 2:4" onclick="showScriptureModal('Habakkuk 2:4')">Habakkuk 2:4</span>
-                <span class="cross-reference" data-scripture="Galatians 3:11" onclick="showScriptureModal('Galatians 3:11')">Galatians 3:11</span>
+                <p><strong>Romans 1:16-17:</strong> &ldquo;I am not ashamed of the gospel, because it is the power of God for salvation to everyone who believes, first to the Jew, then to the Greek. For the gospel reveals the righteousness of God that comes by faith from start to finish, just as it is written: “The righteous will live by faith.”&rdquo;</p>
+                <span class="cross-reference" data-scripture="Habakkuk 2:4" role="button" tabindex="0" onclick="showScriptureModal('Habakkuk 2:4')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Habakkuk 2:4');}">Habakkuk 2:4</span>
+                <span class="cross-reference" data-scripture="Galatians 3:11" role="button" tabindex="0" onclick="showScriptureModal('Galatians 3:11')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 3:11');}">Galatians 3:11</span>
             </div>
 
             <div class="warning-box">
@@ -670,9 +723,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 3:23-24:</strong> "For all have sinned and fall short of the glory of God, and all are justified freely by his grace through the redemption that came by Christ Jesus."</p>
-                <span class="cross-reference" data-scripture="Ephesians 2:8-9" onclick="showScriptureModal('Ephesians 2:8-9')">Ephesians 2:8-9</span>
-                <span class="cross-reference" data-scripture="Titus 3:5" onclick="showScriptureModal('Titus 3:5')">Titus 3:5</span>
+                <p><strong>Romans 3:23-24:</strong> &ldquo;for all have sinned and fall short of the glory of God, and are justified freely by His grace through the redemption that is in Christ Jesus.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Ephesians 2:8-9" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 2:8-9')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 2:8-9');}">Ephesians 2:8-9</span>
+                <span class="cross-reference" data-scripture="Titus 3:5" role="button" tabindex="0" onclick="showScriptureModal('Titus 3:5')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Titus 3:5');}">Titus 3:5</span>
             </div>
 
             <div class="application-modern">
@@ -698,7 +751,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapters 1-3</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapters 1-3..."></textarea>
+                <textarea id="notes-study1-1" placeholder="Write your observations, questions, or insights about Chapters 1-3..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -724,7 +777,7 @@
         </div>
 
         <!-- Section 2: Chapters 4-5 -->
-        <div id="section2" class="content-section">
+        <div id="study2" class="content-section">
             <h2 class="section-title">📖 Chapters 4-5: Justification by Faith</h2>
             
             <div class="theme-box">
@@ -738,9 +791,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 4:16-17:</strong> "Therefore, the promise comes by faith, so that it may be by grace and may be guaranteed to all Abraham's offspring—not only to those who are of the law but also to those who have the faith of Abraham. He is the father of us all. As it is written: 'I have made you a father of many nations.'"</p>
-                <span class="cross-reference" data-scripture="Genesis 15:6" onclick="showScriptureModal('Genesis 15:6')">Genesis 15:6</span>
-                <span class="cross-reference" data-scripture="Galatians 3:6-9" onclick="showScriptureModal('Galatians 3:6-9')">Galatians 3:6-9</span>
+                <p><strong>Romans 4:16-17:</strong> &ldquo;Therefore, the promise comes by faith, so that it may rest on grace and may be guaranteed to all Abraham’s offspring—not only to those who are of the law, but also to those who are of the faith of Abraham. He is the father of us all. As it is written: “I have made you a father of many nations.” He is our father in the presence of God, in whom he believed, the God who gives life to the dead and calls into being what does not yet exist.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Genesis 15:6" role="button" tabindex="0" onclick="showScriptureModal('Genesis 15:6')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Genesis 15:6');}">Genesis 15:6</span>
+                <span class="cross-reference" data-scripture="Galatians 3:6-9" role="button" tabindex="0" onclick="showScriptureModal('Galatians 3:6-9')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 3:6-9');}">Galatians 3:6-9</span>
             </div>
 
             <div class="historical-context">
@@ -755,9 +808,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 5:1-2:</strong> "Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ, through whom we have gained access by faith into this grace in which we now stand. And we boast in the hope of the glory of God."</p>
-                <span class="cross-reference" data-scripture="Ephesians 2:14" onclick="showScriptureModal('Ephesians 2:14')">Ephesians 2:14</span>
-                <span class="cross-reference" data-scripture="Colossians 1:20" onclick="showScriptureModal('Colossians 1:20')">Colossians 1:20</span>
+                <p><strong>Romans 5:1-2:</strong> &ldquo;Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ, through whom we have gained access by faith into this grace in which we stand. And we rejoice in the hope of the glory of God.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Ephesians 2:14" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 2:14')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 2:14');}">Ephesians 2:14</span>
+                <span class="cross-reference" data-scripture="Colossians 1:20" role="button" tabindex="0" onclick="showScriptureModal('Colossians 1:20')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Colossians 1:20');}">Colossians 1:20</span>
             </div>
 
             <div class="application-modern">
@@ -783,7 +836,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapters 4-5</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapters 4-5..."></textarea>
+                <textarea id="notes-study2-1" placeholder="Write your observations, questions, or insights about Chapters 4-5..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -809,7 +862,7 @@
         </div>
 
         <!-- Section 3: Chapters 6-8 -->
-        <div id="section3" class="content-section">
+        <div id="study3" class="content-section">
             <h2 class="section-title">📖 Chapters 6-8: Sanctification and Spirit Life</h2>
             
             <div class="theme-box">
@@ -823,9 +876,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 6:11-12:</strong> "In the same way, count yourselves dead to sin but alive to God in Christ Jesus. Therefore do not let sin reign in your mortal body so that you obey its evil desires."</p>
-                <span class="cross-reference" data-scripture="Galatians 2:20" onclick="showScriptureModal('Galatians 2:20')">Galatians 2:20</span>
-                <span class="cross-reference" data-scripture="2 Corinthians 5:17" onclick="showScriptureModal('2 Corinthians 5:17')">2 Corinthians 5:17</span>
+                <p><strong>Romans 6:11-12:</strong> &ldquo;So you too must count yourselves dead to sin, but alive to God in Christ Jesus. Therefore do not let sin reign in your mortal body so that you obey its desires.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Galatians 2:20" role="button" tabindex="0" onclick="showScriptureModal('Galatians 2:20')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 2:20');}">Galatians 2:20</span>
+                <span class="cross-reference" data-scripture="2 Corinthians 5:17" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 5:17')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 5:17');}">2 Corinthians 5:17</span>
             </div>
 
             <div class="warning-box">
@@ -839,9 +892,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 8:1-2:</strong> "Therefore, there is now no condemnation for those who are in Christ Jesus, because through Christ Jesus the law of the Spirit who gives life has set you free from the law of sin and death."</p>
-                <span class="cross-reference" data-scripture="John 5:24" onclick="showScriptureModal('John 5:24')">John 5:24</span>
-                <span class="cross-reference" data-scripture="Galatians 5:16" onclick="showScriptureModal('Galatians 5:16')">Galatians 5:16</span>
+                <p><strong>Romans 8:1-2:</strong> &ldquo;Therefore, there is now no condemnation for those who are in Christ Jesus. For in Christ Jesus the law of the Spirit of life set you free from the law of sin and death.&rdquo;</p>
+                <span class="cross-reference" data-scripture="John 5:24" role="button" tabindex="0" onclick="showScriptureModal('John 5:24')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('John 5:24');}">John 5:24</span>
+                <span class="cross-reference" data-scripture="Galatians 5:16" role="button" tabindex="0" onclick="showScriptureModal('Galatians 5:16')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 5:16');}">Galatians 5:16</span>
             </div>
 
             <div class="historical-context">
@@ -857,9 +910,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 8:28:</strong> "And we know that in all things God works for the good of those who love him, who have been called according to his purpose."</p>
-                <span class="cross-reference" data-scripture="Jeremiah 29:11" onclick="showScriptureModal('Jeremiah 29:11')">Jeremiah 29:11</span>
-                <span class="cross-reference" data-scripture="Ephesians 1:11" onclick="showScriptureModal('Ephesians 1:11')">Ephesians 1:11</span>
+                <p><strong>Romans 8:28:</strong> &ldquo;And we know that God works all things together for the good of those who love Him, who are called according to His purpose.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Jeremiah 29:11" role="button" tabindex="0" onclick="showScriptureModal('Jeremiah 29:11')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Jeremiah 29:11');}">Jeremiah 29:11</span>
+                <span class="cross-reference" data-scripture="Ephesians 1:11" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 1:11')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 1:11');}">Ephesians 1:11</span>
             </div>
 
             <div class="application-modern">
@@ -885,7 +938,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapters 6-8</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapters 6-8..."></textarea>
+                <textarea id="notes-study3-1" placeholder="Write your observations, questions, or insights about Chapters 6-8..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -911,7 +964,7 @@
         </div>
 
         <!-- Section 4: Chapters 9-11 -->
-        <div id="section4" class="content-section">
+        <div id="study4" class="content-section">
             <h2 class="section-title">📖 Chapters 9-11: God's Sovereignty & Israel</h2>
             
             <div class="theme-box">
@@ -926,9 +979,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 9:20-21:</strong> "But who are you, a human being, to talk back to God? Shall what is formed say to the one who formed it, 'Why did you make me like this?' Does not the potter have the right to make out of the same lump of clay some pottery for special purposes and some for common use?"</p>
-                <span class="cross-reference" data-scripture="Isaiah 29:16" onclick="showScriptureModal('Isaiah 29:16')">Isaiah 29:16</span>
-                <span class="cross-reference" data-scripture="Jeremiah 18:6" onclick="showScriptureModal('Jeremiah 18:6')">Jeremiah 18:6</span>
+                <p><strong>Romans 9:20-21:</strong> &ldquo;But who are you, O man, to talk back to God? Shall what is formed say to Him who formed it, “Why did You make me like this?” Does not the potter have the right to make from the same lump of clay one vessel for special occasions and another for common use?&rdquo;</p>
+                <span class="cross-reference" data-scripture="Isaiah 29:16" role="button" tabindex="0" onclick="showScriptureModal('Isaiah 29:16')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Isaiah 29:16');}">Isaiah 29:16</span>
+                <span class="cross-reference" data-scripture="Jeremiah 18:6" role="button" tabindex="0" onclick="showScriptureModal('Jeremiah 18:6')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Jeremiah 18:6');}">Jeremiah 18:6</span>
             </div>
 
             <div class="historical-context">
@@ -943,9 +996,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 10:9-10:</strong> "If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved."</p>
-                <span class="cross-reference" data-scripture="1 Corinthians 12:3" onclick="showScriptureModal('1 Corinthians 12:3')">1 Corinthians 12:3</span>
-                <span class="cross-reference" data-scripture="Acts 16:31" onclick="showScriptureModal('Acts 16:31')">Acts 16:31</span>
+                <p><strong>Romans 10:9-10:</strong> &ldquo;that if you confess with your mouth, “Jesus is Lord,” and believe in your heart that God raised Him from the dead, you will be saved. For with your heart you believe and are justified, and with your mouth you confess and are saved.&rdquo;</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 12:3" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 12:3')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 12:3');}">1 Corinthians 12:3</span>
+                <span class="cross-reference" data-scripture="Acts 16:31" role="button" tabindex="0" onclick="showScriptureModal('Acts 16:31')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Acts 16:31');}">Acts 16:31</span>
             </div>
 
             <div class="warning-box">
@@ -960,9 +1013,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 11:33-36:</strong> "Oh, the depth of the riches of the wisdom and knowledge of God! How unsearchable his judgments, and his paths beyond tracing out! 'Who has known the mind of the Lord? Or who has been his counselor?' 'Who has ever given to God, that God should repay them?' For from him and through him and to him are all things. To him be the glory forever! Amen."</p>
-                <span class="cross-reference" data-scripture="Isaiah 40:13" onclick="showScriptureModal('Isaiah 40:13')">Isaiah 40:13</span>
-                <span class="cross-reference" data-scripture="Job 41:11" onclick="showScriptureModal('Job 41:11')">Job 41:11</span>
+                <p><strong>Romans 11:33-36:</strong> &ldquo;O, the depth of the riches of the wisdom and knowledge of God! How unsearchable are His judgments, and untraceable His ways! “Who has known the mind of the Lord? Or who has been His counselor?” “Who has first given to God, that God should repay him?” For from Him and through Him and to Him are all things. To Him be the glory forever! Amen.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Isaiah 40:13" role="button" tabindex="0" onclick="showScriptureModal('Isaiah 40:13')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Isaiah 40:13');}">Isaiah 40:13</span>
+                <span class="cross-reference" data-scripture="Job 41:11" role="button" tabindex="0" onclick="showScriptureModal('Job 41:11')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Job 41:11');}">Job 41:11</span>
             </div>
 
             <div class="application-modern">
@@ -988,7 +1041,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapters 9-11</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapters 9-11..."></textarea>
+                <textarea id="notes-study4-1" placeholder="Write your observations, questions, or insights about Chapters 9-11..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1014,7 +1067,7 @@
         </div>
 
         <!-- Section 5: Chapters 12-14 -->
-        <div id="section5" class="content-section">
+        <div id="study5" class="content-section">
             <h2 class="section-title">📖 Chapters 12-14: Christian Living & Unity</h2>
             
             <div class="theme-box">
@@ -1030,9 +1083,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 12:1-2:</strong> "Therefore, I urge you, brothers and sisters, in view of God's mercy, to offer your bodies as a living sacrifice, holy and pleasing to God—this is your true and proper worship. Do not conform to the pattern of this world, but be transformed by the renewing of your mind."</p>
-                <span class="cross-reference" data-scripture="2 Corinthians 3:18" onclick="showScriptureModal('2 Corinthians 3:18')">2 Corinthians 3:18</span>
-                <span class="cross-reference" data-scripture="Ephesians 4:23" onclick="showScriptureModal('Ephesians 4:23')">Ephesians 4:23</span>
+                <p><strong>Romans 12:1-2:</strong> &ldquo;Therefore I urge you, brothers, on account of God’s mercy, to offer your bodies as living sacrifices, holy and pleasing to God, which is your spiritual service of worship. Do not be conformed to this world, but be transformed by the renewing of your mind. Then you will be able to test and approve what is the good, pleasing, and perfect will of God.&rdquo;</p>
+                <span class="cross-reference" data-scripture="2 Corinthians 3:18" role="button" tabindex="0" onclick="showScriptureModal('2 Corinthians 3:18')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('2 Corinthians 3:18');}">2 Corinthians 3:18</span>
+                <span class="cross-reference" data-scripture="Ephesians 4:23" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 4:23')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 4:23');}">Ephesians 4:23</span>
             </div>
 
             <div class="application-modern">
@@ -1058,9 +1111,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 14:17-19:</strong> "For the kingdom of God is not a matter of eating and drinking, but of righteousness, peace and joy in the Holy Spirit, because anyone who serves Christ in this way is pleasing to God and receives human approval. Let us therefore make every effort to do what leads to peace and to mutual edification."</p>
-                <span class="cross-reference" data-scripture="1 Corinthians 8:13" onclick="showScriptureModal('1 Corinthians 8:13')">1 Corinthians 8:13</span>
-                <span class="cross-reference" data-scripture="Galatians 5:22" onclick="showScriptureModal('Galatians 5:22')">Galatians 5:22</span>
+                <p><strong>Romans 14:17-19:</strong> &ldquo;For the kingdom of God is not a matter of eating and drinking, but of righteousness, peace, and joy in the Holy Spirit. For whoever serves Christ in this way is pleasing to God and approved by men. So then, let us pursue what leads to peace and to mutual edification.&rdquo;</p>
+                <span class="cross-reference" data-scripture="1 Corinthians 8:13" role="button" tabindex="0" onclick="showScriptureModal('1 Corinthians 8:13')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('1 Corinthians 8:13');}">1 Corinthians 8:13</span>
+                <span class="cross-reference" data-scripture="Galatians 5:22" role="button" tabindex="0" onclick="showScriptureModal('Galatians 5:22')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Galatians 5:22');}">Galatians 5:22</span>
             </div>
 
             <div class="reflection-box">
@@ -1075,7 +1128,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapters 12-14</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapters 12-14..."></textarea>
+                <textarea id="notes-study5-1" placeholder="Write your observations, questions, or insights about Chapters 12-14..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1101,7 +1154,7 @@
         </div>
 
         <!-- Section 6: Chapters 15-16 -->
-        <div id="section6" class="content-section">
+        <div id="study6" class="content-section">
             <h2 class="section-title">📖 Chapters 15-16: Unity & Final Greetings</h2>
             
             <div class="theme-box">
@@ -1117,9 +1170,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 15:5-7:</strong> "May the God who gives endurance and encouragement give you the same attitude of mind toward each other that Christ Jesus had, so that with one mind and one voice you may glorify the God and Father of our Lord Jesus Christ. Accept one another, then, just as Christ accepted you, in order to bring praise to God."</p>
-                <span class="cross-reference" data-scripture="Philippians 2:2" onclick="showScriptureModal('Philippians 2:2')">Philippians 2:2</span>
-                <span class="cross-reference" data-scripture="Ephesians 4:2-3" onclick="showScriptureModal('Ephesians 4:2-3')">Ephesians 4:2-3</span>
+                <p><strong>Romans 15:5-7:</strong> &ldquo;Now may the God who gives endurance and encouragement grant you harmony with one another in Christ Jesus, so that with one mind and one voice you may glorify the God and Father of our Lord Jesus Christ. Accept one another, then, just as Christ accepted you, in order to bring glory to God.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Philippians 2:2" role="button" tabindex="0" onclick="showScriptureModal('Philippians 2:2')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Philippians 2:2');}">Philippians 2:2</span>
+                <span class="cross-reference" data-scripture="Ephesians 4:2-3" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 4:2-3')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 4:2-3');}">Ephesians 4:2-3</span>
             </div>
 
             <div class="historical-context">
@@ -1145,9 +1198,9 @@
             </div>
 
             <div class="verse-highlight">
-                <p><strong>Romans 16:25-27:</strong> "Now to him who is able to establish you in accordance with my gospel, the message I proclaim about Jesus Christ, in keeping with the revelation of the mystery hidden for long ages past, but now revealed and made known through the prophetic writings by the command of the eternal God, so that all the Gentiles might come to the obedience that comes from faith—to the only wise God be glory forever through Jesus Christ! Amen."</p>
-                <span class="cross-reference" data-scripture="Ephesians 3:4-6" onclick="showScriptureModal('Ephesians 3:4-6')">Ephesians 3:4-6</span>
-                <span class="cross-reference" data-scripture="Colossians 1:26-27" onclick="showScriptureModal('Colossians 1:26-27')">Colossians 1:26-27</span>
+                <p><strong>Romans 16:25-27:</strong> &ldquo;Now to Him who is able to strengthen you by my gospel and by the proclamation of Jesus Christ, according to the revelation of the mystery concealed for ages past but now revealed and made known through the writings of the prophets by the command of the eternal God, in order to lead all nations to the obedience that comes from faith— to the only wise God be glory forever through Jesus Christ! Amen.&rdquo;</p>
+                <span class="cross-reference" data-scripture="Ephesians 3:4-6" role="button" tabindex="0" onclick="showScriptureModal('Ephesians 3:4-6')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Ephesians 3:4-6');}">Ephesians 3:4-6</span>
+                <span class="cross-reference" data-scripture="Colossians 1:26-27" role="button" tabindex="0" onclick="showScriptureModal('Colossians 1:26-27')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showScriptureModal('Colossians 1:26-27');}">Colossians 1:26-27</span>
             </div>
 
             <div class="warning-box">
@@ -1173,7 +1226,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Notes on Chapters 15-16</h3>
-                <textarea placeholder="Write your observations, questions, or insights about Chapters 15-16..."></textarea>
+                <textarea id="notes-study6-1" placeholder="Write your observations, questions, or insights about Chapters 15-16..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1266,7 +1319,7 @@
 
             <div class="notes-section">
                 <h3>📝 Your Final Summary Notes</h3>
-                <textarea placeholder="Summarize your key insights from this comprehensive study of Romans..."></textarea>
+                <textarea id="notes-summary-1" placeholder="Summarize your key insights from this comprehensive study of Romans..."></textarea>
             </div>
 
             <div class="interactive-element">
@@ -1302,6 +1355,16 @@
             </div>
         </div>
 
+
+        <footer class="scripture-credit">
+            <p><strong>Scripture text.</strong> Quotations are from the Holy Bible, Berean Study Bible (BSB),
+            Copyright &copy; 2016, 2020 by Bible Hub. All rights reserved worldwide. Used under the free
+            licence granted for websites, apps, software and audio:
+            <a href="http://berean.bible/licensing.htm" rel="noopener">berean.bible/licensing.htm</a>.</p>
+            <p><strong>Free to use.</strong> This guide is free for personal, family and church study.
+            Your notes and ticks are saved only in this browser on this device, and are never uploaded.</p>
+        </footer>
+
         <button class="back-to-top" onclick="scrollToTop()">↑</button>
 
         <!-- Modal for Scripture References -->
@@ -1315,136 +1378,300 @@
     </div>
 
     <script>
-        // Scripture data for cross-references
+        // Scripture text: Berean Study Bible (see attribution in the page footer).
+        // Generated from a licensed dataset, not hand-typed. Do not edit by hand.
         const scriptureData = {
-            "Habakkuk 2:4": "See, the enemy is puffed up; his desires are not upright—but the righteous person will live by his faithfulness.",
-            "Galatians 3:11": "Clearly no one who relies on the law is justified before God, because 'the righteous will live by faith.'",
-            "Ephesians 2:8-9": "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast.",
-            "Titus 3:5": "He saved us through the washing of rebirth and renewal by the Holy Spirit.",
-            "Genesis 15:6": "Abram believed the Lord, and he credited it to him as righteousness.",
-            "Galatians 3:6-9": "So also Abraham 'believed God, and it was credited to him as righteousness.' Understand, then, that those who have faith are children of Abraham. Scripture foresaw that God would justify the Gentiles by faith, and announced the gospel in advance to Abraham: 'All nations will be blessed through you.' So those who rely on faith are blessed along with Abraham, the man of faith.",
-            "Ephesians 2:14": "For he himself is our peace, who has made the two groups one and has destroyed the barrier, the dividing wall of hostility.",
-            "Colossians 1:20": "And through him to reconcile to himself all things, whether things on earth or things in heaven, by making peace through his blood, shed on the cross.",
-            "Galatians 2:20": "I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me.",
-            "2 Corinthians 5:17": "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!",
-            "John 5:24": "Very truly I tell you, whoever hears my word and believes him who sent me has eternal life and will not be judged but has crossed over from death to life.",
+            "1 Corinthians 12:3": "Therefore I inform you that no one who is speaking by the Spirit of God says, “Jesus be cursed,” and no one can say, “Jesus is Lord,” except by the Holy Spirit.",
+            "1 Corinthians 8:13": "Therefore, if what I eat causes my brother to stumble, I will never eat meat again, so that I will not cause him to stumble.",
+            "2 Corinthians 3:18": "And we, who with unveiled faces all reflect the glory of the Lord, are being transformed into His image with intensifying glory, which comes from the Lord, who is the Spirit.",
+            "2 Corinthians 5:17": "Therefore if anyone is in Christ, he is a new creation. The old has passed away. Behold, the new has come!",
+            "Acts 16:31": "They replied, “Believe in the Lord Jesus and you will be saved, you and your household.”",
+            "Colossians 1:20": "and through Him to reconcile to Himself all things, whether things on earth or things in heaven, by making peace through the blood of His cross.",
+            "Colossians 1:26-27": "the mystery that was hidden for ages and generations but is now revealed to His saints. To them God has chosen to make known among the Gentiles the glorious riches of this mystery, which is Christ in you, the hope of glory.",
+            "Ephesians 1:11": "In Him we were also chosen as God’s own, having been predestined according to the plan of Him who works out everything by the counsel of His will,",
+            "Ephesians 2:14": "For He Himself is our peace, who has made the two one and has torn down the dividing wall of hostility",
+            "Ephesians 2:8-9": "For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God, not by works, so that no one can boast.",
+            "Ephesians 3:4-6": "In reading this, then, you will be able to understand my insight into the mystery of Christ, which was not made known to men in other generations as it has now been revealed by the Spirit to God’s holy apostles and prophets. This mystery is that through the gospel the Gentiles are fellow heirs, fellow members of the body, and fellow partakers of the promise in Christ Jesus.",
+            "Ephesians 4:2-3": "with all humility and gentleness, with patience, bearing with one another in love, and with diligence to preserve the unity of the Spirit through the bond of peace.",
+            "Ephesians 4:23": "to be renewed in the spirit of your minds;",
+            "Galatians 2:20": "I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.",
+            "Galatians 3:11": "Now it is clear that no one is justified before God by the law, because, “The righteous will live by faith.”",
+            "Galatians 3:6-9": "So also, “Abraham believed God, and it was credited to him as righteousness.” Understand, then, that those who have faith are sons of Abraham. The Scripture foresaw that God would justify the Gentiles by faith, and foretold the gospel to Abraham: “All nations will be blessed through you.” So those who have faith are blessed along with Abraham, the man of faith.",
             "Galatians 5:16": "So I say, walk by the Spirit, and you will not gratify the desires of the flesh.",
-            "Jeremiah 29:11": "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
-            "Ephesians 1:11": "In him we were also chosen, having been predestined according to the plan of him who works out everything in conformity with the purpose of his will.",
-            "Isaiah 29:16": "You turn things upside down, as if the potter were thought to be like the clay! Shall what is formed say to the one who formed it, 'You did not make me'? Can the pot say to the potter, 'You know nothing'?",
-            "Jeremiah 18:6": "'Can I not do with you, Israel, as this potter does?' declares the Lord. 'Like clay in the hand of the potter, so are you in my hand, Israel.'",
-            "1 Corinthians 12:3": "Therefore I want you to know that no one who is speaking by the Spirit of God says, 'Jesus be cursed,' and no one can say, 'Jesus is Lord,' except by the Holy Spirit.",
-            "Acts 16:31": "They replied, 'Believe in the Lord Jesus, and you will be saved—you and your household.'",
-            "Isaiah 40:13": "Who can fathom the Spirit of the Lord, or instruct the Lord as his counselor?",
-            "Job 41:11": "Who has a claim against me that I must pay? Everything under heaven belongs to me.",
-            "2 Corinthians 3:18": "And we all, who with unveiled faces contemplate the Lord's glory, are being transformed into his image with ever-increasing glory, which comes from the Lord, who is the Spirit.",
-            "Ephesians 4:23": "To be made new in the attitude of your minds.",
-            "1 Corinthians 8:13": "Therefore, if what I eat causes my brother or sister to fall into sin, I will never eat meat again, so that I will not cause them to fall.",
-            "Galatians 5:22": "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness.",
-            "Philippians 2:2": "Then make my joy complete by being like-minded, having the same love, being one in spirit and of one mind.",
-            "Ephesians 4:2-3": "Be completely humble and gentle; be patient, bearing with one another in love. Make every effort to keep the unity of the Spirit through the bond of peace.",
-            "Ephesians 3:4-6": "In reading this, then, you will be able to understand my insight into the mystery of Christ, which was not made known to people in other generations as it has now been revealed by the Spirit to God's holy apostles and prophets. This mystery is that through the gospel the Gentiles are heirs together with Israel, members together of one body, and sharers together in the promise in Christ Jesus.",
-            "Colossians 1:26-27": "The mystery that has been kept hidden for ages and generations, but is now disclosed to the Lord's people. To them God has chosen to make known among the Gentiles the glorious riches of this mystery, which is Christ in you, the hope of glory."
+            "Galatians 5:22": "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness,",
+            "Genesis 15:6": "Abram believed the LORD, and it was credited to him as righteousness.",
+            "Habakkuk 2:4": "Look at the proud one; his soul is not upright—but the righteous will live by faith—",
+            "Isaiah 29:16": "You have turned things upside down, as if the potter were regarded as clay. Shall what is formed say to him who formed it, “He did not make me”? Can the pottery say of the potter, “He has no understanding”?",
+            "Isaiah 40:13": "Who has directed the Spirit of the LORD, or informed Him as His counselor?",
+            "Jeremiah 18:6": "“O house of Israel, declares the LORD, can I not treat you as this potter treats his clay? Just like clay in the potter’s hand, so are you in My hand, O house of Israel.",
+            "Jeremiah 29:11": "For I know the plans I have for you, declares the LORD, plans to prosper you and not to harm you, to give you a future and a hope.",
+            "Job 41:11": "Who has given to Me that I should repay him? Everything under heaven is Mine.",
+            "John 5:24": "Truly, truly, I tell you, whoever hears My word and believes Him who sent Me has eternal life and will not come under judgment. Indeed, he has crossed over from death to life.",
+            "Philippians 2:2": "then make my joy complete by being like-minded, having the same love, being united in spirit and purpose.",
+            "Romans 10:9-10": "that if you confess with your mouth, “Jesus is Lord,” and believe in your heart that God raised Him from the dead, you will be saved. For with your heart you believe and are justified, and with your mouth you confess and are saved.",
+            "Romans 11:33-36": "O, the depth of the riches of the wisdom and knowledge of God! How unsearchable are His judgments, and untraceable His ways! “Who has known the mind of the Lord? Or who has been His counselor?” “Who has first given to God, that God should repay him?” For from Him and through Him and to Him are all things. To Him be the glory forever! Amen.",
+            "Romans 12:1-2": "Therefore I urge you, brothers, on account of God’s mercy, to offer your bodies as living sacrifices, holy and pleasing to God, which is your spiritual service of worship. Do not be conformed to this world, but be transformed by the renewing of your mind. Then you will be able to test and approve what is the good, pleasing, and perfect will of God.",
+            "Romans 14:17-19": "For the kingdom of God is not a matter of eating and drinking, but of righteousness, peace, and joy in the Holy Spirit. For whoever serves Christ in this way is pleasing to God and approved by men. So then, let us pursue what leads to peace and to mutual edification.",
+            "Romans 15:5-7": "Now may the God who gives endurance and encouragement grant you harmony with one another in Christ Jesus, so that with one mind and one voice you may glorify the God and Father of our Lord Jesus Christ. Accept one another, then, just as Christ accepted you, in order to bring glory to God.",
+            "Romans 16:25-27": "Now to Him who is able to strengthen you by my gospel and by the proclamation of Jesus Christ, according to the revelation of the mystery concealed for ages past but now revealed and made known through the writings of the prophets by the command of the eternal God, in order to lead all nations to the obedience that comes from faith— to the only wise God be glory forever through Jesus Christ! Amen.",
+            "Romans 1:16-17": "I am not ashamed of the gospel, because it is the power of God for salvation to everyone who believes, first to the Jew, then to the Greek. For the gospel reveals the righteousness of God that comes by faith from start to finish, just as it is written: “The righteous will live by faith.”",
+            "Romans 3:23-24": "for all have sinned and fall short of the glory of God, and are justified freely by His grace through the redemption that is in Christ Jesus.",
+            "Romans 4:16-17": "Therefore, the promise comes by faith, so that it may rest on grace and may be guaranteed to all Abraham’s offspring—not only to those who are of the law, but also to those who are of the faith of Abraham. He is the father of us all. As it is written: “I have made you a father of many nations.” He is our father in the presence of God, in whom he believed, the God who gives life to the dead and calls into being what does not yet exist.",
+            "Romans 5:1-2": "Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ, through whom we have gained access by faith into this grace in which we stand. And we rejoice in the hope of the glory of God.",
+            "Romans 6:11-12": "So you too must count yourselves dead to sin, but alive to God in Christ Jesus. Therefore do not let sin reign in your mortal body so that you obey its desires.",
+            "Romans 8:1-2": "Therefore, there is now no condemnation for those who are in Christ Jesus. For in Christ Jesus the law of the Spirit of life set you free from the law of sin and death.",
+            "Romans 8:28": "And we know that God works all things together for the good of those who love Him, who are called according to His purpose.",
+            "Romans 9:20-21": "But who are you, O man, to talk back to God? Shall what is formed say to Him who formed it, “Why did You make me like this?” Does not the potter have the right to make from the same lump of clay one vessel for special occasions and another for common use?",
+            "Titus 3:5": "He saved us, not by the righteous deeds we had done, but according to His mercy, through the washing of new birth and renewal by the Holy Spirit."
         };
 
-        // Show scripture modal
-        function showScriptureModal(reference) {
-            const modal = document.getElementById('scriptureModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalText = document.getElementById('modalText');
+        (function () {
+            'use strict';
 
-            modalTitle.textContent = reference;
-            modalText.textContent = scriptureData[reference] || "Scripture text not available.";
-            modal.style.display = 'flex';
-        }
+            const BOOK = 'romans';
+            const PREFIX = 'bsg:' + BOOK + ':';
+            const OPENING = "Ready to explore Paul's masterpiece!";
 
-        // Close scripture modal
-        function closeScriptureModal() {
-            document.getElementById('scriptureModal').style.display = 'none';
-        }
-
-        // Initialize progress tracking
-        let totalCheckboxes = 0;
-        let checkedCount = 0;
-
-        // Count total checkboxes on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
-            updateProgress();
-            window.addEventListener('scroll', toggleBackToTop);
-        });
-
-        // Show/hide sections
-        function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-
-            document.getElementById(sectionId).classList.add('active');
-            document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('active');
-            
-            // Show completion badge if all checkboxes in section are checked
-            const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
-            const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
-            if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
-                if (sectionBadge) sectionBadge.classList.add('show');
-            } else {
-                if (sectionBadge) sectionBadge.classList.remove('show');
-            }
-        }
-
-        // Update progress bar
-        function updateProgress() {
-            checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
-            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
-            document.getElementById('progressFill').style.width = `${progressPercentage}%`;
-            
-            let progressMessage = '';
-            if (progressPercentage === 0) {
-                progressMessage = "Ready to explore Paul's masterpiece!";
-            } else if (progressPercentage < 25) {
-                progressMessage = "Great start - keep studying!";
-            } else if (progressPercentage < 50) {
-                progressMessage = "Making good progress through Romans!";
-            } else if (progressPercentage < 75) {
-                progressMessage = "Over halfway - you're doing great!";
-            } else if (progressPercentage < 100) {
-                progressMessage = "Almost finished with this theological masterpiece!";
-            } else {
-                progressMessage = "Congratulations! Study completed!";
-            }
-            
-            document.getElementById('progressText').textContent = `${Math.round(progressPercentage)}% Complete - ${progressMessage}`;
-
-            // Update section badges
-            ['overview', 'background', 'section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'summary'].forEach(sectionId => {
-                const sectionCheckboxes = document.querySelectorAll(`#${sectionId} input[type="checkbox"]`);
-                const sectionBadge = document.querySelector(`#${sectionId} .completion-badge`);
-                if (sectionCheckboxes.length > 0 && Array.from(sectionCheckboxes).every(cb => cb.checked)) {
-                    if (sectionBadge) sectionBadge.classList.add('show');
-                } else {
-                    if (sectionBadge) sectionBadge.classList.remove('show');
+            /* ---------- storage: never throws, degrades to memory ---------- */
+            const store = (function () {
+                let backend = null;
+                try {
+                    const probe = '__bsg_probe__';
+                    window.localStorage.setItem(probe, '1');
+                    window.localStorage.removeItem(probe);
+                    backend = window.localStorage;
+                } catch (e) {
+                    backend = null;
                 }
-            });
-        }
+                const memory = {};
+                return {
+                    durable: backend !== null,
+                    get: function (key) {
+                        try {
+                            return backend ? backend.getItem(PREFIX + key) : (key in memory ? memory[key] : null);
+                        } catch (e) { return null; }
+                    },
+                    set: function (key, value) {
+                        try {
+                            if (backend) { backend.setItem(PREFIX + key, value); } else { memory[key] = value; }
+                            return true;
+                        } catch (e) { return false; }
+                    },
+                    clearBook: function () {
+                        try {
+                            if (!backend) { Object.keys(memory).forEach(function (k) { delete memory[k]; }); return true; }
+                            const doomed = [];
+                            for (let i = 0; i < backend.length; i++) {
+                                const k = backend.key(i);
+                                if (k && k.indexOf(PREFIX) === 0) { doomed.push(k); }
+                            }
+                            doomed.forEach(function (k) { backend.removeItem(k); });
+                            return true;
+                        } catch (e) { return false; }
+                    }
+                };
+            })();
 
-        // Scroll to top
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Toggle back-to-top button visibility
-        function toggleBackToTop() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
+            /* ---------- one-time migration from the old index-based keys ---------- */
+            function migrateLegacyKeys() {
+                if (!store.durable) { return; }
+                if (store.get('schema') === '2') { return; }
+                try {
+                    document.querySelectorAll('textarea[id]').forEach(function (el, i) {
+                        const old = window.localStorage.getItem(BOOK + '-notes-' + i);
+                        if (old !== null && store.get('notes:' + el.id) === null) {
+                            store.set('notes:' + el.id, old);
+                        }
+                    });
+                    document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el, i) {
+                        const old = window.localStorage.getItem(BOOK + '-checkbox-' + i);
+                        if (old !== null && store.get('check:' + el.id) === null) {
+                            store.set('check:' + el.id, old === 'true' ? '1' : '0');
+                        }
+                    });
+                } catch (e) { /* migration is best effort */ }
+                store.set('schema', '2');
             }
-        }
+
+            /* ---------- scripture modal ---------- */
+            function showScriptureModal(reference) {
+                const modal = document.getElementById('scriptureModal');
+                document.getElementById('modalTitle').textContent = reference;
+                document.getElementById('modalText').textContent =
+                    scriptureData[reference] || 'Passage text is not loaded for this reference yet.';
+                modal.style.display = 'flex';
+                const closer = modal.querySelector('.modal-close');
+                if (closer) { closer.focus(); }
+            }
+
+            function closeScriptureModal() {
+                document.getElementById('scriptureModal').style.display = 'none';
+            }
+
+            /* ---------- sections ---------- */
+            function sectionIds() {
+                return Array.prototype.map.call(
+                    document.querySelectorAll('.content-section'),
+                    function (el) { return el.id; }
+                ).filter(Boolean);
+            }
+
+            function showSection(sectionId) {
+                const target = document.getElementById(sectionId);
+                if (!target) { return; }
+                document.querySelectorAll('.content-section').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+                document.querySelectorAll('.nav-button').forEach(function (el) {
+                    el.classList.remove('active');
+                    el.setAttribute('aria-selected', 'false');
+                });
+                target.classList.add('active');
+                const button = document.querySelector('[onclick="showSection(\'' + sectionId + '\')"]');
+                if (button) {
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                }
+                store.set('section', sectionId);
+                refreshBadges();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function refreshBadges() {
+                sectionIds().forEach(function (id) {
+                    const boxes = document.querySelectorAll('#' + id + ' input[type="checkbox"]');
+                    const badge = document.querySelector('#' + id + ' .completion-badge');
+                    if (!badge) { return; }
+                    const done = boxes.length > 0 &&
+                        Array.prototype.every.call(boxes, function (b) { return b.checked; });
+                    badge.classList.toggle('show', done);
+                });
+            }
+
+            /* ---------- progress ---------- */
+            function progressMessage(pct) {
+                if (pct === 0) { return OPENING; }
+                if (pct < 25) { return 'Great start, keep studying!'; }
+                if (pct < 50) { return 'Making good progress!'; }
+                if (pct < 75) { return "Over halfway, you're doing well!"; }
+                if (pct < 100) { return 'Almost there!'; }
+                return 'Study complete. Well done!';
+            }
+
+            function updateProgress() {
+                const all = document.querySelectorAll('input[type="checkbox"]');
+                const done = document.querySelectorAll('input[type="checkbox"]:checked');
+                const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+                const fill = document.getElementById('progressFill');
+                const text = document.getElementById('progressText');
+                if (fill) {
+                    fill.style.width = pct + '%';
+                    const bar = fill.parentElement;
+                    if (bar) {
+                        bar.setAttribute('role', 'progressbar');
+                        bar.setAttribute('aria-valuenow', String(pct));
+                        bar.setAttribute('aria-valuemin', '0');
+                        bar.setAttribute('aria-valuemax', '100');
+                    }
+                }
+                if (text) {
+                    text.textContent = pct + '% Complete - ' + progressMessage(pct) +
+                        ' (' + done.length + ' of ' + all.length + ')';
+                }
+                refreshBadges();
+            }
+
+            /* ---------- save indicator ---------- */
+            let saveTimer = null;
+            function flagSaved(ok) {
+                const el = document.getElementById('saveStatus');
+                if (!el) { return; }
+                if (!store.durable) {
+                    el.textContent = 'Private browsing: your notes will not be kept after you close this tab.';
+                    return;
+                }
+                el.textContent = ok ? 'Saved on this device' : 'Could not save (storage full?)';
+                if (saveTimer) { window.clearTimeout(saveTimer); }
+                saveTimer = window.setTimeout(function () { el.textContent = ''; }, 2000);
+            }
+
+            /* ---------- wiring ---------- */
+            function restoreAndBind() {
+                document.querySelectorAll('textarea[id]').forEach(function (el) {
+                    const saved = store.get('notes:' + el.id);
+                    if (saved !== null) { el.value = saved; }
+                    let debounce = null;
+                    el.addEventListener('input', function () {
+                        if (debounce) { window.clearTimeout(debounce); }
+                        debounce = window.setTimeout(function () {
+                            flagSaved(store.set('notes:' + el.id, el.value));
+                        }, 400);
+                    });
+                });
+
+                document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) {
+                    if (store.get('check:' + el.id) === '1') { el.checked = true; }
+                    el.addEventListener('change', function () {
+                        flagSaved(store.set('check:' + el.id, el.checked ? '1' : '0'));
+                        updateProgress();
+                    });
+                });
+
+                const reset = document.getElementById('resetProgress');
+                if (reset) {
+                    reset.addEventListener('click', function () {
+                        const warning = 'This clears every note and tick you have saved for ' + BOOK +
+                            ' on this device. This cannot be undone. Continue?';
+                        if (!window.confirm(warning)) { return; }
+                        store.clearBook();
+                        document.querySelectorAll('textarea[id]').forEach(function (el) { el.value = ''; });
+                        document.querySelectorAll('input[type="checkbox"][id]').forEach(function (el) { el.checked = false; });
+                        updateProgress();
+                        const el = document.getElementById('saveStatus');
+                        if (el) { el.textContent = 'Cleared'; }
+                    });
+                }
+            }
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function toggleBackToTop() {
+                const button = document.querySelector('.back-to-top');
+                if (button) { button.classList.toggle('show', window.scrollY > 300); }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                migrateLegacyKeys();
+                restoreAndBind();
+                updateProgress();
+
+                const last = store.get('section');
+                if (last && document.getElementById(last)) { showSection(last); }
+
+                window.addEventListener('scroll', toggleBackToTop);
+                toggleBackToTop();
+
+                if (!store.durable) { flagSaved(false); }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') { closeScriptureModal(); }
+            });
+
+            document.addEventListener('click', function (e) {
+                const modal = document.getElementById('scriptureModal');
+                if (modal && e.target === modal) { closeScriptureModal(); }
+            });
+
+            // exposed for the inline handlers in the markup
+            window.showSection = showSection;
+            window.updateProgress = updateProgress;
+            window.showScriptureModal = showScriptureModal;
+            window.closeScriptureModal = closeScriptureModal;
+            window.scrollToTop = scrollToTop;
+        })();
     </script>
 </body>
 </html>
