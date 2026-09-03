@@ -5,485 +5,16 @@
     <meta name="description" content="A free, in-depth study guide to Paul's letter to the Philippians, with Berean Study Bible passages, reflection questions and progress tracking.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philippians: Joy in Christ - Interactive Bible Study</title>
-    <style>
-        :root {
-            --primary-gold: #d4af37;
-            --deep-blue: #1e3a8a;
-            --royal-purple: #6b46c1;
-            --warm-white: #fefefe;
-            --soft-gray: #f8fafc;
-            --text-dark: #1e293b;
-            --accent-red: #dc2626;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--warm-white) 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
-            color: var(--warm-white);
-            padding: 40px 20px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .progress-tracker {
-            background: var(--warm-white);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background: #e5e7eb;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-gold), var(--royal-purple));
-            width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 10px;
-        }
-
-        .chapter-nav {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .nav-button {
-            background: linear-gradient(135deg, var(--primary-gold), #f59e0b);
-            color: var(--text-dark);
-            border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .nav-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .nav-button.active {
-            background: linear-gradient(135deg, var(--deep-blue), var(--royal-purple));
-            color: var(--warm-white);
-        }
-
-        .content-section {
-            display: none;
-            background: var(--warm-white);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-left: 6px solid var(--primary-gold);
-        }
-
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.6s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--deep-blue);
-            margin-bottom: 25px;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: var(--primary-gold);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .theme-box {
-            background: linear-gradient(135deg, var(--soft-gray), var(--warm-white));
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 15px;
-            border-left: 5px solid var(--royal-purple);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .theme-box h3 {
-            color: var(--royal-purple);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .verse-highlight {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary-gold);
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-
-        .interactive-element {
-            background: var(--soft-gray);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border: 2px dashed var(--primary-gold);
-        }
-
-        .reflection-box {
-            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border-left: 5px solid var(--royal-purple);
-        }
-
-        .discussion-question {
-            background: var(--warm-white);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--accent-red);
-        }
-
-        .cross-reference {
-            display: inline-block;
-            background: var(--deep-blue);
-            color: var(--warm-white);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin: 5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .cross-reference:hover {
-            background: var(--royal-purple);
-            transform: scale(1.05);
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-
-        .checkbox-item:hover {
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            margin-right: 15px;
-            transform: scale(1.3);
-            accent-color: var(--primary-gold);
-        }
-
-        .historical-context {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border-left: 5px solid var(--deep-blue);
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #fef2f2, #fee2e2);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border-left: 5px solid var(--accent-red);
-        }
-
-        .application-modern {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border-left: 5px solid #16a34a;
-        }
-
-        .notes-section {
-            background: var(--warm-white);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 2px solid #e5e7eb;
-        }
-
-        .notes-section textarea {
-            width: 100%;
-            min-height: 120px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            padding: 15px;
-            font-family: inherit;
-            font-size: 1rem;
-            resize: vertical;
-        }
-
-        .study-tools {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .tool-card {
-            background: var(--warm-white);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .completion-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #16a34a, #22c55e);
-            color: var(--warm-white);
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-left: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .completion-badge.show {
-            opacity: 1;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-gold);
-            color: var(--text-dark);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-        }
-
-        .back-to-top:hover {
-            transform: scale(1.1);
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal {
-            background: var(--warm-white);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            border-left: 6px solid var(--primary-gold);
-            position: relative;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        .modal h3 {
-            color: var(--deep-blue);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .modal p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent-red);
-            color: var(--warm-white);
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--royal-purple);
-            transform: scale(1.1);
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .content-section {
-                padding: 25px;
-            }
-            
-            .chapter-nav {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .modal {
-                width: 95%;
-                padding: 20px;
-            }
-        }
-
-        .save-status {
-            min-height: 1.2em;
-            margin-top: 8px;
-            font-size: 0.85rem;
-            opacity: 0.85;
-        }
-
-        .progress-actions {
-            margin-top: 12px;
-        }
-
-        .reset-button {
-            background: transparent;
-            color: #6a4a8a;
-            border: 1px solid rgba(106, 74, 138, 0.5);
-            border-radius: 20px;
-            padding: 7px 18px;
-            font-size: 0.8rem;
-            font-family: inherit;
-            cursor: pointer;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .reset-button:hover {
-            background: rgba(106, 74, 138, 0.1);
-            color: #4a2f68;
-        }
-
-        .reset-button:focus-visible,
-        .nav-button:focus-visible,
-        .cross-reference:focus-visible {
-            outline: 3px solid #ffd54f;
-            outline-offset: 2px;
-        }
-
-        .scripture-credit {
-            margin: 40px 0 0;
-            padding: 24px 30px;
-            border-top: 1px solid rgba(0, 0, 0, 0.12);
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: #4a4a4a;
-        }
-
-        .scripture-credit p {
-            margin-bottom: 8px;
-        }
-    </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <meta name="theme-color" content="#6b4423">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📖 Philippians Study Guide</h1>
+            <h1>Philippians Study Guide</h1>
             <p class="subtitle">"Joy in Christ"</p>
         </div>
 
@@ -500,26 +31,26 @@
         </div>
 
         <div class="chapter-nav">
-            <button class="nav-button active" onclick="showSection('overview')">📋 Overview</button>
-            <button class="nav-button" onclick="showSection('background')">🏛️ Background</button>
-            <button class="nav-button" onclick="showSection('study1')">📖 Chapter 1</button>
-            <button class="nav-button" onclick="showSection('study2')">📖 Chapter 2</button>
-            <button class="nav-button" onclick="showSection('study3')">📖 Chapter 3</button>
-            <button class="nav-button" onclick="showSection('study4')">📖 Chapter 4</button>
-            <button class="nav-button" onclick="showSection('summary')">✅ Summary</button>
+            <button class="nav-button active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-button" onclick="showSection('background')">Background</button>
+            <button class="nav-button" onclick="showSection('study1')">Chapter 1</button>
+            <button class="nav-button" onclick="showSection('study2')">Chapter 2</button>
+            <button class="nav-button" onclick="showSection('study3')">Chapter 3</button>
+            <button class="nav-button" onclick="showSection('study4')">Chapter 4</button>
+            <button class="nav-button" onclick="showSection('summary')">Summary</button>
         </div>
 
         <!-- Overview Section -->
         <div id="overview" class="content-section active">
-            <h2 class="section-title">📋 Study Overview</h2>
+            <h2 class="section-title">Study Overview</h2>
             
             <div class="theme-box">
-                <h3>🎯 Purpose of This Study</h3>
+                <h3>Purpose of This Study</h3>
                 <p>Welcome to an in-depth exploration of Paul's letter to the Philippians! This interactive study will take you through each chapter systematically, providing historical context, theological insights, and practical applications for finding joy in Christ regardless of circumstances.</p>
             </div>
 
             <div class="interactive-element">
-                <h3>🎯 Your Study Goals</h3>
+                <h3>Your Study Goals</h3>
                 <p>Check off each goal as you complete it:</p>
                 <div class="checkbox-item">
                     <input type="checkbox" id="goal1" onchange="updateProgress()">
@@ -545,7 +76,7 @@
 
             <div class="study-tools">
                 <div class="tool-card">
-                    <h3>📝 Study Method</h3>
+                    <h3>Study Method</h3>
                     <p>We'll use the <strong>SOAP</strong> method:</p>
                     <ul style="text-align: left; margin-top: 15px;">
                         <li><strong>S</strong>cripture - Read the text</li>
@@ -555,7 +86,7 @@
                     </ul>
                 </div>
                 <div class="tool-card">
-                    <h3>⏰ Time Commitment</h3>
+                    <h3>Time Commitment</h3>
                     <p>Each chapter study is designed for:</p>
                     <ul style="text-align: left; margin-top: 15px;">
                         <li>30-45 minutes individual study</li>
@@ -564,7 +95,7 @@
                     </ul>
                 </div>
                 <div class="tool-card">
-                    <h3>📚 Resources Needed</h3>
+                    <h3>Resources Needed</h3>
                     <ul style="text-align: left; margin-top: 15px;">
                         <li>Bible (multiple translations helpful)</li>
                         <li>Notebook for personal notes</li>
@@ -577,10 +108,10 @@
 
         <!-- Background Section -->
         <div id="background" class="content-section">
-            <h2 class="section-title">🏛️ Historical Background</h2>
+            <h2 class="section-title">Historical Background</h2>
             
             <div class="historical-context">
-                <h3>🌍 The City of Philippi</h3>
+                <h3>The City of Philippi</h3>
                 <p><strong>Location:</strong> Philippi was a leading city in the district of Macedonia (northern Greece), located on the Via Egnatia, the main road connecting Rome with the eastern provinces. It was about 10 miles inland from the Aegean Sea port of Neapolis.</p>
                 
                 <p><strong>Historical Significance:</strong> Named after Philip II of Macedon (Alexander the Great's father), Philippi became famous for the battle in 42 BC where Octavian and Mark Antony defeated Brutus and Cassius. After the battle, it became a Roman colony with Italian rights, meaning its citizens had the same privileges as those living in Italy.</p>
@@ -589,7 +120,7 @@
             </div>
 
             <div class="theme-box">
-                <h3>👤 Paul's Connection to Philippi</h3>
+                <h3>Paul's Connection to Philippi</h3>
                 <p><strong>First European Church:</strong> Philippi was the first place in Europe where Paul preached the gospel (Acts 16:11-40). Key events included:</p>
                 <ul>
                     <li><strong>Lydia's Conversion</strong> - A businesswoman and the first European convert (Acts 16:14-15)</li>
@@ -600,7 +131,7 @@
             </div>
 
             <div class="historical-context">
-                <h3>✍️ Occasion for Writing</h3>
+                <h3>Occasion for Writing</h3>
                 <p><strong>Paul's Imprisonment:</strong> Written from Rome around AD 60-62 during Paul's first Roman imprisonment (though some scholars suggest Caesarea or Ephesus). Paul was under house arrest awaiting trial before Caesar.</p>
                 
                 <p><strong>The Philippians' Gift:</strong> The church had sent Epaphroditus with a financial gift to support Paul (Phil. 4:18). Epaphroditus had become seriously ill, nearly dying, which caused the Philippians concern (Phil. 2:25-30).</p>
@@ -616,9 +147,9 @@
             </div>
 
             <div class="theme-box">
-                <h3>🎭 Challenges Facing the Church</h3>
+                <h3>Challenges Facing the Church</h3>
                 <div style="margin: 20px 0;">
-                    <h4>🔥 External Persecution:</h4>
+                    <h4>External Persecution:</h4>
                     <ul>
                         <li>Opposition from the community (Phil. 1:27-30)</li>
                         <li>Suffering for the gospel's sake</li>
@@ -627,7 +158,7 @@
                 </div>
 
                 <div style="margin: 20px 0;">
-                    <h4>⚠️ False Teachers:</h4>
+                    <h4>False Teachers:</h4>
                     <ul>
                         <li>Judaizers promoting circumcision and law-keeping (Phil. 3:2-3)</li>
                         <li>Those living as "enemies of the cross" - likely antinomians (Phil. 3:18-19)</li>
@@ -635,7 +166,7 @@
                 </div>
 
                 <div style="margin: 20px 0;">
-                    <h4>🤝 Internal Discord:</h4>
+                    <h4>Internal Discord:</h4>
                     <ul>
                         <li>Disunity between believers (Phil. 2:1-4)</li>
                         <li>Specific conflict between Euodia and Syntyche (Phil. 4:2)</li>
@@ -645,7 +176,7 @@
             </div>
 
             <div class="application-modern">
-                <h3>🔄 Modern Parallels</h3>
+                <h3>Modern Parallels</h3>
                 <p>Today's believers face similar challenges:</p>
                 <ul>
                     <li><strong>Cultural Pressure:</strong> Conforming to secular values vs. living as citizens of heaven</li>
@@ -657,7 +188,7 @@
             </div>
 
             <div class="reflection-box">
-                <h3>🤔 Reflection Questions</h3>
+                <h3>Reflection Questions</h3>
                 <div class="discussion-question">
                     <strong>Personal:</strong> How does your cultural citizenship (nationality, social identity) sometimes conflict with your heavenly citizenship?
                 </div>
@@ -667,12 +198,12 @@
             </div>
 
             <div class="notes-section">
-                <h3>📝 Your Notes on Background</h3>
+                <h3>Your Notes on Background</h3>
                 <textarea id="notes-background-1" placeholder="Write your observations, questions, or insights about the historical background..."></textarea>
             </div>
 
             <div class="interactive-element">
-                <h3>✅ Background Study Checklist</h3>
+                <h3>Background Study Checklist</h3>
                 <div class="checkbox-item">
                     <input type="checkbox" id="bgGoal1" onchange="updateProgress()">
                     <label for="bgGoal1">Understand the cultural and historical context of Philippi</label>
@@ -695,10 +226,10 @@
 
         <!-- Chapter 1 Section -->
         <div id="study1" class="content-section">
-            <h2 class="section-title">📖 Chapter 1: Partnership in the Gospel</h2>
+            <h2 class="section-title">Chapter 1: Partnership in the Gospel</h2>
             
             <div class="theme-box">
-                <h3>🔑 Key Themes</h3>
+                <h3>Key Themes</h3>
                 <ul>
                     <li>Thanksgiving for partnership in the gospel (Phil. 1:3-8)</li>
                     <li>Paul's prayer for the Philippians (Phil. 1:9-11)</li>
@@ -721,7 +252,7 @@
             </div>
 
             <div class="historical-context">
-                <h3>🔍 Key Observations</h3>
+                <h3>Key Observations</h3>
                 <p><strong>Paul's Chains Advance the Gospel (1:12-14):</strong> Rather than hindering the gospel, Paul's imprisonment in Rome had actually helped spread it - the whole palace guard heard about Christ, and other believers were emboldened to speak more courageously.</p>
                 
                 <p><strong>Mixed Motives (1:15-18):</strong> Some preached Christ from envy and rivalry, hoping to stir up trouble for Paul. But Paul rejoiced because regardless of motive, Christ was being proclaimed. This shows remarkable spiritual maturity and focus on what matters most.</p>
@@ -730,7 +261,7 @@
             </div>
 
             <div class="reflection-box">
-                <h3>🤔 Reflection Questions</h3>
+                <h3>Reflection Questions</h3>
                 <div class="discussion-question">
                     <strong>Personal:</strong> Can you honestly say "to live is Christ"? What competes with Christ for being your reason for living?
                 </div>
@@ -743,7 +274,7 @@
             </div>
 
             <div class="application-modern">
-                <h3>🔄 Applying Chapter 1 Today</h3>
+                <h3>Applying Chapter 1 Today</h3>
                 <p>Consider how Chapter 1 challenges us to:</p>
                 <ul>
                     <li><strong>Trust God's Faithfulness:</strong> He will complete what He started in you (1:6)</li>
@@ -755,12 +286,12 @@
             </div>
 
             <div class="notes-section">
-                <h3>📝 Your Notes on Chapter 1</h3>
+                <h3>Your Notes on Chapter 1</h3>
                 <textarea id="notes-study1-1" placeholder="Write your observations, questions, or insights about Chapter 1..."></textarea>
             </div>
 
             <div class="interactive-element">
-                <h3>✅ Chapter 1 Study Checklist</h3>
+                <h3>Chapter 1 Study Checklist</h3>
                 <div class="checkbox-item">
                     <input type="checkbox" id="ch1Goal1" onchange="updateProgress()">
                     <label for="ch1Goal1">Read Philippians 1 carefully</label>
@@ -779,10 +310,10 @@
 
         <!-- Chapter 2 Section -->
         <div id="study2" class="content-section">
-            <h2 class="section-title">📖 Chapter 2: The Mind of Christ</h2>
+            <h2 class="section-title">Chapter 2: The Mind of Christ</h2>
             
             <div class="theme-box">
-                <h3>🔑 Key Themes</h3>
+                <h3>Key Themes</h3>
                 <ul>
                     <li>Call to unity and humility (Phil. 2:1-4)</li>
                     <li>The Christ Hymn - Jesus' humiliation and exaltation (Phil. 2:5-11)</li>
@@ -805,7 +336,7 @@
             </div>
 
             <div class="historical-context">
-                <h3>🔍 The Christ Hymn (2:5-11)</h3>
+                <h3>The Christ Hymn (2:5-11)</h3>
                 <p>This passage is one of the most profound theological statements about Jesus in the New Testament. It describes two movements:</p>
                 
                 <p><strong>The Descent (Humiliation):</strong></p>
@@ -824,14 +355,14 @@
             </div>
 
             <div class="warning-box">
-                <h3>⚠️ Working Out Salvation (2:12-13)</h3>
+                <h3>Working Out Salvation (2:12-13)</h3>
                 <p><strong>Not Earning Salvation:</strong> Paul is not teaching salvation by works. "Work out" means to bring to completion or carry out what is already present.</p>
                 <p><strong>Divine Partnership:</strong> We work because God is at work in us (2:13). It's His power enabling us to will and to act according to His good purpose.</p>
                 <p><strong>Fear and Trembling:</strong> Not terror, but reverent awe and serious dedication to living out our salvation.</p>
             </div>
 
             <div class="reflection-box">
-                <h3>🤔 Reflection Questions</h3>
+                <h3>Reflection Questions</h3>
                 <div class="discussion-question">
                     <strong>Personal:</strong> In what areas of your life do you struggle with selfish ambition or vain conceit? How would adopting Christ's mindset change those situations?
                 </div>
@@ -844,7 +375,7 @@
             </div>
 
             <div class="application-modern">
-                <h3>🔄 Applying Chapter 2 Today</h3>
+                <h3>Applying Chapter 2 Today</h3>
                 <p>Embrace Christ's mindset by:</p>
                 <ul>
                     <li><strong>Practicing Humility:</strong> Looking to others' interests, not just your own</li>
@@ -856,12 +387,12 @@
             </div>
 
             <div class="notes-section">
-                <h3>📝 Your Notes on Chapter 2</h3>
+                <h3>Your Notes on Chapter 2</h3>
                 <textarea id="notes-study2-1" placeholder="Write your observations, questions, or insights about Chapter 2..."></textarea>
             </div>
 
             <div class="interactive-element">
-                <h3>✅ Chapter 2 Study Checklist</h3>
+                <h3>Chapter 2 Study Checklist</h3>
                 <div class="checkbox-item">
                     <input type="checkbox" id="ch2Goal1" onchange="updateProgress()">
                     <label for="ch2Goal1">Read Philippians 2 carefully</label>
@@ -880,10 +411,10 @@
 
         <!-- Chapter 3 Section -->
         <div id="study3" class="content-section">
-            <h2 class="section-title">📖 Chapter 3: Knowing Christ</h2>
+            <h2 class="section-title">Chapter 3: Knowing Christ</h2>
             
             <div class="theme-box">
-                <h3>🔑 Key Themes</h3>
+                <h3>Key Themes</h3>
                 <ul>
                     <li>Warning against false teachers (Phil. 3:1-3)</li>
                     <li>Paul's credentials and their worthlessness compared to Christ (Phil. 3:4-9)</li>
@@ -906,7 +437,7 @@
             </div>
 
             <div class="historical-context">
-                <h3>🔍 Paul's Pedigree (3:4-6)</h3>
+                <h3>Paul's Pedigree (3:4-6)</h3>
                 <p>Paul lists his impressive Jewish credentials to show what he gave up for Christ:</p>
                 <ul>
                     <li><strong>Circumcised on the eighth day:</strong> Properly Jewish, not a convert</li>
@@ -921,7 +452,7 @@
             </div>
 
             <div class="warning-box">
-                <h3>⚠️ Warning Against False Teachers (3:2-3, 18-19)</h3>
+                <h3>Warning Against False Teachers (3:2-3, 18-19)</h3>
                 <p><strong>The Judaizers (3:2-3):</strong> Called "dogs" and "those who mutilate the flesh" - they taught that Gentiles must be circumcised and follow Jewish law to be saved. Paul declares true circumcision is of the heart, by the Spirit.</p>
                 
                 <p><strong>Enemies of the Cross (3:18-19):</strong> Those who:</p>
@@ -934,7 +465,7 @@
             </div>
 
             <div class="reflection-box">
-                <h3>🤔 Reflection Questions</h3>
+                <h3>Reflection Questions</h3>
                 <div class="discussion-question">
                     <strong>Personal:</strong> What "credentials" or achievements do you tend to rely on instead of Christ alone? What would it look like to count them as loss?
                 </div>
@@ -947,7 +478,7 @@
             </div>
 
             <div class="application-modern">
-                <h3>🔄 Applying Chapter 3 Today</h3>
+                <h3>Applying Chapter 3 Today</h3>
                 <p>Live as a citizen of heaven by:</p>
                 <ul>
                     <li><strong>Rejecting Religious Pride:</strong> Not trusting in accomplishments, status, or good works</li>
@@ -959,12 +490,12 @@
             </div>
 
             <div class="notes-section">
-                <h3>📝 Your Notes on Chapter 3</h3>
+                <h3>Your Notes on Chapter 3</h3>
                 <textarea id="notes-study3-1" placeholder="Write your observations, questions, or insights about Chapter 3..."></textarea>
             </div>
 
             <div class="interactive-element">
-                <h3>✅ Chapter 3 Study Checklist</h3>
+                <h3>Chapter 3 Study Checklist</h3>
                 <div class="checkbox-item">
                     <input type="checkbox" id="ch3Goal1" onchange="updateProgress()">
                     <label for="ch3Goal1">Read Philippians 3 carefully</label>
@@ -983,10 +514,10 @@
 
         <!-- Chapter 4 Section -->
         <div id="study4" class="content-section">
-            <h2 class="section-title">📖 Chapter 4: Joy and Contentment</h2>
+            <h2 class="section-title">Chapter 4: Joy and Contentment</h2>
             
             <div class="theme-box">
-                <h3>🔑 Key Themes</h3>
+                <h3>Key Themes</h3>
                 <ul>
                     <li>Call to unity and rejoicing (Phil. 4:1-4)</li>
                     <li>Gentleness and prayer instead of anxiety (Phil. 4:5-7)</li>
@@ -1016,7 +547,7 @@
             </div>
 
             <div class="historical-context">
-                <h3>🔍 The Secret of Contentment (4:10-13)</h3>
+                <h3>The Secret of Contentment (4:10-13)</h3>
                 <p><strong>Context Matters:</strong> Paul learned to be content in every situation - whether in plenty or in want, well-fed or hungry, living in plenty or in need. This isn't about achieving whatever we want, but about having Christ's strength in every circumstance.</p>
                 
                 <p><strong>Contentment is Learned:</strong> Paul says "I have learned" (4:11) - it's not natural or automatic. It's cultivated through experience, trust in God, and focus on eternal realities.</p>
@@ -1025,7 +556,7 @@
             </div>
 
             <div class="theme-box">
-                <h3>🧠 Think on These Things (4:8)</h3>
+                <h3>Think on These Things (4:8)</h3>
                 <p>Paul provides a filter for our thought life:</p>
                 <ul>
                     <li><strong>Whatever is true:</strong> Not false, deceptive, or based on lies</li>
@@ -1039,7 +570,7 @@
             </div>
 
             <div class="reflection-box">
-                <h3>🤔 Reflection Questions</h3>
+                <h3>Reflection Questions</h3>
                 <div class="discussion-question">
                     <strong>Personal:</strong> What situations or circumstances tend to rob you of joy? How can you practice rejoicing in the Lord regardless?
                 </div>
@@ -1055,7 +586,7 @@
             </div>
 
             <div class="application-modern">
-                <h3>🔄 Applying Chapter 4 Today</h3>
+                <h3>Applying Chapter 4 Today</h3>
                 <p>Live joyfully and contentedly by:</p>
                 <ul>
                     <li><strong>Choosing Joy:</strong> Rejoicing always, not based on circumstances but on Christ</li>
@@ -1067,12 +598,12 @@
             </div>
 
             <div class="notes-section">
-                <h3>📝 Your Notes on Chapter 4</h3>
+                <h3>Your Notes on Chapter 4</h3>
                 <textarea id="notes-study4-1" placeholder="Write your observations, questions, or insights about Chapter 4..."></textarea>
             </div>
 
             <div class="interactive-element">
-                <h3>✅ Chapter 4 Study Checklist</h3>
+                <h3>Chapter 4 Study Checklist</h3>
                 <div class="checkbox-item">
                     <input type="checkbox" id="ch4Goal1" onchange="updateProgress()">
                     <label for="ch4Goal1">Read Philippians 4 carefully</label>
@@ -1091,10 +622,10 @@
 
         <!-- Summary Section -->
         <div id="summary" class="content-section">
-            <h2 class="section-title">✅ Study Summary</h2>
+            <h2 class="section-title">Study Summary</h2>
             
             <div class="theme-box">
-                <h3>🎯 Key Takeaways from Philippians</h3>
+                <h3>Key Takeaways from Philippians</h3>
                 <ul>
                     <li><strong>Joy in All Circumstances:</strong> True joy comes from Christ, not circumstances (mentioned 16 times!)</li>
                     <li><strong>Unity Through Humility:</strong> The church thrives when believers have Christ's servant-hearted mindset</li>
@@ -1116,7 +647,7 @@
             </div>
 
             <div class="historical-context">
-                <h3>🌟 The "One Another" Commands in Philippians</h3>
+                <h3>The "One Another" Commands in Philippians</h3>
                 <p>Paul emphasizes community throughout this letter:</p>
                 <ul>
                     <li>Partner together in the gospel (1:5)</li>
@@ -1129,7 +660,7 @@
             </div>
 
             <div class="application-modern">
-                <h3>🔄 Living Out Philippians Today</h3>
+                <h3>Living Out Philippians Today</h3>
                 <p><strong>Personal Applications:</strong></p>
                 <ul>
                     <li>Daily choose joy in Christ, not in circumstances</li>
@@ -1150,7 +681,7 @@
             </div>
 
             <div class="reflection-box">
-                <h3>🤔 Final Reflection</h3>
+                <h3>Final Reflection</h3>
                 <div class="discussion-question">
                     <strong>Personal:</strong> How has studying Philippians challenged or encouraged you? What is one specific area where you need to apply what you've learned?
                 </div>
@@ -1163,7 +694,7 @@
             </div>
 
             <div class="theme-box">
-                <h3>📚 Going Deeper</h3>
+                <h3>Going Deeper</h3>
                 <p>To continue growing in your understanding of Philippians:</p>
                 <ul>
                     <li>Memorize key verses like Phil. 2:5-8, 3:13-14, 4:6-7, 4:13</li>
@@ -1176,12 +707,12 @@
             </div>
 
             <div class="notes-section">
-                <h3>📝 Your Final Notes</h3>
+                <h3>Your Final Notes</h3>
                 <textarea id="notes-summary-1" placeholder="Summarize your key insights from this study of Philippians..."></textarea>
             </div>
 
             <div class="interactive-element">
-                <h3>✅ Study Completion Checklist</h3>
+                <h3>Study Completion Checklist</h3>
                 <div class="checkbox-item">
                     <input type="checkbox" id="sumGoal1" onchange="updateProgress()">
                     <label for="sumGoal1">Complete all chapter studies</label>

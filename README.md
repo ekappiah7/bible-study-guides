@@ -36,9 +36,26 @@ public computer, use the "Clear my saved notes and ticks" button under the progr
 before you walk away. In a private browsing window the page still works, and it says
 plainly that the notes will not be kept.
 
+Look and feel
+
+One stylesheet, assets/css/app.css, styles every page. There is no inline CSS left in the
+HTML and no build step. The palette is espresso brown, antique gold and warm cream, set as
+custom properties at the top of that file, so a colour change is a one line edit. Headings
+and Scripture are set in Fraunces, body text in Instrument Sans, both self-hosted from
+assets/fonts so the pages load no third party resources at all.
+
+Card types are colour coded so a reader can tell teaching from warning from question at a
+glance: gold for themes and passages, brown for historical background, rust for warnings,
+olive for application, and a solid dark brown card for the reflection questions. Dark mode
+follows the reader's system setting. There is a print stylesheet that opens every section
+at once, so printing a guide gives you the whole book as a workbook rather than only the
+tab that happens to be open.
+
 Running it locally
 
-No build step and no dependencies. Open index.html in a browser, or serve the folder:
+No build step and no dependencies, but serve the folder rather than opening the file
+directly, because browsers block font loading over file:// and you will get fallback
+fonts:
 
     python3 -m http.server 8000
 
@@ -68,7 +85,10 @@ Contributing a study
 Guides are plain HTML today. Keep the section structure and the naming already in use:
 content sections are overview, background, study1 through studyN, and summary; note boxes
 are notes-<section>-<n>; checkboxes need a unique id so the saved state survives edits to
-the page. Do not paste in passage text from a copyrighted translation.
+the page. Reuse the existing block classes (theme-box, historical-context, warning-box,
+reflection-box, application-modern, interactive-element, notes-section, verse-highlight)
+rather than writing new CSS, and put no style attributes or style blocks in the page. Do
+not paste in passage text from a copyrighted translation.
 
 Licence
 
